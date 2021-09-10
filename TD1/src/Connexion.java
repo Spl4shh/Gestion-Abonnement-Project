@@ -15,7 +15,7 @@ public class Connexion {
         return maConnexion;
     }
 
-    /* Méthode d'ajout d'une periodicité */
+    /* Méthode d'ajout d'une periodicité
     public void addPeriodicite(String libelle) {
 
         try {
@@ -32,7 +32,7 @@ public class Connexion {
         }
     }
 
-    /* Méthode de suppression d'une periodicité */
+    /* Méthode de suppression d'une periodicité
     public void removePeriodicite(int idPeriodicite) {
 
         try {
@@ -55,7 +55,7 @@ public class Connexion {
         }
     }
 
-    /* Méthode d'édition d'une periodicité */
+    /* Méthode d'édition d'une periodicité
     public void editPeriodicite(int idPeriodicite, String libelle) {
 
         try {
@@ -72,5 +72,5 @@ public class Connexion {
             System.out.println("Problème d'édition d'une périodicité\n" + sqle.getMessage());
 
         }
-    }
+    }*/
 }
