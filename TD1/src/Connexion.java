@@ -25,6 +25,10 @@ public class Connexion {
             requete.setString(1,idPeriodicite); // On définit la 1e valeur de VALUES(?,?) // VALUES(1,2)
             requete.setString(2,libelle);
             ResultSet res = requete.executeQuery();
+
+            if (res != null) //Fermer c'est plus propre
+                res.close();
+
         } catch (SQLException sqle) {
 
             System.out.println("Problème d'ajout de périodicité" + sqle.getMessage());
@@ -40,6 +44,10 @@ public class Connexion {
             PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE idPeriodicite = ?");
             requete.setString(1,idPeriodicite);
             ResultSet res = requete.executeQuery();
+
+            if (res != null)
+                res.close();
+
         } catch (SQLException sqle) {
 
             System.out.println("Problème de suppression d'une periodicité" + sqle.getMessage());
@@ -56,6 +64,10 @@ public class Connexion {
             requete.setString(1,idPeriodicite);
             requete.setString(2,libelle);
             ResultSet res = requete.executeQuery();
+
+            if (res != null)
+                res.close();
+
         } catch (SQLException sqle) {
 
             System.out.println("Problème d'édition d'une periodicité" + sqle.getMessage());
