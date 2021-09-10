@@ -16,16 +16,49 @@ public class Connexion {
         return maConnexion;
     }
 
-    public void uneRequete() {
+    /* Méthode d'ajout d'une periodicité */
+    public void addPeriodicite(String idPeriodicite, String libelle) {
 
         try {
             Connection laConnexion = creeConnexion();
-            Statement requete = laConnexion.createStatement();
-            ResultSet res = requete.executeQuery("select no_etudiant, nom_etudiant from etudiant");
-
+            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite VALUES(?,?)");
+            requete.setString(1,idPeriodicite); // On définit la 1e valeur de VALUES(?,?) // VALUES(1,2)
+            requete.setString(2,libelle);
+            ResultSet res = requete.executeQuery();
         } catch (SQLException sqle) {
 
-            System.out.println("Pb select" + sqle.getMessage());
+            System.out.println("Problème d'ajout de périodicité" + sqle.getMessage());
+
+        }
+    }
+
+    /* Méthode de suppression d'une periodicité */
+    public void removePeriodicite(String idPeriodicite) {
+
+        try {
+            Connection laConnexion = creeConnexion();
+            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE idPeriodicite = ?");
+            requete.setString(1,idPeriodicite);
+            ResultSet res = requete.executeQuery();
+        } catch (SQLException sqle) {
+
+            System.out.println("Problème de suppression d'une periodicité" + sqle.getMessage());
+
+        }
+    }
+
+    /* Méthode d'édition d'une periodicité */
+    public void editPeriodicite(String idPeriodicite, String libelle) {
+
+        try {
+            Connection laConnexion = creeConnexion();
+            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE idPeriodicite = ?");
+            requete.setString(1,idPeriodicite);
+            requete.setString(2,libelle);
+            ResultSet res = requete.executeQuery();
+        } catch (SQLException sqle) {
+
+            System.out.println("Problème d'édition d'une periodicité" + sqle.getMessage());
 
         }
     }
