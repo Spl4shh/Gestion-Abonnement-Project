@@ -1,8 +1,7 @@
 import java.sql.*;
 public class Connexion {
     public Connection creeConnexion() {
-        String url =
-                "jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/muller851u_base";
+        String url = "jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/muller851u_td_java";
         url += "?serverTimezone=Europe/Paris";
         String login = "muller851u_appli";
         String pwd = "Riquzo_8";
@@ -11,66 +10,66 @@ public class Connexion {
         try {
             maConnexion = DriverManager.getConnection(url, login, pwd);
         } catch (SQLException sqle) {
-            System.out.println("Erreur connexion" + sqle.getMessage());
+            System.out.println("Erreur connexion \n" + sqle.getMessage());
         }
         return maConnexion;
     }
 
     /* Méthode d'ajout d'une periodicité */
-    public void addPeriodicite(String idPeriodicite, String libelle) {
+    public void addPeriodicite(String libelle) {
 
         try {
             Connection laConnexion = creeConnexion();
-            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite VALUES(?,?)");
-            requete.setString(1,idPeriodicite); // On définit la 1e valeur de VALUES(?,?) // VALUES(1,2)
-            requete.setString(2,libelle);
-            ResultSet res = requete.executeQuery();
-
-            if (res != null) //Fermer c'est plus propre
-                res.close();
+            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) VALUES(?)");
+            requete.setString(1,libelle);
+            Integer res = requete.executeUpdate();
+            System.out.println("Ajouté avec succès");
 
         } catch (SQLException sqle) {
 
-            System.out.println("Problème d'ajout de périodicité" + sqle.getMessage());
+            System.out.println("Problème d'ajout de périodicité\n" + sqle.getMessage());
 
         }
     }
 
     /* Méthode de suppression d'une periodicité */
-    public void removePeriodicite(String idPeriodicite) {
+    public void removePeriodicite(int idPeriodicite) {
 
         try {
             Connection laConnexion = creeConnexion();
-            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE idPeriodicite = ?");
-            requete.setString(1,idPeriodicite);
-            ResultSet res = requete.executeQuery();
+            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
+            requete.setInt(1,idPeriodicite);
+            int res = requete.executeUpdate();
+            if (res == 1) {
+                System.out.println("Supprimé avec succès");
+            }
+            else {
+                System.out.println("Aucune ligne trouvée");
+            }
 
-            if (res != null)
-                res.close();
 
         } catch (SQLException sqle) {
 
-            System.out.println("Problème de suppression d'une periodicité" + sqle.getMessage());
+            System.out.println("Problème de suppression d'une periodicité\n" + sqle.getMessage());
 
         }
     }
 
     /* Méthode d'édition d'une periodicité */
-    public void editPeriodicite(String idPeriodicite, String libelle) {
+    public void editPeriodicite(int idPeriodicite, String libelle) {
 
         try {
             Connection laConnexion = creeConnexion();
-            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE idPeriodicite = ?");
-            requete.setString(1,idPeriodicite);
+            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
+            requete.setInt(1,idPeriodicite);
             requete.setString(2,libelle);
-            ResultSet res = requete.executeQuery();
+            int res = requete.executeUpdate();
+            System.out.println("Edité avec succès");
 
-            if (res != null)
-                res.close();
 
         } catch (SQLException sqle) {
 
-            System.out.println("Problème d'édition d'une periodicité" + sqle.getMessage());
+            System.out.println("Problème d'édition d'une périodicité\n" + sqle.getMessage());
 
         }
     }
