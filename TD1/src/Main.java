@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Connexion connect = new Connexion();
+        // Périodicité
         Periodicite periodicite = new Periodicite();
         System.out.println("1- Ajouter");
         System.out.println("2- Supprimer");
@@ -18,14 +19,14 @@ public class Main {
                 case 1 :
                     System.out.print("Veuillez entrer le libellé : ");
                     String a1 = sc.nextLine();
-                    periodicite.addPeriodicite(a1);
+                    periodicite.add(a1);
                     break;
 
 
                 case 2 :
                     System.out.print("Veuillez entrer l'identifiant : ");
                     int r1 = Integer.parseInt(sc.nextLine());
-                    periodicite.removePeriodicite(r1);
+                    periodicite.remove(r1);
                     break;
 
                 case 3 :
@@ -33,7 +34,7 @@ public class Main {
                     int e1 = Integer.parseInt(sc.nextLine());
                     System.out.print("Et le libellé à modifier : ");
                     String e2 = sc.nextLine();
-                    periodicite.editPeriodicite(e1, e2);
+                    periodicite.edit(e1, e2);
                     break;
             }
 

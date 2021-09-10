@@ -2,21 +2,26 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Periodicite {
+public class Revue {
 
     private Connection laConnexion;
-    public Periodicite() {
-            Connexion bdd = new Connexion();
-            laConnexion = bdd.creeConnexion();
-        }
+    public Revue() {
+        Connexion bdd = new Connexion();
+        laConnexion = bdd.creeConnexion();
+    }
 
-    /* Méthode d'ajout d'une periodicité */
-    public void add(String libelle) {
+    /* Méthode d'ajout d'une Revue */
+    public void add(int id, String titre, String description,float tarif, String visuel, int periodicite ) {
 
         try {
             //Connection laConnexion = creeConnexion();
             PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) VALUES(?)");
-            requete.setString(1,libelle);
+            requete.setInt(1,id);
+            requete.setString(2,titre);
+            requete.setString(3, description);
+            requete.setFloat(4, tarif);
+            requete.setString(5, visuel);
+            requete.setInt(6, periodicite);
             Integer res = requete.executeUpdate();
             System.out.println("Ajouté avec succès");
 
@@ -28,7 +33,7 @@ public class Periodicite {
     }
 
 
-    /* Méthode de suppression d'une periodicité */
+    /* Méthode de suppression d'une Revue */
     public void remove(int idPeriodicite) {
 
         try {
@@ -51,7 +56,7 @@ public class Periodicite {
     }
 
 
-    /* Méthode d'édition d'une periodicité */
+    /* Méthode d'édition d'une Revue */
     public void edit(int idPeriodicite, String libelle) {
 
         try {
