@@ -2,70 +2,75 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Periodicite {
-
+public class Periodicite
+{
     private Connection laConnexion;
-    public Periodicite() {
-            Connexion bdd = new Connexion();
-            laConnexion = bdd.creeConnexion();
-        }
 
-    /* Méthode d'ajout d'une periodicité */
-    public void add(String libelle) {
+    public Periodicite()
+    {
+        Connexion maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
+    }
 
-        try {
-            //Connection laConnexion = creeConnexion();
-            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) VALUES(?)");
-            requete.setString(1,libelle);
-            Integer res = requete.executeUpdate();
-            System.out.println("Ajouté avec succès");
+    public void add(String libelle)
+    {
+        try
+        {
+            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) Values (?)");
+            requete.setString(1, libelle);
+            int res = requete.executeUpdate();
 
-        } catch (SQLException sqle) {
+            if (requete != null)
+                requete.close();
+            if (laConnexion != null)
+                laConnexion.close();
 
-            System.out.println("Problème d'ajout de périodicité\n" + sqle.getMessage());
-
+            System.out.println("Ajouté avec succes");
+        } catch (SQLException sqle)
+        {
+            System.out.println("Pb add Periodicite" + sqle.getMessage());
         }
     }
 
-
-    /* Méthode de suppression d'une periodicité */
-    public void remove(int idPeriodicite) {
-
-        try {
+    public void remove(int idPeriodicite)
+    {
+        try
+        {
             PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
-            requete.setInt(1,idPeriodicite);
+            requete.setInt(1, idPeriodicite);
             int res = requete.executeUpdate();
-            if (res == 1) {
-                System.out.println("Supprimé avec succès");
-            }
-            else {
-                System.out.println("Aucune ligne trouvée");
-            }
 
 
-        } catch (SQLException sqle) {
+            if (requete != null)
+                requete.close();
+            if (laConnexion != null)
+                laConnexion.close();
 
-            System.out.println("Problème de suppression d'une periodicité\n" + sqle.getMessage());
-
+            System.out.println("Supprimé avec succes");
+        } catch (SQLException sqle)
+        {
+            System.out.println("Pb remove Periodicite" + sqle.getMessage());
         }
     }
 
-
-    /* Méthode d'édition d'une periodicité */
-    public void edit(int idPeriodicite, String libelle) {
-
-        try {
+    public void edit(int idPeriodicite, String libelle)
+    {
+        try
+        {
             PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
-            requete.setString(1,libelle);
-            requete.setInt(2,idPeriodicite);
+            requete.setInt(2, idPeriodicite);
+            requete.setString(1, libelle);
             int res = requete.executeUpdate();
-            System.out.println("Modifié avec succès");
 
+            if (requete != null)
+                requete.close();
+            if (laConnexion != null)
+                laConnexion.close();
 
-        } catch (SQLException sqle) {
-
-            System.out.println("Problème d'édition d'une périodicité\n" + sqle.getMessage());
-
+            System.out.println("Modifié avec succes");
+        } catch (SQLException sqle)
+        {
+            System.out.println("Pb edit Periodicite" + sqle.getMessage());
         }
     }
 }
