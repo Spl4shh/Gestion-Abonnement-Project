@@ -32,8 +32,10 @@ public class Main
                     try
                     {
                         int numChoix = Integer.parseInt(sc.nextLine());
-                        switch (numChoix) {
-                            case 1 : {
+                        switch (numChoix)
+                        {
+                            case 1 :
+                            {
                                 System.out.println("Indiquer le nom du client");
                                 String nom = sc.nextLine();
                                 System.out.println("Indiquer le prenom du client");
@@ -49,13 +51,17 @@ public class Main
                                 System.out.println("Indiquer le nom du Pays");
                                 String pays = sc.nextLine();
                                 client.add(nom, prenom, noRue, voie, codePostal, ville, pays);
+                                break;
                             }
-                            case 2 : {
+                            case 2 :
+                            {
                                 System.out.println("Indiquer l'ID du Client à supprimer");
                                 int id = Integer.parseInt(sc.nextLine());
                                 client.remove(id);
+                                break;
                             }
-                            case 3 : {
+                            case 3 :
+                            {
                                 System.out.println("Indiquer le l'ID du client");
                                 int id = Integer.parseInt(sc.nextLine());
                                 System.out.println("Indiquer le nom du client");
@@ -73,6 +79,7 @@ public class Main
                                 System.out.println("Indiquer le nom du Pays");
                                 String pays = sc.nextLine();
                                 client.edit(id, nom, prenom, noRue, voie, codePostal, ville, pays);
+                                break;
                             }
                         }
                     }
@@ -80,6 +87,7 @@ public class Main
                     {
                         System.out.println(e);
                     }
+                    break;
                 }
                 case 2 :
                 {
@@ -90,23 +98,28 @@ public class Main
                     {
                         int numChoix = Integer.parseInt(sc.nextLine());
                         switch (numChoix) {
-                            case 1 : {
+                            case 1 :
+                            {
                                 System.out.println("Indiquer la date de debut de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
                                 java.sql.Date dateDebut = new java.sql.Date(new Date(sc.nextLine()).getTime());
                                 System.out.println("Indiquer la date de fin de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
                                 java.sql.Date dateFin = new java.sql.Date(new Date(sc.nextLine()).getTime());
-                                System.out.println("Indiquer l'ID du Client de la l'abonnement à ajouter");
+                                System.out.println("Indiquer l'ID du Client de l'abonnement à ajouter");
                                 int idClient = Integer.parseInt(sc.nextLine());
                                 System.out.println("Indiquer l'ID de la Revue à ajouter");
                                 int idRevue = Integer.parseInt(sc.nextLine());
                                 abonnement.add(dateDebut, dateFin, idClient, idRevue);
+                                break;
                             }
-                            case 2 : {
+                            case 2 :
+                            {
                                 System.out.println("Indiquer l'ID de l'abonnement à supprimer");
                                 int id = Integer.parseInt(sc.nextLine());
                                 abonnement.remove(id);
+                                break;
                             }
-                            case 3 : {
+                            case 3 :
+                            {
                                 System.out.println("Indiquer l'ID de la l'abonnement à modifier");
                                 int id = Integer.parseInt(sc.nextLine());
                                 System.out.println("Indiquer la date de debut de l'abonnement à modifier \nAu format JJ/MM/AAAA");
@@ -118,6 +131,7 @@ public class Main
                                 System.out.println("Indiquer l'ID de la Revue à modifier");
                                 int idRevue = Integer.parseInt(sc.nextLine());
                                 abonnement.edit(id, dateDebut, dateFin, idClient, idRevue);
+                                break;
                             }
                         }
                     }
@@ -125,6 +139,7 @@ public class Main
                     {
                         System.out.println(e);
                     }
+                    break;
                 }
                 case 3 :
                 {
@@ -151,6 +166,7 @@ public class Main
                                 int idPeriodicite = Integer.parseInt(sc.nextLine());
 
                                 revue.add(titre, description, tarifNumero, visuel, idPeriodicite);
+                                break;
                             }
                             case 2 :
                             {
@@ -158,6 +174,7 @@ public class Main
                                 int idRevue = Integer.parseInt(sc.nextLine());
 
                                 revue.remove(idRevue);
+                                break;
                             }
                             case 3 :
                             {
@@ -175,6 +192,7 @@ public class Main
                                 int idPeriodicite = Integer.parseInt(sc.nextLine());
 
                                 revue.edit(idRevue, titre, description, tarifNumero, visuel, idPeriodicite);
+                                break;
                             }
                         }
                     }
@@ -182,6 +200,7 @@ public class Main
                     {
                         System.out.println(e);
                     }
+                    break;
                 }
                 case 4 :
                 {
@@ -198,12 +217,14 @@ public class Main
                                 System.out.println("Indiquer le libellé");
                                 String libelle = sc.nextLine();
                                 periodicite.add(libelle);
+                                break;
                             }
                             case 2 :
                             {
                                 System.out.println("Indiquer l'ID de la périodicité à supprimer");
                                 int id = Integer.parseInt(sc.nextLine());
                                 periodicite.remove(id);
+                                break;
                             }
                             case 3 :
                             {
@@ -211,6 +232,7 @@ public class Main
                                 int id = Integer.parseInt(sc.nextLine());
                                 String libelle = sc.nextLine();
                                 periodicite.edit(id, libelle);
+                                break;
                             }
                         }
                     }
@@ -218,6 +240,7 @@ public class Main
                     {
                         System.out.println(e);
                     }
+                    break;
                 }
             }
         }

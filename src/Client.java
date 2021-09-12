@@ -70,8 +70,8 @@ public class Client
     {
         try
         {
-            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Client SET nom = ?,SET prenom = ?, SET no_rue = ?" +
-                    ", SET voie = ?, SET code_postal = ?, SET ville = ?, SET pays = ?) WHERE id_client =  ?");
+            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Client SET nom = ?, prenom = ?, no_rue = ?" +
+                    ", voie = ?, code_postal = ?, ville = ?, pays = ? WHERE id_client =  ?");
             requete.setString(1, nom);
             requete.setString(2, prenom);
             requete.setString(3, noRue);
@@ -87,10 +87,10 @@ public class Client
             if (laConnexion != null)
                 laConnexion.close();
 
-            System.out.println("Ajouté avec succes");
+            System.out.println("Modifié avec succes");
         } catch (SQLException sqle)
         {
-            System.out.println("Pb add Client" + sqle.getMessage());
+            System.out.println("Pb edit Client" + sqle.getMessage());
         }
     }
 }

@@ -69,8 +69,8 @@ public class Abonnement
     {
         try
         {
-            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?,SET date_fin = ?, SET id_client = ?" +
-                    ", SET id_revue = ?, WHERE id_abonnement =  ?");
+            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?" +
+                    ", id_revue = ? WHERE id_abonnement =  ?");
             requete.setDate(1, dateDebut);
             requete.setDate(2, dateFin);
             requete.setInt(3, idClient);
@@ -84,7 +84,7 @@ public class Abonnement
             if (laConnexion != null)
                 laConnexion.close();
 
-            System.out.println("Ajouté avec succes");
+            System.out.println("Modifié avec succes");
         } catch (SQLException sqle)
         {
             System.out.println("Pb add Abonnement" + sqle.getMessage());

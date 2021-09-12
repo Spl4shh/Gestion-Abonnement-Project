@@ -59,18 +59,17 @@ public class Revue
 
 
     /* Méthode d'édition d'une Revue */
-    public void edit(int idRevue, String titre, String description, float tarif, String visuel, int periodicite)
+    public void edit(int idRevue, String titre, String description, float tarif, String visuel, int idPeriodicite)
     {
         try
         {
-            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Revue SET titre = ?, description = ?, tarif_numero = ?, visuel = ?, WHERE id_periodicite = ?");
-            
-            requete.setInt(1,idRevue);
-            requete.setString(2,titre);
-            requete.setString(3,description);
-            requete.setFloat(4, tarif);
-            requete.setString(5, visuel);
-            requete.setInt(6, periodicite);
+            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Revue SET titre = ?, description = ?, tarif_numero = ?, visuel = ?, id_periodicite = ? WHERE id_revue = ?");
+            requete.setString(1,titre);
+            requete.setString(2,description);
+            requete.setFloat(3, tarif);
+            requete.setString(4, visuel);
+            requete.setInt(5, idPeriodicite);
+            requete.setInt(6,idRevue);
 
             int res = requete.executeUpdate();
             System.out.println("Modifié avec succès");
