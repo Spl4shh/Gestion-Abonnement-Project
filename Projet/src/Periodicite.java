@@ -46,7 +46,14 @@ public class Periodicite
             if (laConnexion != null)
                 laConnexion.close();
 
-            System.out.println("Supprimé avec succes");
+            if (res == 1)
+            {
+                System.out.println("Elément supprimé avec succès !");
+            }
+            else
+            {
+                System.out.println("Aucune ligne trouvée");
+            }
         } catch (SQLException sqle)
         {
             System.out.println("Pb remove Periodicite" + sqle.getMessage());
