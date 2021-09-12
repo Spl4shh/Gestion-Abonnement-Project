@@ -4,11 +4,12 @@ import java.sql.SQLException;
 
 public class Revue {
 
-    private Connection laConnexion;
+    // Connexion déjà établie, je commente les lignes
+    /* private Connection laConnexion;
     public Revue() {
         Connexion bdd = new Connexion();
         laConnexion = bdd.creeConnexion();
-    }
+    }*/
 
     /* Méthode d'ajout d'une Revue */
     public void add(int id, String titre, String description,float tarif, String visuel, int periodicite ) {
@@ -34,14 +35,14 @@ public class Revue {
 
 
     /* Méthode de suppression d'une Revue */
-    public void remove(int idPeriodicite) {
+    public void remove(int idRevue) {
 
         try {
-            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
-            requete.setInt(1,idPeriodicite);
+            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Revue WHERE id_revue = ?");
+            requete.setInt(1,idRevue);
             int res = requete.executeUpdate();
             if (res == 1) {
-                System.out.println("Supprimé avec succès");
+                System.out.println("Elément supprimé avec succès !");
             }
             else {
                 System.out.println("Aucune ligne trouvée");
@@ -50,7 +51,7 @@ public class Revue {
 
         } catch (SQLException sqle) {
 
-            System.out.println("Problème de suppression d'une periodicité\n" + sqle.getMessage());
+            System.out.println("Problème de suppression d'une Revue'\n" + sqle.getMessage());
 
         }
     }
