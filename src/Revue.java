@@ -1,76 +1,82 @@
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class Revue {
+public class Revue
+{
 
     private Connection laConnexion;
-    public Revue() {
+    public Revue()
+    {
         Connexion bdd = new Connexion();
         laConnexion = bdd.creeConnexion();
     }
 
     /* Méthode d'ajout d'une Revue */
-    public void add(int id, String titre, String description,float tarif, String visuel, int periodicite ) {
+    public void add(String titre, String description, float tarif, String visuel, int periodicite)
+    {
+        try
+        {
+            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Revue(titre, description, tarif_numero, visuel, id_periodicite) VALUES(?, ?, ?, ?, ?)");
 
-        try {
-            //Connection laConnexion = creeConnexion();
-            PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) VALUES(?)");
-            requete.setInt(1,id);
-            requete.setString(2,titre);
-            requete.setString(3, description);
-            requete.setFloat(4, tarif);
-            requete.setString(5, visuel);
-            requete.setInt(6, periodicite);
+            requete.setString(1,titre);
+            requete.setString(2, description);
+            requete.setFloat(3, tarif);
+            requete.setString(4, visuel);
+            requete.setInt(5, periodicite);
+
             Integer res = requete.executeUpdate();
             System.out.println("Ajouté avec succès");
 
-        } catch (SQLException sqle) {
-
-            System.out.println("Problème d'ajout de périodicité\n" + sqle.getMessage());
-
+        } catch (SQLException sqle)
+        {
+            System.out.println("Problème d'ajout de revue\n" + sqle.getMessage());
         }
     }
 
 
     /* Méthode de suppression d'une Revue */
-    public void remove(int idPeriodicite) {
+    public void remove(int idRevue)
+    {
+        try
+        {
+            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Revue WHERE id_revue = ?");
+            
+            requete.setInt(1,idRevue);
 
-        try {
-            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
-            requete.setInt(1,idPeriodicite);
             int res = requete.executeUpdate();
-            if (res == 1) {
-                System.out.println("Supprimé avec succès");
+            if (res == 1)
+            {
+                System.out.println("Elément supprimé avec succès !");
             }
-            else {
+            else
+            {
                 System.out.println("Aucune ligne trouvée");
             }
-
-
-        } catch (SQLException sqle) {
-
-            System.out.println("Problème de suppression d'une periodicité\n" + sqle.getMessage());
-
+        } catch (SQLException sqle)
+        {
+            System.out.println("Problème de suppression d'une Revue'\n" + sqle.getMessage());
         }
     }
 
 
     /* Méthode d'édition d'une Revue */
-    public void edit(int idPeriodicite, String libelle) {
+    public void edit(int idRevue, String titre, String description, float tarif, String visuel, int periodicite)
+    {
+        try
+        {
+            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Revue SET titre = ?, description = ?, tarif_numero = ?, visuel = ?, WHERE id_periodicite = ?");
+            
+            requete.setInt(1,idRevue);
+            requete.setString(2,titre);
+            requete.setString(3,description);
+            requete.setFloat(4, tarif);
+            requete.setString(5, visuel);
+            requete.setInt(6, periodicite);
 
-        try {
-            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
-            requete.setString(1,libelle);
-            requete.setInt(2,idPeriodicite);
             int res = requete.executeUpdate();
             System.out.println("Modifié avec succès");
-
-
-        } catch (SQLException sqle) {
-
-            System.out.println("Problème d'édition d'une périodicité\n" + sqle.getMessage());
-
+        } catch (SQLException sqle)
+        {
+            System.out.println("Problème d'édition d'une Revue\n" + sqle.getMessage());
         }
     }
 }
