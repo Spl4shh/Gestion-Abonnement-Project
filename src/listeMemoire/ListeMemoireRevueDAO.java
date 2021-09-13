@@ -95,7 +95,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	@Override
 	public Revue getById(int id) {
 		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new Revue(id, "test"));
+		int idx = this.donnees.indexOf(new Revue(id, "text", "text", 0, "text", 0));
 		if (idx == -1) {
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
 		} else {
