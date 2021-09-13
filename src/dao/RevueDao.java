@@ -1,6 +1,6 @@
 package dao;
 
-public interface RevueDao<Revue>
+public interface RevueDAO<Revue>
 {
     public List<Revue> getByTitre(String titre);
 }

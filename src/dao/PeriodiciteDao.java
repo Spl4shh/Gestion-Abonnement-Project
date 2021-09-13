@@ -1,6 +1,6 @@
 package dao;
 
-public interface PeriodiciteDao<Periodicite> 
+public interface PeriodiciteDAO<Periodicite> 
 {
     public List<Periodicite> getByLibelle(String libelle);
 }
