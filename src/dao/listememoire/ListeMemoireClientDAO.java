@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.ClientDAO;
-import modele.Client;
+import metier.Client;
 import java.sql.Date;
 
 public class ListeMemoireClientDAO implements ClientDAO {
@@ -91,5 +91,17 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	@Override
 	public ArrayList<Client> findAll() {
 		return (ArrayList<Client>) this.donnees;
+	}
+
+	@Override
+	public List<Client> getByNomPrenom(String nom, String prenom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Client> getByAdresse(String noVoie, String voie, String codePostal) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.RevueDAO;
-import modele.Revue;
+import metier.Revue;
 
 public class ListeMemoireRevueDAO implements RevueDAO {
 
@@ -26,24 +26,8 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 
 		this.donnees = new ArrayList<Revue>();
 
-		this.donnees.add(new Revue
-                                    (
-                                        1, 
-                                        "Random Revue", 
-                                        "Revue super random", 
-                                        5.7, 
-                                        "Visuel Random pour une revue random",
-                                        1
-                                    ));
-		this.donnees.add(new Revue
-                                    (
-                                        2, 
-                                        "Le Quotidien Aléatoire",
-                                        "Une revue questionnant l'aléatoire",
-                                        10.6,
-                                        "Visuel d'un quotidien aléatoire",
-                                        2
-                                    ));
+		this.donnees.add(new Revue(1,"Random Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1));
+		this.donnees.add(new Revue(2, "Le Quotidien Aléatoire", "Une revue questionnant l'aléatoire", (float)10.6,"Visuel d'un quotidien aléatoire",2));
 	}
 
 
@@ -106,5 +90,11 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	@Override
 	public ArrayList<Revue> findAll() {
 		return (ArrayList<Revue>) this.donnees;
+	}
+
+	@Override
+	public List<Revue> getByTitre(String titre) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

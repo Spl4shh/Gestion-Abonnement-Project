@@ -1,6 +1,6 @@
 package dao;
 import metier.Revue;
-import java.util.list;
+import java.util.List;
 
 public interface RevueDAO extends DAO<Revue>
 {

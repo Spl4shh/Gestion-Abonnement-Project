@@ -1,3 +1,4 @@
+package connexion;
 import java.sql.*;
 public class Connexion {
     public Connection creeConnexion() {

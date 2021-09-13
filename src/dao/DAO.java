@@ -1,7 +1,5 @@
 package dao;
 
-import metier.Abonnement;
-
 import java.util.ArrayList;
 
 public interface DAO<T>

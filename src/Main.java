@@ -2,7 +2,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.util.Date;
 
 public class Main
 {
@@ -110,6 +109,7 @@ public class Main
                                     DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                                     System.out.println("Indiquer la date de debut de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
+
                                     String dateDebutJava = sc.nextLine();
 
                                     LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);

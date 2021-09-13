@@ -1,3 +1,7 @@
 # Files presents because we works with IntelliJ IDEA
 .idea
-.class  #useless
+
+
+
+#Useless for us
+.class

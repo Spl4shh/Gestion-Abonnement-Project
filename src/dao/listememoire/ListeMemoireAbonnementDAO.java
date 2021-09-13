@@ -29,12 +29,6 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     {
         this.donnees = new ArrayList<Abonnement>();
 
-        DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        java.sql.Date dateDebutSql1 = java.sql.Date.valueOf(LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        java.sql.Date dateFinSql1 = java.sql.Date.valueOf(LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
-
         this.donnees.add(new Abonnement(1, java.sql.Date.valueOf(LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
                 java.sql.Date.valueOf(LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))), 1, 1));
         this.donnees.add(new Abonnement(2, java.sql.Date.valueOf(LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
@@ -119,26 +113,6 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
         */
         // Ne fonctionne que si l'objet métier est bien fait...
         int idx = this.donnees.indexOf(new  Abonnement(0, dateDebut, dateFin, 0, 0));
-        if (listAbonnement.isEmpty())
-        {
-            throw new IllegalArgumentException("Aucun objet ne possède ce nom");
-        } else
-        {
-            return listAbonnement;
-        }
-    }
-
-    @Override
-    public List<Abonnement> getByNomPrenom(String nom, String prenom)
-    {
-        List<Abonnement> listAbonnement = null;
-        /*
-         * Recuperer tout les clients ayant ce nom et ensuite affecter les id pour la recherche d'abonnements
-         *   Utiliser la methode equals qui seras a surcharger
-         */
-        // Ne fonctionne que si l'objet métier est bien fait...
-        int idx = this.donnees.indexOf(new  Abonnement(0, java.sql.Date.valueOf(LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
-                java.sql.Date.valueOf(LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy"))), 0, 0));
         if (listAbonnement.isEmpty())
         {
             throw new IllegalArgumentException("Aucun objet ne possède ce nom");

@@ -2,63 +2,74 @@ package metier;
 
 public class Revue
 {
-    /* Définition des attributs */
-    int id_revue, idPeriodicite;
-    float tarifNumero;
-    String titre, description, visuel;
-    /* Fin Définition des attributs */
+  /* Définition des attributs */
+  int id, idPeriodicite;
+  float tarifNumero;
+  String titre, description, visuel;
+  /* Fin Définition des attributs */
 
 
-    /* Méthode Revue */
-    public Revue
-    (
-        int idRevue, 
-        int idPeriodicite,
-        float tarifNumero, 
-        String titre,
-        String description,
-        String visuel
-    ) 
-    {
-        this.idRevue = idRevue;
-        this.idPeriodicite = idPeriodicite;
-        this.tarifNumero = tarifNumero;
-        this.titre = titre;
-        this.description = description;
-        this.visuel = visuel;
-    }
-    /* Fin Méthode Revue */
+  /* Méthode Revue */
+  public Revue
+  (
+      int id, 
+      String titre,
+      String description,
+      float tarifNumero, 
+      String visuel,
+      int idPeriodicite
+
+  ) 
+  {
+      this.id = id;
+      this.titre = titre;
+      this.description = description;
+      this.tarifNumero = tarifNumero;
+      this.visuel = visuel;
+      this.idPeriodicite = idPeriodicite;
+  }
+  /* Fin Méthode Revue */
 
 
-    /* Getters & Setters */
-    	public id_revue, getIdPeriodicite() 
-    {
-		return this.idPeriodicite;
+  /* Getters & Setters */
+  public int getId() 
+  {
+    return this.id;
+  }
+
+  public void setId(int  id) 
+  {
+		this.id = id;
 	}
+  
+  public int getIdPeriodicite() 
+  {
+    return this.idPeriodicite;
+  }
 
-	public void setIdPeriodicite(id_revue, idPeriodicite) 
-    {
+  public void setIdPeriodicite(int  idPeriodicite) 
+  {
 		this.idPeriodicite = idPeriodicite;
 	}
 
 	public float getTarifNumero() 
-    {
+  {
 		return this.tarifNumero;
 	}
 
 	public void setTarifNumero(float tarifNumero) 
-    {
+  {
 		this.tarifNumero = tarifNumero;
 	}
 
-	public titre, getDescription,() 
-    {
-		return this.description,;
+	public String getDescription() 
+  {
+		return this.description;
 	}
 
-	public void setDescription,(titre, description,) 
-    {
-		this.description, = description,;
+	public void setDescription(String description) 
+  {
+		this.description = description;
 	}
     /* Fin Getters & Setters */
 }

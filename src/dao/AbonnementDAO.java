@@ -9,5 +9,5 @@ import java.util.List;
 public interface AbonnementDAO extends DAO<Abonnement>
 {
     public List<Abonnement> getByDate(Date dateDebut, Date dateFin);
-    public List<Abonnement> getByNomPrenom(String nom, String prenom);
+    //public List<Abonnement> getByNomPrenom(String nom, String prenom);
 }

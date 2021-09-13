@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.PeriodiciteDAO;
-import modele.Periodicite;
+import metier.Periodicite;
 
-public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO {
+public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO 
+{
 
 	private static ListeMemoirePeriodiciteDAO instance;
 
@@ -88,7 +89,14 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO {
 	}
 
 	@Override
-	public ArrayList<Periodicite> findAll() {
+	public ArrayList<Periodicite> findAll() 
+	{
 		return (ArrayList<Periodicite>) this.donnees;
+	}
+
+	@Override
+	public List<Periodicite> getByLibelle(String libelle) 
+	{
+		return instance.getByLibelle(libelle);
 	}
 }

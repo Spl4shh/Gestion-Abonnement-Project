@@ -14,10 +14,8 @@ public class Periodicite
         laConnexion = maBD.creeConnexion();
     }
 
-    public void add(String libelle)
+    public void add(String libelle) throws SQLException
     {
-        try
-        {
             PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) Values (?)");
             requete.setString(1, libelle);
             int res = requete.executeUpdate();
@@ -26,56 +24,41 @@ public class Periodicite
                 requete.close();
 
             System.out.println("Ajouté avec succes");
-        } catch (SQLException sqle)
-        {
-            System.out.println("Pb add Periodicite" + sqle.getMessage());
-        }
     }
 
-    public void remove(int idPeriodicite)
+    public void remove(int idPeriodicite) throws SQLException
     {
-        try
+        PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
+        requete.setInt(1, idPeriodicite);
+        int res = requete.executeUpdate();
+
+
+        if (requete != null)
+            requete.close();
+
+        if (res == 1)
         {
-            PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
-            requete.setInt(1, idPeriodicite);
-            int res = requete.executeUpdate();
-
-
-            if (requete != null)
-                requete.close();
-
-            if (res == 1)
-            {
-                System.out.println("Elément supprimé avec succès !");
-            }
-            else
-            {
-                System.out.println("Aucune ligne trouvée");
-            }
-        } catch (SQLException sqle)
-        {
-            System.out.println("Pb remove Periodicite" + sqle.getMessage());
+            System.out.println("Elément supprimé avec succès !");
         }
+        else
+        {
+            System.out.println("Aucune ligne trouvée");
+        }  
     }
 
-    public void edit(int idPeriodicite, String libelle)
+    public void edit(int idPeriodicite, String libelle) throws SQLException
     {
-        try
-        {
-            PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
-            requete.setInt(2, idPeriodicite);
-            requete.setString(1, libelle);
-            int res = requete.executeUpdate();
+        PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
+        requete.setInt(2, idPeriodicite);
+        requete.setString(1, libelle);
+        int res = requete.executeUpdate();
 
-            if (requete != null)
-                requete.close();
+        if (requete != null)
+            requete.close();
 
-            System.out.println("Modifié avec succes");
-        } catch (SQLException sqle)
-        {
-            System.out.println("Pb edit Periodicite" + sqle.getMessage());
-        }
+        System.out.println("Modifié avec succes");
     }
+
     public void close() throws SQLException
     {
         if (laConnexion != null)
