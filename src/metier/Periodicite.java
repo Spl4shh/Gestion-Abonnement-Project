@@ -16,6 +16,8 @@ public class Periodicite
            this.libelle = libelle;
     }
 
+/******************GETTERS AND SETTERS*******************/
+
     public int getId()
     {
         return id;
@@ -35,4 +37,6 @@ public class Periodicite
     {
         this.libelle = libelle;
     }
+/*******************************************************/
+
 }
