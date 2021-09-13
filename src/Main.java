@@ -1,10 +1,12 @@
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.Date;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws SQLException {
         Periodicite periodicite = new Periodicite();
         Client client = new Client();
         Abonnement abonnement = new Abonnement();
@@ -105,15 +107,27 @@ public class Main
                             {
                                 case 1 :
                                 {
+                                    DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
                                     System.out.println("Indiquer la date de debut de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
-                                    java.sql.Date dateDebut = new java.sql.Date(new Date(sc.nextLine()).getTime());
+                                    String dateDebutJava = sc.nextLine();
+
+                                    LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);
+                                    java.sql.Date dateDebutSql = java.sql.Date.valueOf(dateDebutFormate);
+
                                     System.out.println("Indiquer la date de fin de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
-                                    java.sql.Date dateFin = new java.sql.Date(new Date(sc.nextLine()).getTime());
+                                    String dateFinJava = sc.nextLine();
+
+                                    LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
+                                    java.sql.Date dateFinSql = java.sql.Date.valueOf(dateFinFormate);
+
                                     System.out.println("Indiquer l'ID du Client de l'abonnement à ajouter");
                                     int idClient = Integer.parseInt(sc.nextLine());
+
                                     System.out.println("Indiquer l'ID de la Revue à ajouter");
                                     int idRevue = Integer.parseInt(sc.nextLine());
-                                    abonnement.add(dateDebut, dateFin, idClient, idRevue);
+
+                                    abonnement.add(dateDebutSql, dateFinSql, idClient, idRevue);
                                     break;
                                 }
                                 case 2 :
@@ -125,17 +139,30 @@ public class Main
                                 }
                                 case 3 :
                                 {
+                                    DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
                                     System.out.println("Indiquer l'ID de la l'abonnement à modifier");
                                     int id = Integer.parseInt(sc.nextLine());
+
                                     System.out.println("Indiquer la date de debut de l'abonnement à modifier \nAu format JJ/MM/AAAA");
-                                    java.sql.Date dateDebut = new java.sql.Date(new Date(sc.nextLine()).getTime());
+                                    String dateDebutJava = sc.nextLine();
+
+                                    LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);
+                                    java.sql.Date dateDebutSql = java.sql.Date.valueOf(dateDebutFormate);
+
                                     System.out.println("Indiquer la date de fin de l'abonnement à modifier \nAu format JJ/MM/AAAA");
-                                    java.sql.Date dateFin = new java.sql.Date(new Date(sc.nextLine()).getTime());
-                                    System.out.println("Indiquer l'ID du Client de la l'abonnement à modifier");
+                                    String dateFinJava = sc.nextLine();
+
+                                    LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
+                                    java.sql.Date dateFinSql = java.sql.Date.valueOf(dateFinFormate);
+
+                                    System.out.println("Indiquer l'ID du Client de l'abonnement à modifier");
                                     int idClient = Integer.parseInt(sc.nextLine());
+
                                     System.out.println("Indiquer l'ID de la Revue à modifier");
                                     int idRevue = Integer.parseInt(sc.nextLine());
-                                    abonnement.edit(id, dateDebut, dateFin, idClient, idRevue);
+
+                                    abonnement.edit(id, dateDebutSql, dateFinSql, idClient, idRevue);
                                     break;
                                 }
                             }
@@ -257,5 +284,10 @@ public class Main
             System.out.println("Voulez vous continuer ? Y/N");
             continueOperation = (sc.nextLine().toLowerCase().equals("y"));
         }while(continueOperation);
+
+        revue.close();
+        periodicite.close();
+        abonnement.close();
+        client.close();
     }
 }
