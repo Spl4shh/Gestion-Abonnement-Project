@@ -1,5 +1,6 @@
 package dao;
 import metier.Periodicite;
+import java.util.list;
 
 public interface PeriodiciteDAO extends DAO<Periodicite>
 {
