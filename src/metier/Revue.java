@@ -71,5 +71,25 @@ public class Revue
   {
 		this.description = description;
 	}
-    /* Fin Getters & Setters */
+  
+  public String getTitre() 
+  {
+    return this.titre;
+  }
+  
+  public void setTitre(String titre) 
+  {
+    this.titre = titre;
+  }
+  
+  public String getVisuel() 
+  {
+    return this.visuel;
+  }
+  
+  public void setVisuel(String visuel) 
+  {
+    this.visuel = visuel;
+  }
+  /* Fin Getters & Setters */
 }

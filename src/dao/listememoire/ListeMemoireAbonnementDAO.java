@@ -4,6 +4,7 @@ import dao.AbonnementDAO;
 import metier.Abonnement;
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -120,5 +121,16 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
         {
             return listAbonnement;
         }
+    }
+
+    @Override
+    public List<Abonnement> getByNomPrenom(String nom, String prenom) throws SQLException 
+    {
+        // 
+        // To do
+        // Implementation de la fabrique necessaire au préalable
+        // 
+        // 
+        return null;
     }
 }
