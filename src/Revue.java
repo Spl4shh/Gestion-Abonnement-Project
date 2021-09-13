@@ -1,3 +1,5 @@
+import connexion.Connexion;
+
 import java.sql.*;
 
 public class Revue
@@ -27,7 +29,7 @@ public class Revue
 
             if (requete != null)
                 requete.close();
-            
+
             System.out.println("Ajouté avec succès");
 
         } catch (SQLException sqle)
