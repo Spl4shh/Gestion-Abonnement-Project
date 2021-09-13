@@ -1,5 +1,3 @@
-# NE PAS MERGE CONNEXION
-
 # /!\ Conventions d'écriture /!\
 
 1) Packages
