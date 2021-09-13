@@ -24,6 +24,10 @@ public class Revue
             requete.setInt(5, periodicite);
 
             Integer res = requete.executeUpdate();
+
+            if (requete != null)
+                requete.close();
+            
             System.out.println("Ajouté avec succès");
 
         } catch (SQLException sqle)
@@ -43,6 +47,10 @@ public class Revue
             requete.setInt(1,idRevue);
 
             int res = requete.executeUpdate();
+
+            if (requete != null)
+                requete.close();
+
             if (res == 1)
             {
                 System.out.println("Elément supprimé avec succès !");
@@ -72,10 +80,19 @@ public class Revue
             requete.setInt(6,idRevue);
 
             int res = requete.executeUpdate();
+
+            if (requete != null)
+                requete.close();
+
             System.out.println("Modifié avec succès");
         } catch (SQLException sqle)
         {
             System.out.println("Problème d'édition d'une Revue\n" + sqle.getMessage());
         }
+    }
+    public void close() throws SQLException
+    {
+        if (laConnexion != null)
+            laConnexion.close();
     }
 }

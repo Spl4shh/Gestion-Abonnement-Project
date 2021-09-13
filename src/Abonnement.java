@@ -27,8 +27,6 @@ public class Abonnement
 
             if (requete != null)
                 requete.close();
-            if (laConnexion != null)
-                laConnexion.close();
 
             System.out.println("Ajouté avec succes");
         } catch (SQLException sqle)
@@ -49,7 +47,6 @@ public class Abonnement
             if (requete != null)
                 requete.close();
             if (laConnexion != null)
-                laConnexion.close();
 
             if (res == 1)
             {
@@ -81,13 +78,17 @@ public class Abonnement
 
             if (requete != null)
                 requete.close();
-            if (laConnexion != null)
-                laConnexion.close();
 
             System.out.println("Modifié avec succes");
         } catch (SQLException sqle)
         {
             System.out.println("Pb add Abonnement" + sqle.getMessage());
         }
+    }
+
+    public void close() throws SQLException
+    {
+        if (laConnexion != null)
+            laConnexion.close();
     }
 }

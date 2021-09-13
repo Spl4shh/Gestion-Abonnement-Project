@@ -28,8 +28,6 @@ public class Client
 
             if (requete != null)
                 requete.close();
-            if (laConnexion != null)
-                laConnexion.close();
 
             System.out.println("Ajouté avec succes");
         } catch (SQLException sqle)
@@ -49,8 +47,6 @@ public class Client
 
             if (requete != null)
                 requete.close();
-            if (laConnexion != null)
-                laConnexion.close();
 
             if (res == 1)
             {
@@ -84,13 +80,16 @@ public class Client
 
             if (requete != null)
                 requete.close();
-            if (laConnexion != null)
-                laConnexion.close();
 
             System.out.println("Modifié avec succes");
         } catch (SQLException sqle)
         {
             System.out.println("Pb edit Client" + sqle.getMessage());
         }
+    }
+    public void close() throws SQLException
+    {
+        if (laConnexion != null)
+            laConnexion.close();
     }
 }
