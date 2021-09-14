@@ -77,7 +77,6 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public Abonnement getById(int i) throws SQLException 
     {
-
         Connexion maBD = new Connexion();
         Connection laConnexion = maBD.creeConnexion();
 

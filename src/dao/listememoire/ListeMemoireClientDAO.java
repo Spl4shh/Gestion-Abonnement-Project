@@ -5,7 +5,6 @@ import java.util.List;
 
 import dao.ClientDAO;
 import metier.Client;
-import java.sql.Date;
 
 public class ListeMemoireClientDAO implements ClientDAO {
 
