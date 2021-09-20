@@ -1,4 +1,4 @@
-package dao.Factory;
+package dao;
 
 public enum Persistance 
 {

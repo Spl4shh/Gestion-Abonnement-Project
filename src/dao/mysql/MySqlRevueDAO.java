@@ -10,6 +10,24 @@ import metier.Revue;
 
 public class MySqlRevueDAO implements RevueDAO
 {
+    private static MySqlRevueDAO instance;
+    
+    Connexion maBD;
+    Connection laConnexion;
+
+    public static RevueDAO getInstance() 
+    {
+        if (instance == null) {
+            instance = new MySqlRevueDAO();
+        }
+        return instance;
+    }
+
+    private MySqlRevueDAO() {
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
+    }
+
 
     @Override
     public boolean create(Revue objet) throws SQLException 

@@ -15,12 +15,30 @@ import metier.Abonnement;
 
 public class MySqlAbonnementDAO implements AbonnementDAO
 {
+    private Connexion maBD;
+    private Connection laConnexion;
+
+    private static MySqlAbonnementDAO instance;
+    
+    /* @return une instance de MySqlDao en singleton */
+    public static AbonnementDAO getInstance() 
+    {
+        if (instance == null) {
+            instance = new MySqlAbonnementDAO();
+        }
+        return instance;
+    }
+
+    private MySqlAbonnementDAO() {
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
+    }
 
     @Override
     public boolean create(Abonnement objet) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Abonnement(date_debut, date_fin, id_client, id_revue) Values (?, ?, ?, ?)");
         requete.setDate(1, objet.getDateDebut());
@@ -39,8 +57,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public boolean update(Abonnement objet) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?");
         requete.setDate(1, objet.getDateDebut());
@@ -60,8 +78,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public boolean delete(Abonnement objet) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?");
         requete.setInt(1, objet.getId());
@@ -77,8 +95,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public Abonnement getById(int i) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE id_abonnement = ?");
         requete.setInt(1, i);
@@ -96,8 +114,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     {
         List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?");
         requete.setDate(1, dateDebut);
@@ -121,8 +139,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     {
         List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement a, Client c WHERE a.id_client = c.id_client AND nom = ? AND prenom = ?");
         requete.setString(1, nom);
@@ -146,8 +164,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     {
         ArrayList<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement");
         
