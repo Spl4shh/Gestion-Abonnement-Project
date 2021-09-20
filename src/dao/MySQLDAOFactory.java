@@ -5,25 +5,30 @@ import dao.mysql.MySqlClientDAO;
 import dao.mysql.MySqlPeriodiciteDAO;
 import dao.mysql.MySqlRevueDAO;
 
-public class MySQLDAOFactory extends DAOFactory {
+public class MySQLDAOFactory extends DAOFactory 
+{
 
     @Override
-    public AbonnementDAO getAbonnementDAO() {
+    public AbonnementDAO getAbonnementDAO() 
+    {
         return MySqlAbonnementDAO.getInstance();
     }
 
     @Override
-    public ClientDAO getClientDAO() {
+    public ClientDAO getClientDAO() 
+    {
         return MySqlClientDAO.getInstance();
     }
 
     @Override
-    public PeriodiciteDAO getPeriodiciteDAO() {
+    public PeriodiciteDAO getPeriodiciteDAO() 
+    {
         return MySqlPeriodiciteDAO.getInstance();
     }
 
     @Override
-    public RevueDAO getRevueDAO() {
+    public RevueDAO getRevueDAO() 
+    {
         return MySqlRevueDAO.getInstance();
     }
     
