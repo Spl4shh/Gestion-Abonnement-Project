@@ -14,12 +14,28 @@ import metier.Periodicite;
 
 public class MySqlPeriodiciteDAO implements PeriodiciteDAO
 {
+    private static MySqlPeriodiciteDAO instance;
+    Connexion maBD;
+    Connection laConnexion;
+
+    public static PeriodiciteDAO getInstance() {
+        if (instance == null); {
+            instance = new MySqlPeriodiciteDAO();
+        }
+        return instance;
+    }
+
+    private MySqlPeriodiciteDAO() {
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
+    }
+
 
     @Override
     public boolean create(Periodicite objet) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) Values (?)");
         requete.setString(1, objet.getLibelle());
@@ -35,8 +51,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     @Override
     public boolean update(Periodicite objet) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
         requete.setString(1, objet.getLibelle());
@@ -53,8 +69,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     @Override
     public boolean delete(Periodicite objet) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
         requete.setInt(1, objet.getId());
@@ -70,8 +86,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     @Override
     public Periodicite getById(int i) throws SQLException 
     {
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite WHERE id_periodicite = ?");
         requete.setInt(1, i);
@@ -89,8 +105,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     {
         ArrayList<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite WHERE libelle = ?");
         requete.setString(1, libelle);
@@ -113,8 +129,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     {
         ArrayList<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
-        Connexion maBD = new Connexion();
-        Connection laConnexion = maBD.creeConnexion();
+        maBD = new Connexion();
+        laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite");
         
