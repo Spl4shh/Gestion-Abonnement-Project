@@ -16,6 +16,11 @@ public class Periodicite
            this.libelle = libelle;
     }
 
+    public Periodicite(int id)
+    {
+        this.id = id;
+    }
+
 /******************GETTERS AND SETTERS*******************/
 
     public int getId()

@@ -24,6 +24,10 @@ public class Abonnement
         this.idRevue = idRevue;
     }
 
+    public Abonnement(int id) {
+        this.id = id;
+    }
+
 /******************GETTERS AND SETTERS*******************/
     public int getId()
     {

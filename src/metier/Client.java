@@ -19,6 +19,7 @@ public class Client
 
     public Client(int id, String nom, String prenom, String noRue, String voie, String codePostal, String ville, String pays)
     {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.noRue = noRue;
@@ -26,6 +27,11 @@ public class Client
         this.codePostal = codePostal;
         this.ville = ville;
         this.pays = pays;
+    }
+
+    public Client(int id)
+    {
+        this.id = id;
     }
     
     public int getId() 

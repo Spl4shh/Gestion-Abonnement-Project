@@ -3,19 +3,50 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import dao.AbonnementDAO;
+import dao.ClientDAO;
+import dao.DAOFactory;
+import dao.PeriodiciteDAO;
+import dao.Persistance;
+import dao.RevueDAO;
+import metier.Abonnement;
+import metier.Client;
+import metier.Periodicite;
+import metier.Revue;
+
 public class Main
 {
-    public static void main(String[] args) throws SQLException {
-        Periodicite periodicite = new Periodicite();
-        Client client = new Client();
-        Abonnement abonnement = new Abonnement();
-        Revue revue = new Revue();
+    public static void main(String[] args) throws SQLException 
+    {
+        Scanner sc = new Scanner(System.in);
 
+        Persistance persistance;
         boolean continueOperation = false;
+        DAOFactory daoUse;
+
+        System.out.println("Indiquez le numero du moyen de persistance choisi : \n1 - MySQL \n2 - Liste Memoire");
+        int choixPersistance = sc.nextInt();
+
+        switch (choixPersistance) 
+        {
+            case 1:
+                persistance = Persistance.MYSQL;
+                break;
+        
+            case 2 : 
+                persistance = Persistance.ListeMemoire;
+                break;
+
+            default :
+                System.out.println("Persistance par defaut : MySQL");
+                persistance = Persistance.MYSQL;
+                break;
+        }
+
+        daoUse = DAOFactory.getDAOFactory(persistance);
+
         do 
         {
-            Scanner sc = new Scanner(System.in);
-
             try
             {
                 System.out.println("1- Client \n2- Abonnement \n3- Revue \n4- Periodicite");
@@ -31,6 +62,8 @@ public class Main
                 {
                     case 1 :
                     {
+                        ClientDAO daoClient = daoUse.getClientDAO();
+
                         System.out.println("Bienvenue dans la partie Client");
                         System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
 
@@ -55,14 +88,14 @@ public class Main
                                     String ville = sc.nextLine();
                                     System.out.println("Indiquer le nom du Pays");
                                     String pays = sc.nextLine();
-                                    client.add(nom, prenom, noRue, voie, codePostal, ville, pays);
+                                    daoClient.create(new Client(nom, prenom, noRue, voie, codePostal, ville, pays));
                                     break;
                                 }
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID du Client à supprimer");
                                     int id = Integer.parseInt(sc.nextLine());
-                                    client.remove(id);
+                                    daoClient.delete(new Client(id));
                                     break;
                                 }
                                 case 3 :
@@ -83,7 +116,7 @@ public class Main
                                     String ville = sc.nextLine();
                                     System.out.println("Indiquer le nom du Pays");
                                     String pays = sc.nextLine();
-                                    client.edit(id, nom, prenom, noRue, voie, codePostal, ville, pays);
+                                    daoClient.update(new Client(id, nom, prenom, noRue, voie, codePostal, ville, pays));
                                     break;
                                 }
                             }
@@ -96,6 +129,8 @@ public class Main
                     }
                     case 2 :
                     {
+                        AbonnementDAO daoAbonnement = daoUse.getAbonnementDAO();
+
                         System.out.println("Bienvenue dans la partie Abonnement");
                         System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
 
@@ -106,6 +141,7 @@ public class Main
                             {
                                 case 1 :
                                 {
+
                                     DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                                     System.out.println("Indiquer la date de debut de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
@@ -127,14 +163,14 @@ public class Main
                                     System.out.println("Indiquer l'ID de la Revue à ajouter");
                                     int idRevue = Integer.parseInt(sc.nextLine());
 
-                                    abonnement.add(dateDebutSql, dateFinSql, idClient, idRevue);
+                                    daoAbonnement.create(new Abonnement(dateDebutSql, dateFinSql, idClient, idRevue));
                                     break;
                                 }
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID de l'abonnement à supprimer");
                                     int id = Integer.parseInt(sc.nextLine());
-                                    abonnement.remove(id);
+                                    daoAbonnement.delete(new Abonnement(id));
                                     break;
                                 }
                                 case 3 :
@@ -162,7 +198,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la Revue à modifier");
                                     int idRevue = Integer.parseInt(sc.nextLine());
 
-                                    abonnement.edit(id, dateDebutSql, dateFinSql, idClient, idRevue);
+                                    daoAbonnement.update(new Abonnement(id, dateDebutSql, dateFinSql, idClient, idRevue));
                                     break;
                                 }
                             }
@@ -175,6 +211,7 @@ public class Main
                     }
                     case 3 :
                     {
+                        RevueDAO daoRevue = daoUse.getRevueDAO();
                         //Partie sur la revue a ajouter
                         System.out.println("Bienvenue dans la partie Périodicité");
                         System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
@@ -197,7 +234,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la revue a ajouter");
                                     int idPeriodicite = Integer.parseInt(sc.nextLine());
 
-                                    revue.add(titre, description, tarifNumero, visuel, idPeriodicite);
+                                    daoRevue.create(new Revue(titre, description, tarifNumero, visuel, idPeriodicite));
                                     break;
                                 }
                                 case 2 :
@@ -205,7 +242,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la la revue à supprimer");
                                     int idRevue = Integer.parseInt(sc.nextLine());
 
-                                    revue.remove(idRevue);
+                                    daoRevue.delete(new Revue(idRevue));
                                     break;
                                 }
                                 case 3 :
@@ -223,7 +260,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la revue a ajouter");
                                     int idPeriodicite = Integer.parseInt(sc.nextLine());
 
-                                    revue.edit(idRevue, titre, description, tarifNumero, visuel, idPeriodicite);
+                                    daoRevue.update(new Revue(idRevue, titre, description, tarifNumero, visuel, idPeriodicite));
                                     break;
                                 }
                             }
@@ -236,6 +273,8 @@ public class Main
                     }
                     case 4 :
                     {
+                        PeriodiciteDAO daoPeriodicite = daoUse.getPeriodiciteDAO();
+
                         System.out.println("Bienvenue dans la partie Périodicité");
                         System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
 
@@ -248,14 +287,14 @@ public class Main
                                 {
                                     System.out.println("Indiquer le libellé");
                                     String libelle = sc.nextLine();
-                                    periodicite.add(libelle);
+                                    daoPeriodicite.create(new Periodicite(libelle));
                                     break;
                                 }
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID de la périodicité à supprimer");
                                     int id = Integer.parseInt(sc.nextLine());
-                                    periodicite.remove(id);
+                                    daoPeriodicite.delete(new Periodicite(id));
                                     break;
                                 }
                                 case 3 :
@@ -263,7 +302,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la périodicité à modifier puis le libellé");
                                     int id = Integer.parseInt(sc.nextLine());
                                     String libelle = sc.nextLine();
-                                    periodicite.edit(id, libelle);
+                                    daoPeriodicite.update(new Periodicite(id, libelle));
                                     break;
                                 }
                             }
@@ -285,9 +324,19 @@ public class Main
             continueOperation = (sc.nextLine().toLowerCase().equals("y"));
         }while(continueOperation);
 
+
+        /*
+        Periodicite periodicite = new Periodicite();
+        Client client = new Client();
+        Abonnement abonnement = new Abonnement();
+        Revue revue = new Revue();
+
+        
+
         revue.close();
         periodicite.close();
         abonnement.close();
         client.close();
+        */
     }
 }

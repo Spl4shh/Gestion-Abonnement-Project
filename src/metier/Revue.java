@@ -28,6 +28,28 @@ public class Revue
       this.visuel = visuel;
       this.idPeriodicite = idPeriodicite;
   }
+
+  public Revue(Integer id)
+  {
+    this.id = id;
+  }
+
+  public Revue
+  (
+      String titre,
+      String description,
+      float tarifNumero, 
+      String visuel,
+      int idPeriodicite
+
+  ) 
+  {
+      this.titre = titre;
+      this.description = description;
+      this.tarifNumero = tarifNumero;
+      this.visuel = visuel;
+      this.idPeriodicite = idPeriodicite;
+  }
   /* Fin Méthode Revue */
 
 
