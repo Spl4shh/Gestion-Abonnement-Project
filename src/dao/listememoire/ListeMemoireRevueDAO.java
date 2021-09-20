@@ -94,7 +94,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 
 	@Override
 	public List<Revue> getByTitre(String titre) {
-		// TODO Auto-generated method stub
 		return null;
+		//Pourquoi elle retourne null cette méthode ???
 	}
 }
