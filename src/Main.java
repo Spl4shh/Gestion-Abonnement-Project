@@ -1,6 +1,8 @@
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import dao.AbonnementDAO;
@@ -49,14 +51,13 @@ public class Main
         {
             try
             {
-                System.out.println("1- Client \n2- Abonnement \n3- Revue \n4- Periodicite");
-                int choixTable = Integer.parseInt(sc.nextLine());
-
-                while(choixTable > 4 || choixTable < 1)
+                int choixTable;
+                do
                 {
                     System.out.println("1- Client \n2- Abonnement \n3- Revue \n4- Periodicite");
                     choixTable = Integer.parseInt(sc.nextLine());
-                }
+
+                }while(choixTable > 4 || choixTable < 1);
 
                 switch(choixTable)
                 {
@@ -65,7 +66,7 @@ public class Main
                         ClientDAO daoClient = daoUse.getClientDAO();
 
                         System.out.println("Bienvenue dans la partie Client");
-                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
+                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Rechercher par Nom et Prenom \n7- Rechercher par Adresse");
 
                         try
                         {
@@ -119,6 +120,64 @@ public class Main
                                     daoClient.update(new Client(id, nom, prenom, noRue, voie, codePostal, ville, pays));
                                     break;
                                 }
+                                case 4 :
+                                {
+                                    List<Client> listeClient = new ArrayList<Client>();
+
+                                    listeClient = daoClient.findAll();
+                                    for (Client client : listeClient) 
+                                    {
+                                        client.toString();   
+                                    }
+                                    break;
+                                }
+                                case 5 :
+                                {
+
+                                    System.out.println("Indiquer l'ID à rechercher");
+                                    int id = Integer.parseInt(sc.nextLine());
+
+                                    Client client = daoClient.getById(id);
+                                    client.toString();
+
+                                    break;
+                                }
+                                case 6 :
+                                {
+                                    List<Client> listeClient = new ArrayList<Client>();
+
+                                    System.out.println("Indiquer le nom de la personne à rechercher");
+                                    String nom = sc.nextLine();
+                                    System.out.println("Puis le prenom");
+                                    String prenom = sc.nextLine();
+
+                                    //Affichage du resultat
+                                    listeClient = daoClient.getByNomPrenom(nom, prenom);
+                                    for (Client client : listeClient) 
+                                    {
+                                        client.toString();   
+                                    }
+                                    break;
+                                }
+                                case 7 :
+                                {
+                                    List<Client> listeClient = new ArrayList<Client>();
+
+                                    System.out.println("Indiquer le n° de la rue");
+                                    String noRue = sc.nextLine();
+                                    System.out.println("Indiquer le nom de la rue");
+                                    String voie = sc.nextLine();
+                                    System.out.println("Indiquer le code Postal");
+                                    String codePostal = sc.nextLine();
+
+                                    //Affichage du resultat
+                                    listeClient = daoClient.getByAdresse(noRue, voie, codePostal);
+                                    for (Client client : listeClient) 
+                                    {
+                                        client.toString();   
+                                    }
+                                    break;
+                                }
                             }
                         }
                         catch (Exception e)
@@ -132,7 +191,7 @@ public class Main
                         AbonnementDAO daoAbonnement = daoUse.getAbonnementDAO();
 
                         System.out.println("Bienvenue dans la partie Abonnement");
-                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
+                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Selectionner par Date \n7- Selectionner par Nom-Prenom");
 
                         try
                         {
@@ -201,6 +260,71 @@ public class Main
                                     daoAbonnement.update(new Abonnement(id, dateDebutSql, dateFinSql, idClient, idRevue));
                                     break;
                                 }
+                                case 4 :
+                                {
+                                    List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+
+                                    listeAbonnement = daoAbonnement.findAll();
+                                    for (Abonnement abonnement : listeAbonnement) 
+                                    {
+                                        abonnement.toString();   
+                                    }
+                                    break;
+                                }
+                                case 5 :
+                                {
+
+                                    System.out.println("Indiquer l'ID à rechercher");
+                                    int id = Integer.parseInt(sc.nextLine());
+
+                                    Abonnement abonnement = daoAbonnement.getById(id);
+                                    abonnement.toString();
+
+                                    break;
+                                }
+                                case 6 :
+                                {
+                                    DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                                    List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+
+                                    System.out.println("Indiquer la date de debut de l'abonnement à rechercher \nAu format JJ/MM/AAAA");
+                                    String dateDebutJava = sc.nextLine();
+
+                                    LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);
+                                    java.sql.Date dateDebutSql = java.sql.Date.valueOf(dateDebutFormate);
+
+                                    System.out.println("Indiquer la date de fin de l'abonnement à rechercher \nAu format JJ/MM/AAAA");
+                                    String dateFinJava = sc.nextLine();
+
+                                    LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
+                                    java.sql.Date dateFinSql = java.sql.Date.valueOf(dateFinFormate);
+
+                                    //Affichage du resultat
+                                    listeAbonnement = daoAbonnement.getByDate(dateDebutSql, dateFinSql);
+                                    for (Abonnement abonnement : listeAbonnement) 
+                                    {
+                                        abonnement.toString();   
+                                    }
+                                    break;
+                                }
+
+                                case 7 :
+                                {
+                                    List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+
+                                    System.out.println("Indiquer le nom de la personne à rechercher");
+                                    String nom = sc.nextLine();
+                                    System.out.println("Puis le prenom");
+                                    String prenom = sc.nextLine();
+
+                                    //Affichage du resultat
+                                    listeAbonnement = daoAbonnement.getByNomPrenom(nom, prenom);
+                                    for (Abonnement abonnement : listeAbonnement) 
+                                    {
+                                        abonnement.toString();   
+                                    }
+                                    break;
+                                }
                             }
                         }
                         catch (Exception e)
@@ -213,8 +337,8 @@ public class Main
                     {
                         RevueDAO daoRevue = daoUse.getRevueDAO();
                         //Partie sur la revue a ajouter
-                        System.out.println("Bienvenue dans la partie Périodicité");
-                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
+                        System.out.println("Bienvenue dans la partie Revue");
+                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Rechercher par Titre");
 
                         try
                         {
@@ -223,15 +347,15 @@ public class Main
                             {
                                 case 1 :
                                 {
-                                    System.out.println("Indiquer le titre de la revue a ajouter");
+                                    System.out.println("Indiquer le titre de la Revue a ajouter");
                                     String titre = sc.nextLine();
-                                    System.out.println("Indiquer la description de la revue a ajouter");
+                                    System.out.println("Indiquer la description de la Revue a ajouter");
                                     String description = sc.nextLine();
-                                    System.out.println("Indiquer le tarif de la revue a ajouter");
+                                    System.out.println("Indiquer le tarif de la Revue a ajouter");
                                     float tarifNumero = Float.parseFloat(sc.nextLine());
-                                    System.out.println("Indiquer le visuel de la revue a ajouter");
+                                    System.out.println("Indiquer le visuel de la Revue a ajouter");
                                     String visuel = sc.nextLine();
-                                    System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la revue a ajouter");
+                                    System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a ajouter");
                                     int idPeriodicite = Integer.parseInt(sc.nextLine());
 
                                     daoRevue.create(new Revue(titre, description, tarifNumero, visuel, idPeriodicite));
@@ -239,7 +363,7 @@ public class Main
                                 }
                                 case 2 :
                                 {
-                                    System.out.println("Indiquer l'ID de la la revue à supprimer");
+                                    System.out.println("Indiquer l'ID de la la Revue à supprimer");
                                     int idRevue = Integer.parseInt(sc.nextLine());
 
                                     daoRevue.delete(new Revue(idRevue));
@@ -247,20 +371,56 @@ public class Main
                                 }
                                 case 3 :
                                 {
-                                    System.out.println("Indiquer l'ID de la la revue à modifier");
+                                    System.out.println("Indiquer l'ID de la la Revue à modifier");
                                     int idRevue = Integer.parseInt(sc.nextLine());
-                                    System.out.println("Indiquer le titre de la revue a ajouter");
+                                    System.out.println("Indiquer le titre de la Revue a ajouter");
                                     String titre = sc.nextLine();
-                                    System.out.println("Indiquer la description de la revue a ajouter");
+                                    System.out.println("Indiquer la description de la Revue a ajouter");
                                     String description = sc.nextLine();
-                                    System.out.println("Indiquer le tarif de la revue a ajouter");
+                                    System.out.println("Indiquer le tarif de la Revue a ajouter");
                                     float tarifNumero = Float.parseFloat(sc.nextLine());
-                                    System.out.println("Indiquer le visuel de la revue a ajouter");
+                                    System.out.println("Indiquer le visuel de la Revue a ajouter");
                                     String visuel = sc.nextLine();
-                                    System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la revue a ajouter");
+                                    System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a ajouter");
                                     int idPeriodicite = Integer.parseInt(sc.nextLine());
 
                                     daoRevue.update(new Revue(idRevue, titre, description, tarifNumero, visuel, idPeriodicite));
+                                    break;
+                                }
+                                case 4 :
+                                {
+                                    List<Revue> listeRevue = new ArrayList<Revue>();
+
+                                    listeRevue = daoRevue.findAll();
+                                    for (Revue revue : listeRevue) 
+                                    {
+                                        revue.toString();   
+                                    }
+                                    break;
+                                }
+                                case 5 :
+                                {
+
+                                    System.out.println("Indiquer l'ID à rechercher");
+                                    int id = Integer.parseInt(sc.nextLine());
+
+                                    Revue revue = daoRevue.getById(id);
+                                    revue.toString();
+
+                                    break;
+                                }
+                                case 6 :
+                                {
+                                    List<Revue> listeRevue = new ArrayList<Revue>();
+
+                                    System.out.println("Indiquer le titre de la Revue à rechercher");
+                                    String titre = sc.nextLine();
+
+                                    listeRevue = daoRevue.getByTitre(titre);
+                                    for (Revue revue : listeRevue) 
+                                    {
+                                        revue.toString();
+                                    }
                                     break;
                                 }
                             }
@@ -276,7 +436,7 @@ public class Main
                         PeriodiciteDAO daoPeriodicite = daoUse.getPeriodiciteDAO();
 
                         System.out.println("Bienvenue dans la partie Périodicité");
-                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit");
+                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Rechercher par Libellé");
 
                         try
                         {
@@ -305,6 +465,42 @@ public class Main
                                     daoPeriodicite.update(new Periodicite(id, libelle));
                                     break;
                                 }
+                                case 4 :
+                                {
+                                    List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
+
+                                    listePeriodicite = daoPeriodicite.findAll();
+                                    for (Periodicite periodicite : listePeriodicite) 
+                                    {
+                                        periodicite.toString();   
+                                    }
+                                    break;
+                                }
+                                case 5 :
+                                {
+
+                                    System.out.println("Indiquer l'ID à rechercher");
+                                    int id = Integer.parseInt(sc.nextLine());
+
+                                    Periodicite periodicite = daoPeriodicite.getById(id);
+                                    periodicite.toString();
+
+                                    break;
+                                }
+                                case 6 :
+                                {
+                                    List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
+
+                                    System.out.println("Indiquer le libellé");
+                                    String libelle = sc.nextLine();
+
+                                    listePeriodicite = daoPeriodicite.getByLibelle(libelle);
+                                    for (Periodicite periodicite : listePeriodicite) 
+                                    {
+                                        periodicite.toString();
+                                    }
+                                    break;
+                                }
                             }
                         }
                         catch (Exception e)
@@ -323,20 +519,5 @@ public class Main
             System.out.println("Voulez vous continuer ? Y/N");
             continueOperation = (sc.nextLine().toLowerCase().equals("y"));
         }while(continueOperation);
-
-
-        /*
-        Periodicite periodicite = new Periodicite();
-        Client client = new Client();
-        Abonnement abonnement = new Abonnement();
-        Revue revue = new Revue();
-
-        
-
-        revue.close();
-        periodicite.close();
-        abonnement.close();
-        client.close();
-        */
     }
 }
