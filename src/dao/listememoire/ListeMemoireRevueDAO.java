@@ -96,5 +96,6 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	public List<Revue> getByTitre(String titre) {
 		return null;
 		//Pourquoi elle retourne null cette méthode ???
+		//A Faire
 	}
 }
