@@ -28,7 +28,6 @@ public class MySqlRevueDAO implements RevueDAO
         laConnexion = maBD.creeConnexion();
     }
 
-
     @Override
     public boolean create(Revue objet) throws SQLException 
     {
