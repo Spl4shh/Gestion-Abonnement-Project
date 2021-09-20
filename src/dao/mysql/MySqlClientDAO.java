@@ -13,7 +13,15 @@ import metier.Client;
 
 public class MySqlClientDAO implements ClientDAO
 {
+    private static MySqlClientDAO instance;
 
+    public static ClientDAO getInstance() {
+        if (instance == null); {
+            instance = new MySqlClientDAO();
+        }
+        return instance;
+    }
+    
     @Override
     public boolean create(Client objet) throws SQLException 
     {
