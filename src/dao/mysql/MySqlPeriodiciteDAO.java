@@ -18,14 +18,17 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     Connexion maBD;
     Connection laConnexion;
 
-    public static PeriodiciteDAO getInstance() {
-        if (instance == null); {
+    public static PeriodiciteDAO getInstance() 
+    {
+        if (instance == null); 
+        {
             instance = new MySqlPeriodiciteDAO();
         }
         return instance;
     }
 
-    private MySqlPeriodiciteDAO() {
+    private MySqlPeriodiciteDAO() 
+    {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
     }

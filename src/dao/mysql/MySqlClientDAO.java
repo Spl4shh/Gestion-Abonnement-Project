@@ -17,14 +17,17 @@ public class MySqlClientDAO implements ClientDAO
     Connexion maBD;
     Connection laConnexion;
 
-    public static ClientDAO getInstance() {
-        if (instance == null); {
+    public static ClientDAO getInstance() 
+    {
+        if (instance == null); 
+        {
             instance = new MySqlClientDAO();
         }
         return instance;
     }
 
-    private MySqlClientDAO() {
+    private MySqlClientDAO() 
+    {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
     }
