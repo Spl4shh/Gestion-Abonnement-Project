@@ -1,6 +1,9 @@
 package dao;
 
-import dao.mysql.MySqlAbonnementDAO;
+import dao.listememoire.ListeMemoireAbonnementDAO;
+import dao.listememoire.ListeMemoireClientDAO;
+import dao.listememoire.ListeMemoirePeriodiciteDAO;
+import dao.listememoire.ListeMemoireRevueDAO;
 
 public class ListeMemoireDAOFactory extends DAOFactory
 {
@@ -8,25 +11,25 @@ public class ListeMemoireDAOFactory extends DAOFactory
     @Override
     public AbonnementDAO getAbonnementDAO() 
     {
-        return MySqlAbonnementDAO.getInstance();
+        return ListeMemoireAbonnementDAO.getInstance();
     }
 
     @Override
     public ClientDAO getClientDAO() 
     {
-        return null;
+        return ListeMemoireClientDAO.getInstance();
     }
 
     @Override
     public PeriodiciteDAO getPeriodiciteDAO() 
     {
-        return null;
+        return ListeMemoirePeriodiciteDAO.getInstance();
     }
 
     @Override
     public RevueDAO getRevueDAO() 
     {
-        return null;
+        return ListeMemoireRevueDAO.getInstance();
     }
     
 }
