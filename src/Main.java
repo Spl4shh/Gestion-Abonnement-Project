@@ -289,16 +289,14 @@ public class Main
                                     String dateDebutJava = sc.nextLine();
 
                                     LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);
-                                    java.sql.Date dateDebutSql = java.sql.Date.valueOf(dateDebutFormate);
 
                                     System.out.println("Indiquer la date de fin de l'abonnement à rechercher \nAu format JJ/MM/AAAA");
                                     String dateFinJava = sc.nextLine();
 
                                     LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
-                                    java.sql.Date dateFinSql = java.sql.Date.valueOf(dateFinFormate);
 
                                     //Affichage du resultat
-                                    listeAbonnement = daoAbonnement.getByDate(dateDebutSql, dateFinSql);
+                                    listeAbonnement = daoAbonnement.getByDate(dateDebutFormate, dateFinFormate);
                                     for (Abonnement abonnement : listeAbonnement) 
                                     {
                                         abonnement.toString();   
