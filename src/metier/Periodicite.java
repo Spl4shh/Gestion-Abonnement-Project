@@ -44,4 +44,12 @@ public class Periodicite
     }
 /*******************************************************/
 
+    @Override
+    public boolean equals(Object object)
+    {
+        //Ici tu dois comparer : 
+        // Tout les attributs
+        //Pense bien a affecter a un attribut de type Periodicité object casté en Periodicité
+        return false; 
+    }
 }

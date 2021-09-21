@@ -1,13 +1,14 @@
 package metier;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Abonnement
 {
     int id, idClient, idRevue;
-    Date dateDebut, dateFin;
+    LocalDate dateDebut, dateFin;
 
-    public Abonnement(Date dateDebut, Date dateFin, int idClient, int idRevue)
+    public Abonnement(LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue)
     {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
@@ -15,7 +16,7 @@ public class Abonnement
         this.idRevue = idRevue;
     }
 
-    public Abonnement(int id, Date dateDebut, Date dateFin, int idClient, int idRevue)
+    public Abonnement(int id, LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue)
     {
         this.id = id;
         this.dateDebut = dateDebut;
@@ -59,25 +60,43 @@ public class Abonnement
         this.idRevue = idRevue;
     }
 
-    public Date getDateDebut()
+    public LocalDate getDateDebut()
     {
         return dateDebut;
     }
 
-    public void setDateDebut(Date dateDebut)
+    public void setDateDebut(LocalDate dateDebut)
     {
         this.dateDebut = dateDebut;
     }
 
-    public Date getDateFin()
+    public LocalDate getDateFin()
     {
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin)
+    public void setDateFin(LocalDate dateFin)
     {
         this.dateFin = dateFin;
     }
 /******************************************************/
+/********************Surcharge*************************/  
 
+    @Override
+    public boolean equals(Object object)
+    {
+        Abonnement abo = (Abonnement)object;
+        if (this.id == abo.id && 
+            this.idClient == abo.idClient &&
+            this.idRevue == abo.idRevue &&
+            this.dateDebut.equals(abo.dateDebut) &&
+            this.dateFin.equals(abo.dateFin)) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

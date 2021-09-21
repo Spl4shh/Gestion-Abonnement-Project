@@ -3,7 +3,6 @@ package dao.listememoire;
 import dao.AbonnementDAO;
 import metier.Abonnement;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -30,10 +29,10 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     {
         this.donnees = new ArrayList<Abonnement>();
 
-        this.donnees.add(new Abonnement(1, java.sql.Date.valueOf(LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
-                java.sql.Date.valueOf(LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))), 1, 1));
-        this.donnees.add(new Abonnement(2, java.sql.Date.valueOf(LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
-                java.sql.Date.valueOf(LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy"))), 2, 2));
+        this.donnees.add(new Abonnement(1, LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+            LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1));
+        this.donnees.add(new Abonnement(2, LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+            LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 2, 2));
     }
 
 
@@ -88,8 +87,8 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     public Abonnement getById(int id)
     {
         // Ne fonctionne que si l'objet métier est bien fait...
-        int idx = this.donnees.indexOf(new  Abonnement(id, java.sql.Date.valueOf(LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy"))),
-                java.sql.Date.valueOf(LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy"))), 0, 0));
+        int idx = this.donnees.indexOf(new  Abonnement(id, LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+            LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 0, 0));
         if (idx == -1)
         {
             throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
@@ -106,12 +105,10 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     }
 
     @Override
-    public List<Abonnement> getByDate(Date dateDebut, Date dateFin)
+    public List<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin)
     {
         List<Abonnement> listAbonnement = null;
-        /*
-        *   Utiliser la methode equals qui seras a surcharger
-        */
+
         // Ne fonctionne que si l'objet métier est bien fait...
         int idx = this.donnees.indexOf(new  Abonnement(0, dateDebut, dateFin, 0, 0));
         if (listAbonnement.isEmpty())

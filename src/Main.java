@@ -18,6 +18,7 @@ import metier.Revue;
 
 public class Main
 {
+
     public static void main(String[] args) throws SQLException 
     {
         Scanner sc = new Scanner(System.in);
@@ -208,13 +209,12 @@ public class Main
                                     String dateDebutJava = sc.nextLine();
 
                                     LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);
-                                    java.sql.Date dateDebutSql = java.sql.Date.valueOf(dateDebutFormate);
 
                                     System.out.println("Indiquer la date de fin de l'abonnement à ajouter \nAu format JJ/MM/AAAA");
                                     String dateFinJava = sc.nextLine();
 
                                     LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
-                                    java.sql.Date dateFinSql = java.sql.Date.valueOf(dateFinFormate);
+                                
 
                                     System.out.println("Indiquer l'ID du Client de l'abonnement à ajouter");
                                     int idClient = Integer.parseInt(sc.nextLine());
@@ -222,7 +222,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la Revue à ajouter");
                                     int idRevue = Integer.parseInt(sc.nextLine());
 
-                                    daoAbonnement.create(new Abonnement(dateDebutSql, dateFinSql, idClient, idRevue));
+                                    daoAbonnement.create(new Abonnement(dateDebutFormate, dateFinFormate, idClient, idRevue));
                                     break;
                                 }
                                 case 2 :
@@ -243,13 +243,11 @@ public class Main
                                     String dateDebutJava = sc.nextLine();
 
                                     LocalDate dateDebutFormate = LocalDate.parse(dateDebutJava, formatage);
-                                    java.sql.Date dateDebutSql = java.sql.Date.valueOf(dateDebutFormate);
 
                                     System.out.println("Indiquer la date de fin de l'abonnement à modifier \nAu format JJ/MM/AAAA");
                                     String dateFinJava = sc.nextLine();
 
                                     LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
-                                    java.sql.Date dateFinSql = java.sql.Date.valueOf(dateFinFormate);
 
                                     System.out.println("Indiquer l'ID du Client de l'abonnement à modifier");
                                     int idClient = Integer.parseInt(sc.nextLine());
@@ -257,7 +255,7 @@ public class Main
                                     System.out.println("Indiquer l'ID de la Revue à modifier");
                                     int idRevue = Integer.parseInt(sc.nextLine());
 
-                                    daoAbonnement.update(new Abonnement(id, dateDebutSql, dateFinSql, idClient, idRevue));
+                                    daoAbonnement.update(new Abonnement(id, dateDebutFormate, dateFinFormate, idClient, idRevue));
                                     break;
                                 }
                                 case 4 :

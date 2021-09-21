@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +41,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Abonnement(date_debut, date_fin, id_client, id_revue) Values (?, ?, ?, ?)");
-        requete.setDate(1, objet.getDateDebut());
-        requete.setDate(2, objet.getDateFin());
+        requete.setDate(1, java.sql.Date.valueOf(objet.getDateDebut()));
+        requete.setDate(2, java.sql.Date.valueOf(objet.getDateFin()));
         requete.setInt(3, objet.getIdClient());
         requete.setInt(4, objet.getIdRevue());
 
@@ -61,8 +61,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?");
-        requete.setDate(1, objet.getDateDebut());
-        requete.setDate(2, objet.getDateFin());
+        requete.setDate(1, java.sql.Date.valueOf(objet.getDateDebut()));
+        requete.setDate(2, java.sql.Date.valueOf(objet.getDateFin()));
         requete.setInt(3, objet.getIdClient());
         requete.setInt(4, objet.getIdRevue());
         requete.setInt(5, objet.getId());
@@ -106,11 +106,11 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         if (laConnexion != null)
             laConnexion.close();
 
-        return new Abonnement(res.getInt(1), res.getDate(2), res.getDate(3), res.getInt(4), res.getInt(5));
+        return new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5));
     }
     
     @Override
-    public List<Abonnement> getByDate(Date dateDebut, Date dateFin) throws SQLException 
+    public List<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin) throws SQLException 
     {
         List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
@@ -118,8 +118,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?");
-        requete.setDate(1, dateDebut);
-        requete.setDate(2, dateFin);
+        requete.setDate(1, java.sql.Date.valueOf(dateDebut));
+        requete.setDate(2, java.sql.Date.valueOf(dateFin));
 
         ResultSet res = requete.executeQuery();
 
@@ -128,7 +128,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         while (res.next()) 
         {
-            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2), res.getDate(3), res.getInt(4), res.getInt(5)));
+            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
         }
 
         return listeAbonnement;
@@ -153,7 +153,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         while (res.next()) 
         {
-            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2), res.getDate(3), res.getInt(4), res.getInt(5)));
+            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
         }
 
         return listeAbonnement;
@@ -176,7 +176,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         while (res.next()) 
         {
-            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2), res.getDate(3), res.getInt(4), res.getInt(5)));
+            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
         }
 
         return listeAbonnement;

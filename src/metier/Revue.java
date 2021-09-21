@@ -114,4 +114,14 @@ public class Revue
     this.visuel = visuel;
   }
   /* Fin Getters & Setters */
+
+
+  @Override
+    public boolean equals(Object object)
+    {
+      //Ici tu dois comparer : 
+      // Tout les attributs
+      //Pense bien a affecter a un attribut de type Revue object casté en Revue
+      return false; 
+    }
 }
