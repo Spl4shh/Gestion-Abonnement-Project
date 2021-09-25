@@ -117,22 +117,28 @@ public class Revue
 
 
   @Override
-    public boolean equals(Object object)
-    {
-      Revue revue = (Revue) object;
+  public boolean equals(Object object)
+  {
+    Revue revue = (Revue) object;
 
-      if (this.id == revue.id &&
-          this.description == revue.description &&
-          this.idPeriodicite == revue.idPeriodicite &&
-          this.tarifNumero == revue.tarifNumero &&
-          this.titre == revue.titre &&
-          this.visuel == revue.visuel)    
-      {
-        return true;
-      } 
-      else 
-      {
-        return false;  
-      }
+    if (this.id == revue.id &&
+        this.description == revue.description &&
+        this.idPeriodicite == revue.idPeriodicite &&
+        this.tarifNumero == revue.tarifNumero &&
+        this.titre == revue.titre &&
+        this.visuel == revue.visuel)    
+    {
+      return true;
+    } 
+    else 
+    {
+      return false;  
     }
+  }
+
+  @Override
+  public String toString() 
+  {
+    return (this.getId() + " " + this.getTitre() + " " + this.getDescription() + " " + this.getTarifNumero() + " " + this.getIdPeriodicite() + " " + this.getVisuel());
+  }
 }

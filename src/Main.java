@@ -29,6 +29,7 @@ public class Main
 
         System.out.println("Indiquez le numero du moyen de persistance choisi : \n1 - MySQL \n2 - Liste Memoire");
         int choixPersistance = sc.nextInt();
+        sc.nextLine();
 
         switch (choixPersistance) 
         {
@@ -55,9 +56,9 @@ public class Main
                 int choixTable;
                 do
                 {
-                    System.out.println("1- Client \n2- Abonnement \n3- Revue \n4- Periodicite");
-                    choixTable = Integer.parseInt(sc.nextLine());
-
+                    System.out.println("\n1- Client \n2- Abonnement \n3- Revue \n4- Periodicite");
+                    choixTable = sc.nextInt();
+                    sc.nextLine();
                 }while(choixTable > 4 || choixTable < 1);
 
                 switch(choixTable)
@@ -71,7 +72,8 @@ public class Main
 
                         try
                         {
-                            int numChoix = Integer.parseInt(sc.nextLine());
+                            int numChoix = sc.nextInt();
+                            sc.nextLine();
                             switch (numChoix)
                             {
                                 case 1 :
@@ -96,14 +98,16 @@ public class Main
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID du Client à supprimer");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
                                     daoClient.delete(new Client(id));
                                     break;
                                 }
                                 case 3 :
                                 {
                                     System.out.println("Indiquer le l'ID du client");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
                                     System.out.println("Indiquer le nom du client");
                                     String nom = sc.nextLine();
                                     System.out.println("Indiquer le prenom du client");
@@ -136,7 +140,8 @@ public class Main
                                 {
 
                                     System.out.println("Indiquer l'ID à rechercher");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
 
                                     Client client = daoClient.getById(id);
                                     client.toString();
@@ -196,7 +201,8 @@ public class Main
 
                         try
                         {
-                            int numChoix = Integer.parseInt(sc.nextLine());
+                            int numChoix = sc.nextInt();
+                            sc.nextLine();
                             switch (numChoix)
                             {
                                 case 1 :
@@ -217,10 +223,12 @@ public class Main
                                 
 
                                     System.out.println("Indiquer l'ID du Client de l'abonnement à ajouter");
-                                    int idClient = Integer.parseInt(sc.nextLine());
+                                    int idClient = sc.nextInt();
+                                    sc.nextLine();
 
                                     System.out.println("Indiquer l'ID de la Revue à ajouter");
-                                    int idRevue = Integer.parseInt(sc.nextLine());
+                                    int idRevue = sc.nextInt();
+                                    sc.nextLine();
 
                                     daoAbonnement.create(new Abonnement(dateDebutFormate, dateFinFormate, idClient, idRevue));
                                     break;
@@ -228,7 +236,8 @@ public class Main
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID de l'abonnement à supprimer");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
                                     daoAbonnement.delete(new Abonnement(id));
                                     break;
                                 }
@@ -237,7 +246,8 @@ public class Main
                                     DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
                                     System.out.println("Indiquer l'ID de la l'abonnement à modifier");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
 
                                     System.out.println("Indiquer la date de debut de l'abonnement à modifier \nAu format JJ/MM/AAAA");
                                     String dateDebutJava = sc.nextLine();
@@ -250,10 +260,12 @@ public class Main
                                     LocalDate dateFinFormate = LocalDate.parse(dateFinJava, formatage);
 
                                     System.out.println("Indiquer l'ID du Client de l'abonnement à modifier");
-                                    int idClient = Integer.parseInt(sc.nextLine());
+                                    int idClient = sc.nextInt();
+                                    sc.nextLine();
 
                                     System.out.println("Indiquer l'ID de la Revue à modifier");
-                                    int idRevue = Integer.parseInt(sc.nextLine());
+                                    int idRevue = sc.nextInt();
+                                    sc.nextLine();
 
                                     daoAbonnement.update(new Abonnement(id, dateDebutFormate, dateFinFormate, idClient, idRevue));
                                     break;
@@ -273,7 +285,8 @@ public class Main
                                 {
 
                                     System.out.println("Indiquer l'ID à rechercher");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
 
                                     Abonnement abonnement = daoAbonnement.getById(id);
                                     abonnement.toString();
@@ -338,7 +351,8 @@ public class Main
 
                         try
                         {
-                            int numChoix = Integer.parseInt(sc.nextLine());
+                            int numChoix = sc.nextInt();
+                            sc.nextLine();
                             switch (numChoix)
                             {
                                 case 1 :
@@ -348,11 +362,12 @@ public class Main
                                     System.out.println("Indiquer la description de la Revue a ajouter");
                                     String description = sc.nextLine();
                                     System.out.println("Indiquer le tarif de la Revue a ajouter");
-                                    float tarifNumero = Float.parseFloat(sc.nextLine());
+                                    float tarifNumero = sc.nextFloat();
                                     System.out.println("Indiquer le visuel de la Revue a ajouter");
                                     String visuel = sc.nextLine();
                                     System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a ajouter");
-                                    int idPeriodicite = Integer.parseInt(sc.nextLine());
+                                    int idPeriodicite = sc.nextInt();
+                                    sc.nextLine();
 
                                     daoRevue.create(new Revue(titre, description, tarifNumero, visuel, idPeriodicite));
                                     break;
@@ -360,7 +375,8 @@ public class Main
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID de la la Revue à supprimer");
-                                    int idRevue = Integer.parseInt(sc.nextLine());
+                                    int idRevue = sc.nextInt();
+                                    sc.nextLine();
 
                                     daoRevue.delete(new Revue(idRevue));
                                     break;
@@ -368,17 +384,19 @@ public class Main
                                 case 3 :
                                 {
                                     System.out.println("Indiquer l'ID de la la Revue à modifier");
-                                    int idRevue = Integer.parseInt(sc.nextLine());
+                                    int idRevue = sc.nextInt();
+                                    sc.nextLine();
                                     System.out.println("Indiquer le titre de la Revue a ajouter");
                                     String titre = sc.nextLine();
                                     System.out.println("Indiquer la description de la Revue a ajouter");
                                     String description = sc.nextLine();
                                     System.out.println("Indiquer le tarif de la Revue a ajouter");
-                                    float tarifNumero = Float.parseFloat(sc.nextLine());
+                                    float tarifNumero = sc.nextFloat();
                                     System.out.println("Indiquer le visuel de la Revue a ajouter");
                                     String visuel = sc.nextLine();
                                     System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a ajouter");
-                                    int idPeriodicite = Integer.parseInt(sc.nextLine());
+                                    int idPeriodicite = sc.nextInt();
+                                    sc.nextLine();
 
                                     daoRevue.update(new Revue(idRevue, titre, description, tarifNumero, visuel, idPeriodicite));
                                     break;
@@ -398,7 +416,8 @@ public class Main
                                 {
 
                                     System.out.println("Indiquer l'ID à rechercher");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
 
                                     Revue revue = daoRevue.getById(id);
                                     revue.toString();
@@ -432,11 +451,12 @@ public class Main
                         PeriodiciteDAO daoPeriodicite = daoUse.getPeriodiciteDAO();
 
                         System.out.println("Bienvenue dans la partie Périodicité");
-                        System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Rechercher par Libellé");
+                        System.out.println("\n1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Rechercher par Libellé\n");
 
                         try
                         {
-                            int numChoix = Integer.parseInt(sc.nextLine());
+                            int numChoix = sc.nextInt();
+                            sc.nextLine();
                             switch (numChoix)
                             {
                                 case 1 :
@@ -449,14 +469,16 @@ public class Main
                                 case 2 :
                                 {
                                     System.out.println("Indiquer l'ID de la périodicité à supprimer");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
                                     daoPeriodicite.delete(new Periodicite(id));
                                     break;
                                 }
                                 case 3 :
                                 {
                                     System.out.println("Indiquer l'ID de la périodicité à modifier puis le libellé");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
                                     String libelle = sc.nextLine();
                                     daoPeriodicite.update(new Periodicite(id, libelle));
                                     break;
@@ -466,9 +488,11 @@ public class Main
                                     List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
                                     listePeriodicite = daoPeriodicite.findAll();
+
+                                    System.out.println();   
                                     for (Periodicite periodicite : listePeriodicite) 
                                     {
-                                        periodicite.toString();   
+                                        System.out.println(periodicite.toString());   
                                     }
                                     break;
                                 }
@@ -476,7 +500,8 @@ public class Main
                                 {
 
                                     System.out.println("Indiquer l'ID à rechercher");
-                                    int id = Integer.parseInt(sc.nextLine());
+                                    int id = sc.nextInt();
+                                    sc.nextLine();
 
                                     Periodicite periodicite = daoPeriodicite.getById(id);
                                     periodicite.toString();
@@ -493,7 +518,7 @@ public class Main
                                     listePeriodicite = daoPeriodicite.getByLibelle(libelle);
                                     for (Periodicite periodicite : listePeriodicite) 
                                     {
-                                        periodicite.toString();
+                                        System.out.println(periodicite.getId());
                                     }
                                     break;
                                 }
@@ -512,8 +537,11 @@ public class Main
                 System.out.println(e);
             }
 
-            System.out.println("Voulez vous continuer ? Y/N");
-            continueOperation = (sc.nextLine().toLowerCase().equals("y"));
-        }while(continueOperation);
+            System.out.println("Voulez vous continuer ? Y/N\n");
+            String test = sc.nextLine().toLowerCase();
+            continueOperation = (test.equals("y"));
+
+
+        } while(continueOperation);
     }
 }
