@@ -47,9 +47,16 @@ public class Periodicite
     @Override
     public boolean equals(Object object)
     {
-        //Ici tu dois comparer : 
-        // Tout les attributs
-        //Pense bien a affecter a un attribut de type Periodicité object casté en Periodicité
-        return false; 
+        Periodicite periode = (Periodicite) object;
+
+        if (this.id == periode.id &&
+            this.libelle == periode.libelle) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

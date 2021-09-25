@@ -1,6 +1,5 @@
 package metier;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Abonnement
@@ -86,6 +85,7 @@ public class Abonnement
     public boolean equals(Object object)
     {
         Abonnement abo = (Abonnement)object;
+
         if (this.id == abo.id && 
             this.idClient == abo.idClient &&
             this.idRevue == abo.idRevue &&

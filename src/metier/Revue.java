@@ -119,9 +119,20 @@ public class Revue
   @Override
     public boolean equals(Object object)
     {
-      //Ici tu dois comparer : 
-      // Tout les attributs
-      //Pense bien a affecter a un attribut de type Revue object casté en Revue
-      return false; 
+      Revue revue = (Revue) object;
+
+      if (this.id == revue.id &&
+          this.description == revue.description &&
+          this.idPeriodicite == revue.idPeriodicite &&
+          this.tarifNumero == revue.tarifNumero &&
+          this.titre == revue.titre &&
+          this.visuel == revue.visuel)    
+      {
+        return true;
+      } 
+      else 
+      {
+        return false;  
+      }
     }
 }

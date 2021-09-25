@@ -116,9 +116,22 @@ public class Client
     @Override
     public boolean equals(Object object)
     {
-        //Ici tu dois comparer : 
-        // Tout les attributs
-        //Pense bien a affecter a un attribut de type Client object casté en client
-        return false; 
+        Client client = (Client) object;
+
+        if (this.id == client.id &&
+            this.nom == client.nom &&
+            this.prenom == client.prenom &&
+            this.noRue == client.noRue &&
+            this.voie == client.voie &&
+            this.codePostal == client.codePostal &&
+            this.ville == client.ville &&
+            this.pays == client.pays) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        } 
     }
 }
