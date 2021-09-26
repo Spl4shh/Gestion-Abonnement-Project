@@ -18,7 +18,6 @@ public class Revue
       float tarifNumero, 
       String visuel,
       int idPeriodicite
-
   ) 
   {
       this.id = id;
@@ -139,6 +138,6 @@ public class Revue
   @Override
   public String toString() 
   {
-    return (this.getId() + " " + this.getTitre() + " " + this.getDescription() + " " + this.getTarifNumero() + " " + this.getIdPeriodicite() + " " + this.getVisuel());
+    return (this.getId() + " " + this.getTitre() + " " + this.getDescription() + " " + this.getTarifNumero() + " " + this.getVisuel() + " " + this.getIdPeriodicite());
   }
 }

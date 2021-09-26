@@ -66,8 +66,7 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 		{
 			this.donnees.set(idx, objet);
 			return true;
-		}
-		
+		}		
 	}
 
 	@Override

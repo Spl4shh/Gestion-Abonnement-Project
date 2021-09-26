@@ -2,6 +2,7 @@ package dao.listememoire;
 
 import dao.AbonnementDAO;
 import metier.Abonnement;
+import metier.Client;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -31,8 +32,8 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
 
         this.donnees.add(new Abonnement(1, LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
             LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1));
-        this.donnees.add(new Abonnement(2, LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-            LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 2, 2));
+        this.donnees.add(new Abonnement(2, LocalDate.parse("23/04/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+            LocalDate.parse("24/04/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 2, 2));
     }
 
 
@@ -53,12 +54,21 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     @Override
     public boolean update(Abonnement objet)
     {
-        // Ne fonctionne que si l'objet métier est bien fait...
-        int idx = this.donnees.indexOf(objet);
+        int idx = -1;
+
+        for (Abonnement abonnement : this.donnees) 
+        {
+            if (abonnement.getId() == objet.getId()) 
+            {
+                idx = this.donnees.indexOf(abonnement);    
+            }    
+        }
+
         if (idx == -1) 
         {
             throw new IllegalArgumentException("Tentative de modification d'un objet inexistant");
-        } else 
+        } 
+        else 
         {
 
             this.donnees.set(idx, objet);
@@ -70,34 +80,49 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     @Override
     public boolean delete(Abonnement objet)
     {
-        Abonnement supprime;
+        int idx = -1;
 
-        // Ne fonctionne que si l'objet métier est bien fait...
-        int idx = this.donnees.indexOf(objet);
-        if (idx == -1)
+        for (Abonnement abonnement : this.donnees) 
         {
-            throw new IllegalArgumentException("Tentative de suppression d'un objet inexistant");
-        } else
-        {
-            supprime = this.donnees.remove(idx);
+            if (abonnement.getId() == objet.getId()) 
+            {
+                idx = this.donnees.indexOf(abonnement);    
+            }    
         }
 
-        return objet.equals(supprime);
+        if (idx == -1) 
+        {
+            throw new IllegalArgumentException("Tentative de modification d'un objet inexistant");
+        } 
+        else 
+        {
+            this.donnees.remove(idx);
+        }
+
+        return true;
     }
 
     @Override
     public Abonnement getById(int id)
     {
-        // Ne fonctionne que si l'objet métier est bien fait...
-        int idx = this.donnees.indexOf(new  Abonnement(id, LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-            LocalDate.parse("11/11/1111", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 0, 0));
-        if (idx == -1)
-        {
-            throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
-        } else
-        {
-            return this.donnees.get(idx);
-        }
+        int idx = -1;
+
+		for (Abonnement abonnement : this.donnees) 
+		{
+			if (abonnement.getId() == id) 
+			{
+				idx = this.donnees.indexOf(abonnement);
+			}
+		}
+
+		if (idx == -1) 
+		{
+			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
+		} 
+		else 
+		{
+			return this.donnees.get(idx);
+		}
     }
 
     @Override
@@ -109,27 +134,50 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     @Override
     public ArrayList<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin)
     {
-        ArrayList<Abonnement> listAbonnement = null;
+        ArrayList<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+        
+		for (Abonnement abonnement : this.donnees) 
+		{
+			if (abonnement.getDateDebut().equals(dateDebut) && abonnement.getDateFin().equals(dateFin)) 
+			{
+				listeAbonnement.add(this.donnees.get(this.donnees.indexOf(abonnement)));
+			}
+		}
 
-        // Ne fonctionne que si l'objet métier est bien fait...
-        int idx = this.donnees.indexOf(new  Abonnement(0, dateDebut, dateFin, 0, 0));
-        if (listAbonnement.isEmpty())
-        {
-            throw new IllegalArgumentException("Aucun objet ne possède ce nom");
-        } else
-        {
-            return listAbonnement;
-        }
+		if (listeAbonnement.size() == 0) 
+		{
+			throw new IllegalArgumentException("Aucun objet ne possède ces dates");
+		} 
+		else 
+		{
+			return listeAbonnement;
+		}
     }
 
     @Override
     public ArrayList<Abonnement> getByNomPrenom(String nom, String prenom) throws SQLException 
     {
-        // 
-        // To do
-        // Implementation de la fabrique necessaire au préalable
-        // 
-        // 
-        return null;
+        ArrayList<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+        ListeMemoireClientDAO listeMemoireClient = ListeMemoireClientDAO.getInstance();
+
+		for (Abonnement abonnement : this.donnees) 
+		{
+            int idClient = abonnement.getIdClient();
+            Client client = listeMemoireClient.getById(idClient);
+
+			if (client.getPrenom() == prenom && client.getNom()  == nom) 
+			{
+				listeAbonnement.add(this.donnees.get(this.donnees.indexOf(abonnement)));
+			}
+		}
+
+		if (listeAbonnement.size() == 0) 
+		{
+			throw new IllegalArgumentException("Aucun objet ne possède ce prenom et ce nom");
+		} 
+		else 
+		{
+			return listeAbonnement;
+		}
     }
 }

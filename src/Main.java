@@ -289,7 +289,7 @@ public class Main
                                     sc.nextLine();
 
                                     Abonnement abonnement = daoAbonnement.getById(id);
-                                    abonnement.toString();
+                                    System.out.println(abonnement.toString());
 
                                     break;
                                 }
@@ -312,7 +312,7 @@ public class Main
                                     listeAbonnement = daoAbonnement.getByDate(dateDebutFormate, dateFinFormate);
                                     for (Abonnement abonnement : listeAbonnement) 
                                     {
-                                        abonnement.toString();   
+                                        System.out.println(abonnement.toString());
                                     }
                                     break;
                                 }
@@ -330,7 +330,7 @@ public class Main
                                     listeAbonnement = daoAbonnement.getByNomPrenom(nom, prenom);
                                     for (Abonnement abonnement : listeAbonnement) 
                                     {
-                                        abonnement.toString();   
+                                        System.out.println(abonnement.toString());
                                     }
                                     break;
                                 }
@@ -346,7 +346,7 @@ public class Main
                     {
                         RevueDAO daoRevue = daoUse.getRevueDAO();
                         //Partie sur la revue a ajouter
-                        System.out.println("Bienvenue dans la partie Revue");
+                        System.out.println("\nBienvenue dans la partie Revue");
                         System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Rechercher par Titre");
 
                         try
@@ -363,6 +363,7 @@ public class Main
                                     String description = sc.nextLine();
                                     System.out.println("Indiquer le tarif de la Revue a ajouter");
                                     float tarifNumero = sc.nextFloat();
+                                    sc.nextLine();
                                     System.out.println("Indiquer le visuel de la Revue a ajouter");
                                     String visuel = sc.nextLine();
                                     System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a ajouter");
@@ -386,15 +387,16 @@ public class Main
                                     System.out.println("Indiquer l'ID de la la Revue à modifier");
                                     int idRevue = sc.nextInt();
                                     sc.nextLine();
-                                    System.out.println("Indiquer le titre de la Revue a ajouter");
+                                    System.out.println("Indiquer le titre de la Revue a modifier");
                                     String titre = sc.nextLine();
-                                    System.out.println("Indiquer la description de la Revue a ajouter");
+                                    System.out.println("Indiquer la description de la Revue a modifier");
                                     String description = sc.nextLine();
-                                    System.out.println("Indiquer le tarif de la Revue a ajouter");
+                                    System.out.println("Indiquer le tarif de la Revue a modifier");
                                     float tarifNumero = sc.nextFloat();
-                                    System.out.println("Indiquer le visuel de la Revue a ajouter");
+                                    sc.nextLine();
+                                    System.out.println("Indiquer le visuel de la Revue a modifier");
                                     String visuel = sc.nextLine();
-                                    System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a ajouter");
+                                    System.out.println("Indiquer l'ID de la periodicite a laquelle se refere la Revue a modifier");
                                     int idPeriodicite = sc.nextInt();
                                     sc.nextLine();
 
@@ -408,7 +410,7 @@ public class Main
                                     listeRevue = daoRevue.findAll();
                                     for (Revue revue : listeRevue) 
                                     {
-                                        revue.toString();   
+                                        System.out.println(revue.toString());
                                     }
                                     break;
                                 }
@@ -420,7 +422,7 @@ public class Main
                                     sc.nextLine();
 
                                     Revue revue = daoRevue.getById(id);
-                                    revue.toString();
+                                    System.out.println(revue.toString());
 
                                     break;
                                 }
@@ -434,8 +436,9 @@ public class Main
                                     listeRevue = daoRevue.getByTitre(titre);
                                     for (Revue revue : listeRevue) 
                                     {
-                                        revue.toString();
+                                        System.out.println(revue.toString());
                                     }
+
                                     break;
                                 }
                             }
