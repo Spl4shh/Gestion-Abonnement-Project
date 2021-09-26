@@ -134,4 +134,10 @@ public class Client
             return false;
         } 
     }
+
+    @Override
+    public String toString()
+    {
+        return (this.getId() + " " + this.getNom() + " " + this.getPrenom() + " " + this.getNoRue() + " " + this.getVoie() + " " + this.getCodePostal() + " " + this.getVille() + " " + this.getPays());
+    }
 }

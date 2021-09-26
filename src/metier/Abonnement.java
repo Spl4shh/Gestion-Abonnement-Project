@@ -99,4 +99,10 @@ public class Abonnement
             return false;
         }
     }
+
+    @Override
+    public String toString()
+    {
+        return (this.getId() + " \nID Client : " + this.getIdClient() + " \nID Revue : " + this.getIdRevue() + " \nDate de debut : " + this.getDateDebut() + " \nDate de fin : " + this.getDateFin());
+    }
 }
