@@ -7,13 +7,13 @@ public abstract class DAOFactory
         DAOFactory daoF = null;
         switch (cible) 
         {
-        case MYSQL:
-            daoF = new MySQLDAOFactory();
-            break;
-        case ListeMemoire:
-            daoF = new ListeMemoireDAOFactory();
-            break;
-        
+            case MYSQL:
+                daoF = new MySQLDAOFactory();
+                break;
+                
+            case ListeMemoire:
+                daoF = new ListeMemoireDAOFactory();
+                break;
         }
         return daoF;
     }

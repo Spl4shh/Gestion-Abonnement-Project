@@ -2,7 +2,6 @@ package dao.mysql;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 import connexion.Connexion;
 import dao.RevueDAO;
@@ -107,9 +106,9 @@ public class MySqlRevueDAO implements RevueDAO
     }
 
     @Override
-    public List<Revue> getByTitre(String titre) throws SQLException 
+    public ArrayList<Revue> getByTitre(String titre) throws SQLException 
     {
-        List<Revue> listeRevue = new ArrayList<Revue>();
+        ArrayList<Revue> listeRevue = new ArrayList<Revue>();
 
         Connexion maBD = new Connexion();
         Connection laConnexion = maBD.creeConnexion();

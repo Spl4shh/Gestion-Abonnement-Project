@@ -93,7 +93,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	}
 
 	@Override
-	public List<Revue> getByTitre(String titre) {
+	public ArrayList<Revue> getByTitre(String titre) {
 		return null;
 		//Pourquoi elle retourne null cette méthode ???
 		//A Faire

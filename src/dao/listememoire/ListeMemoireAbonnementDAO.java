@@ -55,9 +55,11 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     {
         // Ne fonctionne que si l'objet métier est bien fait...
         int idx = this.donnees.indexOf(objet);
-        if (idx == -1) {
+        if (idx == -1) 
+        {
             throw new IllegalArgumentException("Tentative de modification d'un objet inexistant");
-        } else {
+        } else 
+        {
 
             this.donnees.set(idx, objet);
         }
@@ -105,9 +107,9 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     }
 
     @Override
-    public List<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin)
+    public ArrayList<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin)
     {
-        List<Abonnement> listAbonnement = null;
+        ArrayList<Abonnement> listAbonnement = null;
 
         // Ne fonctionne que si l'objet métier est bien fait...
         int idx = this.donnees.indexOf(new  Abonnement(0, dateDebut, dateFin, 0, 0));
@@ -121,7 +123,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     }
 
     @Override
-    public List<Abonnement> getByNomPrenom(String nom, String prenom) throws SQLException 
+    public ArrayList<Abonnement> getByNomPrenom(String nom, String prenom) throws SQLException 
     {
         // 
         // To do

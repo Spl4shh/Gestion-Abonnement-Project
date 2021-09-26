@@ -48,8 +48,16 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 	@Override
 	public boolean update(Periodicite objet) 
 	{
-		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(objet);
+		int idx = -1;
+
+		for (Periodicite periodicite : this.donnees) 
+		{
+			if (periodicite.getId() == objet.getId()) 
+			{
+				idx = this.donnees.indexOf(periodicite);
+			}
+		}
+
 		if (idx == -1) 
 		{
 			throw new IllegalArgumentException("Tentative de modification d'un objet inexistant");
@@ -57,17 +65,25 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 		else 
 		{
 			this.donnees.set(idx, objet);
+			return true;
 		}
-		return true;
+		
 	}
 
 	@Override
 	public boolean delete(Periodicite objet) 
 	{
 		Periodicite supprime;
-		
-		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(objet);
+		int idx = -1;
+
+		for (Periodicite periodicite : this.donnees) 
+		{
+			if (periodicite.getId() == objet.getId()) 
+			{
+				idx = this.donnees.indexOf(periodicite);
+			}
+		}
+
 		if (idx == -1) 
 		{
 			throw new IllegalArgumentException("Tentative de suppression d'un objet inexistant");
@@ -83,10 +99,16 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 	@Override
 	public Periodicite getById(int id) 
 	{
-		// Ne fonctionne que si l'objet métier est bien fait...
-		//Probleme de logique, si equlas est surchargé avec tout les attributs, la methode en dessous renveras forcement l'exception
+		int idx = -1;
 
-		int idx = this.donnees.indexOf(new Periodicite(id, "test"));
+		for (Periodicite periodicite : this.donnees) 
+		{
+			if (periodicite.getId() == id) 
+			{
+				idx = this.donnees.indexOf(periodicite);
+			}
+		}
+
 		if (idx == -1) 
 		{
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
@@ -98,14 +120,31 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 	}
 
 	@Override
-	public List<Periodicite> findAll() 
+	public ArrayList<Periodicite> findAll() 
 	{
-		return (List<Periodicite>)instance.donnees;
+		return (ArrayList<Periodicite>)instance.donnees;
 	}
 
 	@Override
-	public List<Periodicite> getByLibelle(String libelle) 
+	public ArrayList<Periodicite> getByLibelle(String libelle) 
 	{
-		return instance.getByLibelle(libelle);
+		ArrayList<Periodicite> listePeriode = new ArrayList<Periodicite>();
+
+		for (Periodicite periodicite : this.donnees) 
+		{
+			if (periodicite.getLibelle().equals(libelle)) 
+			{
+				listePeriode.add(this.donnees.get(this.donnees.indexOf(periodicite)));
+			}
+		}
+
+		if (listePeriode.size() == 0) 
+		{
+			throw new IllegalArgumentException("Aucun objet ne possède ce libelle");
+		} 
+		else 
+		{
+			return listePeriode;
+		}
 	}
 }

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import connexion.Connexion;
 import dao.PeriodiciteDAO;
@@ -104,7 +103,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     }
 
     @Override
-    public List<Periodicite> getByLibelle(String libelle) throws SQLException 
+    public ArrayList<Periodicite> getByLibelle(String libelle) throws SQLException 
     {
         ArrayList<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 

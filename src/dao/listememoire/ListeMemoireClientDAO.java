@@ -93,14 +93,14 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public List<Client> getByNomPrenom(String nom, String prenom) 
+	public ArrayList<Client> getByNomPrenom(String nom, String prenom) 
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Client> getByAdresse(String noVoie, String voie, String codePostal) 
+	public ArrayList<Client> getByAdresse(String noVoie, String voie, String codePostal) 
 	{
 		// TODO Auto-generated method stub
 		return null;

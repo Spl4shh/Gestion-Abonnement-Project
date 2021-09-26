@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import connexion.Connexion;
 import dao.ClientDAO;
@@ -115,9 +114,9 @@ public class MySqlClientDAO implements ClientDAO
     }
 
     @Override
-    public List<Client> getByNomPrenom(String nom, String prenom) throws SQLException 
+    public ArrayList<Client> getByNomPrenom(String nom, String prenom) throws SQLException 
     {
-        List<Client> listeClient = new ArrayList<Client>();
+        ArrayList<Client> listeClient = new ArrayList<Client>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
@@ -140,9 +139,9 @@ public class MySqlClientDAO implements ClientDAO
     }
 
     @Override
-    public List<Client> getByAdresse(String noVoie, String voie, String codePostal) throws SQLException 
+    public ArrayList<Client> getByAdresse(String noVoie, String voie, String codePostal) throws SQLException 
     {
-        List<Client> listeClient = new ArrayList<Client>();
+        ArrayList<Client> listeClient = new ArrayList<Client>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();

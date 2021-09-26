@@ -196,7 +196,7 @@ public class Main
                     {
                         AbonnementDAO daoAbonnement = daoUse.getAbonnementDAO();
 
-                        System.out.println("Bienvenue dans la partie Abonnement");
+                        System.out.println("\nBienvenue dans la partie Abonnement");
                         System.out.println("1- Ajouter \n2- Supprimer \n3- Edit \n4- Affichez tout \n5- Rechercher par ID \n6- Selectionner par Date \n7- Selectionner par Nom-Prenom");
 
                         try
@@ -277,7 +277,7 @@ public class Main
                                     listeAbonnement = daoAbonnement.findAll();
                                     for (Abonnement abonnement : listeAbonnement) 
                                     {
-                                        abonnement.toString();   
+                                        System.out.println(abonnement.toString());   
                                     }
                                     break;
                                 }
@@ -504,7 +504,7 @@ public class Main
                                     sc.nextLine();
 
                                     Periodicite periodicite = daoPeriodicite.getById(id);
-                                    periodicite.toString();
+                                    System.out.println(periodicite.toString());
 
                                     break;
                                 }
@@ -518,7 +518,7 @@ public class Main
                                     listePeriodicite = daoPeriodicite.getByLibelle(libelle);
                                     for (Periodicite periodicite : listePeriodicite) 
                                     {
-                                        System.out.println(periodicite.getId());
+                                        System.out.println(periodicite.toString());
                                     }
                                     break;
                                 }

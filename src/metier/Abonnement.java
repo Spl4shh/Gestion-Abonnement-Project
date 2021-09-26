@@ -1,6 +1,7 @@
 package metier;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Abonnement
 {
@@ -103,6 +104,7 @@ public class Abonnement
     @Override
     public String toString()
     {
-        return (this.getId() + " \nID Client : " + this.getIdClient() + " \nID Revue : " + this.getIdRevue() + " \nDate de debut : " + this.getDateDebut() + " \nDate de fin : " + this.getDateFin());
+        DateTimeFormatter formatage = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return ("\n" + this.getId() + " \nID Client : " + this.getIdClient() + " \nID Revue : " + this.getIdRevue() + " \nDate de debut : " + this.getDateDebut().format(formatage) + " \nDate de fin : " + this.getDateFin().format(formatage));
     }
 }

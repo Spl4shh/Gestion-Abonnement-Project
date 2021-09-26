@@ -1,7 +1,7 @@
 package dao;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 
 public interface DAO<T>
@@ -10,5 +10,5 @@ public interface DAO<T>
     public boolean update(T objet) throws SQLException;
     public boolean delete(T objet) throws SQLException;
     public T getById(int i) throws SQLException;
-    public List<T> findAll() throws SQLException;
+    public ArrayList<T> findAll() throws SQLException;
 }
