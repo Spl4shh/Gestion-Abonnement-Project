@@ -92,11 +92,23 @@ public class ListeMemoireClientDAO implements ClientDAO {
 
 	@Override
 	public Client getById(int id) {
-		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(new Client(id, "test", "test", "test", "test", "test", "test", "test"));
-		if (idx == -1) {
+		
+		int idx = -1;
+
+		for (Client client : this.donnees) 
+		{
+			if (client.getId() == id) 
+			{
+				idx = this.donnees.indexOf(client);
+			}
+		}
+
+		if (idx == -1) 
+		{
 			throw new IllegalArgumentException("Aucun objet ne possède cet identifiant");
-		} else {
+		} 
+		else 
+		{
 			return this.donnees.get(idx);
 		}
 	}
