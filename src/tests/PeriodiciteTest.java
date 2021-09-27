@@ -1,17 +1,21 @@
 package tests;
 
-import metier.Periodicite;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
+import dao.listememoire.ListeMemoirePeriodiciteDAO;
+
+
 public class PeriodiciteTest {
     @Test
-    public void test() {
-        String obj1 = "Junit";
-        String obj2 = "Junit";
-        assertEquals(obj1, obj2);
-
-        assertEquals(5, Periodicite.getId());
+    public void testLibelle() {
+        assertEquals("Mensuel", ListeMemoirePeriodiciteDAO.getInstance().getById(1).getLibelle());        
+        //assertEquals("Mensuel", ListeMemoirePeriodiciteDAO.getInstance().getById(2).getLibelle());
     }
 
+    @Test
+    public void testId() {
+        assertEquals(1, ListeMemoirePeriodiciteDAO.getInstance().getById(1).getId());        
+        //assertEquals(1, ListeMemoirePeriodiciteDAO.getInstance().getById(2).getId());  
+    }
 }
