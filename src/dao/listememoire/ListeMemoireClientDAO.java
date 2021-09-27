@@ -46,22 +46,29 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public boolean update(Client objet) {
-		
-		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(objet);
-		if (idx == -1) {
-			throw new IllegalArgumentException("Tentative de modification d'un objet inexistant");
-		} else {
-			
-			this.donnees.set(idx, objet);
+	public boolean update(Client objet) 
+	{
+		int idx = -1;
+		for (Client client : this.donnees) {
+			if (client.getId() == objet.getId())
+			{
+				idx = this.donnees.indexOf(client);
+			}
 		}
-		
-		return true;
+		if (idx == -1) 
+		{
+			throw new IllegalArgumentException("Tentative de modification d'un objet inexistant");
+		} 
+		else 
+		{
+			this.donnees.set(idx, objet);
+			return true;
+		}
 	}
 
 	@Override
-	public boolean delete(Client objet) {
+	public boolean delete(Client objet) 
+	{
 
 		Client supprime;
 		
