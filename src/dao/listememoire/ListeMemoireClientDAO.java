@@ -27,7 +27,7 @@ public class ListeMemoireClientDAO implements ClientDAO {
 		this.donnees = new ArrayList<Client>();
 
 		this.donnees.add(new Client(1, "Robert", "Jean Jésus", "4", "rue du frêne", "58000", "Ville Perdue", "ImagiNation"));
-		this.donnees.add(new Client(2, "Damien", "Kévin", "10", "Rue de la foret", "96452", "Ville de la mer", "Nation inconnues"));
+		this.donnees.add(new Client(2, "Damien", "Kevin", "10", "Rue de la foret", "55555", "Ville de la mer", "Nation inconnues"));
 	}
 
 
@@ -122,7 +122,7 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	public ArrayList<Client> getByNomPrenom(String nom, String prenom) 
 	{
 		ArrayList<Client> listeRevue = new ArrayList<Client>();
-		
+
 		for (Client client : this.donnees) 
 		{
 			if (client.getNom().equals(nom) && client.getPrenom().equals(prenom)) 
@@ -144,7 +144,9 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	@Override
 	public ArrayList<Client> getByAdresse(String noRue, String voie, String codePostal) 
 	{
-	ArrayList<Client> listeRevue = new ArrayList<Client>();
+		ArrayList<Client> listeRevue = new ArrayList<Client>();
+
+		
 		
 		for (Client client : this.donnees) 
 		{
