@@ -69,17 +69,24 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	@Override
 	public boolean delete(Client objet) 
 	{
-
 		Client supprime;
-		
-		// Ne fonctionne que si l'objet métier est bien fait...
-		int idx = this.donnees.indexOf(objet);
-		if (idx == -1) {
+		int idx = -1;
+
+		for (Client client : this.donnees) {
+			if (client.getId() == objet.getId())
+			{
+				idx = this.donnees.indexOf(client);
+			}
+		}
+		if (idx == -1) 
+		{
 			throw new IllegalArgumentException("Tentative de suppression d'un objet inexistant");
-		} else {
+		} 
+		else 
+		{
 			supprime = this.donnees.remove(idx);
 		}
-		
+
 		return objet.equals(supprime);
 	}
 
