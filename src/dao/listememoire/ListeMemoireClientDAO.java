@@ -122,7 +122,6 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	public ArrayList<Client> getByNomPrenom(String nom, String prenom) 
 	{
 		ArrayList<Client> listeRevue = new ArrayList<Client>();
-		ListeMemoireClientDAO listeMemoireClient = ListeMemoireClientDAO.getInstance();
 		
 		for (Client client : this.donnees) 
 		{
@@ -143,9 +142,25 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public ArrayList<Client> getByAdresse(String noVoie, String voie, String codePostal) 
+	public ArrayList<Client> getByAdresse(String noRue, String voie, String codePostal) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+	ArrayList<Client> listeRevue = new ArrayList<Client>();
+		
+		for (Client client : this.donnees) 
+		{
+			if (client.getNoRue().equals(noRue) && client.getVoie().equals(voie) && client.getCodePostal().equals(codePostal)) 
+			{
+				listeRevue.add(this.donnees.get(this.donnees.indexOf(client)));
+			}
+		}
+
+		if (listeRevue.size() == 0) 
+		{
+			throw new IllegalArgumentException("Aucun objet ne possède cette adresse");
+		} 
+		else 
+		{
+			return listeRevue;
+		}
 	}
 }
