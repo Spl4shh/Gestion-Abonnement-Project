@@ -165,7 +165,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
             int idClient = abonnement.getIdClient();
             Client client = listeMemoireClient.getById(idClient);
 
-			if (client.getPrenom() == prenom && client.getNom()  == nom) 
+			if (client.getPrenom().equals(prenom) && client.getNom().equals(nom)) 
 			{
 				listeAbonnement.add(this.donnees.get(this.donnees.indexOf(abonnement)));
 			}

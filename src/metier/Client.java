@@ -85,7 +85,7 @@ public class Client
 
     public String getCodePostal() 
     {
-        return this.noRue;
+        return this.codePostal;
     }
 
     public void setCodePostal(String codePostal) 

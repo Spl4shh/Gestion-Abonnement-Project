@@ -132,7 +132,7 @@ public class Main
                                     listeClient = daoClient.findAll();
                                     for (Client client : listeClient) 
                                     {
-                                        client.toString();   
+                                        System.out.println(client.toString());
                                     }
                                     break;
                                 }
@@ -144,7 +144,7 @@ public class Main
                                     sc.nextLine();
 
                                     Client client = daoClient.getById(id);
-                                    client.toString();
+                                    System.out.println(client.toString());
 
                                     break;
                                 }
@@ -161,7 +161,7 @@ public class Main
                                     listeClient = daoClient.getByNomPrenom(nom, prenom);
                                     for (Client client : listeClient) 
                                     {
-                                        client.toString();   
+                                        System.out.println(client.toString());
                                     }
                                     break;
                                 }
@@ -180,7 +180,7 @@ public class Main
                                     listeClient = daoClient.getByAdresse(noRue, voie, codePostal);
                                     for (Client client : listeClient) 
                                     {
-                                        client.toString();   
+                                        System.out.println(client.toString());
                                     }
                                     break;
                                 }
