@@ -92,7 +92,7 @@ public class ListeMemoireClientDAO implements ClientDAO {
 
 	@Override
 	public Client getById(int id) {
-		
+
 		int idx = -1;
 
 		for (Client client : this.donnees) 
@@ -121,8 +121,25 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	@Override
 	public ArrayList<Client> getByNomPrenom(String nom, String prenom) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Client> listeRevue = new ArrayList<Client>();
+		ListeMemoireClientDAO listeMemoireClient = ListeMemoireClientDAO.getInstance();
+		
+		for (Client client : this.donnees) 
+		{
+			if (client.getNom().equals(nom) && client.getPrenom().equals(prenom)) 
+			{
+				listeRevue.add(this.donnees.get(this.donnees.indexOf(client)));
+			}
+		}
+
+		if (listeRevue.size() == 0) 
+		{
+			throw new IllegalArgumentException("Aucun objet ne possède ce nom / prenom");
+		} 
+		else 
+		{
+			return listeRevue;
+		}
 	}
 
 	@Override
