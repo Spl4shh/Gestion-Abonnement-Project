@@ -32,7 +32,6 @@ public class ListeMemoireDAORevueTest
         Assert.assertTrue(daof.getRevueDAO().create(revueAVerif));
 
         Revue revueRead = daof.getRevueDAO().getById(revueAVerif.getId());
-;
         assertEquals(revueAVerif, revueRead);
     }
 }
