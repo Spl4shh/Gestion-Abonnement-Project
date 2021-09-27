@@ -6,7 +6,7 @@ import org.junit.Test;
 import dao.listememoire.ListeMemoirePeriodiciteDAO;
 
 
-public class PeriodiciteTest {
+public class ListeMemoireDAOPeriodiciteTest {
     @Test
     public void testLibelle() {
         assertEquals("Mensuel", ListeMemoirePeriodiciteDAO.getInstance().getById(1).getLibelle());        
