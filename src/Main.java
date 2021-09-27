@@ -546,5 +546,6 @@ public class Main
 
 
         } while(continueOperation);
+        sc.close();
     }
 }
