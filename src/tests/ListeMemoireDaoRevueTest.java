@@ -6,33 +6,53 @@ import org.junit.Test;
 
 import dao.DAOFactory;
 import dao.Persistance;
-import dao.listememoire.ListeMemoireRevueDAO;
+import dao.RevueDAO;
 import metier.Revue;
 
 import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import javax.lang.model.element.ElementKind;
 
 public class ListeMemoireDAORevueTest
 {
 
     private DAOFactory daof;
+    private RevueDAO revueDAO;
 
     @Before
     public void setUp() {
         daof = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
+        revueDAO = daof.getRevueDAO();
     }
 
     @Test
     public void testCreate() throws SQLException
     {
         Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
-        Assert.assertTrue(daof.getRevueDAO().create(revueAVerif));
 
-        Revue revueRead = daof.getRevueDAO().getById(revueAVerif.getId());
-;
+        Assert.assertTrue(revueDAO.create(revueAVerif));
+
+        Revue revueRead = revueDAO.getById(revueAVerif.getId());
+
         assertEquals(revueAVerif, revueRead);
+    }
+
+    @Test
+    public void testUpdate() throws SQLException
+    {
+        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
+
+        Assert.assertTrue(revueDAO.create(revueAVerif));
+
+        Revue revueRead = revueDAO.getById(revueAVerif.getId());
+
+        assertEquals(revueAVerif, revueRead);
+
+        Revue revueUpdate = new Revue(3,"Update","Update", (float)0.1, "Update",2);
+
+        revueDAO.update(revueUpdate);
+
+        revueRead = revueDAO.getById(revueUpdate.getId());
     }
 }
