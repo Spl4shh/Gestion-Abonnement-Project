@@ -1,21 +1,33 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+
+import java.sql.SQLException;
+
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-import dao.listememoire.ListeMemoirePeriodiciteDAO;
+import dao.DAOFactory;
+import dao.Persistance;
+import metier.Periodicite;
 
 
 public class ListeMemoireDAOPeriodiciteTest {
-    @Test
-    public void testLibelle() {
-        assertEquals("Mensuel", ListeMemoirePeriodiciteDAO.getInstance().getById(1).getLibelle());        
-        //assertEquals("Mensuel", ListeMemoirePeriodiciteDAO.getInstance().getById(2).getLibelle());
+    private DAOFactory daof;
+
+    @Before
+    public void setUp() {
+        daof = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
     }
 
     @Test
-    public void testId() {
-        assertEquals(1, ListeMemoirePeriodiciteDAO.getInstance().getById(1).getId());        
-        //assertEquals(1, ListeMemoirePeriodiciteDAO.getInstance().getById(2).getId());  
+    public void testCreate() throws SQLException
+    {
+        Periodicite PeriodiciteAVerif = new Periodicite(3,"Mensuel");
+        Assert.assertTrue(daof.getPeriodiciteDAO().create(PeriodiciteAVerif));
+
+        Periodicite PeriodiciteRead = daof.getPeriodiciteDAO().getById(PeriodiciteAVerif.getId());
+        assertEquals(PeriodiciteAVerif, PeriodiciteRead);
     }
 }
