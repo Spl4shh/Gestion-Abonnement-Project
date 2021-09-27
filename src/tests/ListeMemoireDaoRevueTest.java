@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import dao.DAOFactory;
 import dao.Persistance;
-import dao.listememoire.ListeMemoireRevueDAO;
+//import dao.listememoire.ListeMemoireRevueDAO;
 import metier.Revue;
 
 import static org.junit.Assert.assertEquals;
 
 import java.sql.SQLException;
 
-import javax.lang.model.element.ElementKind;
+//import javax.lang.model.element.ElementKind;
 
 public class ListeMemoireDAORevueTest
 {
