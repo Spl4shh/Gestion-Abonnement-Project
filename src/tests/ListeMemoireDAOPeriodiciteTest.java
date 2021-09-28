@@ -30,4 +30,24 @@ public class ListeMemoireDAOPeriodiciteTest {
         Periodicite PeriodiciteRead = daof.getPeriodiciteDAO().getById(PeriodiciteAVerif.getId());
         assertEquals(PeriodiciteAVerif, PeriodiciteRead);
     }
+
+    @Test
+    public void testUpdate() throws SQLException
+    {
+        Periodicite PeriodiciteAVerif = new Periodicite(3,"Update");
+        Assert.assertTrue(daof.getPeriodiciteDAO().create(PeriodiciteAVerif));
+
+        Periodicite PeriodiciteRead = daof.getPeriodiciteDAO().getById(PeriodiciteAVerif.getId());
+        assertEquals(PeriodiciteAVerif, PeriodiciteRead);
+    }
+
+    @Test
+    public void testDelete() throws SQLException
+    {
+        Periodicite PeriodiciteAVerif = new Periodicite(3);
+        Assert.assertTrue(daof.getPeriodiciteDAO().create(PeriodiciteAVerif));
+
+        Periodicite PeriodiciteRead = daof.getPeriodiciteDAO().getById(PeriodiciteAVerif.getId());
+        assertEquals(PeriodiciteAVerif, PeriodiciteRead);
+    }
 }
