@@ -138,13 +138,13 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
         
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listePeriodicite.add(new Periodicite(res.getInt(1), res.getString(2)));
         }
+
+        if (laConnexion != null)
+        laConnexion.close();
 
         return listePeriodicite;
     }
