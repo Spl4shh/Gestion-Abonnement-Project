@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import connexion.Connexion;
 import dao.AbonnementDAO;
@@ -111,9 +112,9 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     }
     
     @Override
-    public ArrayList<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin) throws SQLException 
+    public List<Abonnement> getByDate(LocalDate dateDebut, LocalDate dateFin) throws SQLException 
     {
-        ArrayList<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+        List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
@@ -136,9 +137,9 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     }
 
     @Override
-    public ArrayList<Abonnement> getByNomPrenom(String nom, String prenom) throws SQLException 
+    public List<Abonnement> getByNomPrenom(String nom, String prenom) throws SQLException 
     {
-        ArrayList<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+        List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
@@ -161,9 +162,9 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     }
     
     @Override
-    public ArrayList<Abonnement> findAll() throws SQLException 
+    public List<Abonnement> findAll() throws SQLException 
     {
-        ArrayList<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
+        List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();

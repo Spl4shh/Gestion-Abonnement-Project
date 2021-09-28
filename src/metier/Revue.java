@@ -121,11 +121,11 @@ public class Revue
     Revue revue = (Revue) object;
 
     if (this.id == revue.id &&
-        this.description == revue.description &&
+        this.description.equals(revue.description) &&
         this.idPeriodicite == revue.idPeriodicite &&
         this.tarifNumero == revue.tarifNumero &&
-        this.titre == revue.titre &&
-        this.visuel == revue.visuel)    
+        this.titre.equals(revue.titre) &&
+        this.visuel.equals(revue.visuel))    
     {
       return true;
     } 

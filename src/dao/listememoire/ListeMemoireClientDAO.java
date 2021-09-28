@@ -114,14 +114,15 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public ArrayList<Client> findAll() {
-		return (ArrayList<Client>) this.donnees;
+	public List<Client> findAll() 
+	{
+		return this.donnees;
 	}
 
 	@Override
-	public ArrayList<Client> getByNomPrenom(String nom, String prenom) 
+	public List<Client> getByNomPrenom(String nom, String prenom) 
 	{
-		ArrayList<Client> listeRevue = new ArrayList<Client>();
+		List<Client> listeRevue = new ArrayList<Client>();
 
 		for (Client client : this.donnees) 
 		{
@@ -142,9 +143,9 @@ public class ListeMemoireClientDAO implements ClientDAO {
 	}
 
 	@Override
-	public ArrayList<Client> getByAdresse(String noRue, String voie, String codePostal) 
+	public List<Client> getByAdresse(String noRue, String voie, String codePostal) 
 	{
-		ArrayList<Client> listeRevue = new ArrayList<Client>();
+		List<Client> listeRevue = new ArrayList<Client>();
 
 		
 		

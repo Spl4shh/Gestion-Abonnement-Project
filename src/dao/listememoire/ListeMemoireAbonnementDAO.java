@@ -126,9 +126,9 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
     }
 
     @Override
-    public ArrayList<Abonnement> findAll()
+    public List<Abonnement> findAll()
     {
-        return (ArrayList<Abonnement>) this.donnees;
+        return this.donnees;
     }
 
     @Override

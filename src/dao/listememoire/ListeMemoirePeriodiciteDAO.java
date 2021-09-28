@@ -119,15 +119,15 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 	}
 
 	@Override
-	public ArrayList<Periodicite> findAll() 
+	public List<Periodicite> findAll() 
 	{
-		return (ArrayList<Periodicite>)instance.donnees;
+		return instance.donnees;
 	}
 
 	@Override
-	public ArrayList<Periodicite> getByLibelle(String libelle) 
+	public List<Periodicite> getByLibelle(String libelle) 
 	{
-		ArrayList<Periodicite> listePeriode = new ArrayList<Periodicite>();
+		List<Periodicite> listePeriode = new ArrayList<Periodicite>();
 
 		for (Periodicite periodicite : this.donnees) 
 		{

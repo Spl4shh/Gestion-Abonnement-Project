@@ -1,8 +1,11 @@
 package tests.MySQL;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +25,6 @@ public class MySqlRevueDAOTest
     {
         daof = DAOFactory.getDAOFactory(Persistance.MYSQL);
         revueDAO = daof.getRevueDAO();
-
     }
 
 
@@ -33,8 +35,51 @@ public class MySqlRevueDAOTest
 
         revueDAO.create(revue);
 
-        Revue revueRead = revueDAO.getByTitre("Code154329").get(0);
+        Revue revueRead = revueDAO.getByTitre(revue.getTitre()).get(0);
+
+        revue.setId(revueRead.getId());
 
         assertTrue(revue.equals(revueRead));
+
+        revueDAO.delete(revueRead);
+    }
+
+    @Test
+    public void testUpdate() throws SQLException
+    {
+        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
+
+        revueDAO.create(revue);
+
+        Revue revueUpdate = new Revue("Code154329", "Update", (float)10.1, "Visuel", 1);
+
+        revueDAO.update(revueUpdate);
+
+        Revue revueRead = revueDAO.getByTitre("Code154329").get(0);
+
+        revue.setId(revueRead.getId());
+
+        assertTrue(revue.equals(revueRead));
+
+        revueDAO.delete(revueRead);
+    }
+
+    @Test
+    public void testDelete() throws SQLException
+    {
+        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
+
+        revueDAO.create(revue);
+
+        Revue revueRead = revueDAO.getByTitre("Code154329").get(0);
+
+        revue.setId(revueRead.getId());
+
+        revueDAO.delete(revueRead);
+
+        List<Revue> liste = new ArrayList<>();
+        liste = revueDAO.getByTitre("Code154329");
+
+        assertEquals(0, liste.size());
     }
 }

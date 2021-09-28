@@ -119,15 +119,15 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	}
 
 	@Override
-	public ArrayList<Revue> findAll() 
+	public List<Revue> findAll() 
 	{
-		return (ArrayList<Revue>) this.donnees;
+		return this.donnees;
 	}
 
 	@Override
-	public ArrayList<Revue> getByTitre(String titre) 
+	public List<Revue> getByTitre(String titre) 
 	{
-		ArrayList<Revue> listeRevue = new ArrayList<Revue>();
+		List<Revue> listeRevue = new ArrayList<Revue>();
 
 		for (Revue revue : this.donnees) 
 		{
