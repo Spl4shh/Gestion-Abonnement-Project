@@ -107,10 +107,13 @@ public class MySqlClientDAO implements ClientDAO
 
         ResultSet res = requete.executeQuery();
 
+        Client client = new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8));
+
+
         if (laConnexion != null)
             laConnexion.close();
 
-        return new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8));
+        return client;
     }
 
     @Override
@@ -127,13 +130,13 @@ public class MySqlClientDAO implements ClientDAO
 
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
         }    
+
+        if (laConnexion != null)
+            laConnexion.close();
             
         return listeClient;
     }
@@ -153,13 +156,13 @@ public class MySqlClientDAO implements ClientDAO
 
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
-        }    
+        }
+
+        if (laConnexion != null)
+            laConnexion.close();
             
         return listeClient;
     }
@@ -175,14 +178,14 @@ public class MySqlClientDAO implements ClientDAO
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Client");
 
         ResultSet res = requete.executeQuery();
-
-        if (laConnexion != null)
-            laConnexion.close();
-
+        
         while (res.next()) 
         {
             listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
         }    
+
+        if (laConnexion != null)
+            laConnexion.close();
             
         return listeClient;
     }

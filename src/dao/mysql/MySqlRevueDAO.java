@@ -97,13 +97,14 @@ public class MySqlRevueDAO implements RevueDAO
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Revue WHERE id_revue = ?");
         requete.setInt(1, i);
 
-        
         ResultSet res = requete.executeQuery();
+
+        Revue revue = new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), res.getInt(6));
 
         if (laConnexion != null)
             laConnexion.close();
 
-        return new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), res.getInt(6));
+        return revue;
     }
 
     @Override

@@ -27,7 +27,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         return instance;
     }
 
-    private MySqlAbonnementDAO() {
+    private MySqlAbonnementDAO() 
+    {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
     }
@@ -101,10 +102,12 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         ResultSet res = requete.executeQuery();
 
+        Abonnement abonnement = new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5));
+
         if (laConnexion != null)
             laConnexion.close();
 
-        return new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5));
+        return abonnement;
     }
     
     @Override
@@ -121,13 +124,13 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
         }
+        
+        if (laConnexion != null)
+            laConnexion.close();
 
         return listeAbonnement;
     }
@@ -146,13 +149,13 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
         }
+
+        if (laConnexion != null)
+        laConnexion.close();
 
         return listeAbonnement;
     }
@@ -169,13 +172,13 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
         }
+
+        if (laConnexion != null)
+        laConnexion.close();
 
         return listeAbonnement;
     }

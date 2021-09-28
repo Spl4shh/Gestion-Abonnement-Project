@@ -96,10 +96,12 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
         
         ResultSet res = requete.executeQuery();
 
+        Periodicite periodicite = new Periodicite(res.getInt(1), res.getString(2));
+
         if (laConnexion != null)
             laConnexion.close();
 
-        return new Periodicite(res.getInt(1), res.getString(2));
+        return periodicite;
     }
 
     @Override
