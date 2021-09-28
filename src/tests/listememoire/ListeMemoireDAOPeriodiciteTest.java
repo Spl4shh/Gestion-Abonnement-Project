@@ -1,4 +1,4 @@
-package tests;
+package tests.listememoire;
 
 import static org.junit.Assert.assertEquals;
 

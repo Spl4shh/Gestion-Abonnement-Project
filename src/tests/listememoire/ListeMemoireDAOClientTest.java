@@ -1,4 +1,4 @@
-package tests;
+package tests.listememoire;
 
 import org.junit.Assert;
 import org.junit.Before;
