@@ -119,15 +119,15 @@ public class MySqlRevueDAO implements RevueDAO
         requete.setString(1, titre);
 
         ResultSet res = requete.executeQuery();
-
-        if (laConnexion != null)
-            laConnexion.close();
-
+        
         while (res.next()) 
         {
             listeRevue.add(new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), res.getInt(6)));
         }
 
+        if (laConnexion != null)
+            laConnexion.close();
+        
         return listeRevue;
     }
 
@@ -142,14 +142,14 @@ public class MySqlRevueDAO implements RevueDAO
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Revue");
         
         ResultSet res = requete.executeQuery();
-
-        if (laConnexion != null)
-            laConnexion.close();
-
+        
         while (res.next()) 
         {
             listeRevue.add(new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), res.getInt(6)));
         }
+
+        if (laConnexion != null)
+            laConnexion.close();
 
         return listeRevue;
     }
