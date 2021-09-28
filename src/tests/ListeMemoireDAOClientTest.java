@@ -45,11 +45,9 @@ public class ListeMemoireDAOClientTest
     {
         Client clientAVerif = new Client(3, "Name", "Surname", "8", "Ma rue", "Mon code poste", "Marange", "France");
 
-        Assert.assertTrue(clientDAO.create(clientAVerif));
+        clientDAO.create(clientAVerif);
 
         Client clientRead = clientDAO.getById(clientAVerif.getId());
-
-        assertEquals(clientAVerif, clientRead);
 
         Client clientUpdate = new Client(3, "New Name", "New Surname", "8897", "Ma rue nouvelle", "Mon nouveau code poste", "Marange", "France");
 
@@ -65,11 +63,7 @@ public class ListeMemoireDAOClientTest
     {
         Client clientAVerif = new Client(3, "Name", "Surname", "8", "Ma rue", "Mon code poste", "Marange", "France");
 
-        Assert.assertTrue(clientDAO.create(clientAVerif));
-
-        Client clientRead = clientDAO.getById(clientAVerif.getId());
-
-        assertEquals(clientAVerif, clientRead);
+        clientDAO.create(clientAVerif);
 
         clientDAO.delete(clientAVerif);
 

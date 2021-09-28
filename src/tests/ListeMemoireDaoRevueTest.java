@@ -45,11 +45,9 @@ public class ListeMemoireDAORevueTest
     {
         Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
 
-        Assert.assertTrue(revueDAO.create(revueAVerif));
+        revueDAO.create(revueAVerif);
 
         Revue revueRead = revueDAO.getById(revueAVerif.getId());
-
-        assertEquals(revueAVerif, revueRead);
 
         Revue revueUpdate = new Revue(3,"Update","Update", (float)0.1, "Update",2);
 
@@ -65,11 +63,7 @@ public class ListeMemoireDAORevueTest
     {
         Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
 
-        Assert.assertTrue(revueDAO.create(revueAVerif));
-
-        Revue revueRead = revueDAO.getById(revueAVerif.getId());
-
-        assertEquals(revueAVerif, revueRead);
+        revueDAO.create(revueAVerif);
 
         revueDAO.delete(revueAVerif);
 
