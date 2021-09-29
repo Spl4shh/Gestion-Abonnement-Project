@@ -1,5 +1,6 @@
-# Files presents because we works with IntelliJ IDEA
+# IDE Files
 .idea
+.vscode
 
 # Compiled class file
 *.class
@@ -27,5 +28,4 @@ hs_err_pid*
 
 # Useless
 *.iml
-.vscode
 out
