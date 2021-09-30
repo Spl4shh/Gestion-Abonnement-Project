@@ -17,7 +17,8 @@ public class MySqlRevueDAO implements RevueDAO
 
     public static RevueDAO getInstance() 
     {
-        if (instance == null) {
+        if (instance == null) 
+        {
             instance = new MySqlRevueDAO();
         }
         return instance;

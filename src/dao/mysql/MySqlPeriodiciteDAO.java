@@ -20,7 +20,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
 
     public static PeriodiciteDAO getInstance() 
     {
-        if (instance == null); 
+        if (instance == null) 
         {
             instance = new MySqlPeriodiciteDAO();
         }

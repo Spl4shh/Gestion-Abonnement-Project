@@ -119,13 +119,13 @@ public class Client
         Client client = (Client) object;
 
         if (this.id == client.id &&
-            this.nom == client.nom &&
-            this.prenom == client.prenom &&
-            this.noRue == client.noRue &&
-            this.voie == client.voie &&
-            this.codePostal == client.codePostal &&
-            this.ville == client.ville &&
-            this.pays == client.pays) 
+            this.nom.equals(client.nom) &&
+            this.prenom.equals(client.prenom) &&
+            this.noRue.equals(client.noRue) &&
+            this.voie.equals(client.voie) &&
+            this.codePostal.equals(client.codePostal) &&
+            this.ville.equals(client.ville) &&
+            this.pays.equals(client.pays)) 
         {
             return true;
         }

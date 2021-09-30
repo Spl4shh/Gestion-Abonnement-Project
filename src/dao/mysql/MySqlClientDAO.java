@@ -19,7 +19,7 @@ public class MySqlClientDAO implements ClientDAO
 
     public static ClientDAO getInstance() 
     {
-        if (instance == null); 
+        if (instance == null) 
         {
             instance = new MySqlClientDAO();
         }
@@ -38,7 +38,7 @@ public class MySqlClientDAO implements ClientDAO
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(nom, prenom, no_rue, voie, code_postal, ville, pays) Values (? ,? ,? ,? ,? ,? ,?)");
+        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Client(nom, prenom, no_rue, voie, code_postal, ville, pays) Values (? ,? ,? ,? ,? ,? ,?)");
         requete.setString(1, objet.getNom());
         requete.setString(2, objet.getPrenom());
         requete.setString(3, objet.getNoRue());
