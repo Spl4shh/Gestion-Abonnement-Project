@@ -59,7 +59,7 @@ public class MySqlClientDAOTest
 
         clientDAO.update(clientUpdate);
 
-        clientRead = clientDAO.getByNomPrenom(clientUpdate.getNom(), clientUpdate.getPrenom()).get(0);   
+        clientRead = clientDAO.getById(clientUpdate.getId());   
 
         assertTrue(clientUpdate.equals(clientRead));
 
