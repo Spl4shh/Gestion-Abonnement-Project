@@ -1,6 +1,5 @@
 package tests.listememoire;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,7 +34,7 @@ public class ListeMemoireDAOAbonnementTest
     {
         Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
 
-        Assert.assertTrue(abonnementDAO.create(abonnementAVerif));
+        abonnementDAO.create(abonnementAVerif);
 
         Abonnement abonnementRead = abonnementDAO.getById(abonnementAVerif.getId());
 

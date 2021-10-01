@@ -1,6 +1,5 @@
 package tests.listememoire;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +32,7 @@ public class ListeMemoireDAOClientTest
     {
         Client clientAVerif = new Client(3, "Name", "Surname", "8", "Ma rue", "Mon code poste", "Marange", "France");
 
-        Assert.assertTrue(clientDAO.create(clientAVerif));
+        clientDAO.create(clientAVerif);
 
         Client clientRead = clientDAO.getById(clientAVerif.getId());
 
