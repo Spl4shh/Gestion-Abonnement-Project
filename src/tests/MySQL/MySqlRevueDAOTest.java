@@ -51,19 +51,19 @@ public class MySqlRevueDAOTest
 
         revueDAO.create(revue);
 
-       /*  Revue revueUpdate = new Revue("Nouveau Code 3742", "nouvelle Description", (float)10.1, "Visuel", 1);
+        Revue revueUpdate = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
 
-       Revue revueRead = revueDAO.getByNomPrenom(revue.getNom(), revue.getPrenom()).get(0);
+        Revue revueRead = revueDAO.getByTitre(revue.getTitre()).get(0);
 
         revueUpdate.setId(revueRead.getId());
 
         revueDAO.update(revueUpdate);
 
-        revueRead = revueDAO.getByNomPrenom(revueUpdate.getNom(), revueUpdate.getPrenom()).get(0);   
+        revueRead = revueDAO.getById(revueUpdate.getId());   
 
         assertTrue(revueUpdate.equals(revueRead));
 
-        revueDAO.delete(revueRead);*/
+        revueDAO.delete(revueRead);
     }
 
     @Test

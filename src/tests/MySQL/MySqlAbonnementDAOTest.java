@@ -58,13 +58,16 @@ public class MySqlAbonnementDAOTest
         Abonnement abonnementUpdate = new Abonnement(LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                                                     LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
 
-        abonnementDAO.update(abonnementUpdate);
 
         Abonnement abonnementRead = abonnementDAO.getByDate(abonnement.getDateDebut(), abonnement.getDateFin()).get(0);
 
-        abonnement.setId(abonnementRead.getId());
+        abonnementUpdate.setId(abonnementRead.getId());
 
-        assertTrue(abonnement.equals(abonnementRead));
+        abonnementDAO.update(abonnementUpdate);
+
+        abonnementRead = abonnementDAO.getById(abonnementUpdate.getId());   
+
+        assertTrue(abonnementUpdate.equals(abonnementRead));
 
         abonnementDAO.delete(abonnementRead);
     }
