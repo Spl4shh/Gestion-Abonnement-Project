@@ -29,9 +29,6 @@ public class MySqlDAOFactoryTest
     {
         ClientDAO client1 = mySqlDAOFactory.getClientDAO();
         ClientDAO client2 = mySqlDAOFactory.getClientDAO();      
-        
-        System.out.println(client1);
-        System.out.println(client2);
 
         assertTrue(client1==client2);
     }
