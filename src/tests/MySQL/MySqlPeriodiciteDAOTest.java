@@ -1,8 +1,11 @@
 package tests.MySQL;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +31,7 @@ public class MySqlPeriodiciteDAOTest {
     public void testCreate() throws SQLException
     {
         // On crée une nouvelle periodicite a verifier 
-        Periodicite periodiciteAVerif = new Periodicite("Code15532478956");
+        Periodicite periodiciteAVerif = new Periodicite("Code1553");
 
         // On l'ajoute avec la dao
         periodiciteDAO.create(periodiciteAVerif);
@@ -74,6 +77,26 @@ public class MySqlPeriodiciteDAOTest {
 
         // Suppression à la fin
         periodiciteDAO.delete(periodiciteRead);
+    }
 
+    @Test
+    public void testDelete() throws SQLException
+    {
+        // Création d'1 periodicite
+        Periodicite periodiciteDelete = new Periodicite("Code155324");
+                
+        // Crée la périodicité dans la bdd
+        periodiciteDAO.create(periodiciteDelete);
+
+        Periodicite periodiciteRead = periodiciteDAO.getById(periodiciteDelete.getId());
+
+        periodiciteDelete.setId(periodiciteRead.getId());
+
+        periodiciteDAO.delete(periodiciteRead);
+
+        List<Periodicite> liste = new ArrayList<>();
+        liste = periodiciteDAO.getByLibelle("Code154329");
+
+        assertEquals(0, liste.size());
     }
 }

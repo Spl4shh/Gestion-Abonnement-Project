@@ -51,9 +51,9 @@ public class MySqlRevueDAOTest
 
         revueDAO.create(revue);
 
-        Revue revueUpdate = new Revue("Nouveau Code 3742", "nouvelle Description", (float)10.1, "Visuel", 1);
+       /*  Revue revueUpdate = new Revue("Nouveau Code 3742", "nouvelle Description", (float)10.1, "Visuel", 1);
 
- /*       Revue revueRead = revueDAO.getByNomPrenom(revue.getNom(), revue.getPrenom()).get(0);
+       Revue revueRead = revueDAO.getByNomPrenom(revue.getNom(), revue.getPrenom()).get(0);
 
         revueUpdate.setId(revueRead.getId());
 
