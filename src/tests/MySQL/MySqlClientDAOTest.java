@@ -53,13 +53,15 @@ public class MySqlClientDAOTest
 
         Client clientUpdate = new Client("nouveau Nom", "nouveau Prenom", "19", "ma nouvelle rue", "01234", "Ma nouvelle ville", "France");
 
-        clientDAO.update(clientUpdate);
-
         Client clientRead = clientDAO.getByNomPrenom(client.getNom(), client.getPrenom()).get(0);
 
-        client.setId(clientRead.getId());
+        clientUpdate.setId(clientRead.getId());
 
-        assertTrue(client.equals(clientRead));
+        clientDAO.update(clientUpdate);
+
+        clientRead = clientDAO.getByNomPrenom(clientUpdate.getNom(), clientUpdate.getPrenom()).get(0);   
+
+        assertTrue(clientUpdate.equals(clientRead));
 
         clientDAO.delete(clientRead);
     }
