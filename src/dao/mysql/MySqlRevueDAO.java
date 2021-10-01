@@ -100,6 +100,7 @@ public class MySqlRevueDAO implements RevueDAO
         requete.setInt(1, i);
 
         ResultSet res = requete.executeQuery();
+        res.next();
 
         Revue revue = new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), res.getInt(6));
 

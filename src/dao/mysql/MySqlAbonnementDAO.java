@@ -102,6 +102,8 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         requete.setInt(1, i);
 
         ResultSet res = requete.executeQuery();
+        
+        res.next();
 
         Abonnement abonnement = new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5));
 
