@@ -58,11 +58,7 @@ public class MySqlPeriodiciteDAOTest {
         periodiciteDAO.create(periodiciteAVerif);
 
         // Création Periodicite à update
-<<<<<<< Updated upstream
         Periodicite periodiciteUpdate = new Periodicite("NouveauCode123");
-=======
-        Periodicite periodiciteUpdate = new Periodicite("Nouveau657");
->>>>>>> Stashed changes
 
         // vérification (libelle est il identique)
         Periodicite periodiciteRead = periodiciteDAO.getByLibelle(periodiciteAVerif.getLibelle()).get(0);
@@ -70,7 +66,6 @@ public class MySqlPeriodiciteDAOTest {
         // Définit l'id de periodiciteUpdate <- id periodiciteRead
         periodiciteUpdate.setId(periodiciteRead.getId());
 
-        System.out.println(periodiciteUpdate.toString());
         // Periodicite dao prend pour valeur celles de periodicite update
         periodiciteDAO.update(periodiciteUpdate);
 
@@ -93,7 +88,7 @@ public class MySqlPeriodiciteDAOTest {
         // Crée la périodicité dans la bdd
         periodiciteDAO.create(periodiciteDelete);
 
-        Periodicite periodiciteRead = periodiciteDAO.getById(periodiciteDelete.getId());
+        Periodicite periodiciteRead = periodiciteDAO.getByLibelle(periodiciteDelete.getLibelle()).get(0);
 
         periodiciteDelete.setId(periodiciteRead.getId());
 

@@ -90,11 +90,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
         ResultSet res = requete.executeQuery();
 
         res.next();
-<<<<<<< Updated upstream
         
-=======
-
->>>>>>> Stashed changes
         Periodicite periodicite = new Periodicite(res.getInt(1), res.getString(2));
 
         if (laConnexion != null)
