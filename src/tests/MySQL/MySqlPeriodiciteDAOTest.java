@@ -27,15 +27,21 @@ public class MySqlPeriodiciteDAOTest {
     @Test
     public void testCreate() throws SQLException
     {
+        // On crée une nouvelle periodicite a verifier 
         Periodicite periodiciteAVerif = new Periodicite("Code15532478956");
+
+        // On l'ajoute avec la dao
         periodiciteDAO.create(periodiciteAVerif);
 
         Periodicite periodiciteRead = periodiciteDAO.getByLibelle(periodiciteAVerif.getLibelle()).get(0);
 
+        // periodiciteAVerif prends pour valeur l'id donné dans la base
         periodiciteAVerif.setId(periodiciteRead.getId());
 
+        // On vérifie si periodiciteAVerif == periodiciteRead
         assertTrue(periodiciteAVerif.equals(periodiciteRead));
 
+        // Suppression
         periodiciteDAO.delete(periodiciteRead);
     }
 
@@ -43,13 +49,13 @@ public class MySqlPeriodiciteDAOTest {
     public void testUpdate() throws SQLException
     {
         // Création d'1 periodicite
-        Periodicite periodiciteAVerif = new Periodicite("Code15532478956");
+        Periodicite periodiciteAVerif = new Periodicite("Code155324");
         
         // Crée la périodicité dans la bdd
         periodiciteDAO.create(periodiciteAVerif);
 
         // Création Periodicite à update
-        Periodicite periodiciteUpdate = new Periodicite("NouveauCode1234567890");
+        Periodicite periodiciteUpdate = new Periodicite("NouveauCode123");
 
         // vérification (libelle est il identique)
         Periodicite periodiciteRead = periodiciteDAO.getByLibelle(periodiciteAVerif.getLibelle()).get(0);
