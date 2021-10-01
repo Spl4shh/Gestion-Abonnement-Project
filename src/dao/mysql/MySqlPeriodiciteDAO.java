@@ -12,31 +12,25 @@ import connexion.Connexion;
 import dao.PeriodiciteDAO;
 import metier.Periodicite;
 
-public class MySqlPeriodiciteDAO implements PeriodiciteDAO
-{
+public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     private static MySqlPeriodiciteDAO instance;
     Connexion maBD;
     Connection laConnexion;
 
-    public static PeriodiciteDAO getInstance() 
-    {
-        if (instance == null) 
-        {
+    public static PeriodiciteDAO getInstance() {
+        if (instance == null) {
             instance = new MySqlPeriodiciteDAO();
         }
         return instance;
     }
 
-    private MySqlPeriodiciteDAO() 
-    {
+    private MySqlPeriodiciteDAO() {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
     }
 
-
     @Override
-    public boolean create(Periodicite objet) throws SQLException 
-    {
+    public boolean create(Periodicite objet) throws SQLException {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
 
@@ -52,15 +46,15 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     }
 
     @Override
-    public boolean update(Periodicite objet) throws SQLException 
-    {
+    public boolean update(Periodicite objet) throws SQLException {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
+        PreparedStatement requete = laConnexion
+                .prepareStatement("UPDATE Periodicite SET libelle = ? WHERE id_periodicite = ?");
         requete.setString(1, objet.getLibelle());
         requete.setInt(2, objet.getId());
-        
+
         int res = requete.executeUpdate();
 
         if (laConnexion != null)
@@ -70,14 +64,13 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     }
 
     @Override
-    public boolean delete(Periodicite objet) throws SQLException 
-    {
+    public boolean delete(Periodicite objet) throws SQLException {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
         requete.setInt(1, objet.getId());
-        
+
         int res = requete.executeUpdate();
 
         if (laConnexion != null)
@@ -87,14 +80,13 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
     }
 
     @Override
-    public Periodicite getById(int i) throws SQLException 
-    {
+    public Periodicite getById(int i) throws SQLException {
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite WHERE id_periodicite = ?");
         requete.setInt(1, i);
-        
+
         ResultSet res = requete.executeQuery();
 
         Periodicite periodicite = new Periodicite(res.getInt(1), res.getString(2));
@@ -118,36 +110,35 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO
         
         ResultSet res = requete.executeQuery();
 
-        if (laConnexion != null)
-            laConnexion.close();
-
         while (res.next()) 
         {
             listePeriodicite.add(new Periodicite(res.getInt(1), res.getString(2)));
         }
 
+        if (laConnexion != null) {
+            laConnexion.close();
+        }
+        
         return listePeriodicite;
     }
 
     @Override
-    public List<Periodicite> findAll() throws SQLException 
-    {
+    public List<Periodicite> findAll() throws SQLException {
         List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite");
-        
+
         ResultSet res = requete.executeQuery();
 
-        while (res.next()) 
-        {
+        while (res.next()) {
             listePeriodicite.add(new Periodicite(res.getInt(1), res.getString(2)));
         }
 
         if (laConnexion != null)
-        laConnexion.close();
+            laConnexion.close();
 
         return listePeriodicite;
     }
