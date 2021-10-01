@@ -5,7 +5,6 @@ import static org.junit.Assert.assertFalse;
 
 import java.sql.SQLException;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,11 +27,13 @@ public class ListeMemoireDAOPeriodiciteTest {
     @Test
     public void testCreate() throws SQLException
     {
-        Periodicite PeriodiciteAVerif = new Periodicite(3,"Mensuel");
-        Assert.assertTrue(daof.getPeriodiciteDAO().create(PeriodiciteAVerif));
+        Periodicite periodiciteAVerif = new Periodicite(3,"Mensuel");
 
-        Periodicite PeriodiciteRead = daof.getPeriodiciteDAO().getById(PeriodiciteAVerif.getId());
-        assertEquals(PeriodiciteAVerif, PeriodiciteRead);
+        periodiciteDAO.create(periodiciteAVerif);
+
+        Periodicite periodiciteRead = periodiciteDAO.getById(periodiciteAVerif.getId());
+
+        assertEquals(periodiciteAVerif, periodiciteRead);
     }
 
     @Test

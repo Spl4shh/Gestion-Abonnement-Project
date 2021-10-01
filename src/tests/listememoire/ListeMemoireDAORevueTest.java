@@ -1,6 +1,5 @@
 package tests.listememoire;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +10,7 @@ import metier.Revue;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 
@@ -33,7 +33,7 @@ public class ListeMemoireDAORevueTest
     {
         Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
 
-        Assert.assertTrue(revueDAO.create(revueAVerif));
+        assertTrue(revueDAO.create(revueAVerif));
 
         Revue revueRead = revueDAO.getById(revueAVerif.getId());
 
