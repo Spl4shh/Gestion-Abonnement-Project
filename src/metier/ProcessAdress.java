@@ -18,7 +18,28 @@ public class ProcessAdress {
     // Normalisation Voie
     public String normalizeVoie(String voie) 
     {
-        return (", " + voie.trim());
+        if (voie != null)
+        {
+            voie = voie.trim().toLowerCase();
+            
+            if (voie.equals("boul") || voie.equals("boul.") || voie.equals("bd")) 
+            {
+                voie = "boulevbard";
+            }
+            else if (voie.equals("av."))
+            {
+                voie = "avenue";
+            }
+            else if (voie.equals("faub.") || voie.equals("fg"))
+            {
+                voie = "faubourg";
+            }
+            else if(voie.equals("pl."))
+            {
+                voie = "place";
+            }
+        }
+        return (", " + voie);
     }
     
     private String normalizeVille(String ville) 
