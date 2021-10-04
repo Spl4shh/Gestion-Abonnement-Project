@@ -4,11 +4,14 @@ import com.mysql.cj.util.StringUtils;
 
 public class ProcessAdress 
 {
-    public Adresse normalizeAdresse(Adresse adresse)
+    public Adresse normalize(Adresse adresse)
     {
-        Adresse adresseNormalise;
-
-        normalizePays(adresse.getPays());
+        String noRueNormalize;
+        adresse.setVoie(normalizeVoie(adresse.getVoie()));
+        String codePostalNormalize;
+        adresse.setVille(normalizeVille(adresse.getVille()));
+        adresse.setPays(normalizePays(adresse.getPays()));
+        
     }
 
     public String normalizePays(String pays)
