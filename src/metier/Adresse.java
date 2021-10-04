@@ -5,6 +5,8 @@ public class Adresse {
 
     private String noRue, voie, codePostal, ville, pays;
 
+    
+
     public String getNoRue() 
     {
         return this.noRue;
