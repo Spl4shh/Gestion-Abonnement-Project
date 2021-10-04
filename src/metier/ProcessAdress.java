@@ -29,6 +29,7 @@ public class ProcessAdress
                 pays = "Suisse";
                 break;
         }
+        return pays;
     }
 
     public String normalizeVoie(String voie) 
