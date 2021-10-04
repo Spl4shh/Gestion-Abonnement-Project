@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.ClientDAO;
+import metier.Adresse;
 import metier.Client;
 
 public class ListeMemoireClientDAO implements ClientDAO {
@@ -26,8 +27,8 @@ public class ListeMemoireClientDAO implements ClientDAO {
 
 		this.donnees = new ArrayList<Client>();
 
-		this.donnees.add(new Client(1, "Robert", "Jean Jésus", "4", "rue du frêne", "58000", "Ville Perdue", "ImagiNation"));
-		this.donnees.add(new Client(2, "Damien", "Kevin", "10", "Rue de la foret", "55555", "Ville de la mer", "Nation inconnues"));
+		this.donnees.add(new Client(1, "Robert", "Jean Jésus", new Adresse("4", "rue du frêne", "58000", "Ville Perdue", "ImagiNation")));
+		this.donnees.add(new Client(2, "Damien", "Kevin", new Adresse("10", "Rue de la foret", "55555", "Ville de la mer", "Nation inconnues")));
 	}
 
 
@@ -151,7 +152,7 @@ public class ListeMemoireClientDAO implements ClientDAO {
 		
 		for (Client client : this.donnees) 
 		{
-			if (client.getNoRue().equals(noRue) && client.getVoie().equals(voie) && client.getCodePostal().equals(codePostal)) 
+			if (client.getAdresse().getNoRue().equals(noRue) && client.getAdresse().getVoie().equals(voie) && client.getAdresse().getCodePostal().equals(codePostal)) 
 			{
 				listeRevue.add(this.donnees.get(this.donnees.indexOf(client)));
 			}

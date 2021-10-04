@@ -2,7 +2,6 @@ package metier;
 
 import java.util.Arrays;
 
-//import com.mysql.cj.util.StringUtils;
 
 public class ProcessAdress {
     // Normalisation Adresse
@@ -29,22 +28,30 @@ public class ProcessAdress {
             ville = ville.trim();
             if (ville.contains(" sous ")) 
             {
-                
+                ville.replace(" sous ", "-sous-");
             }
-            else if(ville.contains(" lès ") || ville.contains(" sur ") || ville.contains(" aux "))
+            else if(ville.contains(" lès "))
             {
-
+                ville.replace(" lès ", "-lès-");
+            }
+            else if (ville.contains(" sur ")) 
+            {
+                ville.replace(" sur ", "-sur-");
+            }
+            else if (ville.contains(" aux ")) 
+            {
+                ville.replace(" aux ", "-aux-");
             }
             else if (ville.contains(" le ")) 
             {
-                
+                ville.replace(" le ", "-le-");
             }
             else if(ville.contains(" à "))
             {
-
+                ville.replace(" à ", "-à-");
             }
         }
-        return null;
+        return ville;
     }
 
     // Normalisation du Pays

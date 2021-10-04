@@ -6,6 +6,7 @@ import org.junit.Test;
 import dao.ClientDAO;
 import dao.DAOFactory;
 import dao.Persistance;
+import metier.Adresse;
 import metier.Client;
 
 import static org.junit.Assert.assertEquals;
@@ -30,7 +31,7 @@ public class ListeMemoireDAOClientTest
     @Test
     public void testCreate() throws SQLException
     {
-        Client clientAVerif = new Client(3, "Name", "Surname", "8", "Ma rue", "Mon code poste", "Marange", "France");
+        Client clientAVerif = new Client(3, "Name", "Surname", new Adresse("8", "Ma rue", "Mon code poste", "Marange", "France"));
 
         clientDAO.create(clientAVerif);
 
@@ -42,13 +43,13 @@ public class ListeMemoireDAOClientTest
     @Test
     public void testUpdate() throws SQLException
     {
-        Client clientAVerif = new Client(3, "Name", "Surname", "8", "Ma rue", "Mon code poste", "Marange", "France");
+        Client clientAVerif = new Client(3, "Name", "Surname",  new Adresse("8", "Ma rue", "Mon code poste", "Marange", "France"));
 
         clientDAO.create(clientAVerif);
 
         Client clientRead = clientDAO.getById(clientAVerif.getId());
 
-        Client clientUpdate = new Client(3, "New Name", "New Surname", "8897", "Ma rue nouvelle", "Mon nouveau code poste", "Marange", "France");
+        Client clientUpdate = new Client(3, "New Name", "New Surname",  new Adresse("8897", "Ma rue nouvelle", "Mon nouveau code poste", "Marange", "France"));
 
         clientDAO.update(clientUpdate);
 
@@ -60,7 +61,7 @@ public class ListeMemoireDAOClientTest
     @Test
     public void testDelete() throws SQLException
     {
-        Client clientAVerif = new Client(3, "Name", "Surname", "8", "Ma rue", "Mon code poste", "Marange", "France");
+        Client clientAVerif = new Client(3, "Name", "Surname",  new Adresse("8", "Ma rue", "Mon code poste", "Marange", "France"));
 
         clientDAO.create(clientAVerif);
 

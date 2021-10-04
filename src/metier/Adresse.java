@@ -65,4 +65,27 @@ public class Adresse {
     {
         this.pays = pays;
     }
+
+    @Override
+    public boolean equals(Object object)
+    {
+        Adresse adresse = (Adresse) object;
+
+        if (this.getCodePostal().equals(adresse.getCodePostal()) && 
+            this.getNoRue().equals(adresse.getNoRue()) && 
+            this.getPays().equals(adresse.getPays()) && 
+            this.getVille().equals(adresse.getVille())) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public String toString()
+    {
+        return (this.getNoRue() + " " + this.getVoie() + " " + this.getVille() + " " + this.getCodePostal() + " " + this.getPays()); 
+    }
 }

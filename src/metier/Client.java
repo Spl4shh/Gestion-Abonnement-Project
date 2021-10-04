@@ -55,6 +55,17 @@ public class Client
     {
         this.nom = nom;
     }
+    
+    public Adresse getAdresse() 
+    {
+        return this.adresse;
+    }
+
+    public void setAdresse(Adresse adresse) 
+    {
+        this.adresse = adresse;
+    }
+
 
     @Override
     public boolean equals(Object object)

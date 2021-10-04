@@ -13,6 +13,7 @@ import org.junit.Test;
 import dao.ClientDAO;
 import dao.DAOFactory;
 import dao.Persistance;
+import metier.Adresse;
 import metier.Client;
 
 public class MySqlClientDAOTest 
@@ -31,7 +32,7 @@ public class MySqlClientDAOTest
     @Test
     public void testCreate() throws SQLException
     {
-        Client client = new Client("Nom", "Prenom", "1", "ma rue", "01234", "Ma ville", "France");
+        Client client = new Client("Nom", "Prenom", new Adresse("1", "ma rue", "01234", "Ma ville", "France"));
 
         clientDAO.create(client);
 
@@ -47,11 +48,11 @@ public class MySqlClientDAOTest
     @Test
     public void testUpdate() throws SQLException
     {
-        Client client = new Client("Nom", "Prenom", "1", "ma rue", "01234", "Ma ville", "France");
+        Client client = new Client("Nom", "Prenom", new Adresse("1", "ma rue", "01234", "Ma ville", "France"));
 
         clientDAO.create(client);
 
-        Client clientUpdate = new Client("nouveau Nom", "nouveau Prenom", "19", "ma nouvelle rue", "01234", "Ma nouvelle ville", "France");
+        Client clientUpdate = new Client("nouveau Nom", "nouveau Prenom", new Adresse("19", "ma nouvelle rue", "01234", "Ma nouvelle ville", "France"));
 
         Client clientRead = clientDAO.getByNomPrenom(client.getNom(), client.getPrenom()).get(0);
 
@@ -69,7 +70,7 @@ public class MySqlClientDAOTest
     @Test
     public void testDelete() throws SQLException
     {
-        Client client = new Client("Code4589652", "Prenom", "1", "ma rue", "12548", "Ma ville", "France");
+        Client client = new Client("Code4589652", "Prenom", new Adresse("1", "ma rue", "12548", "Ma ville", "France"));
 
         clientDAO.create(client);
 

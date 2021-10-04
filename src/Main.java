@@ -12,6 +12,7 @@ import dao.PeriodiciteDAO;
 import dao.Persistance;
 import dao.RevueDAO;
 import metier.Abonnement;
+import metier.Adresse;
 import metier.Client;
 import metier.Periodicite;
 import metier.Revue;
@@ -92,7 +93,7 @@ public class Main
                                     String ville = sc.nextLine();
                                     System.out.println("Indiquer le nom du Pays");
                                     String pays = sc.nextLine();
-                                    daoClient.create(new Client(nom, prenom, noRue, voie, codePostal, ville, pays));
+                                    daoClient.create(new Client(nom, prenom, new Adresse(noRue, voie, codePostal, ville, pays)));
                                     break;
                                 }
                                 case 2 :
@@ -122,7 +123,7 @@ public class Main
                                     String ville = sc.nextLine();
                                     System.out.println("Indiquer le nom du Pays");
                                     String pays = sc.nextLine();
-                                    daoClient.update(new Client(id, nom, prenom, noRue, voie, codePostal, ville, pays));
+                                    daoClient.update(new Client(id, nom, prenom, new Adresse(noRue, voie, codePostal, ville, pays)));
                                     break;
                                 }
                                 case 4 :

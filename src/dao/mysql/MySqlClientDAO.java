@@ -9,6 +9,7 @@ import java.util.List;
 
 import connexion.Connexion;
 import dao.ClientDAO;
+import metier.Adresse;
 import metier.Client;
 
 public class MySqlClientDAO implements ClientDAO
@@ -41,11 +42,11 @@ public class MySqlClientDAO implements ClientDAO
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Client(nom, prenom, no_rue, voie, code_postal, ville, pays) Values (? ,? ,? ,? ,? ,? ,?)");
         requete.setString(1, objet.getNom());
         requete.setString(2, objet.getPrenom());
-        requete.setString(3, objet.getNoRue());
-        requete.setString(4, objet.getVoie());
-        requete.setString(5, objet.getCodePostal());
-        requete.setString(6, objet.getVille());
-        requete.setString(7, objet.getPays());
+        requete.setString(3, objet.getAdresse().getNoRue());
+        requete.setString(4, objet.getAdresse().getVoie());
+        requete.setString(5, objet.getAdresse().getCodePostal());
+        requete.setString(6, objet.getAdresse().getVille());
+        requete.setString(7, objet.getAdresse().getPays());
 
         int res = requete.executeUpdate();
 
@@ -65,11 +66,11 @@ public class MySqlClientDAO implements ClientDAO
                     ", voie = ?, code_postal = ?, ville = ?, pays = ? WHERE id_client =  ?");
         requete.setString(1, objet.getNom());
         requete.setString(2, objet.getPrenom());
-        requete.setString(3, objet.getNoRue());
-        requete.setString(4, objet.getVoie());
-        requete.setString(5, objet.getCodePostal());
-        requete.setString(6, objet.getVille());
-        requete.setString(7, objet.getPays());
+        requete.setString(3, objet.getAdresse().getNoRue());
+        requete.setString(4, objet.getAdresse().getVoie());
+        requete.setString(5, objet.getAdresse().getCodePostal());
+        requete.setString(6, objet.getAdresse().getVille());
+        requete.setString(7, objet.getAdresse().getPays());
         requete.setInt(8, objet.getId());
 
         int res = requete.executeUpdate();
@@ -109,7 +110,7 @@ public class MySqlClientDAO implements ClientDAO
         ResultSet res = requete.executeQuery();
         res.next();
 
-        Client client = new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8));
+        Client client = new Client(res.getInt(1), res.getString(2), res.getString(3), new Adresse(res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
 
 
         if (laConnexion != null)
@@ -134,7 +135,7 @@ public class MySqlClientDAO implements ClientDAO
 
         while (res.next()) 
         {
-            listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
+            listeClient.add(new Client(res.getInt(1), res.getString(2),res.getString(3), new Adresse(res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8))));
         }    
 
         if (laConnexion != null)
@@ -160,7 +161,7 @@ public class MySqlClientDAO implements ClientDAO
 
         while (res.next()) 
         {
-            listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
+            listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), new Adresse(res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8))));
         }
 
         if (laConnexion != null)
@@ -183,7 +184,7 @@ public class MySqlClientDAO implements ClientDAO
         
         while (res.next()) 
         {
-            listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8)));
+            listeClient.add(new Client(res.getInt(1), res.getString(2), res.getString(3), new Adresse(res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8))));
         }    
 
         if (laConnexion != null)
