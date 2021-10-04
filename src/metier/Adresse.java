@@ -1,7 +1,9 @@
 package metier;
 
 public class Adresse {
-    // Setters / getters
+
+
+    // Setters & getters
 
     private String noRue, voie, codePostal, ville, pays;
 
