@@ -11,7 +11,7 @@ public class ProcessAdress
         normalizePays(adresse.getPays());
     }
 
-    public String normalizePays(String pays) 
+    public String normalizePays(String pays)
     {
         String paysMinus = pays.toLowerCase();
 
@@ -28,5 +28,11 @@ public class ProcessAdress
                 pays = "Suisse";
                 break;
         }
+
+    }
+
+    public String normalizeVoie(String voie) 
+    {
+        return (", " + voie);
     }
 }
