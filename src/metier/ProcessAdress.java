@@ -15,7 +15,8 @@ public class ProcessAdress
     {
         String paysMinus = pays.toLowerCase();
 
-        switch (paysMinus) {
+        switch (paysMinus) 
+        {
             case "letzebuerg":
                 pays = "Luxembourg";
                 break;
@@ -24,11 +25,12 @@ public class ProcessAdress
                 pays = "Belgique";
                 break;
 
-            case "Switzerland", "Schweiz":
+            case "switzerland", "schweiz":
                 pays = "Suisse";
                 break;
         }
 
+        return pays;
     }
 
     public String normalizeVoie(String voie) 
