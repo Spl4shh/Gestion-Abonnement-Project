@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.Arrays;
+
 //import com.mysql.cj.util.StringUtils;
 
 public class ProcessAdress {
@@ -72,12 +74,23 @@ public class ProcessAdress {
     public String normalizeCode(String codePostal) {
         if (codePostal != null) {
             codePostal = codePostal.trim();
-            if (isNumeric(codePostal) == true) //
+            if (isNumeric(codePostal) == true) //Si le code postal est un "int"
             {
-                for (int i = 5; codePostal.length() < i; i--) 
+                for (int i = 5; codePostal.length() < i; i--) //Dead code idk why, java 16 peut-être
                 {
-                    return ("0" + codePostal); //Si i < 5 (nombre max) alors on ajoute un 0
+                    codePostal = ("0" + codePostal); 
+                    //Si i < 5 (nombre max) alors on ajoute un 0
                 }
+            } 
+            else 
+            {
+                String[] chaineCodePostal = codePostal.split("L-", -2);
+                /* On split le code postal, lorsque l'on rencontre "L-"
+                * La limite est -2 :
+                * Limit < 0 – In this case, the pattern will be applied as many times as possible, and the resulting array can be of any size.
+                */
+                codePostal = Arrays.toString(chaineCodePostal);
+                // On retourne le code postal (sans le L-) hehe
             }
         }
         return codePostal;
