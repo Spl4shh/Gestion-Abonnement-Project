@@ -33,7 +33,6 @@ public class ProcessAdress
                 pays = "Suisse";
                 break;
         }
-
         return pays;
     }
 
