@@ -1,6 +1,6 @@
 package metier;
 
-import com.mysql.cj.util.StringUtils;
+//import com.mysql.cj.util.StringUtils;
 
 public class ProcessAdress {
     // Normalisation Adresse
@@ -10,7 +10,7 @@ public class ProcessAdress {
         adresse.setCodePostal(normalizeCode(adresse.getCodePostal()));
         adresse.setVille(normalizeVille(adresse.getVille()));
         adresse.setPays(normalizePays(adresse.getPays()));
-        
+        return adresse;
     }
 
     
@@ -68,17 +68,16 @@ public class ProcessAdress {
         return pays;
     }
 
-    // Normalisation Voie
-    public String normalizeVoie(String voie) {
-        return (", " + voie);
-    }
-
     // Normalisation Code Postal
     public String normalizeCode(String codePostal) {
         if (codePostal != null) {
             codePostal = codePostal.trim();
-            if (isNumeric(codePostal) == true) {
-                
+            if (isNumeric(codePostal) == true) //
+            {
+                for (int i = 5; codePostal.length() < i; i--) 
+                {
+                    return ("0" + codePostal); //Si i < 5 (nombre max) alors on ajoute un 0
+                }
             }
         }
         return codePostal;
