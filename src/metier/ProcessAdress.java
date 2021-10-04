@@ -9,6 +9,11 @@ public class ProcessAdress
         normalizePays(adresse.getPays());
     }
 
+    public String normalizePays(String pays)
+    {
+
+    }
+
     public String normalizeVoie(String voie) 
     {
         return (", " + voie);
