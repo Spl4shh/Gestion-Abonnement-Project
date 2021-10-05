@@ -112,12 +112,12 @@ public class ProcessAdress {
             } 
             else 
             {
-                String[] chaineCodePostal = codePostal.split("L-", -2);
+                String[] chaineCodePostal = codePostal.split("-", -2);
                 /* On split le code postal, lorsque l'on rencontre "L-"
                 * La limite est -2 :
                 * Limit < 0 – In this case, the pattern will be applied as many times as possible, and the resulting array can be of any size.
                 */
-                codePostal = Arrays.toString(chaineCodePostal);
+                codePostal = chaineCodePostal[1];
                 // On retourne le code postal (sans le L-) hehe
             }
         }
