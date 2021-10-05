@@ -1,8 +1,5 @@
 package metier;
 
-import java.util.Arrays;
-
-
 public class ProcessAdress {
     // Normalisation Adresse
     public Adresse normalize(Adresse adresse)
@@ -18,9 +15,10 @@ public class ProcessAdress {
     // Normalisation Voie
     public String normalizeVoie(String voie) 
     {
+        voie = voie.trim();
         if (voie != null)
         {
-            voie = voie.trim().toLowerCase();
+            voie = voie.toLowerCase();
             
             if (voie.equals("boul") || voie.equals("boul.") || voie.equals("bd")) 
             {
@@ -42,34 +40,44 @@ public class ProcessAdress {
         return (", " + voie);
     }
     
+    // Normalisation Ville
     private String normalizeVille(String ville) 
     {
+        ville = ville.trim();
+
         if(ville != null)
         {
-            ville = ville.trim();
             if (ville.contains(" sous ")) 
             {
                 ville.replace(" sous ", "-sous-");
             }
-            else if(ville.contains(" lès "))
+            if(ville.contains(" lès "))
             {
                 ville.replace(" lès ", "-lès-");
             }
-            else if (ville.contains(" sur ")) 
+            if (ville.contains(" sur ")) 
             {
                 ville.replace(" sur ", "-sur-");
             }
-            else if (ville.contains(" aux ")) 
+            if (ville.contains(" aux ")) 
             {
                 ville.replace(" aux ", "-aux-");
             }
-            else if (ville.contains(" le ")) 
+            if (ville.contains(" le ")) 
             {
                 ville.replace(" le ", "-le-");
             }
-            else if(ville.contains(" à "))
+            if(ville.contains(" à "))
             {
                 ville.replace(" à ", "-à-");
+            }
+            if (ville.contains("St ")) 
+            {
+                ville.replace("St ", "Saint-");
+            }
+            if (ville.contains("Ste ")) 
+            {
+                ville.replace("Ste ", "Sainte-");  
             }
         }
         return ville;
@@ -78,10 +86,14 @@ public class ProcessAdress {
     // Normalisation du Pays
     public String normalizePays(String pays)
     {
+        pays = pays.trim();
+
         if (pays != null) 
         { // Si la chaine pays n'est pas vide
-            String paysMinus = pays.trim().toLowerCase(); // Chaine pays nettoyée et en minuscules
-            switch (paysMinus) {
+            String paysMinus = pays.toLowerCase(); // Chaine pays nettoyée et en minuscules
+
+            switch (paysMinus) 
+            {
                 case "letzebuerg":
                     pays = "Luxembourg";
                     break;
@@ -98,10 +110,47 @@ public class ProcessAdress {
         return pays;
     }
 
+    public String normalizeCode2(String codePostal) 
+    {
+        codePostal = codePostal.trim();
+
+        if (codePostal != null) 
+        {
+            boolean lettrePresente = false;
+            do 
+            {
+                if (lettrePresente) 
+                {
+                    codePostal = codePostal.substring(1);
+                }
+
+                try 
+                {
+                    Integer.parseInt(codePostal);
+                    
+                    lettrePresente = false;
+                } catch (IllegalArgumentException e) 
+                {
+                    lettrePresente = true;
+                }
+            } while (lettrePresente);
+            
+            if (codePostal.length() < 5) 
+            {
+                codePostal = "0" + codePostal;
+            }
+        }
+
+        return codePostal;
+    }
+
+
     // Normalisation Code Postal
-    public String normalizeCode(String codePostal) {
-        if (codePostal != null) {
-            codePostal = codePostal.trim();
+    public String normalizeCode(String codePostal) 
+    {
+        codePostal = codePostal.trim();
+        if (codePostal != null) 
+        {
             if (isNumeric(codePostal) == true) //Si le code postal est un "int"
             {
                 for (int i = 5; codePostal.length() < i; i--) //Dead code idk why, java 16 peut-être
