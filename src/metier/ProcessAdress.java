@@ -112,30 +112,40 @@ public class ProcessAdress {
 
     public String normalizeCode2(String codePostal) 
     {
+
+        //Le trim doit se faire avant (dans le cas ou la chaine est un espace)
         codePostal = codePostal.trim();
 
         if (codePostal != null) 
         {
-            boolean lettrePresente = false;
+            boolean lettrePresente = false;  //Le boolean sert juste a signifier si il y a une lettre ou pas
             do 
             {
-                if (lettrePresente) 
+                if (lettrePresente)         //Dans le cas ou on a deja fais 1 passage
                 {
-                    codePostal = codePostal.substring(1);
+                    codePostal = codePostal.substring(1);       //on retire le premier element et on recomment
                 }
 
                 try 
                 {
-                    Integer.parseInt(codePostal);
+                    int nombre = Integer.parseInt(codePostal);
                     
-                    lettrePresente = false;
-                } catch (IllegalArgumentException e) 
+                    if (nombre > 0)         // Dans le cas ou il reste plus que le -
+                    {
+                        lettrePresente = true;
+                    }
+                    else
+                    {
+                        lettrePresente = false;
+                    }
+                } 
+                catch (IllegalArgumentException e) 
                 {
                     lettrePresente = true;
                 }
-            } while (lettrePresente);
+            } while (lettrePresente);     //tant que il y a des lettres on repete l'operation
             
-            if (codePostal.length() < 5) 
+            if (codePostal.length() < 5)    // S'il n'y a que 4 chiffre on en rajoute
             {
                 codePostal = "0" + codePostal;
             }
