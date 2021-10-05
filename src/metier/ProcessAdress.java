@@ -24,7 +24,7 @@ public class ProcessAdress {
             
             if (voie.equals("boul") || voie.equals("boul.") || voie.equals("bd")) 
             {
-                voie = "boulevbard";
+                voie = "boulevard";
             }
             else if (voie.equals("av."))
             {
