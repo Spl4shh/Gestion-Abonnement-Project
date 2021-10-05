@@ -35,99 +35,137 @@ public class ProcessAdress {
             {
                 voie = "place";
             }
+            return (", " + voie);
         }
-        return (", " + voie);
+        else
+        {
+            return null;
+        }
     }
     
     // Normalisation Ville
-    private static String normalizeVille(String ville) 
+    public static String normalizeVille(String ville) 
     {
-        if(ville != null)
+        if(ville != null && ville != "")
         {
-            ville = ville.trim();
+            ville = ville.trim().toLowerCase();             // Formattage en tout minuscule
 
-            String[] tableauMot = ville.split(" ");
+            String[] tableauMot = ville.split(" ");         // Separation dans un tableau
 
-            if (tableauMot.length > 1) 
+            String nouveauVille = "";
+
+            for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
+            {                                           // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
+                if (string.equals("sous")) 
+                {
+                    string = "-sous-";
+                }
+                else if(string.equals("lès"))
+                {
+                    string = "-lès-";
+                }
+                else if (string.equals("sur")) 
+                {
+                    string = "-sur-";
+                }
+                else if (string.equals("aux")) 
+                {
+                    string = "-aux-";
+                }
+                else if (string.equals("le")) 
+                {
+                    string = "-le-";
+                }
+                else if(string.equals("à"))
+                {
+                    string = "-à-";
+                }
+                else if (string.equals("st")) 
+                {
+                    string = "Saint-";
+                }
+                else if (string.equals("ste")) 
+                {
+                    string = "Sainte-";  
+                }
+                else                      // Si pas de mot a remplacer, alors on suppose que c'est un nom de ville et pas un pronom
+                {
+                    string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
+                                            // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
+                    if (nouveauVille != "" && nouveauVille.charAt(nouveauVille.length()-1) != '-') 
+                    {
+                        string = " " + string;
+                    }
+                }
+                nouveauVille = nouveauVille + string;
+            }
+            ville = nouveauVille.trim();
+        }             
+        return ville;
+    }
+
+    public static String normalizeVille2(String ville) //Juste pour des questions d'optimisation peut etre ?
+    {
+        if(ville != null && ville != "")
+        {
+            ville = ville.trim().toLowerCase();             // Formattage en tout minuscule
+
+            String[] tableauMot = ville.split(" ");         // Separation dans un tableau
+
+            if (tableauMot.length > 1)                      // Si au moins 2 mots
             { 
                 String nouveauVille = "";
 
                 for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
                 {
-                    if (string.equals(" sous ")) 
+                    if (string.equals("sous")) 
                     {
                         string = "-sous-";
                     }
-                    else if(string.equals(" lès "))
+                    else if(string.equals("lès"))
                     {
-                        string.replace(" lès ", "-lès-");
+                        string = "-lès-";
                     }
-                    else if (string.equals(" sur ")) 
+                    else if (string.equals("sur")) 
                     {
-                        string.replace(" sur ", "-sur-");
+                        string = "-sur-";
                     }
-                    else if (string.equals(" aux ")) 
+                    else if (string.equals("aux")) 
                     {
-                        string.replace(" aux ", "-aux-");
+                        string = "-aux-";
                     }
-                    else if (string.equals(" le ")) 
+                    else if (string.equals("le")) 
                     {
-                        string.replace(" le ", "-le-");
+                        string = "-le-";
                     }
-                    else if(string.equals(" à "))
+                    else if(string.equals("à"))
                     {
-                        string.replace(" à ", "-à-");
+                        string = "-à-";
                     }
-                    else if (string.equals("St ")) 
+                    else if (string.equals("st")) 
                     {
-                        string.replace("St ", "Saint-");
+                        string = "Saint-";
                     }
-                    else if (string.equals("Ste ")) 
+                    else if (string.equals("ste")) 
                     {
-                        string.replace("Ste ", "Sainte-");  
+                        string = "Sainte-";  
                     }
-                    else 
+                    else                      // Si pas de mot a remplacer, alors on suppose que c'est un nom de ville et pas un pronom
                     {
-                        string = String.valueOf(string.charAt(0)).toUpperCase();
+                        string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
+                                                // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
+                        if (nouveauVille != "" && nouveauVille.charAt(nouveauVille.length()-1) != '-') 
+                        {
+                            string = " " + string;
+                        }
                     }
-
-                    nouveauVille += string;
+                    nouveauVille = nouveauVille + string;
                 }
-                ville = nouveauVille;
+                ville = nouveauVille.trim();
             }
-            
-        }
-    //Ajout de la majuscule au debut quoi qu'il arrive 
-
-        ville = String.valueOf(ville.charAt(0)).toUpperCase() + ville.substring(1) ;    
+            ville = String.valueOf(ville.charAt(0)).toUpperCase() + ville.substring(1); 
+        }            //utile si l'on veux reduire les test dans le cas d'un nom avec 1 seul mot, possible de virer le if tab.length > 1 
         return ville;
-    }
-
-    public static String normalizeVille2(String ville) 
-    {
-        if(ville != null)
-        {
-            ville = ville.trim();
-
-            if (ville.contains(" le ")) 
-            {
-                ville.replace(" le ", "-le-");
-            }
-            if(ville.contains(" à "))
-            {
-                ville.replace(" à ", "-à-");
-            }
-            if (ville.contains("St ")) 
-            {
-                ville.replace("St ", "Saint-");
-            }
-            if (ville.contains("Ste ")) 
-            {
-                ville.replace("Ste ", "Sainte-");  
-            }
-        }
-        ville = String.valueOf(ville.charAt(0)).toUpperCase() + ville.substring(1) ;    
-        return ville;   
     }
 
     // Normalisation du Pays
