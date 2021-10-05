@@ -13,12 +13,11 @@ public class ProcessAdress {
 
     
     // Normalisation Voie
-    public String normalizeVoie(String voie) 
+    public static String normalizeVoie(String voie) 
     {
-        voie = voie.trim();
         if (voie != null)
         {
-            voie = voie.toLowerCase();
+            voie = voie.trim().toLowerCase();
             
             if (voie.equals("boul") || voie.equals("boul.") || voie.equals("bd")) 
             {
@@ -41,28 +40,75 @@ public class ProcessAdress {
     }
     
     // Normalisation Ville
-    private String normalizeVille(String ville) 
+    private static String normalizeVille(String ville) 
     {
-        ville = ville.trim();
-
         if(ville != null)
         {
-            if (ville.contains(" sous ")) 
-            {
-                ville.replace(" sous ", "-sous-");
+            ville = ville.trim();
+
+            String[] tableauMot = ville.split(" ");
+
+            if (tableauMot.length > 1) 
+            { 
+                String nouveauVille = "";
+
+                for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
+                {
+                    if (string.equals(" sous ")) 
+                    {
+                        string = "-sous-";
+                    }
+                    else if(string.equals(" lès "))
+                    {
+                        string.replace(" lès ", "-lès-");
+                    }
+                    else if (string.equals(" sur ")) 
+                    {
+                        string.replace(" sur ", "-sur-");
+                    }
+                    else if (string.equals(" aux ")) 
+                    {
+                        string.replace(" aux ", "-aux-");
+                    }
+                    else if (string.equals(" le ")) 
+                    {
+                        string.replace(" le ", "-le-");
+                    }
+                    else if(string.equals(" à "))
+                    {
+                        string.replace(" à ", "-à-");
+                    }
+                    else if (string.equals("St ")) 
+                    {
+                        string.replace("St ", "Saint-");
+                    }
+                    else if (string.equals("Ste ")) 
+                    {
+                        string.replace("Ste ", "Sainte-");  
+                    }
+                    else 
+                    {
+                        string = String.valueOf(string.charAt(0)).toUpperCase();
+                    }
+
+                    nouveauVille += string;
+                }
+                ville = nouveauVille;
             }
-            if(ville.contains(" lès "))
-            {
-                ville.replace(" lès ", "-lès-");
-            }
-            if (ville.contains(" sur ")) 
-            {
-                ville.replace(" sur ", "-sur-");
-            }
-            if (ville.contains(" aux ")) 
-            {
-                ville.replace(" aux ", "-aux-");
-            }
+            
+        }
+    //Ajout de la majuscule au debut quoi qu'il arrive 
+
+        ville = String.valueOf(ville.charAt(0)).toUpperCase() + ville.substring(1) ;    
+        return ville;
+    }
+
+    public static String normalizeVille2(String ville) 
+    {
+        if(ville != null)
+        {
+            ville = ville.trim();
+
             if (ville.contains(" le ")) 
             {
                 ville.replace(" le ", "-le-");
@@ -80,11 +126,12 @@ public class ProcessAdress {
                 ville.replace("Ste ", "Sainte-");  
             }
         }
-        return ville;
+        ville = String.valueOf(ville.charAt(0)).toUpperCase() + ville.substring(1) ;    
+        return ville;   
     }
 
     // Normalisation du Pays
-    public String normalizePays(String pays)
+    public static String normalizePays(String pays)
     {
         pays = pays.trim();
 
@@ -110,7 +157,9 @@ public class ProcessAdress {
         return pays;
     }
 
-    public String normalizeCode2(String codePostal) 
+    // Normalisation Code Postal
+    public static String normalizeCode2(String codePostal) 
+
     {
 
         //Le trim doit se faire avant (dans le cas ou la chaine est un espace)
@@ -153,10 +202,9 @@ public class ProcessAdress {
 
         return codePostal;
     }
-
-
+   
     // Normalisation Code Postal
-    public String normalizeCode(String codePostal) 
+    public static String normalizeCode(String codePostal) 
     {
         codePostal = codePostal.trim();
         if (codePostal != null) 
