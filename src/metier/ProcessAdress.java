@@ -51,40 +51,42 @@ public class ProcessAdress {
             ville = ville.trim().toLowerCase();             // Formattage en tout minuscule
 
             String[] tableauMot = ville.split(" ");         // Separation dans un tableau
+            boolean testPlus1Mot = (tableauMot.length > 1);
 
             String nouveauVille = "";
 
             for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
-            {                                           // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
-                if (string.equals("sous")) 
+            { 
+                 // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
+                if (string.equals("sous") && testPlus1Mot) 
                 {
                     string = "-sous-";
                 }
-                else if(string.equals("lès"))
+                else if(string.equals("lès") && testPlus1Mot)
                 {
                     string = "-lès-";
                 }
-                else if (string.equals("sur")) 
+                else if (string.equals("sur") && testPlus1Mot) 
                 {
                     string = "-sur-";
                 }
-                else if (string.equals("aux")) 
+                else if (string.equals("aux") && testPlus1Mot) 
                 {
                     string = "-aux-";
                 }
-                else if (string.equals("le")) 
+                else if (string.equals("le") && testPlus1Mot) 
                 {
                     string = "-le-";
                 }
-                else if(string.equals("à"))
+                else if(string.equals("à") && testPlus1Mot)
                 {
                     string = "-à-";
                 }
-                else if (string.equals("st")) 
+                else if (string.equals("st") && testPlus1Mot) 
                 {
                     string = "Saint-";
                 }
-                else if (string.equals("ste")) 
+                else if (string.equals("ste") && testPlus1Mot) 
                 {
                     string = "Sainte-";  
                 }
