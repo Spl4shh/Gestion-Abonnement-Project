@@ -72,4 +72,11 @@ public class normalizationVilleTest
         res = ProcessAdress.normalizeVille("ste marange sous metz");
         assertEquals("Sainte-Marange-sous-Metz", res);
     }
+
+    @Test
+    public void testUniquementPreposition()
+    {
+        res = ProcessAdress.normalizeVille("lès");
+        assertEquals("lès", res);
+    }
 }
