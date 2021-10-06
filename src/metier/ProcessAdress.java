@@ -57,41 +57,43 @@ public class ProcessAdress {
 
             for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
             { 
-                 // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
-                if (string.equals("sous") && testPlus1Mot) 
+                boolean modifAbrege = true;
+                // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
+                if (string.equals("sous")) 
                 {
                     string = "-sous-";
                 }
-                else if(string.equals("lès") && testPlus1Mot)
+                else if(string.equals("lès"))
                 {
                     string = "-lès-";
                 }
-                else if (string.equals("sur") && testPlus1Mot) 
+                else if (string.equals("sur")) 
                 {
                     string = "-sur-";
                 }
-                else if (string.equals("aux") && testPlus1Mot) 
+                else if (string.equals("aux")) 
                 {
                     string = "-aux-";
                 }
-                else if (string.equals("le") && testPlus1Mot) 
+                else if (string.equals("le")) 
                 {
                     string = "-le-";
                 }
-                else if(string.equals("à") && testPlus1Mot)
+                else if(string.equals("à"))
                 {
                     string = "-à-";
                 }
-                else if (string.equals("st") && testPlus1Mot) 
+                else if (string.equals("st")) 
                 {
                     string = "Saint-";
                 }
-                else if (string.equals("ste") && testPlus1Mot) 
+                else if (string.equals("ste")) 
                 {
                     string = "Sainte-";  
                 }
                 else                      // Si pas de mot a remplacer, alors on suppose que c'est un nom de ville et pas un pronom
                 {
+                    modifAbrege = false;
                     string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
                                             // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
                     if (nouveauVille != "" && nouveauVille.charAt(nouveauVille.length()-1) != '-') 
@@ -99,6 +101,12 @@ public class ProcessAdress {
                         string = " " + string;
                     }
                 }
+
+                if (modifAbrege && !testPlus1Mot) 
+                {
+                    string = string.replace("-", "");
+                }
+
                 nouveauVille = nouveauVille + string;
             }
             ville = nouveauVille.trim();
