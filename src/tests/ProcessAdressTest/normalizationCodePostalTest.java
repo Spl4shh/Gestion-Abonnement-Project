@@ -12,7 +12,7 @@ public class normalizationCodePostalTest {
     @Test
     public void testChaineVide()
     {
-        res = ProcessAdress.normalizeVille("");
+        res = ProcessAdress.normalizeCode2("");
         assertEquals("", res);
     }
 
@@ -24,16 +24,30 @@ public class normalizationCodePostalTest {
     }
 
     @Test
-    public void testChaineNombre()
+    public void testChaineNombre5()
     {
-        res = ProcessAdress.normalizeCode2("57");
-        assertEquals("57", res);
+        res = ProcessAdress.normalizeCode2("57000");
+        assertEquals("57000", res);
     }
 
     @Test
-    public void testChaineMinuscule()
+    public void testChaineNombre4IdPays()
+    {
+        res = ProcessAdress.normalizeCode2("L-7420");
+        assertEquals("07420", res);
+    }
+
+    @Test
+    public void testChaineNombre5IdPays()
     {
         res = ProcessAdress.normalizeCode2("L-57420");
-        assertEquals("L-57420", res);
+        assertEquals("57420", res);
+    }
+
+    @Test
+    public void testChaineLettre()
+    {
+        res = ProcessAdress.normalizeCode2("ABCDE");
+        assertEquals("", res);
     }
 }

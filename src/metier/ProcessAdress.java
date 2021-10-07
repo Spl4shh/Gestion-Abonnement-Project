@@ -114,70 +114,6 @@ public class ProcessAdress {
         return ville;
     }
 
-    public static String normalizeVille2(String ville) //Juste pour des questions d'optimisation peut etre ?
-    {
-        if(ville != null && ville != "")
-        {
-            ville = ville.trim().toLowerCase();             // Formattage en tout minuscule
-
-            String[] tableauMot = ville.split(" ");         // Separation dans un tableau
-
-            if (tableauMot.length > 1)                      // Si au moins 2 mots
-            { 
-                String nouveauVille = "";
-
-                for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
-                {
-                    if (string.equals("sous")) 
-                    {
-                        string = "-sous-";
-                    }
-                    else if(string.equals("lès"))
-                    {
-                        string = "-lès-";
-                    }
-                    else if (string.equals("sur")) 
-                    {
-                        string = "-sur-";
-                    }
-                    else if (string.equals("aux")) 
-                    {
-                        string = "-aux-";
-                    }
-                    else if (string.equals("le")) 
-                    {
-                        string = "-le-";
-                    }
-                    else if(string.equals("à"))
-                    {
-                        string = "-à-";
-                    }
-                    else if (string.equals("st")) 
-                    {
-                        string = "Saint-";
-                    }
-                    else if (string.equals("ste")) 
-                    {
-                        string = "Sainte-";  
-                    }
-                    else                      // Si pas de mot a remplacer, alors on suppose que c'est un nom de ville et pas un pronom
-                    {
-                        string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
-                                                // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
-                        if (nouveauVille != "" && nouveauVille.charAt(nouveauVille.length()-1) != '-') 
-                        {
-                            string = " " + string;
-                        }
-                    }
-                    nouveauVille = nouveauVille + string;
-                }
-                ville = nouveauVille.trim();
-            }
-            ville = String.valueOf(ville.charAt(0)).toUpperCase() + ville.substring(1); 
-        }            //utile si l'on veux reduire les test dans le cas d'un nom avec 1 seul mot, possible de virer le if tab.length > 1 
-        return ville;
-    }
-
     // Normalisation du Pays
     public static String normalizePays(String pays)
     {
@@ -207,46 +143,49 @@ public class ProcessAdress {
 
     // Normalisation Code Postal
     public static String normalizeCode2(String codePostal) 
-
     {
-
         //Le trim doit se faire avant (dans le cas ou la chaine est un espace)
-        codePostal = codePostal.trim();
-
-        if (codePostal != null) 
+        if (codePostal != null)
         {
-            boolean lettrePresente = false;  //Le boolean sert juste a signifier si il y a une lettre ou pas
-            do 
-            {
-                if (lettrePresente)         //Dans le cas ou on a deja fais 1 passage
-                {
-                    codePostal = codePostal.substring(1);       //on retire le premier element et on recomment
-                }
+            codePostal = codePostal.trim();  //Le trim se fait ici car irréalisable sur un object null
 
-                try 
+            if (!codePostal.equals("")) 
+            {
+                boolean lettrePresente = false;  //Le boolean sert juste a signifier si il y a une lettre ou pas
+                do 
                 {
-                    int nombre = Integer.parseInt(codePostal);
-                    
-                    if (nombre > 0)         // Dans le cas ou il reste plus que le -
+                    if (lettrePresente)         //Dans le cas ou on a deja fais 1 passage
+                    {
+                        codePostal = codePostal.substring(1);       //on retire le premier element et on recomment
+                    }
+    
+                    try 
+                    {
+                        int nombre = Integer.parseInt(codePostal);
+                        
+                        if (nombre < 0)         // Dans le cas ou il reste plus que le - le nombre est negatif
+                        {
+                            lettrePresente = true;
+                        }
+                        else
+                        {
+                            lettrePresente = false;
+                        }
+                    } 
+                    catch (IllegalArgumentException e) 
                     {
                         lettrePresente = true;
                     }
-                    else
-                    {
-                        lettrePresente = false;
-                    }
-                } 
-                catch (IllegalArgumentException e) 
+                } while (lettrePresente && codePostal != "");     //tant que il y a des lettres on repete l'operation
+                
+                if (codePostal.length() < 5 && codePostal != "")    // S'il n'y a que 4 chiffre on en rajoute
                 {
-                    lettrePresente = true;
+                    codePostal = "0" + codePostal;
                 }
-            } while (lettrePresente);     //tant que il y a des lettres on repete l'operation
-            
-            if (codePostal.length() < 5)    // S'il n'y a que 4 chiffre on en rajoute
-            {
-                codePostal = "0" + codePostal;
             }
         }
+         
+        
 
         return codePostal;
     }
