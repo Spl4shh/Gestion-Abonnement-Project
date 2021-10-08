@@ -25,6 +25,7 @@ public class normalizationPays
     }    
 
     @Test
+<<<<<<< Updated upstream
     public void testLux() 
     {
         res = ProcessAdress.normalizePays("letzebuerg");
@@ -46,4 +47,50 @@ public class normalizationPays
         res = ProcessAdress.normalizePays("schweiz");
         assertEquals("Suisse", res);
     }
+=======
+    public void testChaineMinus()
+    {
+        res = ProcessAdress.normalizePays("france");
+        assertEquals("France", res);
+    }
+
+    @Test
+    public void testChaineMajuscule()
+    {
+        res = ProcessAdress.normalizePays("FRANCE");
+        assertEquals("France", res);
+    } 
+
+    @Test
+    public void testRemplacementMinus()
+    {
+        res = ProcessAdress.normalizePays("letzebuerg");
+        assertEquals("Luxembourg", res);
+
+        res = ProcessAdress.normalizePays("belgium");
+        assertEquals("Belgique", res);
+
+        res = ProcessAdress.normalizePays("switzerland");
+        assertEquals("Suisse", res);
+
+        res = ProcessAdress.normalizePays("schweiz");
+        assertEquals("Suisse", res);
+    } 
+
+    @Test
+    public void testRemplacementMajuscule()
+    {
+        res = ProcessAdress.normalizePays("LETZEBUERG");
+        assertEquals("Luxembourg", res);
+
+        res = ProcessAdress.normalizePays("BELGIUM");
+        assertEquals("Belgique", res);
+
+        res = ProcessAdress.normalizePays("SWITZERLAND");
+        assertEquals("Suisse", res);
+
+        res = ProcessAdress.normalizePays("SCHWEIZ");
+        assertEquals("Suisse", res);
+    }  
+>>>>>>> Stashed changes
 }
