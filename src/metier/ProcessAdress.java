@@ -131,17 +131,9 @@ public class ProcessAdress {
     public static String normalizePays(String pays)
     {
         if (pays != null) 
-<<<<<<< Updated upstream
-        { // Si la chaine pays n'est pas vide
-            pays = pays.trim();
-            String paysMinus = pays.toLowerCase(); // Chaine pays nettoyée et en minuscules
-
-            switch (paysMinus) 
-=======
         { // Si la chaine pays n'est pas null
             pays = pays.trim().toLowerCase(); //Chaine nettoyé et en minuscule
             if (pays != "") 
->>>>>>> Stashed changes
             {
 
                 switch (pays) 
