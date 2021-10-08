@@ -18,23 +18,36 @@ public class ProcessAdress {
         if (voie != null)
         {
             voie = voie.trim().toLowerCase();
+            String[] tableauMot = voie.split(" ");
+            String newVoie = "";
+
+            for (String string : tableauMot) 
+            {
+                if (string.equals("boul") || string.equals("boul.") || string.equals("bd")) 
+                {
+                    string = "boulevard";
+                }
+                else if (string.equals("av."))
+                {
+                    string = "avenue";
+                }
+                else if (string.equals("faub.") || string.equals("fg"))
+                {
+                    string = "faubourg";
+                }
+                else if(string.equals("pl."))
+                {
+                    string = "place";
+                }
+
+                if (newVoie != "") 
+                {
+                    newVoie = newVoie + " ";    
+                }
+
+                newVoie = newVoie + string; 
+            }
             
-            if (voie.equals("boul") || voie.equals("boul.") || voie.equals("bd")) 
-            {
-                voie = "boulevard";
-            }
-            else if (voie.equals("av."))
-            {
-                voie = "avenue";
-            }
-            else if (voie.equals("faub.") || voie.equals("fg"))
-            {
-                voie = "faubourg";
-            }
-            else if(voie.equals("pl."))
-            {
-                voie = "place";
-            }
             return (", " + voie);
         }
         else
