@@ -130,10 +130,9 @@ public class ProcessAdress {
     // Normalisation du Pays
     public static String normalizePays(String pays)
     {
-        pays = pays.trim();
-
         if (pays != null) 
         { // Si la chaine pays n'est pas vide
+            pays = pays.trim();
             String paysMinus = pays.toLowerCase(); // Chaine pays nettoyée et en minuscules
 
             switch (paysMinus) 

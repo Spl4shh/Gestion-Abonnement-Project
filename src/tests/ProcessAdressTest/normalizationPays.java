@@ -20,6 +20,21 @@ public class normalizationPays
     @Test
     public void testChaineVide()
     {
-
+        res = ProcessAdress.normalizePays("");
+        assertEquals("", res);
     }    
+
+    @Test
+    public void testLux() 
+    {
+        res = ProcessAdress.normalizePays("letzebuerg");
+        assertEquals("Luxembourg", res);
+    }
+
+    @Test
+    public void testBelgique() 
+    {
+        res = ProcessAdress.normalizePays("belgium");
+        assertEquals("Belgique", res);
+    }
 }
