@@ -37,4 +37,13 @@ public class normalizationPays
         res = ProcessAdress.normalizePays("belgium");
         assertEquals("Belgique", res);
     }
+
+    @Test
+    public void testSuisse() 
+    {
+        res = ProcessAdress.normalizePays("switzerland");
+        assertEquals("Suisse", res);
+        res = ProcessAdress.normalizePays("schweiz");
+        assertEquals("Suisse", res);
+    }
 }
