@@ -34,36 +34,36 @@ public class normalizationVoieTest
     @Test
     public void testChaineMajuscule()
     {
-        res = ProcessAdress.normalizeVoie("BOULEVARD");
-        assertEquals(", boulevard", res);
+        res = ProcessAdress.normalizeVoie("BOULEVARD PEXAN");
+        assertEquals(", boulevard pexan", res);
 
-        res = ProcessAdress.normalizeVoie("BOulEVard");
-        assertEquals(", boulevard", res);
+        res = ProcessAdress.normalizeVoie("BOulEVard PexaN");
+        assertEquals(", boulevard pexan", res);
     }
 
     @Test
     public void testChaineMinuscule()
     {
-        res = ProcessAdress.normalizeVoie("faubourg");
-        assertEquals(", faubourg", res);
+        res = ProcessAdress.normalizeVoie("faubourg honoré");
+        assertEquals(", faubourg honoré", res);
     }
 
     @Test
     public void testCasRemplacement()
     {
-        res = ProcessAdress.normalizeVoie("boUL");
-        assertEquals(", boulevard", res);
+        res = ProcessAdress.normalizeVoie("boUL Pexan");
+        assertEquals(", boulevard pexan", res);
 
-        res = ProcessAdress.normalizeVoie("boUl.");
-        assertEquals(", boulevard", res);
+        res = ProcessAdress.normalizeVoie("boUl. pexan");
+        assertEquals(", boulevard pexan", res);
 
-        res = ProcessAdress.normalizeVoie("bd");
-        assertEquals(", boulevard", res);
+        res = ProcessAdress.normalizeVoie("bd pexan");
+        assertEquals(", boulevard pexan", res);
 
-        res = ProcessAdress.normalizeVoie("Faub.");
-        assertEquals(", faubourg", res);
+        res = ProcessAdress.normalizeVoie("Faub. pexan");
+        assertEquals(", faubourg pexan", res);
 
-        res = ProcessAdress.normalizeVoie("fG");
-        assertEquals(", faubourg", res);
+        res = ProcessAdress.normalizeVoie("fG pexan");
+        assertEquals(", faubourg pexan", res);
     }
 }
