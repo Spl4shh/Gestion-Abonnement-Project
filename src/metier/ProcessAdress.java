@@ -48,7 +48,7 @@ public class ProcessAdress {
                 newVoie = newVoie + string; 
             }
             
-            return (", " + voie);
+            return (", " + newVoie);
         }
         else
         {
@@ -131,30 +131,42 @@ public class ProcessAdress {
     public static String normalizePays(String pays)
     {
         if (pays != null) 
+<<<<<<< Updated upstream
         { // Si la chaine pays n'est pas vide
             pays = pays.trim();
             String paysMinus = pays.toLowerCase(); // Chaine pays nettoyée et en minuscules
 
             switch (paysMinus) 
+=======
+        { // Si la chaine pays n'est pas null
+            pays = pays.trim().toLowerCase(); //Chaine nettoyé et en minuscule
+            if (pays != "") 
+>>>>>>> Stashed changes
             {
-                case "letzebuerg":
-                    pays = "Luxembourg";
-                    break;
 
-                case "belgium":
-                    pays = "Belgique";
-                    break;
-
-                case "switzerland", "schweiz":
-                    pays = "Suisse";
-                    break;
-            }
+                switch (pays) 
+                {
+                    case "letzebuerg":
+                        pays = "luxembourg";
+                        break;
+    
+                    case "belgium":
+                        pays = "belgique";
+                        break;
+    
+                    case "switzerland", "schweiz":
+                        pays = "suisse";
+                        break;
+                }
+                pays = String.valueOf(pays.charAt(0)).toUpperCase() + pays.substring(1);
+                //Ajout de la majuscule en premier caractere
+            }    
         }
         return pays;
     }
 
     // Normalisation Code Postal
-    public static String normalizeCode2(String codePostal) 
+    public static String normalizeCode(String codePostal) 
     {
         //Le trim doit se faire avant (dans le cas ou la chaine est un espace)
         if (codePostal != null)
@@ -203,7 +215,7 @@ public class ProcessAdress {
     }
    
     // Normalisation Code Postal
-    public static String normalizeCode(String codePostal) 
+    public static String normalizeCode2(String codePostal) 
     {
         codePostal = codePostal.trim();
         if (codePostal != null) 
