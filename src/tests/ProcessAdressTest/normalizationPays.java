@@ -25,29 +25,6 @@ public class normalizationPays
     }    
 
     @Test
-<<<<<<< Updated upstream
-    public void testLux() 
-    {
-        res = ProcessAdress.normalizePays("letzebuerg");
-        assertEquals("Luxembourg", res);
-    }
-
-    @Test
-    public void testBelgique() 
-    {
-        res = ProcessAdress.normalizePays("belgium");
-        assertEquals("Belgique", res);
-    }
-
-    @Test
-    public void testSuisse() 
-    {
-        res = ProcessAdress.normalizePays("switzerland");
-        assertEquals("Suisse", res);
-        res = ProcessAdress.normalizePays("schweiz");
-        assertEquals("Suisse", res);
-    }
-=======
     public void testChaineMinus()
     {
         res = ProcessAdress.normalizePays("france");
@@ -92,5 +69,4 @@ public class normalizationPays
         res = ProcessAdress.normalizePays("SCHWEIZ");
         assertEquals("Suisse", res);
     }  
->>>>>>> Stashed changes
 }
