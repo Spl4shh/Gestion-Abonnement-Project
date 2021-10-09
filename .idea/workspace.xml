@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b53b0e4b-426c-493f-8dba-ea1f73eca8d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/tests/PeriodiciteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/PeriodiciteTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="b53b0e4b-426c-493f-8dba-ea1f73eca8d7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
