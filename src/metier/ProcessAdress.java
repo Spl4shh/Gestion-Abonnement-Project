@@ -234,21 +234,13 @@ public class ProcessAdress {
         return codePostal;
     }
 
-    public static boolean isNumeric(String codePostal) {
-        int intValue;
-
+    public static boolean isNumeric(String codePostal) 
+    {
         System.out.println(String.format("Parsing string: \"%s\"", codePostal));
-
-        /* Si la chaine est vide : déjà vérifié
-        if (codePostal == null || codePostal.equals(""))
-        {
-            System.out.println("String cannot be parsed, it is null or empty.");
-            return false;
-        }*/
 
         try 
         {
-            intValue = Integer.parseInt(codePostal);
+            Integer.parseInt(codePostal);
             // Si la chaine peut être convertie en int : c'est un entier
             return true;
         } 
