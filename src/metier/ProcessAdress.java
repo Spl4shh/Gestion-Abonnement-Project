@@ -27,7 +27,7 @@ public class ProcessAdress {
                 {
                     string = "boulevard";
                 }
-                else if (string.equals("av."))
+                else if (string.equals("av.") || string.equals("av"))
                 {
                     string = "avenue";
                 }
@@ -35,7 +35,7 @@ public class ProcessAdress {
                 {
                     string = "faubourg";
                 }
-                else if(string.equals("pl."))
+                else if(string.equals("pl.") || string.equals("pl"))
                 {
                     string = "place";
                 }

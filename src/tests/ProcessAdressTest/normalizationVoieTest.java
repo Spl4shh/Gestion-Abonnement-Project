@@ -51,6 +51,7 @@ public class normalizationVoieTest
     @Test
     public void testCasRemplacement()
     {
+        // test boulevard
         res = ProcessAdress.normalizeVoie("boUL Pexan");
         assertEquals(", boulevard pexan", res);
 
@@ -60,10 +61,25 @@ public class normalizationVoieTest
         res = ProcessAdress.normalizeVoie("bd pexan");
         assertEquals(", boulevard pexan", res);
 
+        // test faubourg
         res = ProcessAdress.normalizeVoie("Faub. pexan");
         assertEquals(", faubourg pexan", res);
 
         res = ProcessAdress.normalizeVoie("fG pexan");
         assertEquals(", faubourg pexan", res);
+
+        // test avenue
+        res = ProcessAdress.normalizeVoie("aV pExAn");
+        assertEquals(", avenue pexan", res);
+
+        res = ProcessAdress.normalizeVoie("av. pexan");
+        assertEquals(", avenue pexan", res);
+
+        // test place
+        res = ProcessAdress.normalizeVoie("pL pExAn");
+        assertEquals(", place pexan", res);
+
+        res = ProcessAdress.normalizeVoie("pl. pexan");
+        assertEquals(", place pexan", res);
     }
 }
