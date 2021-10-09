@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import metier.ProcessAdress;
 
-public class normalizationPays 
+public class normalizationPaysTest 
 {
     String res;
 
