@@ -35,14 +35,14 @@ public class normalizationCodePostalTest
     public void testChaineNombre4IdPays()
     {
         res = ProcessAdress.normalizeCode("L-7420");
-        assertEquals("07420", res);
+        assertEquals("7420", res);
     }
 
     @Test
     public void testChaineNombre5IdPays()
     {
-        res = ProcessAdress.normalizeCode("L-57420");
-        assertEquals("57420", res);
+        res = ProcessAdress.normalizeCode("L-5742");
+        assertEquals("5742", res);
     }
 
     @Test

@@ -167,6 +167,7 @@ public class ProcessAdress {
 
             if (!codePostal.equals("")) 
             {
+                boolean etranger = false;
                 boolean lettrePresente = false;  //Le boolean sert juste a signifier si il y a une lettre ou pas
                 do 
                 {
@@ -182,6 +183,7 @@ public class ProcessAdress {
                         if (nombre < 0)         // Dans le cas ou il reste plus que le - le nombre est negatif
                         {
                             lettrePresente = true;
+                            etranger = true;
                         }
                         else
                         {
@@ -194,7 +196,7 @@ public class ProcessAdress {
                     }
                 } while (lettrePresente && codePostal != "");     //tant que il y a des lettres on repete l'operation
                 
-                if (codePostal.length() < 5 && codePostal != "")    // S'il n'y a que 4 chiffre on en rajoute
+                if (codePostal.length() < 5 && codePostal != "" && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
                 {
                     codePostal = "0" + codePostal;
                 }
