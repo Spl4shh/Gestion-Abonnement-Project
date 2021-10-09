@@ -68,7 +68,7 @@ public class ProcessAdress {
 
             String nouveauVille = "";
 
-            for (String string : tableauMot)            //verification pour chaque mot du nom de la ville
+            for (String string : tableauMot) //verification pour chaque mot du nom de la ville
             { 
                 boolean modifAbrege = true;
                 // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
@@ -76,7 +76,7 @@ public class ProcessAdress {
                 {
                     string = "-sous-";
                 }
-                else if(string.equals("lès"))
+                else if(string.equals("lès") || string.equals("les"))
                 {
                     string = "-lès-";
                 }
@@ -92,7 +92,7 @@ public class ProcessAdress {
                 {
                     string = "-le-";
                 }
-                else if(string.equals("à"))
+                else if(string.equals("à") || string.equals("a"))
                 {
                     string = "-à-";
                 }
@@ -108,7 +108,7 @@ public class ProcessAdress {
                 {
                     modifAbrege = false;
                     string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
-                                            // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
+                    // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
                     if (nouveauVille != "" && nouveauVille.charAt(nouveauVille.length()-1) != '-') 
                     {
                         string = " " + string;

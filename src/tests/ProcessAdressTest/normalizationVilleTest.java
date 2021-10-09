@@ -54,17 +54,23 @@ public class normalizationVilleTest
     @Test
     public void testCasRemplacement()
     {
+        // les
         res = ProcessAdress.normalizeVille("Marange lès metz");
         assertEquals("Marange-lès-Metz", res);
 
         res = ProcessAdress.normalizeVille("marange LèS metz");
         assertEquals("Marange-lès-Metz", res);
-        
-        res = ProcessAdress.normalizeVille("marange sous metz");
-        assertEquals("Marange-sous-Metz", res);
 
+        res = ProcessAdress.normalizeVille("maRange lEs meTz");
+        assertEquals("Marange-lès-Metz", res);
+        
+        // aux
         res = ProcessAdress.normalizeVille("marange aux metz");
         assertEquals("Marange-aux-Metz", res);
+
+        // sous
+        res = ProcessAdress.normalizeVille("marange sous metz");
+        assertEquals("Marange-sous-Metz", res);
 
         res = ProcessAdress.normalizeVille("st marange sous metz");
         assertEquals("Saint-Marange-sous-Metz", res);
