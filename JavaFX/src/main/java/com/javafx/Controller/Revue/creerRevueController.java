@@ -46,7 +46,7 @@ public class creerRevueController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-        
+
         try
         {
             this.periodiciteChoiceBox.setItems(FXCollections.observableArrayList(dao.getPeriodiciteDAO().findAll()));
