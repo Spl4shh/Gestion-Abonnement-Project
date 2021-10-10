@@ -1,11 +1,15 @@
 package com.javafx.Controller.Revue;
 
+import com.javafx.Modele.dao.DAOFactory;
+import com.javafx.Modele.dao.Persistance;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class creerRevueController implements Initializable
@@ -41,15 +45,15 @@ public class creerRevueController implements Initializable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-/*
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
         DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-        this.cbxPeriodicite.setItems(FXCollections.observableArrayList(dao.getPeriodiciteDAO().findAll()));
+        
+        try
+        {
+            this.periodiciteChoiceBox.setItems(FXCollections.observableArrayList(dao.getPeriodiciteDAO().findAll()));
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
-    */
 
 }
