@@ -3,8 +3,8 @@ module com.example.javafx {
     requires javafx.fxml;
 
 
-    opens com.example.javafx to javafx.fxml;
-    exports com.example.javafx;
-    exports com.example.javafx.Controller.Revue;
-    opens com.example.javafx.Controller.Revue to javafx.fxml;
+    opens com.javafx to javafx.fxml;
+    exports com.javafx;
+    exports com.javafx.Controller.Revue;
+    opens com.javafx.Controller.Revue to javafx.fxml;
 }

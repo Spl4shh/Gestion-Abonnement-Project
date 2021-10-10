@@ -1,4 +1,4 @@
-package com.example.javafx.Controller.Revue;
+package com.javafx.Controller.Revue;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
