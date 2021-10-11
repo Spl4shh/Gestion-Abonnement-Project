@@ -48,9 +48,11 @@ public class creerRevueController implements Initializable
         affichageLabel.setText("");
         affichageLabel.setTextFill(Color.RED);
 
+        Revue revue = null;
+
+        /*
         try
         {
-
             if (titreField.getText() != null && !titreField.getText().equals(""))
             {
                 titre = titreField.getText();
@@ -109,6 +111,20 @@ public class creerRevueController implements Initializable
 
             affichageLabel.setText(revue.toString());
             affichageLabel.setTextFill(Color.BLACK);
+        }
+
+         */
+
+        try
+        {
+            revue = new Revue(titreField.getText(), descriptionArea.getText(), Double.parseDouble(tarifField.getText()), "", (Periodicite)periodiciteChoiceBox.getValue());
+            affichageLabel.setText(revue.toString());
+            affichageLabel.setTextFill(Color.BLACK);
+        }
+        catch(IllegalArgumentException exception)
+        {
+            affichageLabel.setText(affichageLabel.getText() + exception.getMessage() + "\n");
+            affichageLabel.setTextFill(Color.RED);
         }
     }
 
