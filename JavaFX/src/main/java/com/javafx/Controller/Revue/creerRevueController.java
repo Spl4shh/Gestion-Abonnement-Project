@@ -2,6 +2,8 @@ package com.javafx.Controller.Revue;
 
 import com.javafx.Modele.dao.DAOFactory;
 import com.javafx.Modele.dao.Persistance;
+import com.javafx.Modele.metier.Periodicite;
+import com.javafx.Modele.metier.Revue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,9 +40,39 @@ public class creerRevueController implements Initializable
         String titre = titreField.getText();
         String tarif = tarifField.getText();
         String description = descriptionArea.getText();
-        int idPeriodicite = (int)periodiciteChoiceBox.getValue();
+        periodiciteChoiceBox.getValue();
 
-        affichageLabel.setText(String.valueOf(idPeriodicite));
+        try
+        {
+            if (titre != null && !titre.equals(""))
+            {
+                if (description != null && !description.equals(""))
+                {
+                    if (tarif != null && !tarif.equals(""))
+                    {
+                        float tarifFloat = Float.parseFloat(tarif);
+                        if (periodiciteChoiceBox.getValue() != null)
+                        {
+                            Periodicite itemPeriodicite = (Periodicite) periodiciteChoiceBox.getValue();
+                            int idPeriodicite = itemPeriodicite.getId();
+
+                            Revue revue = new Revue(titre, description, tarifFloat, "", idPeriodicite);
+
+                            affichageLabel.setText(revue.toString());
+                        }
+                        else{affichageLabel.setText("Merci de saisir une periodicité");}
+                    }
+                    else{affichageLabel.setText("Merci de saisir un tarif");}
+                }
+                else {affichageLabel.setText("Merci de saisir une description");}
+            }
+            else {affichageLabel.setText("Merci de saisir un titre");}
+        }
+        catch (IllegalArgumentException e)
+        {
+            affichageLabel.setText("Merci de saisir un nombre en tant que tarif");
+        }
+
     }
 
     @Override

@@ -10,15 +10,7 @@ public class Revue
 
 
   /* Méthode Revue */
-  public Revue
-  (
-      int id, 
-      String titre,
-      String description,
-      float tarifNumero, 
-      String visuel,
-      int idPeriodicite
-  ) 
+  public Revue(int id, String titre, String description, float tarifNumero, String visuel, int idPeriodicite)
   {
       this.id = id;
       this.titre = titre;
@@ -33,15 +25,7 @@ public class Revue
     this.id = id;
   }
 
-  public Revue
-  (
-      String titre,
-      String description,
-      float tarifNumero, 
-      String visuel,
-      int idPeriodicite
-
-  ) 
+  public Revue(String titre, String description, float tarifNumero, String visuel, int idPeriodicite)
   {
       this.titre = titre;
       this.description = description;
