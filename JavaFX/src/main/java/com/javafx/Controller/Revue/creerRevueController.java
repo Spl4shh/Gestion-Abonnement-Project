@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -37,42 +38,81 @@ public class creerRevueController implements Initializable
     @FXML
     void boutonCreerRevueClick(ActionEvent event)
     {
-        String titre = titreField.getText();
-        String tarif = tarifField.getText();
-        String description = descriptionArea.getText();
-        periodiciteChoiceBox.getValue();
+        String titre = null;
+        float tarifFloat = 0;
+        String description = null;
+        String messageErreur = "";
+        int idPeriodicite = 0;
+        boolean erreur = false;
+
+        affichageLabel.setText("");
+        affichageLabel.setTextFill(Color.RED);
 
         try
         {
-            if (titre != null && !titre.equals(""))
+
+            if (titreField.getText() != null && !titreField.getText().equals(""))
             {
-                if (description != null && !description.equals(""))
-                {
-                    if (tarif != null && !tarif.equals(""))
-                    {
-                        float tarifFloat = Float.parseFloat(tarif);
-                        if (periodiciteChoiceBox.getValue() != null)
-                        {
-                            Periodicite itemPeriodicite = (Periodicite) periodiciteChoiceBox.getValue();
-                            int idPeriodicite = itemPeriodicite.getId();
-
-                            Revue revue = new Revue(titre, description, tarifFloat, "", idPeriodicite);
-
-                            affichageLabel.setText(revue.toString());
-                        }
-                        else{affichageLabel.setText("Merci de saisir une periodicité");}
-                    }
-                    else{affichageLabel.setText("Merci de saisir un tarif");}
-                }
-                else {affichageLabel.setText("Merci de saisir une description");}
+                titre = titreField.getText();
             }
-            else {affichageLabel.setText("Merci de saisir un titre");}
+            else
+            {
+                messageErreur = messageErreur + "Merci de saisir un titre\n";
+                erreur = true;
+            }
+
+            if (descriptionArea.getText() != null && !descriptionArea.getText().equals(""))
+            {
+                description = descriptionArea.getText();
+            }
+            else
+            {
+                messageErreur = messageErreur + "Merci de saisir une description\n";
+                erreur = true;
+            }
+
+            if (periodiciteChoiceBox.getValue() != null)
+            {
+                Periodicite itemPeriodicite = (Periodicite) periodiciteChoiceBox.getValue();
+                idPeriodicite = itemPeriodicite.getId();
+
+
+            }
+            else
+            {
+                messageErreur = messageErreur + "Merci de saisir une periodicité\n";
+                erreur = true;
+            }
+            
+            if (tarifField.getText() != null && !tarifField.getText().equals(""))
+            {
+                tarifFloat = Float.parseFloat(tarifField.getText());
+            }
+            else
+            {
+                messageErreur = messageErreur + "Merci de saisir un tarif\n";
+                erreur = true;
+            }
         }
         catch (IllegalArgumentException e)
         {
-            affichageLabel.setText("Merci de saisir un nombre en tant que tarif");
+            messageErreur = messageErreur + "Merci de saisir un nombre en tant que tarif";
+            erreur = true;
         }
 
+
+        if (erreur)
+        {
+            affichageLabel.setText(messageErreur);
+            affichageLabel.setTextFill(Color.RED);
+        }
+        else
+        {
+            Revue revue = new Revue(titre, description, tarifFloat, "", idPeriodicite);
+
+            affichageLabel.setText(revue.toString());
+            affichageLabel.setTextFill(Color.BLACK);
+        }
     }
 
     @Override
