@@ -38,7 +38,7 @@ public class MySqlRevueDAOTest
 
         revue.setId(revueRead.getId());
 
-        assertTrue(revue.equals(revueRead));
+        assertEquals(revue, revueRead);
 
         revueDAO.delete(revueRead);
     }
@@ -58,9 +58,9 @@ public class MySqlRevueDAOTest
 
         revueDAO.update(revueUpdate);
 
-        revueRead = revueDAO.getById(revueUpdate.getId());   
+        revueRead = revueDAO.getById(revueUpdate.getId());
 
-        assertTrue(revueUpdate.equals(revueRead));
+        assertEquals(revueUpdate, revueRead);
 
         revueDAO.delete(revueRead);
     }
@@ -78,7 +78,7 @@ public class MySqlRevueDAOTest
 
         revueDAO.delete(revueRead);
 
-        List<Revue> liste = new ArrayList<>();
+        List<Revue> liste;
         liste = revueDAO.getByTitre("Code154329");
 
         assertEquals(0, liste.size());

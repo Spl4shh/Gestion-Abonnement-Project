@@ -39,7 +39,7 @@ public class MySqlRevueDAO implements RevueDAO
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Revue(titre, description, tarif_numero, visuel, id_periodicite) Values (?, ?, ?, ?, ?)");
         requete.setString(1, objet.getTitre());
         requete.setString(2, objet.getDescription());
-        requete.setFloat(3, objet.getTarifNumero());
+        requete.setDouble(3, objet.getTarifNumero());
         requete.setString(4, objet.getVisuel());
         requete.setInt(5, objet.getIdPeriodicite());
 
@@ -60,7 +60,7 @@ public class MySqlRevueDAO implements RevueDAO
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Revue SET titre = ?, description = ?, tarif_numero = ?, visuel = ?, id_periodicite = ? WHERE id_revue = ?");
         requete.setString(1, objet.getTitre());
         requete.setString(2, objet.getDescription());
-        requete.setFloat(3, objet.getTarifNumero());
+        requete.setDouble(3, objet.getTarifNumero());
         requete.setString(4, objet.getVisuel());
         requete.setInt(5, objet.getIdPeriodicite());
         requete.setInt(6, objet.getId());
@@ -113,7 +113,7 @@ public class MySqlRevueDAO implements RevueDAO
     @Override
     public List<Revue> getByTitre(String titre) throws SQLException
     {
-        List<Revue> listeRevue = new ArrayList<Revue>();
+        List<Revue> listeRevue = new ArrayList<>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();
@@ -137,7 +137,7 @@ public class MySqlRevueDAO implements RevueDAO
     @Override
     public List<Revue> findAll() throws SQLException 
     {
-        List<Revue> listeRevue = new ArrayList<Revue>();
+        List<Revue> listeRevue = new ArrayList<>();
 
         maBD = new Connexion();
         laConnexion = maBD.creeConnexion();

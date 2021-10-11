@@ -4,13 +4,13 @@ public class Revue
 {
   /* Définition des attributs */
   int id, idPeriodicite;
-  float tarifNumero;
+  double tarifNumero;
   String titre, description, visuel;
   /* Fin Définition des attributs */
 
 
   /* Méthode Revue */
-  public Revue(int id, String titre, String description, float tarifNumero, String visuel, int idPeriodicite)
+  public Revue(int id, String titre, String description, double tarifNumero, String visuel, int idPeriodicite)
   {
       this.setId(id);
       this.setTitre(titre);
@@ -25,7 +25,7 @@ public class Revue
       this.setId(id);
   }
 
-  public Revue(String titre, String description, float tarifNumero, String visuel, int idPeriodicite)
+  public Revue(String titre, String description, double tarifNumero, String visuel, int idPeriodicite)
   {
       this.setTitre(titre);
       this.setDescription(description);
@@ -57,12 +57,12 @@ public class Revue
 		this.idPeriodicite = idPeriodicite;
 	}
 
-  public float getTarifNumero()
+  public double getTarifNumero()
 {
       return this.tarifNumero;
   }
 
-  public void setTarifNumero(float tarifNumero)
+  public void setTarifNumero(double tarifNumero)
   {
       this.tarifNumero = tarifNumero;
   }

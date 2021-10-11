@@ -30,7 +30,7 @@ public class ListeMemoireDAORevueTest
     @Test
     public void testCreate() throws SQLException
     {
-        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
+        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", 5.7, "Visuel Random pour une revue random",1);
 
         assertTrue(revueDAO.create(revueAVerif));
 
@@ -42,13 +42,13 @@ public class ListeMemoireDAORevueTest
     @Test
     public void testUpdate() throws SQLException
     {
-        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
+        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", 5.7, "Visuel Random pour une revue random",1);
 
         revueDAO.create(revueAVerif);
 
         Revue revueRead = revueDAO.getById(revueAVerif.getId());
 
-        Revue revueUpdate = new Revue(3,"Update","Update", (float)0.1, "Update",2);
+        Revue revueUpdate = new Revue(3,"Update","Update", 0.1, "Update",2);
 
         revueDAO.update(revueUpdate);
 
@@ -60,7 +60,7 @@ public class ListeMemoireDAORevueTest
     @Test
     public void testDelete() throws SQLException
     {
-        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1);
+        Revue revueAVerif = new Revue(3,"test_Revue","Revue super random", 5.7, "Visuel Random pour une revue random",1);
 
         revueDAO.create(revueAVerif);
 

@@ -39,7 +39,7 @@ public class creerRevueController implements Initializable
     void boutonCreerRevueClick(ActionEvent event)
     {
         String titre = null;
-        float tarifFloat = 0;
+        double tarifDouble = 0;
         String description = null;
         String messageErreur = "";
         int idPeriodicite = 0;
@@ -83,10 +83,10 @@ public class creerRevueController implements Initializable
                 messageErreur = messageErreur + "Merci de saisir une periodicité\n";
                 erreur = true;
             }
-            
+
             if (tarifField.getText() != null && !tarifField.getText().equals(""))
             {
-                tarifFloat = Float.parseFloat(tarifField.getText());
+                tarifDouble = Double.parseDouble(tarifField.getText());
             }
             else
             {
@@ -108,7 +108,7 @@ public class creerRevueController implements Initializable
         }
         else
         {
-            Revue revue = new Revue(titre, description, tarifFloat, "", idPeriodicite);
+            Revue revue = new Revue(titre, description, tarifDouble, "", idPeriodicite);
 
             affichageLabel.setText(revue.toString());
             affichageLabel.setTextFill(Color.BLACK);
