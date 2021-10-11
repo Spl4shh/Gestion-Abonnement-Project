@@ -13,6 +13,8 @@ import com.javafx.Modele.dao.AbonnementDAO;
 import com.javafx.Modele.dao.DAOFactory;
 import com.javafx.Modele.dao.Persistance;
 import com.javafx.Modele.metier.Abonnement;
+import com.javafx.Modele.metier.Client;
+import com.javafx.Modele.metier.Revue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,7 +36,7 @@ public class MySqlAbonnementDAOTest
     public void testCreate() throws SQLException
     {
         Abonnement abonnement = new Abonnement(LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                                                LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+                                                LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.create(abonnement);
 
@@ -51,12 +53,12 @@ public class MySqlAbonnementDAOTest
     public void testUpdate() throws SQLException
     {
         Abonnement abonnement = new Abonnement(LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                                                LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+                                                LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.create(abonnement);
 
         Abonnement abonnementUpdate = new Abonnement(LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                                                    LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+                                                    LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
 
         Abonnement abonnementRead = abonnementDAO.getByDate(abonnement.getDateDebut(), abonnement.getDateFin()).get(0);
@@ -76,7 +78,7 @@ public class MySqlAbonnementDAOTest
     public void testDelete() throws SQLException
     {
         Abonnement abonnement = new Abonnement(LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                                                LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+                                                LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.create(abonnement);
 
@@ -86,7 +88,7 @@ public class MySqlAbonnementDAOTest
 
         abonnementDAO.delete(abonnementRead);
 
-        List<Abonnement> liste = new ArrayList<>();
+        List<Abonnement> liste;
 
         liste = abonnementDAO.getByDate(abonnement.getDateDebut(), abonnement.getDateFin());
 

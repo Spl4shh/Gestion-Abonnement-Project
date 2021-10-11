@@ -1,6 +1,7 @@
 package com.javafx.Modele.dao.listememoire;
 
 import com.javafx.Modele.dao.RevueDAO;
+import com.javafx.Modele.metier.Periodicite;
 import com.javafx.Modele.metier.Revue;
 
 import java.util.ArrayList;
@@ -26,8 +27,8 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 
 		this.donnees = new ArrayList<Revue>();
 
-		this.donnees.add(new Revue(1,"Random Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",1));
-		this.donnees.add(new Revue(2, "Le Quotidien", "Une revue questionnant l'aléatoire", (float)10.6,"Visuel d'un quotidien aléatoire",2));
+		this.donnees.add(new Revue(1,"Random Revue","Revue super random", (float)5.7, "Visuel Random pour une revue random",new Periodicite(1)));
+		this.donnees.add(new Revue(2, "Le Quotidien", "Une revue questionnant l'aléatoire", (float)10.6,"Visuel d'un quotidien aléatoire",new Periodicite(2)));
 	}
 
 
@@ -127,7 +128,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	@Override
 	public List<Revue> getByTitre(String titre) 
 	{
-		List<Revue> listeRevue = new ArrayList<Revue>();
+		List<Revue> listeRevue = new ArrayList<>();
 
 		for (Revue revue : this.donnees) 
 		{

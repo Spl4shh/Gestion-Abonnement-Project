@@ -1,5 +1,7 @@
 package com.javafx.Modele.metier;
 
+import com.javafx.Modele.dao.PeriodiciteDAO;
+
 public class Revue
 {
   /* Définition des attributs */
@@ -10,14 +12,14 @@ public class Revue
 
 
   /* Méthode Revue */
-  public Revue(int id, String titre, String description, double tarifNumero, String visuel, int idPeriodicite)
+  public Revue(int id, String titre, String description, double tarifNumero, String visuel, Periodicite periode)
   {
       this.setId(id);
       this.setTitre(titre);
       this.setDescription(description);
       this.setTarifNumero(tarifNumero);
       this.setVisuel(visuel);
-      this.setIdPeriodicite(idPeriodicite);
+      this.setIdPeriodicite(periode);
   }
 
   public Revue(Integer id)
@@ -25,15 +27,15 @@ public class Revue
       this.setId(id);
   }
 
-  public Revue(String titre, String description, double tarifNumero, String visuel, int idPeriodicite)
+  public Revue(String titre, String description, double tarifNumero, String visuel, Periodicite periode)
   {
       this.setTitre(titre);
       this.setDescription(description);
       this.setTarifNumero(tarifNumero);
       this.setVisuel(visuel);
-      this.setIdPeriodicite(idPeriodicite);
+      this.setIdPeriodicite(periode);
   }
-  /* Fin Méthode Revue */
+    /* Fin Méthode Revue */
 
 
   /* Getters & Setters */
@@ -52,10 +54,17 @@ public class Revue
     return this.idPeriodicite;
   }
 
-  public void setIdPeriodicite(int  idPeriodicite) 
+  public void setIdPeriodicite(Periodicite periodicite)
   {
-		this.idPeriodicite = idPeriodicite;
-	}
+      if (periodicite == null)
+      {
+          throw new IllegalArgumentException("Periodicité nulle");
+      }
+      else
+      {
+          this.idPeriodicite = periodicite.getId();
+      }
+  }
 
   public double getTarifNumero()
 {
@@ -64,7 +73,14 @@ public class Revue
 
   public void setTarifNumero(double tarifNumero)
   {
-      this.tarifNumero = tarifNumero;
+      if (tarifNumero < 0)
+      {
+          throw new IllegalArgumentException("Tarif négatif");
+      }
+      else
+      {
+          this.tarifNumero = tarifNumero;
+      }
   }
 
   public String getDescription()
@@ -74,9 +90,13 @@ public class Revue
 
   public void setDescription(String description)
   {
-      if (description != null && !description.equals(""))
+      if (description == null || description.equals(""))
       {
-        this.description = description;
+        throw new IllegalArgumentException("Description non saisie");
+      }
+      else
+      {
+          this.description = description;
       }
   }
   
@@ -87,9 +107,13 @@ public class Revue
   
   public void setTitre(String titre) 
   {
-      if (titre != null && !titre.equals(""))
+      if (titre == null || titre.equals(""))
       {
-        this.titre = titre;
+          throw new IllegalArgumentException("Titre non saisie");
+      }
+      else
+      {
+          this.titre = titre;
       }
   }
   

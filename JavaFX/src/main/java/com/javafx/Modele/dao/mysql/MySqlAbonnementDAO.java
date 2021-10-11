@@ -11,6 +11,8 @@ import java.util.List;
 import com.javafx.Modele.connexion.Connexion;
 import com.javafx.Modele.dao.AbonnementDAO;
 import com.javafx.Modele.metier.Abonnement;
+import com.javafx.Modele.metier.Client;
+import com.javafx.Modele.metier.Revue;
 
 public class MySqlAbonnementDAO implements AbonnementDAO
 {
@@ -105,7 +107,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         
         res.next();
 
-        Abonnement abonnement = new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5));
+        Abonnement abonnement = new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), new Client(res.getInt(4)), new Revue(res.getInt(5)));
 
         if (laConnexion != null)
             laConnexion.close();
@@ -129,7 +131,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         while (res.next()) 
         {
-            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
+            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), new Client(res.getInt(4)), new Revue(res.getInt(5))));
         }
         
         if (laConnexion != null)
@@ -154,7 +156,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         while (res.next()) 
         {
-            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
+            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), new Client(res.getInt(4)), new Revue(res.getInt(5))));
         }
 
         if (laConnexion != null)
@@ -177,7 +179,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
         while (res.next()) 
         {
-            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), res.getInt(4), res.getInt(5)));
+            listeAbonnement.add(new Abonnement(res.getInt(1), res.getDate(2).toLocalDate(), res.getDate(3).toLocalDate(), new Client(res.getInt(4)), new Revue(res.getInt(5))));
         }
 
         if (laConnexion != null)

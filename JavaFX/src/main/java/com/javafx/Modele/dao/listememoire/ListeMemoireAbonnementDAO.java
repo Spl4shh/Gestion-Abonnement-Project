@@ -3,6 +3,7 @@ package com.javafx.Modele.dao.listememoire;
 import com.javafx.Modele.dao.AbonnementDAO;
 import com.javafx.Modele.metier.Abonnement;
 import com.javafx.Modele.metier.Client;
+import com.javafx.Modele.metier.Revue;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -31,9 +32,9 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO {
         this.donnees = new ArrayList<Abonnement>();
 
         this.donnees.add(new Abonnement(1, LocalDate.parse("23/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-            LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1));
+            LocalDate.parse("24/04/2001", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1)));
         this.donnees.add(new Abonnement(2, LocalDate.parse("23/04/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-            LocalDate.parse("24/04/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 2, 2));
+            LocalDate.parse("24/04/2021", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(2), new Revue(2)));
     }
 
 

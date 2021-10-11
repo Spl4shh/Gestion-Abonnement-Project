@@ -4,6 +4,8 @@ import com.javafx.Modele.dao.AbonnementDAO;
 import com.javafx.Modele.dao.DAOFactory;
 import com.javafx.Modele.dao.Persistance;
 import com.javafx.Modele.metier.Abonnement;
+import com.javafx.Modele.metier.Client;
+import com.javafx.Modele.metier.Revue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,7 +33,7 @@ public class ListeMemoireDAOAbonnementTest
     @Test
     public void testCreate() throws SQLException
     {
-        Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+        Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.create(abonnementAVerif);
 
@@ -43,13 +45,13 @@ public class ListeMemoireDAOAbonnementTest
     @Test
     public void testUpdate() throws SQLException
     {
-        Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+        Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.create(abonnementAVerif);
 
         Abonnement abonnementRead = abonnementDAO.getById(abonnementAVerif.getId());
 
-        Abonnement abonnementUpdate = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+        Abonnement abonnementUpdate = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.update(abonnementUpdate);
 
@@ -61,7 +63,7 @@ public class ListeMemoireDAOAbonnementTest
     @Test
     public void testDelete() throws SQLException
     {
-        Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), 1, 1);
+        Abonnement abonnementAVerif = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.create(abonnementAVerif);
 

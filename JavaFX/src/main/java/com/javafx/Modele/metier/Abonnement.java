@@ -8,21 +8,21 @@ public class Abonnement
     int id, idClient, idRevue;
     LocalDate dateDebut, dateFin;
 
-    public Abonnement(LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue)
+    public Abonnement(LocalDate dateDebut, LocalDate dateFin, Client client, Revue revue)
     {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
-        this.idClient = idClient;
-        this.idRevue = idRevue;
+        this.idClient = client.getId();
+        this.idRevue = revue.getId();
     }
 
-    public Abonnement(int id, LocalDate dateDebut, LocalDate dateFin, int idClient, int idRevue)
+    public Abonnement(int id, LocalDate dateDebut, LocalDate dateFin, Client client, Revue revue)
     {
         this.id = id;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
-        this.idClient = idClient;
-        this.idRevue = idRevue;
+        this.idClient = client.getId();
+        this.idRevue = revue.getId();
     }
 
     public Abonnement(int id) {
@@ -45,9 +45,9 @@ public class Abonnement
         return idClient;
     }
 
-    public void setIdClient(int idClient)
+    public void setIdClient(Client client)
     {
-        this.idClient = idClient;
+        this.idClient = client.getId();
     }
 
     public int getIdRevue()
@@ -55,9 +55,9 @@ public class Abonnement
         return idRevue;
     }
 
-    public void setIdRevue(int idRevue)
+    public void setIdRevue(Revue revue)
     {
-        this.idRevue = idRevue;
+        this.idRevue = revue.getId();
     }
 
     public LocalDate getDateDebut()

@@ -42,7 +42,7 @@ public class creerRevueController implements Initializable
         double tarifDouble = 0;
         String description = null;
         String messageErreur = "";
-        int idPeriodicite = 0;
+        Periodicite itemPeriodicite = null;
         boolean erreur = false;
 
         affichageLabel.setText("");
@@ -73,10 +73,7 @@ public class creerRevueController implements Initializable
 
             if (periodiciteChoiceBox.getValue() != null)
             {
-                Periodicite itemPeriodicite = (Periodicite) periodiciteChoiceBox.getValue();
-                idPeriodicite = itemPeriodicite.getId();
-
-
+                itemPeriodicite = (Periodicite) periodiciteChoiceBox.getValue();
             }
             else
             {
@@ -108,7 +105,7 @@ public class creerRevueController implements Initializable
         }
         else
         {
-            Revue revue = new Revue(titre, description, tarifDouble, "", idPeriodicite);
+            Revue revue = new Revue(titre, description, tarifDouble, "", itemPeriodicite);
 
             affichageLabel.setText(revue.toString());
             affichageLabel.setTextFill(Color.BLACK);

@@ -10,6 +10,7 @@ import java.util.List;
 import com.javafx.Modele.dao.DAOFactory;
 import com.javafx.Modele.dao.Persistance;
 import com.javafx.Modele.dao.RevueDAO;
+import com.javafx.Modele.metier.Periodicite;
 import com.javafx.Modele.metier.Revue;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +31,7 @@ public class MySqlRevueDAOTest
     @Test
     public void testCreate() throws SQLException
     {
-        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
+        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", new Periodicite(1));
 
         revueDAO.create(revue);
 
@@ -46,11 +47,11 @@ public class MySqlRevueDAOTest
     @Test
     public void testUpdate() throws SQLException
     {
-        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
+        Revue revue = new Revue("Code154329", "Description", 10.1, "Visuel", new Periodicite(1));
 
         revueDAO.create(revue);
 
-        Revue revueUpdate = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
+        Revue revueUpdate = new Revue("Code154329", "Description", 10.1, "Visuel", new Periodicite(1));
 
         Revue revueRead = revueDAO.getByTitre(revue.getTitre()).get(0);
 
@@ -68,7 +69,7 @@ public class MySqlRevueDAOTest
     @Test
     public void testDelete() throws SQLException
     {
-        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", 1);
+        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", new Periodicite(1));
 
         revueDAO.create(revue);
 
