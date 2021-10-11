@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.Period;
 import java.util.ResourceBundle;
 
 public class creerRevueController implements Initializable
@@ -38,92 +39,65 @@ public class creerRevueController implements Initializable
     @FXML
     void boutonCreerRevueClick(ActionEvent event)
     {
-        String titre = null;
-        double tarifDouble = 0;
-        String description = null;
         String messageErreur = "";
-        Periodicite itemPeriodicite = null;
-        boolean erreur = false;
 
         affichageLabel.setText("");
-        affichageLabel.setTextFill(Color.RED);
 
-        Revue revue = null;
+        Revue revue = new Revue("", "",0, "", new Periodicite(""));
 
-        /*
+        //Try Titre
         try
         {
-            if (titreField.getText() != null && !titreField.getText().equals(""))
-            {
-                titre = titreField.getText();
-            }
-            else
-            {
-                messageErreur = messageErreur + "Merci de saisir un titre\n";
-                erreur = true;
-            }
-
-            if (descriptionArea.getText() != null && !descriptionArea.getText().equals(""))
-            {
-                description = descriptionArea.getText();
-            }
-            else
-            {
-                messageErreur = messageErreur + "Merci de saisir une description\n";
-                erreur = true;
-            }
-
-            if (periodiciteChoiceBox.getValue() != null)
-            {
-                itemPeriodicite = (Periodicite) periodiciteChoiceBox.getValue();
-            }
-            else
-            {
-                messageErreur = messageErreur + "Merci de saisir une periodicité\n";
-                erreur = true;
-            }
-
-            if (tarifField.getText() != null && !tarifField.getText().equals(""))
-            {
-                tarifDouble = Double.parseDouble(tarifField.getText());
-            }
-            else
-            {
-                messageErreur = messageErreur + "Merci de saisir un tarif\n";
-                erreur = true;
-            }
+            revue.setTitre(titreField.getText());
         }
-        catch (IllegalArgumentException e)
+        catch(IllegalArgumentException e)
         {
-            messageErreur = messageErreur + "Merci de saisir un nombre en tant que tarif";
-            erreur = true;
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try Description
+        try
+        {
+            revue.setDescription(descriptionArea.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try tarif
+        try
+        {
+            revue.setTarifNumero(Double.parseDouble(tarifField.getText()));
+        }
+        catch(NumberFormatException e)
+        {
+            messageErreur = messageErreur + "Tarif incorrect" + "\n";
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
         }
 
 
-        if (erreur)
+        //Try Periodicite
+        try
         {
-            affichageLabel.setText(messageErreur);
-            affichageLabel.setTextFill(Color.RED);
+            revue.setIdPeriodicite((Periodicite) periodiciteChoiceBox.getValue());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        if (messageErreur.equals(""))
+        {
+            affichageLabel.setText(revue.toString());
+            affichageLabel.setTextFill(Color.BLACK);
         }
         else
         {
-            Revue revue = new Revue(titre, description, tarifDouble, "", itemPeriodicite);
-
-            affichageLabel.setText(revue.toString());
-            affichageLabel.setTextFill(Color.BLACK);
-        }
-
-         */
-        System.out.println(tarifField.getText());
-        try
-        {
-            revue = new Revue(titreField.getText(), descriptionArea.getText(), Double.parseDouble(tarifField.getText()), "", (Periodicite)periodiciteChoiceBox.getValue());
-            affichageLabel.setText(revue.toString());
-            affichageLabel.setTextFill(Color.BLACK);
-        }
-        catch(IllegalArgumentException exception)
-        {
-            affichageLabel.setText(affichageLabel.getText() + exception.getMessage() + "\n");
+            affichageLabel.setText(messageErreur);
             affichageLabel.setTextFill(Color.RED);
         }
     }
