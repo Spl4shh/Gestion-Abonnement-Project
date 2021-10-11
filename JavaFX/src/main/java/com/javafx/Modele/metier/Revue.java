@@ -12,26 +12,26 @@ public class Revue
   /* Méthode Revue */
   public Revue(int id, String titre, String description, float tarifNumero, String visuel, int idPeriodicite)
   {
-      this.id = id;
-      this.titre = titre;
-      this.description = description;
-      this.tarifNumero = tarifNumero;
-      this.visuel = visuel;
-      this.idPeriodicite = idPeriodicite;
+      this.setId(id);
+      this.setTitre(titre);
+      this.setDescription(description);
+      this.setTarifNumero(tarifNumero);
+      this.setVisuel(visuel);
+      this.setIdPeriodicite(idPeriodicite);
   }
 
   public Revue(Integer id)
   {
-    this.id = id;
+      this.setId(id);
   }
 
   public Revue(String titre, String description, float tarifNumero, String visuel, int idPeriodicite)
   {
-      this.titre = titre;
-      this.description = description;
-      this.tarifNumero = tarifNumero;
-      this.visuel = visuel;
-      this.idPeriodicite = idPeriodicite;
+      this.setTitre(titre);
+      this.setDescription(description);
+      this.setTarifNumero(tarifNumero);
+      this.setVisuel(visuel);
+      this.setIdPeriodicite(idPeriodicite);
   }
   /* Fin Méthode Revue */
 
@@ -42,7 +42,7 @@ public class Revue
     return this.id;
   }
 
-  public void setId(int  id) 
+  public void setId(int id)
   {
 		this.id = id;
 	}
@@ -57,25 +57,28 @@ public class Revue
 		this.idPeriodicite = idPeriodicite;
 	}
 
-	public float getTarifNumero() 
-  {
-		return this.tarifNumero;
-	}
+  public float getTarifNumero()
+{
+      return this.tarifNumero;
+  }
 
-	public void setTarifNumero(float tarifNumero) 
+  public void setTarifNumero(float tarifNumero)
   {
-		this.tarifNumero = tarifNumero;
-	}
+      this.tarifNumero = tarifNumero;
+  }
 
-	public String getDescription() 
+  public String getDescription()
   {
-		return this.description;
-	}
+      return this.description;
+  }
 
-	public void setDescription(String description) 
+  public void setDescription(String description)
   {
-		this.description = description;
-	}
+      if (description != null && !description.equals(""))
+      {
+        this.description = description;
+      }
+  }
   
   public String getTitre() 
   {
@@ -84,7 +87,10 @@ public class Revue
   
   public void setTitre(String titre) 
   {
-    this.titre = titre;
+      if (titre != null && !titre.equals(""))
+      {
+        this.titre = titre;
+      }
   }
   
   public String getVisuel() 
