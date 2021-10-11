@@ -114,7 +114,7 @@ public class creerRevueController implements Initializable
         }
 
          */
-
+        System.out.println(tarifField.getText());
         try
         {
             revue = new Revue(titreField.getText(), descriptionArea.getText(), Double.parseDouble(tarifField.getText()), "", (Periodicite)periodiciteChoiceBox.getValue());
