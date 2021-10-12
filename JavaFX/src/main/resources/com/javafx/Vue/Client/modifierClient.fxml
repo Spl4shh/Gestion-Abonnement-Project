@@ -84,7 +84,7 @@
       </GridPane>
       <VBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0">
          <children>
-            <Button fx:id="boutonModifier" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="67.0" text="Modifier" />
+            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="67.0" text="Modifier" />
          </children>
       </VBox>
       <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="600.0">
