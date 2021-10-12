@@ -24,8 +24,8 @@ public class menuGeneralRevueController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        TableColumn<Revue, Integer> colId = new TableColumn<>("ID");
-        colId.setCellValueFactory(new PropertyValueFactory<Revue, Integer>("id"));
+        TableColumn<Revue, Integer> colId = new TableColumn<>("");
+        colId.setCellValueFactory(new PropertyValueFactory<Revue, Integer>(""));
 
         TableColumn<Revue, String> colTitre = new TableColumn<>("Titre");
         colTitre.setCellValueFactory(new PropertyValueFactory<Revue, String>("titre"));
