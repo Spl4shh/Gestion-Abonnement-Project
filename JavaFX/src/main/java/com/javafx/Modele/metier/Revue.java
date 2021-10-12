@@ -150,6 +150,6 @@ public class Revue
   @Override
   public String toString() 
   {
-    return (this.getId() + " " + this.getTitre() + " " + this.getDescription() + " " + this.getTarifNumero() + " " + this.getVisuel() + " " + this.getIdPeriodicite());
+    return ("ID : " + this.getId() + ", titre : " + this.getTitre() + ", description : " + this.getDescription() + ", tarif unitaire : " + this.getTarifNumero() + ", visuel : " + this.getVisuel() + ", ID périodicité" + this.getIdPeriodicite());
   }
 }
