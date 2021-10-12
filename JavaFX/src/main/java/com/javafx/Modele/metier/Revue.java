@@ -1,7 +1,5 @@
 package com.javafx.Modele.metier;
 
-import com.javafx.Modele.dao.PeriodiciteDAO;
-
 public class Revue
 {
   /* Définition des attributs */

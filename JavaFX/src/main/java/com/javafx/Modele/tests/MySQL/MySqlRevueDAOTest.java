@@ -1,10 +1,8 @@
 package com.javafx.Modele.tests.MySQL;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.javafx.Modele.dao.DAOFactory;
