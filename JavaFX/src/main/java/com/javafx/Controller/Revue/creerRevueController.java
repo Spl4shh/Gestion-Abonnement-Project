@@ -107,6 +107,7 @@ public class creerRevueController implements Initializable
         try
         {
             this.periodiciteChoiceBox.setItems(FXCollections.observableArrayList(dao.getPeriodiciteDAO().findAll()));
+            this.periodiciteChoiceBox.setValue(dao.getPeriodiciteDAO().findAll().get(0));
         } catch (SQLException e)
         {
             e.printStackTrace();
