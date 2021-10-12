@@ -2,8 +2,7 @@ package com.javafx.Controller.Revue;
 
 import com.javafx.Modele.dao.DAOFactory;
 import com.javafx.Modele.dao.Persistance;
-import com.javafx.Modele.metier.Revue;
-import javafx.collections.ObservableList;
+import com.javafx.Modele.metier.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -12,17 +11,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.scene.control.ListView;
 import org.w3c.dom.events.MouseEvent;
 
 public class menuGeneralRevueController implements Initializable
 {
 
     @FXML
-    private final TableView<Revue> tableViewRevue = new TableView<>();
+    private TableView<Revue> tableViewRevue;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
