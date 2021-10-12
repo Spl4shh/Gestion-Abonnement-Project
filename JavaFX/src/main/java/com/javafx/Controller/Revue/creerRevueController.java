@@ -42,8 +42,9 @@ public class creerRevueController implements Initializable
 
         affichageLabel.setText("");
 
-        Revue revue = new Revue("", "",0, "", new Periodicite(""));
+        //Revue revue = new Revue("", "",0, "", new Periodicite(""));
 
+        Revue revue = new Revue(0);
         //Try Titre
         try
         {
