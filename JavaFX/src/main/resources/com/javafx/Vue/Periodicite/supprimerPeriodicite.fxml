@@ -22,7 +22,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Revue à supprimer : " />
+                  <Label text="Periodicité à supprimer : " />
                   <ComboBox fx:id="periodiciteChoiceBox" prefWidth="150.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>

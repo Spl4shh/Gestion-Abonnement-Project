@@ -54,7 +54,7 @@
                      </children>
                   </HBox>
                   <Label text="Id : " />
-                  <Label fx:id="idLabel" text="LabelId" GridPane.columnIndex="1" />
+                  <Label fx:id="idLabel" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -65,14 +65,23 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="600.0">
+      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0">
          <children>
-            <Button fx:id="buttonCreer" mnemonicParsing="false" text="Modifier" />
+            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" defaultButton="true" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="67.0" text="Modifier">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="annulerBouton" cancelButton="true" mnemonicParsing="false" text="Annuler">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
          </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="49.0" prefWidth="656.0">
+      </HBox>
+      <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
          <children>
-            <Label fx:id="affichage" />
+            <Label fx:id="affichage" prefHeight="48.0" prefWidth="1.0" />
          </children>
       </VBox>
    </children>
