@@ -47,10 +47,11 @@ public class menuGeneralRevueController implements Initializable
         try
         {
             this.tableViewRevue.getItems().addAll(DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO().findAll());
-            /* Resultat debug :
-
+            /*Resultat debug :
                 Pourquoi rien ne s'affiche
-
+                Les differentes revues existent bien en tant qu'item dans tableViewRevue
+                Les colonnes ont le bon nom et chaque propertyValueFactory aussi
+                Impossible de voir via le debugger s'il y a un element dans une colonne
 
              */
         } catch (SQLException e)
