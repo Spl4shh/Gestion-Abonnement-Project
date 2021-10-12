@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
          <children>
@@ -22,37 +21,44 @@
                 <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="552.3333358764648" minWidth="10.0" prefWidth="481.999989827474" />
               </columnConstraints>
               <rowConstraints>
+                  <RowConstraints maxHeight="95.33332443237305" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="95.33332443237305" minHeight="10.0" prefHeight="27.999998092651367" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="88.00000190734863" minHeight="20.666675567626953" prefHeight="88.00000190734863" valignment="TOP" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="TOP_LEFT" text="Titre : " />
-                  <Label alignment="TOP_CENTER" text="Description : " GridPane.rowIndex="1">
+                  <Label alignment="TOP_LEFT" text="Titre : " GridPane.rowIndex="1" />
+                  <Label alignment="TOP_CENTER" text="Description : " GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label contentDisplay="TOP" text="Tarif : " GridPane.rowIndex="2" />
-                  <Label text="Périodicité : " GridPane.rowIndex="3" />
-                  <TextField fx:id="titre" prefHeight="25.0" prefWidth="426.0" promptText="Le Monde" GridPane.columnIndex="1">
+                  <Label contentDisplay="TOP" text="Tarif : " GridPane.rowIndex="3" />
+                  <Label text="Périodicité : " GridPane.rowIndex="4" />
+                  <TextField fx:id="titreField" prefHeight="25.0" prefWidth="426.0" promptText="Le Monde" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="50.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="description" alignment="TOP_LEFT" prefHeight="75.0" prefWidth="543.0" promptText="Entrez votre description ici" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="descriptionArea" alignment="TOP_LEFT" prefHeight="75.0" prefWidth="543.0" promptText="Entrez votre description ici" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ComboBox fx:id="periodicite" prefWidth="150.0" promptText="Quotidien" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <ComboBox fx:id="periodiciteChoiceBox" prefWidth="150.0" promptText="Quotidien" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <TextField fx:id="tarif" prefHeight="15.0" prefWidth="41.0" promptText="2.4" />
+                        <TextField fx:id="tarifField" prefHeight="15.0" prefWidth="41.0" promptText="2.4" />
                         <Label text=" € au numéro" />
                      </children>
                   </HBox>
+                  <Label text="Id : " />
+                  <TextField fx:id="idField" promptText="ID de la Revue" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets right="300.0" />
+                     </GridPane.margin>
+                  </TextField>
                </children>
             </GridPane>
          </children>
