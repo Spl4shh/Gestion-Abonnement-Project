@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.ListView;
 import org.w3c.dom.events.MouseEvent;
@@ -21,13 +22,11 @@ public class menuGeneralRevueController implements Initializable
     private ListView<Revue> revueListView;
 
     @FXML
-    private TableView<Revue> tableViewRevue;
+    private TableView<Revue> tableViewRevue = new TableView<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-
         TableColumn<Revue, Integer> colId =  new TableColumn<>("ID");
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -43,15 +42,24 @@ public class menuGeneralRevueController implements Initializable
         TableColumn<Revue, Integer> colIdPeriodicite =  new TableColumn<>("ID Périodicité");
         colIdPeriodicite.setCellValueFactory(new PropertyValueFactory<>("idPeriodicite"));
 
-        this.tableViewRevue.getColumns().setAll(colId, colTitre, colDescription, colTarifUnit, colIdPeriodicite);
+        this.tableViewRevue.getColumns().addAll(colId, colTitre, colDescription, colTarifUnit, colIdPeriodicite);
 
+
+        List<Revue> liste = null;
         try
         {
-            this.tableViewRevue.getItems().addAll(dao.getRevueDAO().findAll());
+            liste = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO().findAll();
         } catch (SQLException e)
         {
             e.printStackTrace();
         }
+
+        this.tableViewRevue.getItems().addAll(liste);
+        for (Revue revue : liste)
+        {
+            System.out.println(revue);
+        }
+
     }
 
     @FXML

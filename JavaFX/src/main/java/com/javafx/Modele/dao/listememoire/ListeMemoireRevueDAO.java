@@ -23,7 +23,8 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 		return instance;
 	}
 
-	private ListeMemoireRevueDAO() {
+	private ListeMemoireRevueDAO()
+	{
 
 		this.donnees = new ArrayList<Revue>();
 
