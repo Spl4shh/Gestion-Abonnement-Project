@@ -36,29 +36,25 @@
                   </Label>
                   <Label contentDisplay="TOP" text="Tarif : " GridPane.rowIndex="3" />
                   <Label text="Périodicité : " GridPane.rowIndex="4" />
-                  <TextField fx:id="titreField" prefHeight="25.0" prefWidth="426.0" promptText="Le Monde" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="titreField" prefHeight="25.0" prefWidth="426.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="50.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="descriptionArea" alignment="TOP_LEFT" prefHeight="75.0" prefWidth="543.0" promptText="Entrez votre description ici" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="descriptionArea" alignment="TOP_LEFT" prefHeight="75.0" prefWidth="543.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ComboBox fx:id="periodiciteChoiceBox" prefWidth="150.0" promptText="Quotidien" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="periodiciteChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <TextField fx:id="tarifField" prefHeight="15.0" prefWidth="41.0" promptText="2.4" />
+                        <TextField fx:id="tarifField" prefHeight="15.0" prefWidth="41.0" />
                         <Label text=" € au numéro" />
                      </children>
                   </HBox>
                   <Label text="Id : " />
-                  <TextField fx:id="idField" promptText="ID de la Revue" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets right="300.0" />
-                     </GridPane.margin>
-                  </TextField>
+                  <Label fx:id="idLabel" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -69,14 +65,23 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="600.0">
+      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0">
          <children>
-            <Button fx:id="buttonCreer" mnemonicParsing="false" text="Créer" />
+            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" defaultButton="true" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="67.0" text="Modifier">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="annulerBouton" cancelButton="true" mnemonicParsing="false" text="Annuler">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
          </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="49.0" prefWidth="656.0">
+      </HBox>
+      <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
          <children>
-            <Label fx:id="affichage" text="Le Monde (2.4€)" />
+            <Label fx:id="affichage" prefHeight="48.0" prefWidth="1.0" />
          </children>
       </VBox>
    </children>
