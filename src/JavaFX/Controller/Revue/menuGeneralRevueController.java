@@ -40,7 +40,7 @@ public class menuGeneralRevueController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        colId.setCellValueFactory(new PropertyValueFactory<Revue, Integer>(""));
+        colId.setCellValueFactory(new PropertyValueFactory<Revue, Integer>("id"));
 
         colTitre.setCellValueFactory(new PropertyValueFactory<Revue, String>("titre"));
 
