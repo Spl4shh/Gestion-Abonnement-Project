@@ -5,147 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/dictionaries/Romain.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__junit_junit_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_base_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_controls_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_ea_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/hamcrest_all_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/libraries/scenebuilder_8_5_0_all.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.settings/org.eclipse.jdt.apt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Controller/Revue/creerRevueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Controller/Revue/menuGeneralRevueController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/connexion/Connexion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/AbonnementDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/ClientDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/DAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/DAOFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/ListeMemoireDAOFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/MySQLDAOFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/PeriodiciteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/Persistance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/RevueDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/listememoire/ListeMemoireAbonnementDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/listememoire/ListeMemoireClientDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/listememoire/ListeMemoirePeriodiciteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/listememoire/ListeMemoireRevueDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/mysql/MySqlAbonnementDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/mysql/MySqlClientDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/mysql/MySqlPeriodiciteDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/dao/mysql/MySqlRevueDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/metier/Abonnement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/metier/Adresse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/metier/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/metier/Periodicite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/metier/ProcessAdress.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/metier/Revue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/DAO/DAOFactoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/DAO/ListeMemoireDAOFactoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/DAO/MySqlDAOFactoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/MySQL/MySqlAbonnementDAOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/MySQL/MySqlClientDAOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/MySQL/MySqlPeriodiciteDAOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/MySQL/MySqlRevueDAOTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/ProcessAdressTest/normalizationCodePostalTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/ProcessAdressTest/normalizationPaysTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/ProcessAdressTest/normalizationVilleTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/ProcessAdressTest/normalizationVoieTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/listememoire/ListeMemoireDAOAbonnementTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/listememoire/ListeMemoireDAOClientTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/listememoire/ListeMemoireDAOPeriodiciteTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/com/javafx/Modele/tests/listememoire/ListeMemoireDAORevueTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Abonnement/creerAbonnement.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Abonnement/modifierAbonnement.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Abonnement/supprimerAbonnement.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Client/creerClient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Client/modifierClient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Client/supprimerClient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Periodicite/supprimerPeriodicite.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Revue/creerRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Revue/menuGeneralRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Revue/modifierRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/src/main/resources/com/javafx/Vue/Revue/supprimerRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Abonnement/creerAbonnement.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Abonnement/modifierAbonnement.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Abonnement/supprimerAbonnement.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Client/creerClient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Client/modifierClient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Client/supprimerClient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Periodicite/supprimerPeriodicite.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Revue/creerRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Revue/menuGeneralRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Revue/modifierRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFX/target/classes/com/javafx/Vue/Revue/supprimerRevue.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/AbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AbonnementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ListeMemoireDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ListeMemoireDAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/MySQLDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/MySQLDAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/PeriodiciteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PeriodiciteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/RevueDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/RevueDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireAbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireAbonnementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoirePeriodiciteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoirePeriodiciteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireRevueDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireRevueDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlAbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlAbonnementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlPeriodiciteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlPeriodiciteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlRevueDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlRevueDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Abonnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Abonnement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Periodicite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Periodicite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/ProcessAdress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/ProcessAdress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Revue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Revue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DAO/DAOFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DAO/DAOFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DAO/ListeMemoireDAOFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DAO/ListeMemoireDAOFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DAO/MySqlDAOFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DAO/MySqlDAOFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlAbonnementDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/MySQL/MySqlAbonnementDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlClientDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/MySQL/MySqlClientDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlPeriodiciteDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/MySQL/MySqlPeriodiciteDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlRevueDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/MySQL/MySqlRevueDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationCodePostalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationCodePostalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationPaysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationPaysTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationVilleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationVilleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationVoieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationVoieTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAOAbonnementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAOAbonnementTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAOClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAOClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAOPeriodiciteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAOPeriodiciteTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAORevueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/listememoire/ListeMemoireDAORevueTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/menuGeneralRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/menuGeneralRevueController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +32,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/lib/javafx.web.jar" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15667576" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MTCustomThemeConfigurable" />
