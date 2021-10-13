@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
@@ -16,7 +17,14 @@
          </VBox.margin>
          <children>
             <Label prefHeight="18.0" prefWidth="620.0" text="Liste des Revues :" />
-            <TableView fx:id="tableViewRevue" prefHeight="268.0" prefWidth="604.0" />
+            <TableView fx:id="tableViewRevue" prefHeight="268.0" prefWidth="604.0">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="45.60003489255905" text="ID" />
+                  <TableColumn fx:id="colTitre" prefWidth="104.79993438720703" text="Titre" />
+                  <TableColumn fx:id="colDescription" prefWidth="198.40005493164062" text="Description" />
+                  <TableColumn fx:id="colTarifUnit" prefWidth="91.99993896484375" text="Tarif Unitaire" />
+                  <TableColumn fx:id="colIdPeriodicite" prefWidth="108.0" text="ID Periodicite" />
+               </columns></TableView>
          </children>
       </VBox>
    </children>

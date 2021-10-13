@@ -19,27 +19,35 @@ public class menuGeneralRevueController implements Initializable
 {
 
     @FXML
+    private TableColumn<Revue, String> colDescription;
+
+    @FXML
+    private TableColumn<Revue, Integer> colId;
+
+    @FXML
+    private TableColumn<Revue, Integer> colIdPeriodicite;
+
+    @FXML
+    private TableColumn<Revue, Double> colTarifUnit;
+
+    @FXML
+    private TableColumn<Revue, String> colTitre;
+
+    @FXML
     private TableView<Revue> tableViewRevue;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        TableColumn<Revue, Integer> colId = new TableColumn<>("");
         colId.setCellValueFactory(new PropertyValueFactory<Revue, Integer>(""));
 
-        TableColumn<Revue, String> colTitre = new TableColumn<>("Titre");
         colTitre.setCellValueFactory(new PropertyValueFactory<Revue, String>("titre"));
 
-        TableColumn<Revue, String> colDescription = new TableColumn<>("Description");
         colDescription.setCellValueFactory(new PropertyValueFactory<Revue, String>("description"));
 
-        TableColumn<Revue, Double> colTarifUnit = new TableColumn<>("Tarif Unitaire");
         colTarifUnit.setCellValueFactory(new PropertyValueFactory<Revue, Double>("tarifNumero"));
 
-        TableColumn<Revue, Integer> colIdPeriodicite = new TableColumn<>("ID Périodicité");
         colIdPeriodicite.setCellValueFactory(new PropertyValueFactory<Revue, Integer>("idPeriodicite"));
-
-        this.tableViewRevue.getColumns().setAll(colId, colTitre, colDescription, colTarifUnit, colIdPeriodicite);
 
         try
         {

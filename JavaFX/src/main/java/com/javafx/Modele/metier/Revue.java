@@ -3,9 +3,9 @@ package com.javafx.Modele.metier;
 public class Revue
 {
   /* Définition des attributs */
-  int id, idPeriodicite;
-  double tarifNumero;
-  String titre, description, visuel;
+  private int id, idPeriodicite;
+  private double tarifNumero;
+  private String titre, description, visuel;
   /* Fin Définition des attributs */
 
 
