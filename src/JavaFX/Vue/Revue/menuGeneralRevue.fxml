@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.menuGeneralRevueController">
+   <children>
+      <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <VBox.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+         <children>
+            <Label prefHeight="18.0" prefWidth="620.0" text="Liste des Revues :" />
+            <TableView fx:id="tableViewRevue" prefHeight="268.0" prefWidth="604.0">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="45.60003489255905" text="ID" />
+                  <TableColumn fx:id="colTitre" prefWidth="104.79993438720703" text="Titre" />
+                  <TableColumn fx:id="colDescription" prefWidth="198.40005493164062" text="Description" />
+                  <TableColumn fx:id="colTarifUnit" prefWidth="91.99993896484375" text="Tarif Unitaire" />
+                  <TableColumn fx:id="colIdPeriodicite" prefWidth="108.0" text="ID Periodicite" />
+               </columns></TableView>
+         </children>
+      </VBox>
+   </children>
+</VBox>
