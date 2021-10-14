@@ -13,7 +13,7 @@
 
 <VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.modifierRevueController">
    <children>
-      <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
+      <VBox prefHeight="250.0" prefWidth="626.0" style="-fx-border-color: black;">
          <children>
             <GridPane alignment="CENTER" prefHeight="231.0" prefWidth="653.0">
               <columnConstraints>
@@ -54,7 +54,7 @@
                      </children>
                   </HBox>
                   <Label text="Id : " />
-                  <Label fx:id="labelID" prefHeight="17.0" prefWidth="168.0" GridPane.columnIndex="1" />
+                  <Label fx:id="labelID" prefHeight="17.0" prefWidth="168.0" text="A modifier" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -65,7 +65,7 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </VBox>
-      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0">
+      <HBox alignment="TOP_CENTER" prefHeight="29.0" prefWidth="656.0">
          <children>
             <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonModifierClick" prefHeight="25.0" prefWidth="67.0" text="Modifier">
                <HBox.margin>
@@ -79,9 +79,9 @@
             </Button>
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
+      <VBox alignment="TOP_CENTER" prefHeight="97.0" prefWidth="656.0">
          <children>
-            <Label fx:id="affichage" prefHeight="48.0" prefWidth="1.0" />
+            <Label fx:id="affichage" prefHeight="81.0" prefWidth="656.0" />
          </children>
       </VBox>
    </children>
