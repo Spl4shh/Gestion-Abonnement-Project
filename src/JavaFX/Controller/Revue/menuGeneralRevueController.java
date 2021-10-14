@@ -82,7 +82,7 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
     }
 
     @FXML
-    void btnSupprimerClick(ActionEvent event) throws IOException, SQLException {
+    void btnSupprimerClick(ActionEvent event) throws SQLException {
         Revue revueASupprimer = this.tableViewRevue.getSelectionModel().getSelectedItem();
         /*
         Supprimer la revue de la DAO utilisé
