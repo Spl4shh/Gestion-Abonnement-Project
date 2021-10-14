@@ -26,7 +26,7 @@ import metier.Revue;
 
 public class menuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
-    RevueDAO revueDAO;
+    RevueDAO revueDAO = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO();
 
     @FXML
     private Button btnAjouter;
@@ -71,6 +71,9 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
     @FXML
     void btnModifierClick(ActionEvent event) throws IOException
     {
+        Revue revueAModifier = this.tableViewRevue.getSelectionModel().getSelectedItem();
+        sendData(revueAModifier);
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/modifierRevue.fxml"));
         //Creer une Scene contenant cette page
@@ -89,7 +92,7 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
         */
 
         //code test
-        DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO().delete(revueASupprimer);
+        revueDAO.delete(revueASupprimer);
 
         //Reset la liste
         genererListeRevue();
@@ -131,11 +134,17 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
         try
         {
             //A modifier par une variable DAO
-            this.tableViewRevue.getItems().addAll(DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO().findAll());
+            this.tableViewRevue.getItems().addAll(revueDAO.findAll());
         } catch (SQLException e)
         {
             e.printStackTrace();
         }
+    }
+
+    private void sendData(Revue revue)
+    {
+        RevueHolder revueHolder = RevueHolder.getInstance();
+        revueHolder.setRevue(revue);
     }
 }
 

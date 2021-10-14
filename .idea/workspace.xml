@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/modifierRevueController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/creerRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/creerRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/menuGeneralRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/menuGeneralRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

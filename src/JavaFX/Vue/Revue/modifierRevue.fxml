@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.modifierRevueController">
    <children>
       <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
          <children>
@@ -47,7 +54,7 @@
                      </children>
                   </HBox>
                   <Label text="Id : " />
-                  <Label fx:id="idLabel" GridPane.columnIndex="1" />
+                  <Label fx:id="labelID" prefHeight="17.0" prefWidth="168.0" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
@@ -60,12 +67,12 @@
       </VBox>
       <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0">
          <children>
-            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="67.0" text="Modifier">
+            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonModifierClick" prefHeight="25.0" prefWidth="67.0" text="Modifier">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="annulerBouton" mnemonicParsing="false" text="Annuler">
+            <Button fx:id="annulerBouton" mnemonicParsing="false" onAction="#boutonAnnulerClick" text="Annuler">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

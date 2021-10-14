@@ -11,7 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import metier.Periodicite;
@@ -22,20 +25,30 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class creerRevueController implements Initializable
+public class modifierRevueController implements Initializable
 {
+    Revue revueAModifier;
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
     RevueDAO revueDAO = dao.getRevueDAO();
     PeriodiciteDAO periodiciteDAO = dao.getPeriodiciteDAO();
 
     @FXML
-    private Label affichageLabel;
+    private Button annulerBouton;
 
     @FXML
-    private Button boutonCreer;
+    private TextField descriptionArea;
 
     @FXML
-    private TextArea descriptionArea;
+    private Label labelId;
+
+    @FXML
+    private Label affichage;
+
+    @FXML
+    private Button modifierBouton;
+
+    @FXML
+    private ComboBox<Periodicite> periodiciteChoiceBox;
 
     @FXML
     private TextField tarifField;
@@ -44,17 +57,16 @@ public class creerRevueController implements Initializable
     private TextField titreField;
 
     @FXML
-    private ChoiceBox<Periodicite> periodiciteChoiceBox;
+    void boutonAnnulerClick(ActionEvent event) throws IOException {
+        returnToMenu();
+    }
 
     @FXML
-    private Button btnAnnuler;
-
-    @FXML
-    void boutonCreerRevueClick(ActionEvent event) throws IOException
+    void boutonModifierClick(ActionEvent event) throws IOException
     {
         String messageErreur = "";
 
-        affichageLabel.setText("");
+        affichage.setText("");
 
         Revue revue = new Revue(0);
         //Try Titre
@@ -104,29 +116,28 @@ public class creerRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
+            revue.setId(revueAModifier.getId());
             /*HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
-            affichageLabel.setText(revue.toString());
-            affichageLabel.setTextFill(Color.BLACK);
+
+            affichage.setText(revue.toString());
+            affichage.setTextFill(Color.BLACK);
             returnToMenu();
         }
         else
         {
-            affichageLabel.setText(messageErreur);
-            affichageLabel.setTextFill(Color.RED);
+            affichage.setText(messageErreur);
+            affichage.setTextFill(Color.RED);
         }
-    }
 
-    @FXML
-    void btnAnnulerClick(ActionEvent event) throws IOException
-    {
         returnToMenu();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        //Initialisation de la ChoiceBox
         try
         {
             this.periodiciteChoiceBox.setItems(FXCollections.observableArrayList(periodiciteDAO.findAll()));
@@ -134,6 +145,26 @@ public class creerRevueController implements Initializable
         {
             e.printStackTrace();
         }
+
+        //Recuperation de la Revue a modifier
+        revueAModifier = receiveData();
+
+        //Application des champs
+        labelId.setText(String.valueOf(revueAModifier.getId()));
+        titreField.setText(revueAModifier.getTitre());
+        descriptionArea.setText(revueAModifier.getDescription());
+        tarifField.setText(String.valueOf(revueAModifier.getTarifNumero()));
+        try {
+            periodiciteChoiceBox.setValue(periodiciteDAO.getById(revueAModifier.getIdPeriodicite()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Revue receiveData()
+    {
+        RevueHolder revueHolder = RevueHolder.getInstance();
+        return revueHolder.getRevue();
     }
 
     public void returnToMenu() throws IOException
@@ -143,7 +174,7 @@ public class creerRevueController implements Initializable
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) affichageLabel.getScene().getWindow();
+        Stage stage = (Stage) labelId.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
     }
