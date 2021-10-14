@@ -174,7 +174,8 @@ public class modifierRevueController implements Initializable
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) titreField.getScene().getWindow();
+        Stage stage = (Stage) this.titreField.getScene().getWindow();
+        System.out.println(stage);
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
     }
