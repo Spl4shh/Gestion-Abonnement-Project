@@ -65,6 +65,18 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
         stage.setScene(scene);
     }
 
+    @FXML
+    void btnModifierClick(ActionEvent event) throws IOException
+    {
+
+    }
+
+    @FXML
+    void btnSupprimerClick(ActionEvent event) throws IOException
+    {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -78,13 +90,7 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
 
         colIdPeriodicite.setCellValueFactory(new PropertyValueFactory<>("idPeriodicite"));
 
-        try
-        {
-            this.tableViewRevue.getItems().addAll(DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO().findAll());
-        } catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
+        genererListeRevue();
 
         this.tableViewRevue.getSelectionModel().selectedItemProperty().addListener(this);
         this.btnSupprimer.setDisable(true);
@@ -96,6 +102,17 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
     {
         this.btnSupprimer.setDisable(newValue == null);
         this.btnModifier.setDisable(newValue == null);
+    }
+
+    public void genererListeRevue()
+    {
+        try
+        {
+            this.tableViewRevue.getItems().addAll(DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO().findAll());
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
 
