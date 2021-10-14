@@ -132,7 +132,8 @@ public class Revue
   {
     Revue revue = (Revue) object;
 
-    if (this.id == revue.id &&
+    if (revue != null &&
+        this.id == revue.id &&
         this.description.equals(revue.description) &&
         this.idPeriodicite == revue.idPeriodicite &&
         this.tarifNumero == revue.tarifNumero &&

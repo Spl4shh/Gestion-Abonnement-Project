@@ -2,22 +2,31 @@ package JavaFX.Controller.Revue;
 
 import dao.DAOFactory;
 import dao.Persistance;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import metier.Revue;
-import org.w3c.dom.events.MouseEvent;
 
-public class menuGeneralRevueController implements Initializable
+public class menuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
+    @FXML
+    private Button btnAjouter;
+
+    @FXML
+    private Button btnModifier;
+
+    @FXML
+    private Button btnSupprimer;
 
     @FXML
     private TableColumn<Revue, String> colDescription;
@@ -57,12 +66,16 @@ public class menuGeneralRevueController implements Initializable
         {
             e.printStackTrace();
         }
+
+        this.tableViewRevue.getSelectionModel().selectedItemProperty().addListener(this);
+        this.btnSupprimer.setDisable(true);
     }
 
-    @FXML
-    void listViewOnClick(MouseEvent event)
+    @Override
+    public void changed(ObservableValue<? extends Revue> observable, Revue oldValue, Revue newValue)
     {
-
+        System.out.println("Hello");
+        this.btnSupprimer.setDisable(newValue == null);
     }
 }
 
