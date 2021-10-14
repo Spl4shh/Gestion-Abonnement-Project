@@ -177,6 +177,9 @@ public class modifierRevueController implements Initializable
         Stage stage = (Stage) this.titreField.getScene().getWindow();
         System.out.println(stage);
         //Afficher la nouvelle Scene dans l'ancienne Stage
-        stage.setScene(scene);
+        if (stage != null)
+        {
+            stage.setScene(scene);
+        }
     }
 }
