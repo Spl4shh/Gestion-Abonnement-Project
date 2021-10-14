@@ -175,6 +175,7 @@ public class modifierRevueController implements Initializable
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) labelId.getScene().getWindow();
+        System.out.println(stage);
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
     }

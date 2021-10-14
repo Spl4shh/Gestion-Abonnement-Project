@@ -54,7 +54,7 @@
                      </children>
                   </HBox>
                   <Label text="Id : " />
-                  <Label fx:id="labelID" prefHeight="17.0" prefWidth="168.0" text="A modifier" GridPane.columnIndex="1" />
+                  <Label fx:id="labelId" prefHeight="17.0" prefWidth="168.0" text="A modifier" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
