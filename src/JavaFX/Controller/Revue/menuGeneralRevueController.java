@@ -69,6 +69,7 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
 
         this.tableViewRevue.getSelectionModel().selectedItemProperty().addListener(this);
         this.btnSupprimer.setDisable(true);
+        this.btnModifier.setDisable(true);
     }
 
     @Override
@@ -76,6 +77,7 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
     {
         System.out.println("Hello");
         this.btnSupprimer.setDisable(newValue == null);
+        this.btnModifier.setDisable(newValue == null);
     }
 }
 
