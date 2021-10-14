@@ -1,20 +1,26 @@
 package JavaFX.Controller.Revue;
 
+import JavaFX.Application;
 import dao.DAOFactory;
 import dao.Persistance;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.stage.Stage;
 import metier.Revue;
 
 public class menuGeneralRevueController implements Initializable, ChangeListener<Revue>
@@ -46,18 +52,31 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
     @FXML
     private TableView<Revue> tableViewRevue;
 
+    @FXML
+    void btnAjouterClick(ActionEvent event) throws IOException
+    {
+        //Charger la page que l'on veux afficher
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/creerRevue.fxml"));
+        //Creer une Scene contenant cette page
+        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        //Recuperer la Stage de l'ancienne page
+        Stage stage = (Stage) tableViewRevue.getScene().getWindow();
+        //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setScene(scene);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        colId.setCellValueFactory(new PropertyValueFactory<Revue, Integer>("id"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        colTitre.setCellValueFactory(new PropertyValueFactory<Revue, String>("titre"));
+        colTitre.setCellValueFactory(new PropertyValueFactory<>("titre"));
 
-        colDescription.setCellValueFactory(new PropertyValueFactory<Revue, String>("description"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
-        colTarifUnit.setCellValueFactory(new PropertyValueFactory<Revue, Double>("tarifNumero"));
+        colTarifUnit.setCellValueFactory(new PropertyValueFactory<>("tarifNumero"));
 
-        colIdPeriodicite.setCellValueFactory(new PropertyValueFactory<Revue, Integer>("idPeriodicite"));
+        colIdPeriodicite.setCellValueFactory(new PropertyValueFactory<>("idPeriodicite"));
 
         try
         {
