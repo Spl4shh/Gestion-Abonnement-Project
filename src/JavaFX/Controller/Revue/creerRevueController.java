@@ -1,16 +1,21 @@
 package JavaFX.Controller.Revue;
 
+import JavaFX.Application;
 import dao.DAOFactory;
 import dao.Persistance;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import metier.Periodicite;
 import metier.Revue;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -33,11 +38,13 @@ public class creerRevueController implements Initializable
     private TextField titreField;
 
     @FXML
-    private ChoiceBox periodiciteChoiceBox;
+    private ChoiceBox<Periodicite> periodiciteChoiceBox;
 
     @FXML
-    void boutonCreerRevueClick(ActionEvent event)
-    {
+    private Button btnAnnuler;
+
+    @FXML
+    void boutonCreerRevueClick(ActionEvent event) throws IOException {
         String messageErreur = "";
 
         affichageLabel.setText("");
@@ -81,7 +88,7 @@ public class creerRevueController implements Initializable
         //Try Periodicite
         try
         {
-            revue.setIdPeriodicite((Periodicite) periodiciteChoiceBox.getValue());
+            revue.setIdPeriodicite(periodiciteChoiceBox.getValue());
         }
         catch(IllegalArgumentException e)
         {
@@ -90,14 +97,24 @@ public class creerRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
+            /*HERE :
+                Code pour ajouter la revue a la DAO souhaité
+             */
             affichageLabel.setText(revue.toString());
             affichageLabel.setTextFill(Color.BLACK);
+            returnToMenu();
         }
         else
         {
             affichageLabel.setText(messageErreur);
             affichageLabel.setTextFill(Color.RED);
         }
+    }
+
+    @FXML
+    void btnAnnulerClick(ActionEvent event) throws IOException
+    {
+        returnToMenu();
     }
 
     @Override
@@ -114,4 +131,15 @@ public class creerRevueController implements Initializable
         }
     }
 
+    public void returnToMenu() throws IOException
+    {
+        //Charger la page que l'on veux afficher
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/menuGeneralRevue.fxml"));
+        //Creer une Scene contenant cette page
+        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        //Recuperer la Stage de l'ancienne page
+        Stage stage = (Stage) affichageLabel.getScene().getWindow();
+        //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setScene(scene);
+    }
 }

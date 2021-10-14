@@ -94,7 +94,6 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
     @Override
     public void changed(ObservableValue<? extends Revue> observable, Revue oldValue, Revue newValue)
     {
-        System.out.println("Hello");
         this.btnSupprimer.setDisable(newValue == null);
         this.btnModifier.setDisable(newValue == null);
     }
