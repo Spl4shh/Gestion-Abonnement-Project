@@ -69,6 +69,8 @@ public class modifierRevueController implements Initializable
         affichage.setText("");
 
         Revue revue = new Revue(0);
+        revue.setVisuel("");
+
         //Try Titre
         try
         {
