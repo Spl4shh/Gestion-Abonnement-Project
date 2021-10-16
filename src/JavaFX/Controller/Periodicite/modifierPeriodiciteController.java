@@ -1,6 +1,7 @@
 package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
+import JavaFX.Controller.Revue.RevueHolder;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
 import dao.Persistance;
@@ -13,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import metier.Periodicite;
+import metier.Revue;
 
 import java.io.IOException;
 
@@ -72,6 +74,12 @@ public class modifierPeriodiciteController
         idLabel.setText(String.valueOf(periodiciteAModifier.getId()));
         //set libelle
         libelleField.setText(String.valueOf(periodiciteAModifier.getLibelle()));
+    }
+
+    private Periodicite receiveData()
+    {
+        PeriodiciteHolder periodiciteHolder = PeriodiciteHolder.getInstance();
+        return periodiciteHolder.getPeriodicite();
     }
 
     // Retour au menu
