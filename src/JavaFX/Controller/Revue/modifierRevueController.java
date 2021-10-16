@@ -63,8 +63,7 @@ public class modifierRevueController implements Initializable
     }
 
     @FXML
-    void boutonModifierClick(ActionEvent event) throws IOException
-    {
+    void boutonModifierClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
 
         affichage.setText("");
@@ -121,6 +120,7 @@ public class modifierRevueController implements Initializable
             /*HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
+            revueDAO.update(revue);
 
             affichage.setText(revue.toString());
             affichage.setTextFill(Color.BLACK);
