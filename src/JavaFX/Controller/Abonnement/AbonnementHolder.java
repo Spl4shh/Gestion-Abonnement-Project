@@ -15,7 +15,7 @@ public class AbonnementHolder
         return INSTANCE;
     }
 
-    public void setRevue(Abonnement abonnement)
+    public void setAbonnement(Abonnement abonnement)
     {
         this.abonnement = abonnement;
     }

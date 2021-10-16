@@ -1,5 +1,7 @@
 package JavaFX.Controller.Abonnement;
 
+import JavaFX.Application;
+import JavaFX.Controller.Revue.RevueHolder;
 import dao.AbonnementDAO;
 import dao.DAOFactory;
 import dao.Persistance;
@@ -8,14 +10,18 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import metier.Abonnement;
 import metier.Revue;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -53,18 +59,47 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
     private TableView<Abonnement> tableViewAbonnement;
 
     @FXML
-    void btnAjouterClick(ActionEvent event) {
-
+    void btnAjouterClick(ActionEvent event) throws IOException
+    {
+        //Charger la page que l'on veux afficher
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Abonnement/creerAbonnement.fxml"));
+        //Creer une Scene contenant cette page
+        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        //Recuperer la Stage de l'ancienne page
+        Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+        //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setScene(scene);
     }
 
     @FXML
-    void btnModifierClick(ActionEvent event) {
+    void btnModifierClick(ActionEvent event) throws IOException
+    {
+        Abonnement abonnementAModifier = this.tableViewAbonnement.getSelectionModel().getSelectedItem();
+        sendData(abonnementAModifier);
 
+        //Charger la page que l'on veux afficher
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Abonnement/modifierAbonnement.fxml"));
+        //Creer une Scene contenant cette page
+        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        //Recuperer la Stage de l'ancienne page
+        Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+        //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setScene(scene);
     }
 
     @FXML
-    void btnSupprimerClick(ActionEvent event) {
+    void btnSupprimerClick(ActionEvent event) throws SQLException
+    {
+        Abonnement abonnementASupprimer = this.tableViewAbonnement.getSelectionModel().getSelectedItem();
+        /*
+        Supprimer l'abonnement de la DAO utilisé
+        */
 
+        //code test
+        abonnementDAO.delete(abonnementASupprimer);
+
+        //Reset la liste
+        genererListeRevue();
     }
 
     @Override
@@ -107,5 +142,11 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
         {
             e.printStackTrace();
         }
+    }
+
+    private void sendData(Abonnement abonnement)
+    {
+        AbonnementHolder abonnementHolder = AbonnementHolder.getInstance();
+        abonnementHolder.setAbonnement(abonnement);
     }
 }
