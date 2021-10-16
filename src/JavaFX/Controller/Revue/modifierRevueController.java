@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import metier.Periodicite;
 import metier.Revue;
 
@@ -130,8 +131,6 @@ public class modifierRevueController implements Initializable
             affichage.setText(messageErreur);
             affichage.setTextFill(Color.RED);
         }
-
-        returnToMenu();
     }
 
     @Override
@@ -174,9 +173,14 @@ public class modifierRevueController implements Initializable
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) this.titreField.getScene().getWindow();
-        System.out.println(stage);
+
+
+        //Stage stage = (Stage) this.titreField.getScene().getWindow();
+        Stage stage = (Stage) Stage.getWindows().stream().filter(Window::isShowing).findFirst().orElse(null);
+
+
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        System.out.println(stage);
         if (stage != null)
         {
             stage.setScene(scene);

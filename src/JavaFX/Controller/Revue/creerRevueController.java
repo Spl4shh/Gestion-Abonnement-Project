@@ -50,13 +50,13 @@ public class creerRevueController implements Initializable
     private Button btnAnnuler;
 
     @FXML
-    void boutonCreerRevueClick(ActionEvent event) throws IOException
-    {
+    void boutonCreerRevueClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
 
         affichageLabel.setText("");
 
         Revue revue = new Revue(0);
+        revue.setVisuel("");
         //Try Titre
         try
         {
@@ -108,6 +108,8 @@ public class creerRevueController implements Initializable
                 HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
+            revueDAO.create(revue);
+
             affichageLabel.setText(revue.toString());
             affichageLabel.setTextFill(Color.BLACK);
             returnToMenu();
