@@ -52,7 +52,6 @@ public class CreerRevueController implements Initializable
     @FXML
     void boutonCreerRevueClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
-
         affichageLabel.setText("");
 
         Revue revue = new Revue(0);

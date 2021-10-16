@@ -72,7 +72,8 @@ public class Client
     {
         Client client = (Client) object;
 
-        if (this.id == client.id &&
+        if (client != null &&
+            this.id == client.id &&
             this.nom.equals(client.nom) &&
             this.prenom.equals(client.prenom) &&
             this.adresse.equals(client.adresse)) 
