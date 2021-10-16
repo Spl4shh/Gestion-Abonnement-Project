@@ -19,10 +19,10 @@
          </VBox.margin>
          <children>
             <Label prefHeight="18.0" prefWidth="620.0" text="Liste des Periodicites : " />
-            <TableView fx:id="tableViewRevue" prefHeight="341.0" prefWidth="548.0">
+            <TableView fx:id="tableViewPeriodicite" prefHeight="341.0" prefWidth="548.0">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="93.33333623409271" text="ID" />
-                  <TableColumn fx:id="colIdPeriodicite" prefWidth="453.33338165283203" text="Libelle" />
+                  <TableColumn fx:id="colLibelle" prefWidth="453.33338165283203" text="Libelle" />
                </columns></TableView>
          </children>
       </VBox>
