@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import javafx.stage.Stage;
 import metier.Revue;
 
-public class menuGeneralRevueController implements Initializable, ChangeListener<Revue>
+public class MenuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
     RevueDAO revueDAO = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO();
 

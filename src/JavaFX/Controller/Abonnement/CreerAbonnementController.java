@@ -1,4 +1,4 @@
-package JavaFX.Controller.Revue;
+package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
 import dao.DAOFactory;
@@ -11,13 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import metier.Periodicite;
 import metier.Revue;
 
@@ -26,30 +22,20 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class modifierRevueController implements Initializable
+public class CreerAbonnementController implements Initializable
 {
-    Revue revueAModifier;
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
     RevueDAO revueDAO = dao.getRevueDAO();
     PeriodiciteDAO periodiciteDAO = dao.getPeriodiciteDAO();
 
     @FXML
-    private Button annulerBouton;
+    private Label affichageLabel;
 
     @FXML
-    private TextField descriptionArea;
+    private Button boutonCreer;
 
     @FXML
-    private Label labelId;
-
-    @FXML
-    private Label affichage;
-
-    @FXML
-    private Button modifierBouton;
-
-    @FXML
-    private ComboBox<Periodicite> periodiciteChoiceBox;
+    private TextArea descriptionArea;
 
     @FXML
     private TextField tarifField;
@@ -58,19 +44,19 @@ public class modifierRevueController implements Initializable
     private TextField titreField;
 
     @FXML
-    void boutonAnnulerClick(ActionEvent event) throws IOException {
-        returnToMenu();
-    }
+    private ChoiceBox<Periodicite> periodiciteChoiceBox;
 
     @FXML
-    void boutonModifierClick(ActionEvent event) throws IOException, SQLException {
+    private Button btnAnnuler;
+
+    @FXML
+    void boutonCreerRevueClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
 
-        affichage.setText("");
+        affichageLabel.setText("");
 
         Revue revue = new Revue(0);
         revue.setVisuel("");
-
         //Try Titre
         try
         {
@@ -118,27 +104,32 @@ public class modifierRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            revue.setId(revueAModifier.getId());
-            /*HERE :
+            /*
+                HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
-            revueDAO.update(revue);
+            revueDAO.create(revue);
 
-            affichage.setText(revue.toString());
-            affichage.setTextFill(Color.BLACK);
+            affichageLabel.setText(revue.toString());
+            affichageLabel.setTextFill(Color.BLACK);
             returnToMenu();
         }
         else
         {
-            affichage.setText(messageErreur);
-            affichage.setTextFill(Color.RED);
+            affichageLabel.setText(messageErreur);
+            affichageLabel.setTextFill(Color.RED);
         }
+    }
+
+    @FXML
+    void btnAnnulerClick(ActionEvent event) throws IOException
+    {
+        returnToMenu();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        //Initialisation de la ChoiceBox
         try
         {
             this.periodiciteChoiceBox.setItems(FXCollections.observableArrayList(periodiciteDAO.findAll()));
@@ -146,26 +137,6 @@ public class modifierRevueController implements Initializable
         {
             e.printStackTrace();
         }
-
-        //Recuperation de la Revue a modifier
-        revueAModifier = receiveData();
-
-        //Application des champs
-        labelId.setText(String.valueOf(revueAModifier.getId()));
-        titreField.setText(revueAModifier.getTitre());
-        descriptionArea.setText(revueAModifier.getDescription());
-        tarifField.setText(String.valueOf(revueAModifier.getTarifNumero()));
-        try {
-            periodiciteChoiceBox.setValue(periodiciteDAO.getById(revueAModifier.getIdPeriodicite()));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private Revue receiveData()
-    {
-        RevueHolder revueHolder = RevueHolder.getInstance();
-        return revueHolder.getRevue();
     }
 
     public void returnToMenu() throws IOException
@@ -175,17 +146,8 @@ public class modifierRevueController implements Initializable
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
-
-
-        //Stage stage = (Stage) this.titreField.getScene().getWindow();
-        Stage stage = (Stage) Stage.getWindows().stream().filter(Window::isShowing).findFirst().orElse(null);
-
-
+        Stage stage = (Stage) affichageLabel.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
-        System.out.println(stage);
-        if (stage != null)
-        {
-            stage.setScene(scene);
-        }
+        stage.setScene(scene);
     }
 }
