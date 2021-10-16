@@ -25,29 +25,38 @@ import java.util.ResourceBundle;
 public class CreerAbonnementController implements Initializable
 {
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-    RevueDAO revueDAO = dao.getRevueDAO();
-    PeriodiciteDAO periodiciteDAO = dao.getPeriodiciteDAO();
+
 
     @FXML
-    private Label affichageLabel;
+    private Label affichage;
 
     @FXML
-    private Button boutonCreer;
+    private Button boutonAnnuler;
 
     @FXML
-    private TextArea descriptionArea;
+    private Button creerBouton;
 
     @FXML
-    private TextField tarifField;
+    private DatePicker datePickerDebut;
 
     @FXML
-    private TextField titreField;
+    private DatePicker datePickerFin;
 
     @FXML
-    private ChoiceBox<Periodicite> periodiciteChoiceBox;
+    private ComboBox<?> idClientChoiceBox;
 
     @FXML
-    private Button btnAnnuler;
+    private ComboBox<?> idRevueComboBox;
+
+    @FXML
+    void boutonAnnulerClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void boutonCreerAbonnementClick(ActionEvent event) {
+
+    }
 
     @FXML
     void boutonCreerRevueClick(ActionEvent event) throws IOException, SQLException {
@@ -110,14 +119,14 @@ public class CreerAbonnementController implements Initializable
              */
             revueDAO.create(revue);
 
-            affichageLabel.setText(revue.toString());
-            affichageLabel.setTextFill(Color.BLACK);
+            affichage.setText(revue.toString());
+            affichage.setTextFill(Color.BLACK);
             returnToMenu();
         }
         else
         {
-            affichageLabel.setText(messageErreur);
-            affichageLabel.setTextFill(Color.RED);
+            affichage.setText(messageErreur);
+            affichage.setTextFill(Color.RED);
         }
     }
 
@@ -130,13 +139,8 @@ public class CreerAbonnementController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        try
-        {
-            this.periodiciteChoiceBox.setItems(FXCollections.observableArrayList(periodiciteDAO.findAll()));
-        } catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
+        //Init des choice box
+
     }
 
     public void returnToMenu() throws IOException
@@ -146,7 +150,7 @@ public class CreerAbonnementController implements Initializable
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) affichageLabel.getScene().getWindow();
+        Stage stage = (Stage) idClientChoiceBox.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
     }

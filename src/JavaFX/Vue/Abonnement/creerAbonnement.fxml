@@ -29,8 +29,8 @@
                <children>
                   <Label text="ID Client : " GridPane.rowIndex="2" />
                   <ComboBox fx:id="idClientChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <DatePicker fx:id="dateDebut" GridPane.columnIndex="1" />
-                  <DatePicker fx:id="dateFin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="datePickerDebut" GridPane.columnIndex="1" />
+                  <DatePicker fx:id="datePickerFin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Date Début : " />
                   <Label text="Date Fin : " GridPane.rowIndex="1" />
                   <Label text="ID Revue : " GridPane.rowIndex="3" />
@@ -45,13 +45,14 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </VBox>
-      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0">
+      <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0" style="-fx-spacing: 100;">
          <children>
-            <Button fx:id="creerBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="67.0" text="Créer">
+            <Button fx:id="creerBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonCreerAbonnementClick" prefHeight="25.0" prefWidth="67.0" text="Créer">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
+            <Button mnemonicParsing="false" text="Annuler" />
          </children>
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
