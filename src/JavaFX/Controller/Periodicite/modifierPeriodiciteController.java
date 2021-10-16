@@ -65,6 +65,15 @@ public class modifierPeriodiciteController
 
     }
 
+    // Initialisation
+    public  void initialize()
+    {
+        //set id
+        idLabel.setText(String.valueOf(periodiciteAModifier.getId()));
+        //set libelle
+        libelleField.setText(String.valueOf(periodiciteAModifier.getLibelle()));
+    }
+
     // Retour au menu
     public void returnToMenu() throws IOException
     {
