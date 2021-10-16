@@ -62,6 +62,9 @@ public class ModifierPeriodiciteController {
 
     // Initialisation
     public void initialize() {
+        //Recuperation de la Revue a modifier
+        periodiciteAModifier = receiveData();
+
         //set id
         idLabel.setText(String.valueOf(periodiciteAModifier.getId()));
         //set libelle

@@ -12,22 +12,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import jdk.internal.jrtfs.JrtFileSystemProvider;
 import metier.Periodicite;
 import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MenuGeneralPeriodiciteController implements Initializable, ChangeListener<Periodicite> {
+    private Parent fxmlLoader;
+    private Stage stage;
+    private Scene scene;
+    private String path;
 
     PeriodiciteDAO periodiciteDAO = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getPeriodiciteDAO();
 
@@ -52,28 +57,31 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
     @FXML
     void btnAjouterClick(ActionEvent event) throws IOException {
         //Charger la page que l'on veux afficher
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/creerPeriodicite.fxml"));
+        fxmlLoader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../../Vue/Periodicite/creerPeriodicite.fxml")));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader, 600, 450);
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void btnModifierClick(ActionEvent event) throws IOException {
         Periodicite periodiciteAModifier = this.tableViewPeriodicite.getSelectionModel().getSelectedItem();
         sendData(periodiciteAModifier);
+        path="../../Vue/Periodicite/modifierPeriodicite.fxml";
 
         //Charger la page que l'on veux afficher
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/modifierPeriodicite.fxml"));
+        fxmlLoader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(path)));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        scene = new Scene(fxmlLoader, 600, 450);
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
+        stage = (Stage) tableViewPeriodicite.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
