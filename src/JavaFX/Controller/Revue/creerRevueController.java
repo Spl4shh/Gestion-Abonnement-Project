@@ -104,7 +104,8 @@ public class creerRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            /*HERE :
+            /*
+                HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
             affichageLabel.setText(revue.toString());
