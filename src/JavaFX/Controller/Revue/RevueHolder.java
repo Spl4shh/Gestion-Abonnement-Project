@@ -1,5 +1,6 @@
 package JavaFX.Controller.Revue;
 
+import metier.Periodicite;
 import metier.Revue;
 
 public class RevueHolder
@@ -8,7 +9,7 @@ public class RevueHolder
 
     private final static RevueHolder INSTANCE = new RevueHolder();
 
-    private RevueHolder() {}
+    public RevueHolder() {}
     
     public static RevueHolder getInstance()
     {

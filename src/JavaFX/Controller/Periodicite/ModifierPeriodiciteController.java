@@ -16,8 +16,7 @@ import metier.Periodicite;
 
 import java.io.IOException;
 
-public class modifierPeriodiciteController
-{
+public class ModifierPeriodiciteController {
 
     Periodicite periodiciteAModifier;
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
@@ -45,8 +44,7 @@ public class modifierPeriodiciteController
     }
 
     @FXML
-    void boutonModifierPeriodicite(ActionEvent event)
-    {
+    void boutonModifierPeriodicite(ActionEvent event) {
         String messageErreur = "";
 
         affichage.setText("");
@@ -54,29 +52,29 @@ public class modifierPeriodiciteController
         Periodicite periodicite = new Periodicite(0);
 
         // On teste le libelle
-        try
-        {
+        try {
             periodicite.setLibelle(libelleField.getText());
-        }
-        catch (Exception e)
-        {
-            messageErreur= messageErreur + e.getMessage() + "\n";
+        } catch (Exception e) {
+            messageErreur = messageErreur + e.getMessage() + "\n";
         }
 
     }
 
     // Initialisation
-    public  void initialize()
-    {
+    public void initialize() {
         //set id
         idLabel.setText(String.valueOf(periodiciteAModifier.getId()));
         //set libelle
         libelleField.setText(String.valueOf(periodiciteAModifier.getLibelle()));
     }
 
+    private Periodicite receiveData() {
+        PeriodiciteHolder periodiciteHolder = PeriodiciteHolder.getInstance();
+        return periodiciteHolder.getPeriodicite();
+    }
+
     // Retour au menu
-    public void returnToMenu() throws IOException
-    {
+    public void returnToMenu() throws IOException {
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/menuGeneralPeriodicite.fxml"));
         //Creer une Scene contenant cette page
@@ -85,8 +83,7 @@ public class modifierPeriodiciteController
         Stage stage = (Stage) this.affichage.getScene().getWindow();
         System.out.println(stage);
         //Afficher la nouvelle Scene dans l'ancienne Stage
-        if (stage != null)
-        {
+        if (stage != null) {
             stage.setScene(scene);
         }
     }
