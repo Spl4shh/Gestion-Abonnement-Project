@@ -18,4 +18,6 @@ public class PeriodiciteHolder {
     {
         return this.periodicite;
     }
+
+    public void setPeriodicite(Periodicite periodicite) {this.periodicite = periodicite;}
 }
