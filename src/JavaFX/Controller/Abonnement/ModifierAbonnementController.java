@@ -1,4 +1,4 @@
-package JavaFX.Controller.Revue;
+package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
 import dao.DAOFactory;
@@ -26,7 +26,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class modifierRevueController implements Initializable
+public class ModifierAbonnementController implements Initializable
 {
     Revue revueAModifier;
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
@@ -164,8 +164,8 @@ public class modifierRevueController implements Initializable
 
     private Revue receiveData()
     {
-        RevueHolder revueHolder = RevueHolder.getInstance();
-        return revueHolder.getRevue();
+        AbonnementHolder abonnementHolder = AbonnementHolder.getInstance();
+        return abonnementHolder.getRevue();
     }
 
     public void returnToMenu() throws IOException

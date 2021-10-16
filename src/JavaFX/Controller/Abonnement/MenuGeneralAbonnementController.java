@@ -1,4 +1,4 @@
-package JavaFX.Controller.Revue;
+package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
 import dao.DAOFactory;
@@ -15,14 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import javafx.stage.Stage;
-import metier.Revue;
 
 public class menuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
@@ -144,8 +143,8 @@ public class menuGeneralRevueController implements Initializable, ChangeListener
 
     private void sendData(Revue revue)
     {
-        RevueHolder revueHolder = RevueHolder.getInstance();
-        revueHolder.setRevue(revue);
+        AbonnementHolder abonnementHolder = AbonnementHolder.getInstance();
+        abonnementHolder.setRevue(revue);
     }
 }
 

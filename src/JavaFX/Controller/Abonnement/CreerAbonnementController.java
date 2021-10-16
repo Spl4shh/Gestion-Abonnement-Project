@@ -1,4 +1,4 @@
-package JavaFX.Controller.Revue;
+package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
 import dao.DAOFactory;
@@ -22,7 +22,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class creerRevueController implements Initializable
+public class CreerAbonnementController implements Initializable
 {
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
     RevueDAO revueDAO = dao.getRevueDAO();

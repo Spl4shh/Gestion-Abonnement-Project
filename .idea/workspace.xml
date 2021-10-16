@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/CreerAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/CreerAbonnementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/creerRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/CreerRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/menuGeneralRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/MenuGeneralRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/modifierRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/ModifierRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/menuGeneralPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/menuGeneralPeriodicite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/creerRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/creerRevue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/menuGeneralRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/menuGeneralRevue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +48,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/lib/javafx.web.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.18325435" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Romain\Desktop\Dev\Projet_Cours_Java\src\JavaFX\Controller\Abonnement" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="JavaFX" />
     </key>
