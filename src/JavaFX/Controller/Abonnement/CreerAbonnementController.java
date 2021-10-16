@@ -62,54 +62,8 @@ public class CreerAbonnementController implements Initializable
     void boutonCreerRevueClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
 
-        affichageLabel.setText("");
+        affichage.setText("");
 
-        Revue revue = new Revue(0);
-        revue.setVisuel("");
-        //Try Titre
-        try
-        {
-            revue.setTitre(titreField.getText());
-        }
-        catch(IllegalArgumentException e)
-        {
-            messageErreur = messageErreur + e.getMessage() + "\n";
-        }
-
-        //Try Description
-        try
-        {
-            revue.setDescription(descriptionArea.getText());
-        }
-        catch(IllegalArgumentException e)
-        {
-            messageErreur = messageErreur + e.getMessage() + "\n";
-        }
-
-        //Try tarif
-        try
-        {
-            revue.setTarifNumero(Double.parseDouble(tarifField.getText()));
-        }
-        catch(NumberFormatException e)
-        {
-            messageErreur = messageErreur + "Tarif incorrect" + "\n";
-        }
-        catch(IllegalArgumentException e)
-        {
-            messageErreur = messageErreur + e.getMessage() + "\n";
-        }
-
-
-        //Try Periodicite
-        try
-        {
-            revue.setIdPeriodicite(periodiciteChoiceBox.getValue());
-        }
-        catch(IllegalArgumentException e)
-        {
-            messageErreur = messageErreur + e.getMessage() + "\n";
-        }
 
         if (messageErreur.equals(""))
         {
@@ -117,9 +71,8 @@ public class CreerAbonnementController implements Initializable
                 HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
-            revueDAO.create(revue);
 
-            affichage.setText(revue.toString());
+            affichage.setText("");
             affichage.setTextFill(Color.BLACK);
             returnToMenu();
         }

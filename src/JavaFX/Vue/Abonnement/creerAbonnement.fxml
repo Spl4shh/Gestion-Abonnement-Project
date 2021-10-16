@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Abonnement.CreeAbonnementController">
    <children>
       <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
          <children>
@@ -52,12 +52,12 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Annuler" />
+            <Button fx:id="boutonAnnuler" mnemonicParsing="false" onAction="#boutonAnnulerClick" text="Annuler" />
          </children>
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
          <children>
-            <Label fx:id="affichage" prefHeight="48.0" prefWidth="1.0" />
+            <Label fx:id="affichage" prefHeight="65.0" prefWidth="286.0" />
          </children>
       </VBox>
    </children>
