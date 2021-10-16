@@ -1,9 +1,6 @@
 #IDE
 #We decide to keep IDE file because it keeps the projet settings including the Referenced Libraries
 
-#Pour ne pas polluer le workspace de chacun
-workspace.xml
-
 # Compiled class file
 *.class
 
