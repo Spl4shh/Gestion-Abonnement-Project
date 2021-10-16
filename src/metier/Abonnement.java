@@ -47,7 +47,14 @@ public class Abonnement
 
     public void setIdClient(Client client)
     {
-        this.idClient = client.getId();
+        if (client == null)
+        {
+            throw new IllegalArgumentException("Client non saisie");
+        }
+        else
+        {
+            this.idClient = client.getId();
+        }
     }
 
     public int getIdRevue()
@@ -57,8 +64,14 @@ public class Abonnement
 
     public void setIdRevue(Revue revue)
     {
-        this.idRevue = revue.getId();
-    }
+        if (revue == null)
+        {
+            throw new IllegalArgumentException("Revue non saisie");
+        }
+        else
+        {
+            this.idRevue = revue.getId();
+        }    }
 
     public LocalDate getDateDebut()
     {
@@ -67,7 +80,14 @@ public class Abonnement
 
     public void setDateDebut(LocalDate dateDebut)
     {
-        this.dateDebut = dateDebut;
+        if (dateDebut == null)
+        {
+            throw new IllegalArgumentException("Date de debut non saisie");
+        }
+        else
+        {
+            this.dateDebut = dateDebut;
+        }
     }
 
     public LocalDate getDateFin()
@@ -77,7 +97,19 @@ public class Abonnement
 
     public void setDateFin(LocalDate dateFin)
     {
-        this.dateFin = dateFin;
+        if (dateFin == null)
+        {
+            throw new IllegalArgumentException("Date de fin non saisie");
+        }
+        else if (this.getDateDebut().isAfter(dateFin))
+        {
+            throw new IllegalArgumentException("Date de fin apres la date de debut");
+
+        }
+        else
+        {
+            this.dateFin = dateFin;
+        }
     }
 /******************************************************/
 /********************Surcharge*************************/  
