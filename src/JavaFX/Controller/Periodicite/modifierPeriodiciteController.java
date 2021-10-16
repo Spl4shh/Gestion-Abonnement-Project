@@ -1,9 +1,9 @@
 package JavaFX.Controller.Periodicite;
+
 import JavaFX.Application;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
 import dao.Persistance;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,8 +40,7 @@ public class modifierPeriodiciteController
     private Button modifierBouton;
 
     @FXML
-    void boutonAnnuler(ActionEvent event) throws IOException
-    {
+    void boutonAnnuler(ActionEvent event) throws IOException {
         returnToMenu();
     }
 
@@ -53,6 +52,16 @@ public class modifierPeriodiciteController
         affichage.setText("");
 
         Periodicite periodicite = new Periodicite(0);
+
+        // On teste le libelle
+        try
+        {
+            periodicite.setLibelle(libelleField.getText());
+        }
+        catch (Exception e)
+        {
+            messageErreur= messageErreur + e.getMessage() + "\n";
+        }
 
     }
 
