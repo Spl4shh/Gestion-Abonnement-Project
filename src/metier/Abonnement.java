@@ -119,7 +119,8 @@ public class Abonnement
     {
         Abonnement abo = (Abonnement)object;
 
-        if (this.id == abo.id && 
+        if (abo != null &&
+            this.id == abo.id &&
             this.idClient == abo.idClient &&
             this.idRevue == abo.idRevue &&
             this.dateDebut.equals(abo.dateDebut) &&
