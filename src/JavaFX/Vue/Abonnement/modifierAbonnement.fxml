@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Abonnement.Modifier">
+<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Abonnement.ModifierAbonnementController">
    <children>
       <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
          <children>
@@ -64,7 +64,7 @@
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
          <children>
-            <Label fx:id="affichage" prefHeight="48.0" prefWidth="1.0" />
+            <Label fx:id="affichage" alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="656.0" />
          </children>
       </VBox>
    </children>

@@ -26,7 +26,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class Modifier implements Initializable
+public class ModifierAbonnementController implements Initializable
 {
     Abonnement abonnementAModifier;
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
@@ -59,7 +59,8 @@ public class Modifier implements Initializable
     private ChoiceBox<Client> clientChoiceBox;
 
     @FXML
-    void boutonModifierClick(ActionEvent event) throws IOException, SQLException {
+    void boutonModifierClick(ActionEvent event) throws IOException, SQLException
+    {
         String messageErreur = "";
         affichage.setText("");
 
