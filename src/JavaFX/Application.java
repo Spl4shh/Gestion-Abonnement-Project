@@ -14,7 +14,7 @@ public class Application extends javafx.application.Application
     public void start(Stage stage) throws IOException
     {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Client/menuGeneralClient.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/DAO/choixTable.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         stage.setTitle("Gestion de Revue");
         stage.setScene(scene);
