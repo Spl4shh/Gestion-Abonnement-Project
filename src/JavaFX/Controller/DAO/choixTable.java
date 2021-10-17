@@ -1,11 +1,19 @@
 package JavaFX.Controller.DAO;
 
+import JavaFX.Controller.Revue.RevueHolder;
+import dao.ClientDAO;
+import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class choixTable
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class choixTable implements Initializable
 {
+
     @FXML
     private Button BoutonClient;
 
@@ -21,7 +29,7 @@ public class choixTable
     @FXML
     void boutonAbonnementClick(ActionEvent event)
     {
-        DAO
+
     }
 
     @FXML
@@ -42,4 +50,15 @@ public class choixTable
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        DAOHolder daoHolder = DAOHolder.getInstance();
+        daoHolder.setDaoFactory(Persistance.ListeMemoire);
+        daoHolder.setDao("Client");
+
+        ClientDAO clientDAO = (ClientDAO) daoHolder.getDao();
+
+        System.out.println(clientDAO.getClass().getName());
+    }
 }

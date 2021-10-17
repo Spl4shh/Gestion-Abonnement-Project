@@ -167,6 +167,7 @@ public class ModifierRevueController implements Initializable
     private Revue receiveData()
     {
         RevueHolder revueHolder = RevueHolder.getInstance();
+
         return revueHolder.getRevue();
     }
 

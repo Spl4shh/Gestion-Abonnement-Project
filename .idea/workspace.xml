@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/DAOHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/DAOHolder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/ModifierRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/ModifierRevueController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +185,15 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTable.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="javafx.stage.Stage" memberName="title" />
