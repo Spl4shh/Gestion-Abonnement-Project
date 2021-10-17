@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
 public class CreerAbonnementController implements Initializable
 {
     DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
+    AbonnementDAO abonnementDAO = dao.getAbonnementDAO();
     RevueDAO revueDAO = dao.getRevueDAO();
     ClientDAO clientDAO = dao.getClientDAO();
 
@@ -56,7 +57,7 @@ public class CreerAbonnementController implements Initializable
     }
 
     @FXML
-    void boutonCreerAbonnementClick(ActionEvent event) throws IOException {
+    void boutonCreerAbonnementClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
         affichage.setText("");
 
@@ -111,6 +112,7 @@ public class CreerAbonnementController implements Initializable
                 HERE :
                 Code pour ajouter la revue a la DAO souhaité
              */
+            abonnementDAO.create(abonnement);
 
             affichage.setText("");
             affichage.setTextFill(Color.BLACK);
