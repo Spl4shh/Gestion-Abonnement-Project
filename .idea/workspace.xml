@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/ModifierPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/ModifierPeriodiciteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/creerClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Client/creerClient.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

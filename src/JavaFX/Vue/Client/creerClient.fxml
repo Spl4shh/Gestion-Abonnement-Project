@@ -6,10 +6,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javafx.Controller.Revue.creerRevueController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Client.CreerClientController">
    <children>
       <GridPane prefHeight="301.0" prefWidth="563.0" style="-fx-border-color: black;">
         <columnConstraints>
@@ -79,14 +80,15 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="30.0" />
          </VBox.margin>
       </GridPane>
-      <VBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0">
+      <VBox alignment="TOP_CENTER" prefHeight="121.0" prefWidth="600.0">
          <children>
-            <Button fx:id="creerBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonCreerRevueClick" prefHeight="25.0" prefWidth="52.0" text="Créer" />
-         </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="600.0">
-         <children>
-            <Label fx:id="affichageLabel" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="600.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 100;">
+               <children>
+                  <Button fx:id="boutonCreer" mnemonicParsing="false" onAction="#boutonCreerClientClick" text="Creer" />
+                  <Button fx:id="boutonAnnuler" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#boutonAnnulerClick" text="Annuler" />
+               </children>
+            </HBox>
+            <Label fx:id="affichageLabel" alignment="TOP_CENTER" prefHeight="146.0" prefWidth="600.0" />
          </children>
       </VBox>
    </children>
