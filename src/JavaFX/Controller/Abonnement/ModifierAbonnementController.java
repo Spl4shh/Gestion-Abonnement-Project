@@ -139,7 +139,7 @@ public class ModifierAbonnementController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-//Initialisation des ChoiceBox
+        //Initialisation des ChoiceBox
         try
         {
             this.revueChoiceBox.setItems(FXCollections.observableArrayList(revueDAO.findAll()));

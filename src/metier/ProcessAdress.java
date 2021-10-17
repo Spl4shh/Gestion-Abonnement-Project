@@ -48,8 +48,13 @@ public class ProcessAdress
 
                 newVoie = newVoie + string;
             }
-            
-            return (", " + newVoie);
+
+            if (!(newVoie.charAt(0) == ','))
+            {
+                newVoie = ", " + newVoie;
+            }
+
+            return (newVoie);
         }
         else
         {
