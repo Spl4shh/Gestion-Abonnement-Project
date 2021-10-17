@@ -58,12 +58,14 @@ public class ModifierRevueController implements Initializable
     private TextField titreField;
 
     @FXML
-    void boutonAnnulerClick(ActionEvent event) throws IOException {
+    void boutonAnnulerClick(ActionEvent event) throws IOException
+    {
         returnToMenu();
     }
 
     @FXML
-    void boutonModifierClick(ActionEvent event) throws IOException, SQLException {
+    void boutonModifierClick(ActionEvent event) throws IOException, SQLException
+    {
         String messageErreur = "";
 
         affichage.setText("");
@@ -175,17 +177,8 @@ public class ModifierRevueController implements Initializable
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
+        Stage stage = (Stage) this.titreField.getScene().getWindow();
 
-
-        //Stage stage = (Stage) this.titreField.getScene().getWindow();
-        Stage stage = (Stage) Stage.getWindows().stream().filter(Window::isShowing).findFirst().orElse(null);
-
-
-        //Afficher la nouvelle Scene dans l'ancienne Stage
-        System.out.println(stage);
-        if (stage != null)
-        {
-            stage.setScene(scene);
-        }
+        stage.setScene(scene);
     }
 }
