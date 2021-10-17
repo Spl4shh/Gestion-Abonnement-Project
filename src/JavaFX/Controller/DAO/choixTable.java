@@ -53,6 +53,7 @@ public class choixTable implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        //Test, a supprimer
         DAOHolder daoHolder = DAOHolder.getInstance();
         daoHolder.setDaoFactory(Persistance.ListeMemoire);
         daoHolder.setDao("Client");
