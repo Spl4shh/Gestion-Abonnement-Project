@@ -3,7 +3,7 @@ package metier;
 public class ProcessAdress
 {
     // Normalisation Adresse
-    public Adresse normalize(Adresse adresse)
+    public static Adresse normalize(Adresse adresse)
     {
         adresse.setVoie(normalizeVoie(adresse.getVoie()));
         adresse.setCodePostal(normalizeCode(adresse.getCodePostal()));
@@ -24,7 +24,7 @@ public class ProcessAdress
 
             for (String string : tableauMot) 
             {
-                if (string.equals("boul") || string.equals("boul.") || string.equals("bd")) 
+                if (string.equals("boul") || string.equals("boul.") || string.equals("bd"))
                 {
                     string = "boulevard";
                 }
@@ -41,12 +41,12 @@ public class ProcessAdress
                     string = "place";
                 }
 
-                if (newVoie != "") 
+                if (!newVoie.equals(""))
                 {
-                    newVoie = newVoie + " ";    
+                    newVoie = newVoie + " ";
                 }
 
-                newVoie = newVoie + string; 
+                newVoie = newVoie + string;
             }
             
             return (", " + newVoie);
@@ -60,7 +60,7 @@ public class ProcessAdress
     // Normalisation Ville
     public static String normalizeVille(String ville) 
     {
-        if(ville != null && ville != "")
+        if(ville != null && !ville.equals(""))
         {
             ville = ville.trim().toLowerCase();             // Formattage en tout minuscule
 
@@ -110,7 +110,7 @@ public class ProcessAdress
                     modifAbrege = false;
                     string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
                     // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
-                    if (nouveauVille != "" && nouveauVille.charAt(nouveauVille.length()-1) != '-') 
+                    if (!nouveauVille.equals("") && nouveauVille.charAt(nouveauVille.length()-1) != '-')
                     {
                         string = " " + string;
                     }
@@ -134,7 +134,7 @@ public class ProcessAdress
         if (pays != null) 
         { // Si la chaine pays n'est pas null
             pays = pays.trim().toLowerCase(); //Chaine nettoyé et en minuscule
-            if (pays != "") 
+            if (!pays.equals(""))
             {
 
                 switch (pays) 
@@ -195,63 +195,14 @@ public class ProcessAdress
                     {
                         lettrePresente = true;
                     }
-                } while (lettrePresente && codePostal != "");     //tant que il y a des lettres on repete l'operation
+                } while (lettrePresente && !codePostal.equals(""));     //tant que il y a des lettres on repete l'operation
                 
-                if (codePostal.length() < 5 && codePostal != "" && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
+                if (codePostal.length() < 5 && !codePostal.equals("") && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
                 {
                     codePostal = "0" + codePostal;
                 }
             }
         }
-         
-        
-
         return codePostal;
-    }
-   
-    // Normalisation Code Postal
-    public static String normalizeCode2(String codePostal) 
-    {
-        codePostal = codePostal.trim();
-        if (codePostal != null) 
-        {
-            if (isNumeric(codePostal) == true) //Si le code postal est un "int"
-            {
-                for (int i = 5; codePostal.length() < i; i--) //Dead code idk why, java 16 peut-être
-                {
-                    codePostal = ("0" + codePostal); 
-                    //Si i < 5 (nombre max) alors on ajoute un 0
-                }
-            } 
-            else 
-            {
-                String[] chaineCodePostal = codePostal.split("-", -2);
-                /* On split le code postal, lorsque l'on rencontre "L-"
-                * La limite est -2 :
-                * Limit < 0 – In this case, the pattern will be applied as many times as possible, and the resulting array can be of any size.
-                */
-                codePostal = chaineCodePostal[1];
-                // On retourne le code postal (sans le L-) hehe
-            }
-        }
-        return codePostal;
-    }
-
-    public static boolean isNumeric(String codePostal) 
-    {
-        System.out.println(String.format("Parsing string: \"%s\"", codePostal));
-
-        try 
-        {
-            Integer.parseInt(codePostal);
-            // Si la chaine peut être convertie en int : c'est un entier
-            return true;
-        } 
-        catch (NumberFormatException e) 
-        {
-            System.out.println("Input String cannot be parsed to Integer.");
-            // Erreur sinon
-        }
-        return false;
     }
 }

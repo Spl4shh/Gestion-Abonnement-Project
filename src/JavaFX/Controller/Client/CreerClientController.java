@@ -1,6 +1,9 @@
 package JavaFX.Controller.Client;
 
 import JavaFX.Application;
+import dao.ClientDAO;
+import dao.DAOFactory;
+import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,13 +12,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import metier.Adresse;
+import metier.Client;
+import metier.ProcessAdress;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
 
-public class CreerClientController implements Initializable {
+public class CreerClientController
+{
+    DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
+    ClientDAO clientDAO = dao.getClientDAO();
 
     @FXML
     private Label affichageLabel;
@@ -45,21 +54,114 @@ public class CreerClientController implements Initializable {
     private TextField voieField;
 
     @FXML
-    void boutonCreerClientClick(ActionEvent event)
-    {
+    void boutonCreerClientClick(ActionEvent event) throws SQLException, IOException {
+        String messageErreur = "";
+        affichageLabel.setText("");
 
+        Client client = new Client(0);
+
+        //Try set nom
+        try
+        {
+            client.setNom(nomField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try set prenom
+        try
+        {
+            client.setPrenom(prenomField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try set Adresse
+        Adresse adresse = new Adresse("", "", "", "", "");
+
+        //Try No Rue
+        try
+        {
+            adresse.setNoRue(noRueField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try Voie
+        try
+        {
+            adresse.setVoie(voieField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try Code Postal
+        try
+        {
+            adresse.setCodePostal(codepostalField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try Ville
+        try
+        {
+            adresse.setVille(villeField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        //Try Pays
+        try
+        {
+            adresse.setPays(paysField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+
+
+        if (messageErreur.equals(""))
+        {
+            /*
+                HERE :
+                Code pour ajouter la revue a la DAO souhaité
+             */
+
+            client.setAdresse(ProcessAdress.normalize(adresse));
+            clientDAO.create(client);
+
+            affichageLabel.setText("");
+            affichageLabel.setTextFill(Color.BLACK);
+            returnToMenu();
+        }
+        else
+        {
+            affichageLabel.setText(messageErreur);
+            affichageLabel.setTextFill(Color.RED);
+        }
     }
 
     @FXML
-    void boutonAnnulerClick(ActionEvent event)
+    void boutonAnnulerClick(ActionEvent event) throws IOException
     {
-
+        returnToMenu();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 
     public void returnToMenu() throws IOException
     {

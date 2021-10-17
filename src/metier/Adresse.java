@@ -23,7 +23,14 @@ public class Adresse {
 
     public void setNoRue(String noRue) 
     {
-        this.noRue = noRue;
+        if (noRue == null || noRue.equals(""))
+        {
+            throw new IllegalArgumentException("Numero de rue incorrect");
+        }
+        else
+        {
+            this.noRue = noRue;
+        }
     }
 
     public String getVoie() 
@@ -33,7 +40,14 @@ public class Adresse {
 
     public void setVoie(String voie) 
     {
-        this.voie = voie;
+        if (voie == null || voie.equals(""))
+        {
+            throw new IllegalArgumentException("Voie incorrect");
+        }
+        else
+        {
+            this.voie = voie;
+        }
     }
 
     public String getCodePostal() 
@@ -43,7 +57,14 @@ public class Adresse {
 
     public void setCodePostal(String codePostal) 
     {
-        this.codePostal = codePostal;
+        if (codePostal == null || codePostal.equals(""))
+        {
+            throw new IllegalArgumentException("Code Postal incorrect");
+        }
+        else
+        {
+            this.codePostal = codePostal;
+        }
     }
 
     public String getVille() 
@@ -53,7 +74,14 @@ public class Adresse {
 
     public void setVille(String ville) 
     {
-        this.ville = ville;
+        if (ville == null || ville.equals(""))
+        {
+            throw new IllegalArgumentException("Ville incorrect");
+        }
+        else
+        {
+            this.ville = ville;
+        }
     }
 
     public String getPays() 
@@ -63,7 +91,14 @@ public class Adresse {
 
     public void setPays(String pays) 
     {
-        this.pays = pays;
+        if (pays == null || pays.equals(""))
+        {
+            throw new IllegalArgumentException("Pays incorrect");
+        }
+        else
+        {
+            this.pays = pays;
+        }
     }
 
     @Override

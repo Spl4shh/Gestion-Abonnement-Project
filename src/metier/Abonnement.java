@@ -104,7 +104,6 @@ public class Abonnement
         else if (this.getDateDebut().isAfter(dateFin))
         {
             throw new IllegalArgumentException("Date de fin apres la date de debut");
-
         }
         else
         {

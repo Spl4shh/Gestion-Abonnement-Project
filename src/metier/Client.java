@@ -43,7 +43,14 @@ public class Client
 
     public void setNom(String nom) 
     {
-        this.nom = nom;
+        if (nom == null || nom.equals(""))
+        {
+            throw new IllegalArgumentException("Nom incorrect");
+        }
+        else
+        {
+            this.nom = nom;
+        }
     }
 
     public String getPrenom() 
@@ -51,9 +58,16 @@ public class Client
         return this.prenom;
     }
 
-    public void setPrenom(String nom) 
+    public void setPrenom(String prenom)
     {
-        this.nom = nom;
+        if (prenom == null || prenom.equals(""))
+        {
+            throw new IllegalArgumentException("Prenom incorrect");
+        }
+        else
+        {
+            this.prenom = prenom;
+        }
     }
     
     public Adresse getAdresse() 
