@@ -7,7 +7,6 @@ import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -54,7 +53,8 @@ public class CreerClientController
     private TextField voieField;
 
     @FXML
-    void boutonCreerClientClick(ActionEvent event) throws SQLException, IOException {
+    void boutonCreerClientClick(ActionEvent event) throws SQLException, IOException
+    {
         String messageErreur = "";
         affichageLabel.setText("");
 

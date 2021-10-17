@@ -61,7 +61,7 @@
                   <Insets right="50.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="codepostalField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <TextField fx:id="codePostalField" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
