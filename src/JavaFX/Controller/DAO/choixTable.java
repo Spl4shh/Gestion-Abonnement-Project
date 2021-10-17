@@ -4,8 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class choixTable {
-
+public class choixTable
+{
     @FXML
     private Button BoutonClient;
 
@@ -21,7 +21,7 @@ public class choixTable {
     @FXML
     void boutonAbonnementClick(ActionEvent event)
     {
-
+        DAO
     }
 
     @FXML
