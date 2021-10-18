@@ -58,7 +58,7 @@
       </HBox>
       <VBox alignment="TOP_CENTER" prefHeight="79.0" prefWidth="656.0">
          <children>
-            <Label fx:id="affichage" prefHeight="48.0" prefWidth="1.0" />
+            <Label fx:id="affichage" alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="346.0" textAlignment="CENTER" />
          </children>
       </VBox>
    </children>
