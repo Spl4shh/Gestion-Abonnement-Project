@@ -1,6 +1,7 @@
 package JavaFX.Controller.Revue;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import dao.DAOFactory;
 import dao.Persistance;
 import dao.RevueDAO;
@@ -26,7 +27,7 @@ import metier.Revue;
 
 public class MenuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
-    RevueDAO revueDAO = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getRevueDAO();
+    RevueDAO revueDAO = (RevueDAO) DAOHolder.getInstance().getDao();
 
     @FXML
     private Button btnAjouter;

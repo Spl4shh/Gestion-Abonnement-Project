@@ -1,6 +1,7 @@
 package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import JavaFX.Controller.Revue.RevueHolder;
 import dao.AbonnementDAO;
 import dao.DAOFactory;
@@ -29,7 +30,7 @@ import java.util.ResourceBundle;
 
 public class MenuGeneralAbonnementController implements Initializable, ChangeListener<Abonnement>
 {
-    AbonnementDAO abonnementDAO = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getAbonnementDAO();
+    AbonnementDAO abonnementDAO = (AbonnementDAO) DAOHolder.getInstance().getDao();
 
     @FXML
     private Button btnAjouter;

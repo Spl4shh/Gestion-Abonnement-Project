@@ -1,6 +1,7 @@
 package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import dao.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -24,10 +25,10 @@ import java.util.ResourceBundle;
 
 public class CreerAbonnementController implements Initializable
 {
-    DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-    AbonnementDAO abonnementDAO = dao.getAbonnementDAO();
-    RevueDAO revueDAO = dao.getRevueDAO();
-    ClientDAO clientDAO = dao.getClientDAO();
+    DAOFactory daoFactory = DAOHolder.getInstance().getDaoFactory();
+    AbonnementDAO abonnementDAO = daoFactory.getAbonnementDAO();
+    RevueDAO revueDAO = daoFactory.getRevueDAO();
+    ClientDAO clientDAO = daoFactory.getClientDAO();
 
     @FXML
     private Label affichage;

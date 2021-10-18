@@ -30,7 +30,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="BoutonClient" mnemonicParsing="false" onAction="#boutonClientClick" prefHeight="60.0" prefWidth="210.0" text="Gestion de Client" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="boutonClient" mnemonicParsing="false" onAction="#boutonClientClick" prefHeight="60.0" prefWidth="210.0" text="Gestion de Client" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="boutonPeriodicite" mnemonicParsing="false" onAction="#boutonPeriodiciteClick" prefHeight="60.0" prefWidth="210.0" text="Gestion de Périodicité" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Button fx:id="boutonAbonnement" mnemonicParsing="false" onAction="#boutonAbonnementClick" prefHeight="60.0" prefWidth="210.0" text="Gestion d'Abonnement" GridPane.columnIndex="3" />
             <Button fx:id="boutonRevue" mnemonicParsing="false" onAction="#boutonRevueClick" prefHeight="60.0" prefWidth="210.0" text="Gestion de Revue" GridPane.columnIndex="1" />
