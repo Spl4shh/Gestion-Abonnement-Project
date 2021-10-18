@@ -16,7 +16,7 @@ public class Application extends javafx.application.Application
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/menuGeneralPeriodicite.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
-        stage.setTitle("Gestion de Revue");
+        stage.setTitle("Gestion de Periodicite");
         stage.setScene(scene);
         stage.show();
 
