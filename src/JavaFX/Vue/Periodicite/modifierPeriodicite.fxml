@@ -44,12 +44,12 @@
       </VBox>
       <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0">
          <children>
-            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" defaultButton="true" mnemonicParsing="false" onAction="#boutonModifierPeriodicite" prefHeight="25.0" prefWidth="67.0" text="Modifier">
+            <Button fx:id="modifierBouton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#boutonModifierPeriodicite" prefHeight="25.0" prefWidth="67.0" text="Modifier">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="annulerBouton" cancelButton="true" mnemonicParsing="false" onAction="#boutonAnnuler" text="Annuler">
+            <Button fx:id="annulerBouton" mnemonicParsing="false" onAction="#boutonAnnuler" text="Annuler">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
