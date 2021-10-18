@@ -2,7 +2,7 @@ package JavaFX.Controller.Periodicite;
 
 import JavaFX.Controller.Revue.RevueHolder;
 import metier.Periodicite;
-
+// transmet l'element sélectionné entre le menuGeneral et le modifier
 public class PeriodiciteHolder {
 
     private Periodicite periodicite;
