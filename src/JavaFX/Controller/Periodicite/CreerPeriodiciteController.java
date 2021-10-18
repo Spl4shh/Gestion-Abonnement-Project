@@ -51,7 +51,7 @@ public class CreerPeriodiciteController {
         affichageLabel.setText("");
 
         Periodicite periodicite = new Periodicite(0);
-        periodicite.setLibelle("");
+        //periodicite.setLibelle("");
 
         //Try Libelle
         try

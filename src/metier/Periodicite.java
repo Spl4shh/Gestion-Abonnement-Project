@@ -40,7 +40,13 @@ public class Periodicite
 
     public void setLibelle(String libelle)
     {
-        this.libelle = libelle;
+        if (libelle == null || libelle.equals(""))
+        {
+            throw new IllegalArgumentException("Libelle non saisie");
+        }
+        else {
+            this.libelle = libelle;
+        }
     }
 /*******************************************************/
 
