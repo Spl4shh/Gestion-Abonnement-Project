@@ -1,6 +1,7 @@
 package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import JavaFX.Controller.Revue.RevueHolder;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
@@ -29,12 +30,14 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MenuGeneralPeriodiciteController implements Initializable, ChangeListener<Periodicite> {
+
+
     private Parent fxmlLoader;
     private Stage stage;
     private Scene scene;
     private String path;
 
-    PeriodiciteDAO periodiciteDAO = DAOFactory.getDAOFactory(Persistance.ListeMemoire).getPeriodiciteDAO();
+    PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDao();
 
     @FXML
     private Button btnAjouter;
