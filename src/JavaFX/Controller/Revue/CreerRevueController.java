@@ -108,9 +108,6 @@ public class CreerRevueController implements Initializable
                 Code pour ajouter la revue a la DAO souhaité
              */
             revueDAO.create(revue);
-
-            affichageLabel.setText(revue.toString());
-            affichageLabel.setTextFill(Color.BLACK);
             returnToMenu();
         }
         else

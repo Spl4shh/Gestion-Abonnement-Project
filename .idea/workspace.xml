@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/CreerRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/CreerRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +72,7 @@
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JavaFX.Application" />
       <module name="Projet_Cours_Java" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\leane\SDK_JavaFX\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Romain\SDK_JavaFX\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -186,7 +189,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/JavaFX/Controller/Revue/CreerRevueController.java</url>
-          <line>62</line>
+          <line>61</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
