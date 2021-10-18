@@ -12,10 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import metier.Periodicite;
+import metier.Revue;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class CreerPeriodiciteController {
 
@@ -43,8 +46,40 @@ public class CreerPeriodiciteController {
     }
 
     @FXML
-    void boutonCreerPeriodicite(ActionEvent event) {
+    void boutonCreerPeriodicite(ActionEvent event) throws IOException, SQLException {
+        String messageErreur = "";
+        affichageLabel.setText("");
 
+        Periodicite periodicite = new Periodicite(0);
+        periodicite.setLibelle("");
+
+        //Try Libelle
+        try
+        {
+            periodicite.setLibelle(libelleField.getText());
+        }
+        catch(IllegalArgumentException e)
+        {
+            messageErreur = messageErreur + e.getMessage() + "\n";
+        }
+
+        if (messageErreur.equals(""))
+        {
+            /*
+                HERE :
+                Code pour ajouter la revue a la DAO souhaité
+             */
+            periodiciteDAO.create(periodicite);
+
+            affichageLabel.setText(periodicite.toString());
+            affichageLabel.setTextFill(Color.BLACK);
+            returnToMenu();
+        }
+        else
+        {
+            affichageLabel.setText(messageErreur);
+            affichageLabel.setTextFill(Color.RED);
+        }
     }
 
     public void returnToMenu() throws IOException
