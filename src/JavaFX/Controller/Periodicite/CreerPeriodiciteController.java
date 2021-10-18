@@ -2,10 +2,11 @@ package JavaFX.Controller.Periodicite;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-<<<<<<< HEAD
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import metier.Abonnement;
@@ -15,8 +16,7 @@ import metier.Revue;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-=======
->>>>>>> parent of 9651865 (annuler ok)
+
 
 public class CreerPeriodiciteController {
 
@@ -77,7 +77,6 @@ public class CreerPeriodiciteController {
 
     }
 
-<<<<<<< HEAD
     public void returnToMenu() throws IOException
     {
         //Charger la page que l'on veux afficher
@@ -89,7 +88,4 @@ public class CreerPeriodiciteController {
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
     }
-
-=======
->>>>>>> parent of 9651865 (annuler ok)
 }

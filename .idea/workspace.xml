@@ -7,8 +7,12 @@
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/CreerPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/CreerPeriodiciteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/metier/Periodicite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Periodicite.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/PeriodiciteHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/PeriodiciteHolder.java" afterDir="false" />
+>>>>>>> parent of 9651865 (annuler ok)
 =======
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/PeriodiciteHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/PeriodiciteHolder.java" afterDir="false" />
 >>>>>>> parent of 9651865 (annuler ok)
