@@ -1,6 +1,7 @@
 package JavaFX.Controller.Client;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import dao.ClientDAO;
 import dao.DAOFactory;
 import dao.Persistance;
@@ -22,8 +23,7 @@ import java.sql.SQLException;
 
 public class CreerClientController
 {
-    DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-    ClientDAO clientDAO = dao.getClientDAO();
+    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDao();
 
     @FXML
     private Label affichageLabel;
