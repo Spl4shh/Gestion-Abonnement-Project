@@ -1,6 +1,7 @@
 package JavaFX.Controller.Revue;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
 import dao.Persistance;
@@ -24,9 +25,9 @@ import java.util.ResourceBundle;
 
 public class CreerRevueController implements Initializable
 {
-    DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-    RevueDAO revueDAO = dao.getRevueDAO();
-    PeriodiciteDAO periodiciteDAO = dao.getPeriodiciteDAO();
+    DAOFactory daoFactory = DAOHolder.getInstance().getDaoFactory();
+    RevueDAO revueDAO = daoFactory.getRevueDAO();
+    PeriodiciteDAO periodiciteDAO = daoFactory.getPeriodiciteDAO();
 
     @FXML
     private Label affichageLabel;
