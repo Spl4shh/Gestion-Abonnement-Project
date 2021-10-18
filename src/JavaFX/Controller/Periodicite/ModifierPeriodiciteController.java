@@ -1,6 +1,7 @@
 package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
+import JavaFX.Controller.DAO.DAOHolder;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
 import dao.Persistance;
@@ -21,8 +22,7 @@ import java.sql.SQLException;
 public class ModifierPeriodiciteController {
 
     Periodicite periodiciteAModifier;
-    DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-    PeriodiciteDAO periodiciteDAO = dao.getPeriodiciteDAO();
+    PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDao();
 
 
     @FXML
