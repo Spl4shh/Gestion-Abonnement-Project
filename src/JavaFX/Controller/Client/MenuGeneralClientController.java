@@ -148,7 +148,6 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
             {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) )
                 {
-
                     sendData(row.getItem());
 
                     //Charger la page que l'on veux afficher

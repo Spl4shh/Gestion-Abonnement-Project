@@ -12,9 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import metier.Client;
 import metier.Periodicite;
 
 import java.io.IOException;
@@ -114,7 +116,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
         }
     }
 
-    //@Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         //Definir les propriétés des differentes colonnes
@@ -127,6 +129,35 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
         this.tableViewPeriodicite.getSelectionModel().selectedItemProperty().addListener(this);
         this.btnSupprimer.setVisible(false);
         this.btnModifier.setVisible(false);
+
+        tableViewPeriodicite.setRowFactory(tableRow ->
+        {
+            TableRow<Periodicite> row = new TableRow<>();
+            row.setOnMouseClicked(event ->
+            {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) )
+                {
+                    sendData(row.getItem());
+
+                    //Charger la page que l'on veux afficher
+                    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/afficherPeriodicite.fxml"));
+                    //Creer une Scene contenant cette page
+                    Scene scene = null;
+                    try
+                    {
+                        scene = new Scene(fxmlLoader.load(), 600, 450);
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    //Recuperer la Stage de l'ancienne page
+                    Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
+                    //Afficher la nouvelle Scene dans l'ancienne Stage
+                    stage.setScene(scene);
+                }
+            });
+            return row ;
+        });
     }
 
     //@Override
