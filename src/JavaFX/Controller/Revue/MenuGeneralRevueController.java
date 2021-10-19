@@ -27,7 +27,7 @@ import metier.Revue;
 
 public class MenuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
-    RevueDAO revueDAO = (RevueDAO) DAOHolder.getInstance().getDao();
+    RevueDAO revueDAO = (RevueDAO) DAOHolder.getInstance().getDaoFactory().getRevueDAO();
 
     @FXML
     private Button btnAjouter;

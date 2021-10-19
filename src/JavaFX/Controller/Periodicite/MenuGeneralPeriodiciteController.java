@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
 
 public class MenuGeneralPeriodiciteController implements Initializable, ChangeListener<Periodicite>
 {
-    PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDao();
+    PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDaoFactory().getPeriodiciteDAO();
 
     @FXML
     private Button btnAjouter;

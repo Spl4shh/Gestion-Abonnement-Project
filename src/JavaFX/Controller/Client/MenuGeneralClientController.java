@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 
 public class MenuGeneralClientController implements Initializable, ChangeListener<Client>
 {
-    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDao();
+    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDaoFactory().getClientDAO();
 
     @FXML
     private Button btnAjouter;

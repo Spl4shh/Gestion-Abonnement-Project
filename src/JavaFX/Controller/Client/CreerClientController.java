@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 public class CreerClientController
 {
-    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDao();
+    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDaoFactory().getClientDAO();
 
     @FXML
     private Label affichageLabel;

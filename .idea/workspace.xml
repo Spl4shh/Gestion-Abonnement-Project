@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/CreerClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/CreerClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/ModifierClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/ModifierClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/CreerPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/CreerPeriodiciteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/ModifierPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/ModifierPeriodiciteController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,15 +190,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="javafx.stage.Stage" memberName="title" />

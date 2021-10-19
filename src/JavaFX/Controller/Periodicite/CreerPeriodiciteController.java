@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 public class CreerPeriodiciteController {
 
-    PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDao();
+    PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDaoFactory().getPeriodiciteDAO();
 
     @FXML
     private Label affichageLabel;

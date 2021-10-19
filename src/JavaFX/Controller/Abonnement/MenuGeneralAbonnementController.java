@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 
 public class MenuGeneralAbonnementController implements Initializable, ChangeListener<Abonnement>
 {
-    AbonnementDAO abonnementDAO = (AbonnementDAO) DAOHolder.getInstance().getDao();
+    AbonnementDAO abonnementDAO = (AbonnementDAO) DAOHolder.getInstance().getDaoFactory().getAbonnementDAO();
 
     @FXML
     private Button btnAjouter;

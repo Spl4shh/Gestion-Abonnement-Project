@@ -56,6 +56,5 @@ public class choixTableController implements Initializable
         //Test, a supprimer
         DAOHolder daoHolder = DAOHolder.getInstance();
         daoHolder.setDaoFactory(Persistance.ListeMemoire);
-        daoHolder.setDao("Client");
     }
 }

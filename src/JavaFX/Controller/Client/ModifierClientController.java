@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class ModifierClientController implements Initializable
 {
-    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDao();
+    ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDaoFactory().getClientDAO();
     Client clientAModifier;
 
     @FXML
