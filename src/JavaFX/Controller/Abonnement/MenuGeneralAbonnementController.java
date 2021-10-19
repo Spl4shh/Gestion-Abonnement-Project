@@ -2,11 +2,7 @@ package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
-import JavaFX.Controller.Revue.RevueHolder;
 import dao.AbonnementDAO;
-import dao.DAOFactory;
-import dao.Persistance;
-import dao.RevueDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -20,7 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import metier.Abonnement;
-import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
