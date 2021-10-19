@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 public class AfficherPeriodiciteController implements Initializable
 {
+    Periodicite periodiciteAAfficher;
 
     @FXML
     private Button boutonRetour;
@@ -33,7 +34,8 @@ public class AfficherPeriodiciteController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-
+        periodiciteAAfficher = receiveData();
+        
     }
 
     private Periodicite receiveData()
