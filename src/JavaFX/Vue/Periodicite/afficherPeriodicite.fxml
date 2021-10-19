@@ -25,7 +25,7 @@
                <children>
                   <Label alignment="TOP_LEFT" text="Libelle : " GridPane.rowIndex="1" />
                   <Label text="ID : " />
-                  <Label fx:id="idLabel" prefHeight="66.0" prefWidth="455.0" GridPane.columnIndex="1" />
+                  <Label fx:id="labelId" prefHeight="66.0" prefWidth="455.0" GridPane.columnIndex="1" />
                   <Label fx:id="labelLibelle" prefHeight="46.0" prefWidth="455.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
