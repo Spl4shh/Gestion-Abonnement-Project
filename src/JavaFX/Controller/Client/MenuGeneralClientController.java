@@ -37,7 +37,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
 
     @FXML
     private Button boutonRetour;
-    
+
     @FXML
     private Button btnModifier;
 

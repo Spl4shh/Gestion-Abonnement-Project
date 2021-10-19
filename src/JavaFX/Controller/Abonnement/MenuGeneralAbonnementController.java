@@ -36,6 +36,9 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
     private Button btnAjouter;
 
     @FXML
+    private Button boutonRetour;
+
+    @FXML
     private Button btnModifier;
 
     @FXML
@@ -58,6 +61,19 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
 
     @FXML
     private TableView<Abonnement> tableViewAbonnement;
+
+    @FXML
+    void boutonRetourClick(ActionEvent event) throws IOException
+    {
+        //Charger la page que l'on veux afficher
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/DAO/choixTable.fxml"));
+        //Creer une Scene contenant cette page
+        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        //Recuperer la Stage de l'ancienne page
+        Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+        //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setScene(scene);
+    }
 
     @FXML
     void btnAjouterClick(ActionEvent event) throws IOException
