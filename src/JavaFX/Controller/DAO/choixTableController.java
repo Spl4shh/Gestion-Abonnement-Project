@@ -65,16 +65,19 @@ public class choixTableController implements Initializable
     public void setFactory()
     {
         DAOHolder daoHolder = DAOHolder.getInstance();
-        daoHolder.setDaoFactory(Persistance.ListeMemoire);
         daoHolder.setDaoFactory(choiceBoxPersistance.getValue());
+
     }
 
     public void setScene(String table) throws IOException
     {
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/"+table+"/menuGeneral"+table+".fxml"));
+//System.out.println(fxmlLoader.getController().toString());
         //Creer une Scene contenant cette page
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) choiceBoxPersistance.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
