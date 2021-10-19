@@ -1,6 +1,7 @@
 package JavaFX.Controller.DAO;
 
 import JavaFX.Application;
+import dao.MySQLDAOFactory;
 import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,7 +66,6 @@ public class choixTableController implements Initializable
     public void setFactory()
     {
         DAOHolder daoHolder = DAOHolder.getInstance();
-        daoHolder.setDaoFactory(Persistance.ListeMemoire);
         daoHolder.setDaoFactory(choiceBoxPersistance.getValue());
     }
 
@@ -88,6 +88,6 @@ public class choixTableController implements Initializable
         {
             choiceBoxPersistance.getItems().add(persistance);
         }
-        choiceBoxPersistance.setValue(Persistance.values()[0]);
+        choiceBoxPersistance.setValue(Persistance.values()[1]);
     }
 }
