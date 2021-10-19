@@ -41,7 +41,7 @@ public class ModifierPeriodiciteController {
     private Button modifierBouton;
 
     @FXML
-    void boutonAnnuler(ActionEvent event) throws IOException {
+    void boutonAnnulerClick(ActionEvent event) throws IOException {
         returnToMenu();
     }
 
