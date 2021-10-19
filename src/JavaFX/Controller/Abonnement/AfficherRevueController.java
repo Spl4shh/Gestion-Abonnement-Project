@@ -1,7 +1,8 @@
-package JavaFX.Controller.Revue;
+package JavaFX.Controller.Abonnement;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
+import JavaFX.Controller.Revue.RevueHolder;
 import dao.PeriodiciteDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

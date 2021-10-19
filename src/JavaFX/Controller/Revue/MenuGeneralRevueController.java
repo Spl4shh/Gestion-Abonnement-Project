@@ -12,8 +12,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import metier.Revue;
 
@@ -25,6 +27,7 @@ import java.util.ResourceBundle;
 public class MenuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
     RevueDAO revueDAO = (RevueDAO) DAOHolder.getInstance().getDaoFactory().getRevueDAO();
+    Revue revueSelect;
 
     @FXML
     private Button btnAjouter;
@@ -124,16 +127,68 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         this.tableViewRevue.getSelectionModel().selectedItemProperty().addListener(this);
         this.btnSupprimer.setVisible(false);
         this.btnModifier.setVisible(false);
+
+        tableViewRevue.setRowFactory(tableRow ->
+        {
+            TableRow<Revue> row = new TableRow<>();
+            row.setOnMouseClicked(event ->
+            {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) )
+                {
+
+                    sendData(row.getItem());
+
+                    //Charger la page que l'on veux afficher
+                    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/afficherRevue.fxml"));
+                    //Creer une Scene contenant cette page
+                    Scene scene = null;
+                    try
+                    {
+                        scene = new Scene(fxmlLoader.load(), 600, 600);
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    //Recuperer la Stage de l'ancienne page
+                    Stage stage = (Stage) tableViewRevue.getScene().getWindow();
+                    //Afficher la nouvelle Scene dans l'ancienne Stage
+                    stage.setScene(scene);
+                }
+            });
+            return row ;
+        });
     }
 
     @Override
-    public void changed(ObservableValue<? extends Revue> observable, Revue oldValue, Revue newValue)
-    {
+    public void changed(ObservableValue<? extends Revue> observable, Revue oldValue, Revue newValue) {
         /*
         Si l'item selectionné n'est pas nul, ca veux dire qu'une ligne est select
          */
         this.btnSupprimer.setVisible(!(newValue == null));
         this.btnModifier.setVisible(!(newValue == null));
+
+      /*
+        if (revueSelect != null && newValue == oldValue)
+        {
+            sendData(revueSelect);
+
+            //Charger la page que l'on veux afficher
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/modifierRevue.fxml"));
+            //Creer une Scene contenant cette page
+            Scene scene = null;
+            try {
+                scene = new Scene(fxmlLoader.load(), 600, 450);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            //Recuperer la Stage de l'ancienne page
+            Stage stage = (Stage) tableViewRevue.getScene().getWindow();
+            //Afficher la nouvelle Scene dans l'ancienne Stage
+            stage.setScene(scene);
+        }
+
+       */
     }
 
     public void genererListeRevue()

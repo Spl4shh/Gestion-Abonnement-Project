@@ -34,7 +34,7 @@
             </VBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label fx:id="labelTarif" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="68.0" />
+                  <Label fx:id="labelTarif" alignment="CENTER" prefHeight="17.0" prefWidth="66.0" />
                   <Label prefHeight="18.0" prefWidth="108.0" text="euros au numéro">
                      <padding>
                         <Insets left="10.0" />
