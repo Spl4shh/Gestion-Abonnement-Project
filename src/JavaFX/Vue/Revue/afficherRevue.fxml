@@ -57,10 +57,5 @@
             <Button fx:id="boutonRetour" mnemonicParsing="false" onAction="#boutonRetourClick" text="Retour" />
          </children>
       </HBox>
-      <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="600.0">
-         <children>
-            <Label fx:id="affichageLabel" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="600.0" />
-         </children>
-      </VBox>
    </children>
 </VBox>
