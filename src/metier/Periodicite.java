@@ -44,7 +44,8 @@ public class Periodicite
         {
             throw new IllegalArgumentException("Libelle non saisie");
         }
-        else {
+        else
+        {
             this.libelle = libelle;
         }
     }
