@@ -27,9 +27,6 @@ public class AfficherRevueController implements Initializable
     private Label labelDescription;
 
     @FXML
-    private Label affichageLabel;
-
-    @FXML
     private Button boutonRetour;
 
     @FXML

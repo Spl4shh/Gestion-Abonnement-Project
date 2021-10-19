@@ -18,32 +18,31 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AfficherRevueController implements Initializable
+public class AfficherAbonnementController implements Initializable
 {
     Revue revueAAfficher;
-    DAOHolder daoHolder = DAOHolder.getInstance();
-    PeriodiciteDAO periodiciteDAO = daoHolder.getDaoFactory().getPeriodiciteDAO();
+
 
     @FXML
-    private Label labelDescription;
-
-    @FXML
-    private Label affichageLabel;
-
-    @FXML
-    private Button boutonRetour;
+    private Label affichage;
 
     @FXML
     private Label labelId;
 
     @FXML
-    private Label labelIdPeriodicite;
+    private Button boutonRetour;
 
     @FXML
-    private Label labelTarif;
+    private Label labelDateDebut;
 
     @FXML
-    private Label labelTitre;
+    private Label labelDateFin;
+
+    @FXML
+    private Label labelIdClient;
+
+    @FXML
+    private Label labelIdRevue;
 
     @FXML
     void boutonRetourClick(ActionEvent event) throws IOException
