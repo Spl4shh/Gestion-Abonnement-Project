@@ -2,18 +2,13 @@ package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
-import JavaFX.Controller.Revue.RevueHolder;
-import dao.DAOFactory;
 import dao.PeriodiciteDAO;
-import dao.Persistance;
-import dao.RevueDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -21,12 +16,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import metier.Periodicite;
-import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MenuGeneralPeriodiciteController implements Initializable, ChangeListener<Periodicite>

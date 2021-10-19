@@ -1,10 +1,7 @@
 package JavaFX.Controller.DAO;
 
-import dao.DAO;
 import dao.DAOFactory;
 import dao.Persistance;
-
-import java.util.Locale;
 
 public class DAOHolder
 {

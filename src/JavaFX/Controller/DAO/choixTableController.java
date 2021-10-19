@@ -1,7 +1,6 @@
 package JavaFX.Controller.DAO;
 
 import JavaFX.Application;
-import dao.MySQLDAOFactory;
 import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

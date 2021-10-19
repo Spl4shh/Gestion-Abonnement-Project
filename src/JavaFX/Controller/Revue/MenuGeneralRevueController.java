@@ -2,8 +2,6 @@ package JavaFX.Controller.Revue;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
-import dao.DAOFactory;
-import dao.Persistance;
 import dao.RevueDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,14 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import javafx.stage.Stage;
-import metier.Revue;
 
 public class MenuGeneralRevueController implements Initializable, ChangeListener<Revue>
 {
