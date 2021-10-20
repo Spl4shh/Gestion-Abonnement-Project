@@ -28,6 +28,7 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="63.0" prefWidth="596.0" style="-fx-spacing: 100;">
          <children>
+            <Button fx:id="boutonRetour" mnemonicParsing="false" onAction="#boutonRetourClick" text="Retour au menu" />
             <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#btnAjouterClick" text="Ajouter" />
             <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#btnModifierClick" text="Modifier" />
             <Button fx:id="btnSupprimer" mnemonicParsing="false" onAction="#btnSupprimerClick" text="Supprimer" />
