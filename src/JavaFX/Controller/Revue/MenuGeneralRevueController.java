@@ -2,6 +2,7 @@ package JavaFX.Controller.Revue;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
+import dao.AbonnementDAO;
 import dao.RevueDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -10,18 +11,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import metier.Abonnement;
+import metier.Periodicite;
 import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MenuGeneralRevueController implements Initializable, ChangeListener<Revue>
@@ -105,11 +106,41 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
     void btnSupprimerClick(ActionEvent event) throws SQLException
     {
         Revue revueASupprimer = this.tableViewRevue.getSelectionModel().getSelectedItem();
-        revueDAO.delete(revueASupprimer);
 
-        //Reset la liste
-        genererListeRevue();
+        //Creer une boite de confirmation
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer la revue numero " + revueASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES)
+        {
+            AbonnementDAO abonnementDAO = DAOHolder.getInstance().getDaoFactory().getAbonnementDAO();
+            List<Abonnement> listeAbonnement = abonnementDAO.findAll();
+            boolean revueExiste = false;
+
+            //Verifier que la periodicite n'est pas utilisée ailleurs
+            for (Abonnement abonnement : listeAbonnement)
+            {
+                if (abonnement.getIdRevue() == revueASupprimer.getId())
+                {
+                    revueExiste = true;
+                    break;
+                }
+            }
+            if (!revueExiste)
+            {
+                revueDAO.delete(revueASupprimer);
+
+                //Reset la liste
+                genererListeRevue();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Il existe un abonnement enregistré avec cette revue");
+                info.showAndWait();
+            }
+        }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)

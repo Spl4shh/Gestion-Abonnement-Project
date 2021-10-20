@@ -91,11 +91,12 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
     }
 
     @FXML
-    void btnSupprimerClick(ActionEvent event) throws SQLException {
+    void btnSupprimerClick(ActionEvent event) throws SQLException
+    {
         Periodicite periodiciteASupprimer = this.tableViewPeriodicite.getSelectionModel().getSelectedItem();
 
         //Creer une boite de confirmation
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer l'abonnement numero " + periodiciteASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer la périodicité numero " + periodiciteASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
 
         if (alert.getResult() == ButtonType.YES)

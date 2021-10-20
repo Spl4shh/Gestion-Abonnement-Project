@@ -2,26 +2,27 @@ package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
-import dao.DAOFactory;
 import dao.PeriodiciteDAO;
-import dao.Persistance;
-import dao.RevueDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import metier.Client;
 import metier.Periodicite;
-import metier.Revue;
+import metier.ProcessAdress;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
-public class CreerPeriodiciteController {
+public class CreerPeriodiciteController
+{
 
     PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDaoFactory().getPeriodiciteDAO();
 
@@ -50,13 +51,13 @@ public class CreerPeriodiciteController {
         String messageErreur = "";
         affichageLabel.setText("");
 
-        Periodicite periodicite = new Periodicite(0);
-        //periodicite.setLibelle("");
+        Periodicite periodiciteACreer = new Periodicite(0);
+        //periodiciteACreer.setLibelle("");
 
         //Try Libelle
         try
         {
-            periodicite.setLibelle(libelleField.getText());
+            periodiciteACreer.setLibelle(libelleField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -65,15 +66,26 @@ public class CreerPeriodiciteController {
 
         if (messageErreur.equals(""))
         {
-            /*
-                HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
-            periodiciteDAO.create(periodicite);
 
-            affichageLabel.setText(periodicite.toString());
-            affichageLabel.setTextFill(Color.BLACK);
-            returnToMenu();
+            List<Periodicite> listPeriodicite = periodiciteDAO.findAll();
+            boolean doublon = false;
+
+            for (Periodicite periodicite : listPeriodicite)
+            {
+                periodiciteACreer.setId(periodicite.getId());
+                doublon = periodiciteACreer.equals(periodicite);
+            }
+
+            if(!doublon)
+            {
+                periodiciteDAO.create(periodiciteACreer);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Ce client existe deja");
+                info.showAndWait();
+            }
         }
         else
         {

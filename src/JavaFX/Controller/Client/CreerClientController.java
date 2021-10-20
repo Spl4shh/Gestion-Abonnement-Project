@@ -3,12 +3,11 @@ package JavaFX.Controller.Client;
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
 import dao.ClientDAO;
-import dao.DAOFactory;
-import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,6 +19,7 @@ import metier.ProcessAdress;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 public class CreerClientController
 {
@@ -58,12 +58,12 @@ public class CreerClientController
         String messageErreur = "";
         affichageLabel.setText("");
 
-        Client client = new Client(0);
+        Client clientACreer = new Client(0);
 
         //Try set nom
         try
         {
-            client.setNom(nomField.getText());
+            clientACreer.setNom(nomField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -73,7 +73,7 @@ public class CreerClientController
         //Try set prenom
         try
         {
-            client.setPrenom(prenomField.getText());
+            clientACreer.setPrenom(prenomField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -137,17 +137,27 @@ public class CreerClientController
 
         if (messageErreur.equals(""))
         {
-            /*
-                HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
+            clientACreer.setAdresse(ProcessAdress.normalize(adresse));
 
-            client.setAdresse(ProcessAdress.normalize(adresse));
-            clientDAO.create(client);
+            List<Client> listClient = clientDAO.findAll();
+            boolean doublon = false;
 
-            affichageLabel.setText("");
-            affichageLabel.setTextFill(Color.BLACK);
-            returnToMenu();
+            for (Client client : listClient)
+            {
+                clientACreer.setId(client.getId());
+                doublon = clientACreer.equals(client);
+            }
+
+            if(!doublon)
+            {
+                clientDAO.create(clientACreer);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Ce client existe deja");
+                info.showAndWait();
+            }
         }
         else
         {

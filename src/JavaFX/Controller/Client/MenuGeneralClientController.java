@@ -3,10 +3,7 @@ package JavaFX.Controller.Client;
 import JavaFX.Application;
 import JavaFX.Controller.Abonnement.AbonnementHolder;
 import JavaFX.Controller.DAO.DAOHolder;
-import dao.AbonnementDAO;
-import dao.ClientDAO;
-import dao.DAOFactory;
-import dao.Persistance;
+import dao.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -14,19 +11,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import metier.Abonnement;
-import metier.Adresse;
-import metier.Client;
+import metier.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MenuGeneralClientController implements Initializable, ChangeListener<Client>
@@ -104,16 +97,42 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
 
     @FXML
     void btnSupprimerClick(ActionEvent event) throws SQLException {
-        Client clientASupprimer = this.tableViewClient.getSelectionModel().getSelectedItem();
-        /*
-        Supprimer le Client de la DAO utilisé
-        */
+        {
+            Client clientASupprimer = this.tableViewClient.getSelectionModel().getSelectedItem();
 
-        //code test
-        clientDAO.delete(clientASupprimer);
+            //Creer une boite de confirmation
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer le client numero " + clientASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
+            alert.showAndWait();
 
-        //Reset la liste
-        genererListeClient();
+            if (alert.getResult() == ButtonType.YES)
+            {
+                AbonnementDAO abonnementDAO = DAOHolder.getInstance().getDaoFactory().getAbonnementDAO();
+                List<Abonnement> listeAbonnement = abonnementDAO.findAll();
+                boolean clientExiste = false;
+
+                //Verifier que la periodicite n'est pas utilisée ailleurs
+                for (Abonnement abonnement : listeAbonnement)
+                {
+                    if (abonnement.getIdClient() == clientASupprimer.getId())
+                    {
+                        clientExiste = true;
+                        break;
+                    }
+                }
+                if (!clientExiste)
+                {
+                    clientDAO.delete(clientASupprimer);
+
+                    //Reset la liste
+                    genererListeClient();
+                }
+                else
+                {
+                    Alert info = new Alert(Alert.AlertType.INFORMATION, "Il existe un abonnement avec ce client");
+                    info.showAndWait();
+                }
+            }
+        }
     }
 
     @Override
