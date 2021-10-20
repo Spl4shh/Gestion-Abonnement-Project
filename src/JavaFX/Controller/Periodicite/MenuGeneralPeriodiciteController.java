@@ -94,7 +94,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
     void btnSupprimerClick(ActionEvent event) throws SQLException {
         Periodicite periodiciteASupprimer = this.tableViewPeriodicite.getSelectionModel().getSelectedItem();
 
-
+        //Creer une boite de confirmation
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer l'abonnement numero " + periodiciteASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
 
@@ -104,6 +104,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
             List<Revue> listeRevue = revueDao.findAll();
             boolean periodiciteExiste = false;
 
+            //Verifier que la periodicite n'est pas utilisée ailleurs
             for (Revue revue : listeRevue)
             {
                 if (revue.getIdPeriodicite() == periodiciteASupprimer.getId())
