@@ -66,7 +66,6 @@ public class CreerPeriodiciteController
 
         if (messageErreur.equals(""))
         {
-
             List<Periodicite> listPeriodicite = periodiciteDAO.findAll();
             boolean doublon = false;
 
@@ -83,7 +82,7 @@ public class CreerPeriodiciteController
             }
             else
             {
-                Alert info = new Alert(Alert.AlertType.INFORMATION, "Ce client existe deja");
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cette périodicité existe deja");
                 info.showAndWait();
             }
         }

@@ -68,4 +68,9 @@ public class Periodicite
         }
     }
 
+    @Override
+    public String toString()
+    {
+        return (this.getId() + " " + this.getLibelle());
+    }
 }

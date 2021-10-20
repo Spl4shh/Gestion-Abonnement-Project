@@ -4,7 +4,6 @@ import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
-import dao.Persistance;
 import dao.RevueDAO;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -21,6 +20,7 @@ import metier.Revue;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class CreerRevueController implements Initializable
@@ -55,12 +55,12 @@ public class CreerRevueController implements Initializable
         String messageErreur = "";
         affichageLabel.setText("");
 
-        Revue revue = new Revue(0);
-        revue.setVisuel("");
+        Revue revueACreer = new Revue(0);
+        revueACreer.setVisuel("");
         //Try Titre
         try
         {
-            revue.setTitre(titreField.getText());
+            revueACreer.setTitre(titreField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -70,7 +70,7 @@ public class CreerRevueController implements Initializable
         //Try Description
         try
         {
-            revue.setDescription(descriptionArea.getText());
+            revueACreer.setDescription(descriptionArea.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -80,7 +80,7 @@ public class CreerRevueController implements Initializable
         //Try tarif
         try
         {
-            revue.setTarifNumero(Double.parseDouble(tarifField.getText()));
+            revueACreer.setTarifNumero(Double.parseDouble(tarifField.getText()));
         }
         catch(NumberFormatException e)
         {
@@ -95,7 +95,7 @@ public class CreerRevueController implements Initializable
         //Try Periodicite
         try
         {
-            revue.setIdPeriodicite(periodiciteChoiceBox.getValue());
+            revueACreer.setIdPeriodicite(periodiciteChoiceBox.getValue());
         }
         catch(IllegalArgumentException e)
         {
@@ -104,12 +104,25 @@ public class CreerRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            /*
-                HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
-            revueDAO.create(revue);
-            returnToMenu();
+            List<Revue> listRevue = revueDAO.findAll();
+            boolean doublon = false;
+
+            for (Revue revue : listRevue)
+            {
+                revueACreer.setId(revue.getId());
+                doublon = revueACreer.equals(revue);
+            }
+
+            if(!doublon)
+            {
+                revueDAO.create(revueACreer);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cette revue existe deja");
+                info.showAndWait();
+            }
         }
         else
         {
