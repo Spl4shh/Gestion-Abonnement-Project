@@ -3,6 +3,7 @@ package JavaFX.Controller.Periodicite;
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
 import dao.PeriodiciteDAO;
+import dao.RevueDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,18 +11,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import metier.Client;
 import metier.Periodicite;
+import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MenuGeneralPeriodiciteController implements Initializable, ChangeListener<Periodicite>
@@ -94,11 +94,37 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
     void btnSupprimerClick(ActionEvent event) throws SQLException {
         Periodicite periodiciteASupprimer = this.tableViewPeriodicite.getSelectionModel().getSelectedItem();
 
-        //code test
-        periodiciteDAO.delete(periodiciteASupprimer);
 
-        //Reset la liste
-        genererListePeriodicite();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer l'abonnement numero " + periodiciteASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+
+        if (alert.getResult() == ButtonType.YES)
+        {
+            RevueDAO revueDao = DAOHolder.getInstance().getDaoFactory().getRevueDAO();
+            List<Revue> listeRevue = revueDao.findAll();
+            boolean periodiciteExiste = false;
+
+            for (Revue revue : listeRevue)
+            {
+                if (revue.getIdPeriodicite() == periodiciteASupprimer.getId())
+                {
+                    periodiciteExiste = true;
+                    break;
+                }
+            }
+            if (!periodiciteExiste)
+            {
+                periodiciteDAO.delete(periodiciteASupprimer);
+
+                //Reset la liste
+                genererListePeriodicite();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Il existe une revue enregistré avec cette periodicité");
+                info.showAndWait();
+            }
+        }
     }
 
     public void genererListePeriodicite()

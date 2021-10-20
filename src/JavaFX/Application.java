@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application
     {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/DAO/choixTable.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
-        stage.setTitle("Gestion de Revue");
+        stage.setTitle("Gestion d'un systeme d'abonnement a des revues");
         stage.setScene(scene);
         stage.show();
     }

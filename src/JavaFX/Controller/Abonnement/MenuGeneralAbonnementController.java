@@ -10,10 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import metier.Abonnement;
@@ -105,15 +102,17 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
     void btnSupprimerClick(ActionEvent event) throws SQLException
     {
         Abonnement abonnementASupprimer = this.tableViewAbonnement.getSelectionModel().getSelectedItem();
-        /*
-        Supprimer l'abonnement de la DAO utilisé
-        */
 
-        //code test
-        abonnementDAO.delete(abonnementASupprimer);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez vous supprimer l'abonnement numero " + abonnementASupprimer.getId() + " ?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
 
-        //Reset la liste
-        genererListeRevue();
+        if (alert.getResult() == ButtonType.YES)
+        {
+            abonnementDAO.delete(abonnementASupprimer);
+
+            //Reset la liste
+            genererListeRevue();
+        }
     }
 
     @Override

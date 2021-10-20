@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" afterDir="false" />
-=======
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/AfficherPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/AfficherPeriodiciteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" afterDir="false" />
->>>>>>> 3fbd9300b53fb4dfa4042b3260244417bd6836be
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
