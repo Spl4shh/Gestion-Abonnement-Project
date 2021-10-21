@@ -183,6 +183,6 @@ public class CreerClientController
         Stage stage = (Stage) affichageLabel.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        stage.setTitle("Création d'un Client");
+        //stage.setTitle("Création d'un Client");
     }
 }

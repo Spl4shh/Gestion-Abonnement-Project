@@ -195,7 +195,7 @@ public class ModifierClientController implements Initializable
         Stage stage = (Stage) affichageLabel.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        stage.setTitle("Modification d'un Client");
+        //stage.setTitle("Modification d'un Client");
     }
 
     private Client receiveData()

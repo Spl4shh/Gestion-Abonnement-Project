@@ -77,6 +77,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         Stage stage = (Stage) tableViewClient.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.setTitle("Ajouter Client");
     }
 
     @FXML
@@ -93,6 +94,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         Stage stage = (Stage) tableViewClient.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.setTitle("Modifier Client");
     }
 
     @FXML
@@ -184,7 +186,6 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
                     Stage stage = (Stage) tableViewClient.getScene().getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setScene(scene);
-                    stage.setTitle("Menu Client");
                 }
             });
             return row ;

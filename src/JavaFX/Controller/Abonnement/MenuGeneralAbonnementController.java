@@ -80,6 +80,7 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
         Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.setTitle("Ajouter Abonnement");
     }
 
     @FXML
@@ -96,7 +97,7 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
         Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        stage.setTitle("Menu Abonnement");
+        stage.setTitle("Modifier Abonnement");
     }
 
     @FXML

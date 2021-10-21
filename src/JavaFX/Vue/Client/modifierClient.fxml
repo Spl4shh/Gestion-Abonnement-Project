@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="481.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Client.AfficherClientController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="481.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Client.ModifierClientController">
    <children>
       <GridPane prefHeight="293.0" prefWidth="539.0" style="-fx-border-color: black;">
         <columnConstraints>
@@ -87,7 +87,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="27.0" prefWidth="600.0" style="-fx-spacing: 100;">
                <children>
-                  <Button fx:id="boutonModifier" mnemonicParsing="false" onAction="#boutonModifierClientClick" text="Modifier" />
+                  <Button fx:id="boutonModifier" mnemonicParsing="false" onAction="#boutonModifierClick" text="Modifier" />
                   <Button fx:id="boutonAnnuler" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#boutonAnnulerClick" text="Annuler" />
                </children>
             </HBox>
