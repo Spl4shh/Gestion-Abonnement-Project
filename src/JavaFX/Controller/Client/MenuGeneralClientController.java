@@ -16,14 +16,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import metier.*;
 
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 
 public class MenuGeneralClientController implements Initializable, ChangeListener<Client>
 {
+    private static final String DELIMITER = ";";
+
     ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDaoFactory().getClientDAO();
 
     @FXML
@@ -31,6 +35,9 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
 
     @FXML
     private Button boutonRetour;
+
+    @FXML
+    private Button boutonImport;
 
     @FXML
     private Button btnModifier;
@@ -54,6 +61,51 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
     private TableView<Client> tableViewClient;
 
     @FXML
+    void boutonImportClick(ActionEvent event) throws IOException
+    {
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        File fichier;
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
+        {
+            final boolean isAccepted = dialogue.getSelectedFile().getName().toLowerCase().endsWith(".csv");
+
+            if (isAccepted)
+            {
+                fichier = dialogue.getSelectedFile();
+                try {
+                    int nbReussi = importCsv(fichier);
+                    String messageImport = "";
+
+                    if (nbReussi == 0)
+                    {
+                        messageImport = "Aucun import reussi, uniquement des doublons";
+                    }
+                    else
+                    {
+                        messageImport = nbReussi + " import(s) reussi";
+                    }
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, messageImport);
+                    alert.setHeaderText("Importation");
+                    alert.showAndWait();
+                    genererListeClient();
+
+                } catch (IOException | SQLException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            else
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Merci de selectionner un fichier .CSV");
+                alert.setHeaderText("Importation");
+                alert.showAndWait();
+            }
+        }
+    }
+
+    @FXML
     void boutonRetourClick(ActionEvent event) throws IOException
     {
         //Charger la page que l'on veux afficher
@@ -63,6 +115,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewClient.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
         stage.setScene(scene);
     }
 
@@ -76,8 +129,8 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewClient.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
-        stage.setScene(scene);
         stage.setTitle("Ajouter Client");
+        stage.setScene(scene);
     }
 
     @FXML
@@ -93,8 +146,8 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewClient.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
-        stage.setScene(scene);
         stage.setTitle("Modifier Client");
+        stage.setScene(scene);
     }
 
     @FXML
@@ -185,6 +238,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
                     //Recuperer la Stage de l'ancienne page
                     Stage stage = (Stage) tableViewClient.getScene().getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
+                    stage.setTitle("Client n° " + row.getItem().getId());
                     stage.setScene(scene);
                 }
             });
@@ -207,9 +261,59 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         }
     }
 
-    private void sendData(Client client)
+    public void sendData(Client client)
     {
         ClientHolder clientHolder = ClientHolder.getInstance();
         clientHolder.setClient(client);
+    }
+
+    public int importCsv(File fichier) throws IOException, SQLException
+    {
+        int nbImport = 0;
+
+        FileReader fr = new FileReader(fichier);
+        BufferedReader bfr = new BufferedReader(fr);
+        String ligne = null;
+
+        //lire la ligne d'entete
+        bfr.readLine();
+
+        //read each line of text file
+        while((ligne = bfr.readLine()) != null)
+        {
+            //Recuperer tout les client pour verifier les doublons
+            List<Client> listClient = clientDAO.findAll();
+            Client clientACreer = new Client(0);
+
+            //Separer la ligne en mot avec chaque delimiteur
+            StringTokenizer stk = new StringTokenizer(ligne,DELIMITER);
+
+            //On affecte au client a ajouter les differents champs
+            clientACreer.setNom((String)stk.nextElement());
+            clientACreer.setPrenom((String) stk.nextElement());
+            Adresse adresse = new Adresse((String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement());
+            clientACreer.setAdresse(adresse);
+
+            boolean doublon = false;
+
+            //On va verifier si le client a creer ne correspond pas a un client existant
+            for (Client client : listClient)
+            {
+                clientACreer.setId(client.getId());
+                if (!doublon)
+                {
+                    doublon = clientACreer.equals(client);
+                }
+            }
+
+            if(!doublon)
+            {
+                clientDAO.create(clientACreer);
+                nbImport ++;
+            }
+        }
+        //Fermer le fichier
+        bfr.close();
+        return nbImport;
     }
 }

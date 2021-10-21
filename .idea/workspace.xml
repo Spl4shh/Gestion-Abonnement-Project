@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="" />
+    <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/revue2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/revue2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/AfficherClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/AfficherClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/AfficherRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/AfficherRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/menuGeneralClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Client/menuGeneralClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/afficherRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/afficherRevue.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +65,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Romain\Desktop\Dev\Projet_Cours_Java\src\JavaFX\Controller\Abonnement" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Romain\Desktop\Dev\Github\Projet_Cours_Java\src\JavaFX\Controller\Revue" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="JavaFX" />
@@ -185,9 +198,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java</url>
+          <line>284</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

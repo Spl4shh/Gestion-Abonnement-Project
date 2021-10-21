@@ -79,6 +79,7 @@ public class choixTableController implements Initializable
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) choiceBoxPersistance.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Menu " + table);
         stage.setScene(scene);
     }
 

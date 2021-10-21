@@ -1,7 +1,6 @@
 package JavaFX.Controller.Client;
 
 import JavaFX.Application;
-import JavaFX.Controller.Abonnement.AbonnementHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import metier.Abonnement;
 import metier.Client;
 
 import java.io.IOException;
@@ -58,8 +56,8 @@ public class AfficherClientController implements Initializable
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) labelId.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Menu Client");
         stage.setScene(scene);
-        //stage.setTitle("Affichage d'un Client");
     }
 
     @Override

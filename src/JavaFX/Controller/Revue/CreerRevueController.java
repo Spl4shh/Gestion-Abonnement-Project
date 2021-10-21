@@ -110,7 +110,10 @@ public class CreerRevueController implements Initializable
             for (Revue revue : listRevue)
             {
                 revueACreer.setId(revue.getId());
-                doublon = revueACreer.equals(revue);
+                if (!doublon)
+                {
+                    doublon = revueACreer.equals(revue);
+                }
             }
 
             if(!doublon)

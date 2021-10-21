@@ -145,7 +145,10 @@ public class CreerClientController
             for (Client client : listClient)
             {
                 clientACreer.setId(client.getId());
-                doublon = clientACreer.equals(client);
+                if (!doublon)
+                {
+                    doublon = clientACreer.equals(client);
+                }
             }
 
             if(!doublon)

@@ -115,7 +115,10 @@ public class CreerAbonnementController implements Initializable
             for (Abonnement abonnement : listAbonnement)
             {
                 abonnementACreer.setId(abonnement.getId());
-                doublon = abonnementACreer.equals(abonnement);
+                if (!doublon)
+                {
+                    doublon = abonnementACreer.equals(abonnement);
+                }
             }
 
             if(!doublon)

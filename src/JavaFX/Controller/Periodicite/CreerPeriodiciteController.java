@@ -52,7 +52,6 @@ public class CreerPeriodiciteController
         affichageLabel.setText("");
 
         Periodicite periodiciteACreer = new Periodicite(0);
-        //periodiciteACreer.setLibelle("");
 
         //Try Libelle
         try
@@ -72,7 +71,10 @@ public class CreerPeriodiciteController
             for (Periodicite periodicite : listPeriodicite)
             {
                 periodiciteACreer.setId(periodicite.getId());
-                doublon = periodiciteACreer.equals(periodicite);
+                if (!doublon)
+                {
+                    doublon = periodiciteACreer.equals(periodicite);
+                }
             }
 
             if(!doublon)
