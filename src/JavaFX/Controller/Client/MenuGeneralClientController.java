@@ -292,7 +292,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
             clientACreer.setNom((String)stk.nextElement());
             clientACreer.setPrenom((String) stk.nextElement());
             Adresse adresse = new Adresse((String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement());
-            clientACreer.setAdresse(adresse);
+            clientACreer.setAdresse(ProcessAdress.normalize(adresse));
 
             boolean doublon = false;
 
