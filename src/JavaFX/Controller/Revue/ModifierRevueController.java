@@ -182,5 +182,6 @@ public class ModifierRevueController implements Initializable
         Stage stage = (Stage) this.titreField.getScene().getWindow();
 
         stage.setScene(scene);
+        stage.setTitle("Modification d'une Revue");
     }
 }

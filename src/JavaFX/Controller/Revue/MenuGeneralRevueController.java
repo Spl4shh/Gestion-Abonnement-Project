@@ -184,6 +184,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
                     Stage stage = (Stage) tableViewRevue.getScene().getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setScene(scene);
+                    stage.setTitle("Menu Revue");
                 }
             });
             return row ;
