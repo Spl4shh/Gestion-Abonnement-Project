@@ -69,7 +69,7 @@ public class ModifierClientController implements Initializable
     }
 
     @FXML
-    void boutonModifierClientClick(ActionEvent event) throws IOException, SQLException {
+    void boutonModifierClick(ActionEvent event) throws IOException, SQLException {
         String messageErreur = "";
         affichageLabel.setText("");
 
