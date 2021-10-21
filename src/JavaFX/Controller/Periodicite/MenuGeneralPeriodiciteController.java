@@ -182,6 +182,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
                     Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setScene(scene);
+                    stage.setTitle("Menu Périodicité");
                 }
             });
             return row ;

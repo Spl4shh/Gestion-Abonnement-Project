@@ -103,6 +103,7 @@ public class CreerPeriodiciteController
         Stage stage = (Stage) affichageLabel.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.setTitle("Création d'une Périodicité");
     }
 
 }

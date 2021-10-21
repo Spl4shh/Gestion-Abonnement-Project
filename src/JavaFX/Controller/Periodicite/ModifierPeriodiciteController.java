@@ -108,6 +108,7 @@ public class ModifierPeriodiciteController {
         //Afficher la nouvelle Scene dans l'ancienne Stage
         if (stage != null) {
             stage.setScene(scene);
+            stage.setTitle("Menu Périodicité");
         }
     }
 }
