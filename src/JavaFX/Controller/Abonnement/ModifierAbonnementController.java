@@ -193,7 +193,7 @@ public class ModifierAbonnementController implements Initializable
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) this.labelId.getScene().getWindow();
-
         stage.setScene(scene);
+        stage.setTitle("Modification d'un Abonnement");
     }
 }
