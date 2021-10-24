@@ -2,24 +2,30 @@
 
 ### Ce qui fonctionne
 
-- Menu général
+- Le Menu général
+
 - Sélection de la ListeMémoire ou de MySQL
+
 - Les ajouts (ListeMémoire ou MySQL) pour :
   - Abonnement
   - Client
   - Périodicité
   - Revue
+
 - Les suppressions (ListeMémoire ou MySQL) pour :
   - Abonnement
   - Client
   - Périodicité
   - Revue
+
 - Les modifications (ListeMémoire ou MySQL) pour :
   - Abonnement
   - Client
   - Périodicité
   - Revue
+
 - L'importation d'une liste de clients en .csv
+
 - L'affichage lors du double clic pour : 
   - Abonnement
   - Client
