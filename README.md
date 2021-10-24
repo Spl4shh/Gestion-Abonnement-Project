@@ -1,3 +1,51 @@
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
+
+### Ce qui fonctionne
+
+- Menu général
+- Sélection de la ListeMémoire ou de MySQL
+- Les ajouts (ListeMémoire ou MySQL) pour :
+  - Abonnement
+  - Client
+  - Périodicité
+  - Revue
+- Les suppressions (ListeMémoire ou MySQL) pour :
+  - Abonnement
+  - Client
+  - Périodicité
+  - Revue
+- Les modifications (ListeMémoire ou MySQL) pour :
+  - Abonnement
+  - Client
+  - Périodicité
+  - Revue
+- L'importation d'une liste de clients en .csv
+- L'affichage lors du double clic pour : 
+  - Abonnement
+  - Client
+  - Périodicité
+  - Revue
+
+### Ce qui ne fonctionne pas
+
+- La sélection de MySQL lorsque le VPN n'est pas activé (dans ce cas, on passe directement par la liste mémoire)
+
+### Répartition des tâches
+
+Romain : 
+- 
+
+Léane : 
+- 
+
+### % D'investissement
+
+Romain : 70% 
+
+Léane : 30%
+
+----------
+
 # /!\ Conventions d'écriture /!\
 
 1) Packages

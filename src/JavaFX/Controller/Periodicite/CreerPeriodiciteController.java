@@ -13,9 +13,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import metier.Client;
+//import metier.Client;
 import metier.Periodicite;
-import metier.ProcessAdress;
+//import metier.ProcessAdress;
 
 import java.io.IOException;
 import java.sql.SQLException;

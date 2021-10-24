@@ -2,9 +2,9 @@ package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
-import dao.DAOFactory;
+//import dao.DAOFactory;
 import dao.PeriodiciteDAO;
-import dao.Persistance;
+//import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

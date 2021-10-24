@@ -13,10 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+//import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import metier.Abonnement;
-import metier.Periodicite;
+//import metier.Periodicite;
 import metier.Revue;
 
 import java.io.IOException;

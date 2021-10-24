@@ -1,7 +1,7 @@
 package dao;
 
 
-import metier.Adresse;
+//import metier.Adresse;
 import metier.Client;
 
 import java.sql.SQLException;
