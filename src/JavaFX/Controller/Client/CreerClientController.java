@@ -187,5 +187,6 @@ public class CreerClientController
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         //stage.setTitle("Création d'un Client");
+        stage.setTitle("Menu Client");
     }
 }
