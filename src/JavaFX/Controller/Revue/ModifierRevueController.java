@@ -4,7 +4,6 @@ import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
 import dao.DAOFactory;
 import dao.PeriodiciteDAO;
-//import dao.Persistance;
 import dao.RevueDAO;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -18,7 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-//import javafx.stage.Window;
 import metier.Periodicite;
 import metier.Revue;
 
