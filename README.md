@@ -1,21 +1,3 @@
-# Java FX Windows
-
-```
-cd HelloFX\CLI\hellofx
-set PATH_TO_FX="path\to\javafx-sdk-13\lib"
-```
-
-Compile:
-```
-javac --module-path %PATH_TO_FX% --add-modules javafx.controls HelloFX.java
-```
-
-Run:
-
-```
-java --module-path %PATH_TO_FX% --add-modules javafx.controls HelloFX
-```
-
 # /!\ Conventions d'écriture /!\
 
 1) Packages
