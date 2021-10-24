@@ -1,6 +1,5 @@
 package JavaFX.Controller.Revue;
 
-//import metier.Periodicite;
 import metier.Revue;
 
 public class RevueHolder
