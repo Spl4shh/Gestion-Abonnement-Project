@@ -37,5 +37,6 @@
             <ChoiceBox fx:id="choiceBoxPersistance" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
+      <Label alignment="CENTER" prefHeight="64.0" prefWidth="545.0" text="Dans le cas ou vous utiliser MySQL, veuillez activer le VPN afin de pouvoir vous connecter à votre Base de Données" textOverrun="CLIP" wrapText="true" />
    </children>
 </VBox>
