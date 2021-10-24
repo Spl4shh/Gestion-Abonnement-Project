@@ -194,6 +194,6 @@ public class ModifierAbonnementController implements Initializable
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) this.labelId.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Modification d'un Abonnement");
+        stage.setTitle("Menu Abonnement");
     }
 }

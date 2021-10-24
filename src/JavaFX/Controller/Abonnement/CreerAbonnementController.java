@@ -172,6 +172,6 @@ public class CreerAbonnementController implements Initializable
         Stage stage = (Stage) clientChoiceBox.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        stage.setTitle("Création d'un Abonnement");
+        stage.setTitle("Menu Abonnement");
     }
 }

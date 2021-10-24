@@ -66,6 +66,7 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
         stage.setScene(scene);
     }
 
