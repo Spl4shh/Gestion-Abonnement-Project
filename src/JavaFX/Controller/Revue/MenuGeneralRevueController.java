@@ -162,6 +162,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         this.btnSupprimer.setVisible(false);
         this.btnModifier.setVisible(false);
 
+        //Gestion du Double Click
         tableViewRevue.setRowFactory(tableRow ->
         {
             TableRow<Revue> row = new TableRow<>();
