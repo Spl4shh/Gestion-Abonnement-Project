@@ -71,6 +71,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         Stage stage = (Stage) tableViewRevue.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
     }
 
     @FXML
@@ -84,6 +85,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         Stage stage = (Stage) tableViewRevue.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
+        stage.setTitle("Ajouter Revue");
     }
 
     @FXML
@@ -99,6 +101,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewRevue.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Modifier Revues");
         stage.setScene(scene);
     }
 

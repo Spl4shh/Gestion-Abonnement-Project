@@ -162,7 +162,7 @@ public class CreerRevueController implements Initializable
         Stage stage = (Stage) affichageLabel.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        stage.setTitle("Création d'une Revue");
+        stage.setTitle("Menu Revue");
 
     }
 }
