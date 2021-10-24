@@ -215,6 +215,7 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         this.btnSupprimer.setVisible(false);
         this.btnModifier.setVisible(false);
 
+        //Gestion Double Click
         tableViewClient.setRowFactory(tableRow ->
         {
             TableRow<Client> row = new TableRow<>();

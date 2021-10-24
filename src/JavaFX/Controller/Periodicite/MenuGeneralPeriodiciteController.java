@@ -161,6 +161,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
         this.btnSupprimer.setVisible(false);
         this.btnModifier.setVisible(false);
 
+        //Gestion Double Click
         tableViewPeriodicite.setRowFactory(tableRow ->
         {
             TableRow<Periodicite> row = new TableRow<>();
@@ -185,7 +186,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
                     Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setScene(scene);
-                    stage.setTitle("Menu Périodicité");
+                    stage.setTitle("Périodicité n°" + row.getItem().getId());
                 }
             });
             return row ;

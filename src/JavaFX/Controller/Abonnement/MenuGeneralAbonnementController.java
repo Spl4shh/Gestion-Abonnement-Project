@@ -144,6 +144,7 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
         this.btnSupprimer.setVisible(false);
         this.btnModifier.setVisible(false);
 
+        //Gestion Double Click
         tableViewAbonnement.setRowFactory(tableRow ->
         {
             TableRow<Abonnement> row = new TableRow<>();
@@ -168,6 +169,7 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
                     //Recuperer la Stage de l'ancienne page
                     Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
+                    stage.setTitle("Abonnement n°" + row.getItem().getId());
                     stage.setScene(scene);
                 }
             });
