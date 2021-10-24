@@ -3,8 +3,6 @@ package JavaFX.Controller.Client;
 import JavaFX.Application;
 import JavaFX.Controller.DAO.DAOHolder;
 import dao.ClientDAO;
-//import dao.DAOFactory;
-//import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
