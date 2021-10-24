@@ -1,5 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
 
+----------
+
 ### Ce qui fonctionne
 
 - Le Menu général
@@ -18,6 +20,8 @@
   - Périodicité
   - Revue
 
+- Une fenêtre de confirmation lors de la suppression d'un élément
+
 - Les modifications (ListeMémoire ou MySQL) pour :
   - Abonnement
   - Client
@@ -32,17 +36,21 @@
   - Périodicité
   - Revue
 
+----------
+
 ### Ce qui ne fonctionne pas
 
 - La sélection de MySQL lorsque le VPN n'est pas activé (dans ce cas, on passe directement par la liste mémoire)
 
+----------
+
 ### Répartition des tâches
 
 Romain : 
-- 
 
 Léane : 
-- 
+
+----------
 
 ### % D'investissement
 
