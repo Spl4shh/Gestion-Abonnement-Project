@@ -14,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import metier.Abonnement;
-//import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
