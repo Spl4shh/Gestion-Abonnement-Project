@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/MenuGeneralRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/MenuGeneralRevueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireAbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireAbonnementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoirePeriodiciteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoirePeriodiciteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireRevueDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireRevueDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,7 @@
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JavaFX.Application" />
       <module name="Projet_Cours_Java" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\leane\SDK_JavaFX\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Romain\SDK_JavaFX\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

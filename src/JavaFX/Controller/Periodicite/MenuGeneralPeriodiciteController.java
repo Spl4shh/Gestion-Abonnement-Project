@@ -125,7 +125,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
             }
             else
             {
-                Alert info = new Alert(Alert.AlertType.INFORMATION, "Il existe une revue enregistré avec cette periodicité");
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Il existe une revue enregistrée avec cette periodicité");
                 info.showAndWait();
             }
         }
