@@ -59,6 +59,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
         stage.setScene(scene);
     }
 
@@ -72,6 +73,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Ajouter Périodicité");
         stage.setScene(scene);
     }
 
@@ -87,6 +89,7 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
+        stage.setTitle("Modifier Périodicité");
         stage.setScene(scene);
     }
 
