@@ -48,7 +48,7 @@ public class AfficherAbonnementController implements Initializable
         Stage stage = (Stage) labelId.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        stage.setTitle("Affichage d'un Abonnement");
+        //stage.setTitle("Affichage d'un Abonnement");
     }
 
     @Override
