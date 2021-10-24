@@ -39,7 +39,7 @@ public class AfficherPeriodiciteController implements Initializable
         Stage stage = (Stage) labelId.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
-        //This is useless here --> stage.setTitle("Affichage d'une Périodicité");
+        stage.setTitle("Menu Périodicité");
     }
 
     @Override

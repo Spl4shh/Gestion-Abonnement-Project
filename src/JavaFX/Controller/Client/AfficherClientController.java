@@ -56,7 +56,7 @@ public class AfficherClientController implements Initializable
         //Recuperer la Stage de l'ancienne page
         Stage stage = (Stage) labelId.getScene().getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
-        //stage.setTitle("Menu Client");
+        stage.setTitle("Menu Client");
         stage.setScene(scene);
     }
 

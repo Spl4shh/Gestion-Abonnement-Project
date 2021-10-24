@@ -91,7 +91,7 @@ public class choixTableController implements Initializable
         {
             choiceBoxPersistance.getItems().add(persistance);
         }
-        
+
         choiceBoxPersistance.setValue(Persistance.values()[1]);
     }
 }
