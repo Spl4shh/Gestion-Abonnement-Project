@@ -1,7 +1,6 @@
 package JavaFX.Controller.Periodicite;
 
 import JavaFX.Application;
-//import JavaFX.Controller.Client.ClientHolder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-//import metier.Client;
 import metier.Periodicite;
 
 import java.io.IOException;
