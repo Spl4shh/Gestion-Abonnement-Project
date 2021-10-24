@@ -106,9 +106,10 @@ public class Adresse {
     {
         Adresse adresse = (Adresse) object;
 
-        if (this.getCodePostal().equals(adresse.getCodePostal()) && 
-            this.getNoRue().equals(adresse.getNoRue()) && 
-            this.getPays().equals(adresse.getPays()) && 
+        if (this.getCodePostal().equals(adresse.getCodePostal()) &&
+            this.getNoRue().equals(adresse.getNoRue()) &&
+            this.getVoie().equals(adresse.getVoie()) &&
+            this.getPays().equals(adresse.getPays()) &&
             this.getVille().equals(adresse.getVille())) 
         {
             return true;

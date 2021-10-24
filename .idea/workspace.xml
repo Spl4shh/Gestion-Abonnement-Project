@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/MenuGeneralRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/MenuGeneralRevueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireAbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireAbonnementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireClientDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoirePeriodiciteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoirePeriodiciteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireRevueDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/listememoire/ListeMemoireRevueDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metier/ProcessAdress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/ProcessAdress.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
