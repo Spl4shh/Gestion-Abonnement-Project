@@ -57,7 +57,7 @@ public class Adresse {
 
     public void setCodePostal(String codePostal) 
     {
-        if (codePostal == null || codePostal.equals(""))
+        if (codePostal == null || codePostal.length() < 4)
         {
             throw new IllegalArgumentException("Code Postal incorrect");
         }

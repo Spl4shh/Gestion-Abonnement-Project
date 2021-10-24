@@ -203,7 +203,7 @@ public class ProcessAdress
 
                 if (codePostal.length() < 4 && !codePostal.equals(""))
                 {
-                    throw new IllegalArgumentException("code postal non conforme");
+                    throw new IllegalArgumentException("Code postal non conforme");
                 }
                 if (codePostal.length() < 5 && !codePostal.equals("") && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
                 {
