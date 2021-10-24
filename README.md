@@ -49,6 +49,11 @@
 Romain : 
 
 Léane : 
+- Réalisation des interfaces JavaFX
+- Méthodes de Tests pour "Périodicité"
+- README.txt
+- Optimisation des imports
+- ... on doit vraiment tout lister ?
 
 ----------
 
