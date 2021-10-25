@@ -48,7 +48,7 @@
       </VBox>
       <HBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="656.0" style="-fx-spacing: 100;">
          <children>
-            <Button fx:id="boutonRetour" mnemonicParsing="false" onAction="#boutonRetourClick" text="Retour" />
+            <Button fx:id="boutonRetour" onAction="#boutonRetourClick" text="Retour" />
          </children>
       </HBox>
    </children>
