@@ -200,29 +200,6 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
          */
         this.btnSupprimer.setVisible(!(newValue == null));
         this.btnModifier.setVisible(!(newValue == null));
-
-      /*
-        if (revueSelect != null && newValue == oldValue)
-        {
-            sendData(revueSelect);
-
-            //Charger la page que l'on veux afficher
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/modifierRevue.fxml"));
-            //Creer une Scene contenant cette page
-            Scene scene = null;
-            try {
-                scene = new Scene(fxmlLoader.load(), 600, 450);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            //Recuperer la Stage de l'ancienne page
-            Stage stage = (Stage) tableViewRevue.getScene().getWindow();
-            //Afficher la nouvelle Scene dans l'ancienne Stage
-            stage.setScene(scene);
-        }
-
-       */
     }
 
     public void genererListeRevue()
@@ -233,6 +210,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         try
         {
             this.tableViewRevue.getItems().addAll(revueDAO.findAll());
+            System.out.println(revueDAO.findAll().get(0).getTarifNumero());
         } catch (SQLException e)
         {
             e.printStackTrace();

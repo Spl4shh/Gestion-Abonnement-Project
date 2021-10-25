@@ -103,7 +103,7 @@ public class MySqlRevueDAO implements RevueDAO
         ResultSet res = requete.executeQuery();
         res.next();
 
-        Revue revue = new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), new Periodicite(res.getInt(6)) );
+        Revue revue = new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getDouble(4), res.getString(5), new Periodicite(res.getInt(6)) );
 
         if (laConnexion != null)
             laConnexion.close();
@@ -126,7 +126,7 @@ public class MySqlRevueDAO implements RevueDAO
         
         while (res.next()) 
         {
-            listeRevue.add(new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getFloat(4), res.getString(5), new Periodicite(res.getInt(6))));
+            listeRevue.add(new Revue(res.getInt(1), res.getString(2), res.getString(3), res.getDouble(4), res.getString(5), new Periodicite(res.getInt(6))));
         }
 
         if (laConnexion != null)
