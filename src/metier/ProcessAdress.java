@@ -201,11 +201,7 @@ public class ProcessAdress
                     }
                 } while (lettrePresente && !codePostal.equals(""));     //tant que il y a des lettres on repete l'operation
 
-                if (codePostal.length() < 4 && !codePostal.equals(""))
-                {
-                    throw new IllegalArgumentException("Code postal non conforme");
-                }
-                if (codePostal.length() < 5 && !codePostal.equals("") && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
+                if (codePostal.length() == 4 && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
                 {
                     codePostal = "0" + codePostal;
                 }
