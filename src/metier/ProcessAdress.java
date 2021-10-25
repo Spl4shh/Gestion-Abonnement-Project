@@ -166,7 +166,6 @@ public class ProcessAdress
     // Normalisation Code Postal
     public static String normalizeCode(String codePostal) 
     {
-        //Le trim doit se faire avant (dans le cas ou la chaine est un espace)
         if (codePostal != null)
         {
             codePostal = codePostal.trim();  //Le trim se fait ici car irréalisable sur un object null
@@ -201,7 +200,11 @@ public class ProcessAdress
                         lettrePresente = true;
                     }
                 } while (lettrePresente && !codePostal.equals(""));     //tant que il y a des lettres on repete l'operation
-                
+
+                if (codePostal.length() < 4 && !codePostal.equals(""))
+                {
+                    throw new IllegalArgumentException("Code postal non conforme");
+                }
                 if (codePostal.length() < 5 && !codePostal.equals("") && !etranger)    // S'il n'y a que 4 chiffre on en rajoute
                 {
                     codePostal = "0" + codePostal;

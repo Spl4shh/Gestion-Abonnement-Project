@@ -177,7 +177,7 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
                     Scene scene = null;
                     try
                     {
-                        scene = new Scene(fxmlLoader.load(), 600, 600);
+                        scene = new Scene(fxmlLoader.load(), 600, 450);
                     } catch (IOException e)
                     {
                         e.printStackTrace();

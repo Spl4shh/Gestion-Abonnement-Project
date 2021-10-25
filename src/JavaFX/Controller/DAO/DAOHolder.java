@@ -5,7 +5,7 @@ import dao.Persistance;
 
 public class DAOHolder
 {
-    private DAOFactory daoFactory;
+    private DAOFactory daoFactory = null;
     private final static DAOHolder INSTANCE = new DAOHolder();
 
     private DAOHolder() {}

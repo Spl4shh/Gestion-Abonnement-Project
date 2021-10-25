@@ -1,6 +1,7 @@
 package JavaFX.Controller.DAO;
 
 import JavaFX.Application;
+import dao.DAOFactory;
 import dao.Persistance;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -90,6 +91,7 @@ public class choixTableController implements Initializable
         {
             choiceBoxPersistance.getItems().add(persistance);
         }
+
         choiceBoxPersistance.setValue(Persistance.values()[1]);
     }
 }
