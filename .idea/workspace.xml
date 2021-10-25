@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/metier/ProcessAdress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/ProcessAdress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlRevueDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/MySQL/MySqlRevueDAOTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="openjdk-17" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/tests" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.18325435" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -71,7 +73,7 @@
       <recent name="JavaFX.Controller.Client" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager" selected="JUnit.Test">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JavaFX.Application" />
       <module name="Projet_Cours_Java" />
@@ -87,46 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DAOFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Test" type="JUnit" factoryName="JUnit">
       <module name="Projet_Cours_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.DAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.DAO" />
-      <option name="MAIN_CLASS_NAME" value="tests.DAO.DAOFactoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MySqlAbonnementDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projet_Cours_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.MySQL" />
-      <option name="MAIN_CLASS_NAME" value="tests.MySQL.MySqlAbonnementDAOTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="tests in Projet_Cours_Java" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projet_Cours_Java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/tests" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,17 +115,12 @@
     <list>
       <item itemvalue="Application.Application" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.DAOFactoryTest" />
-      <item itemvalue="JUnit.MySqlAbonnementDAOTest" />
-      <item itemvalue="JUnit.tests in Projet_Cours_Java" />
+      <item itemvalue="JUnit.Test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MySqlAbonnementDAOTest" />
-        <item itemvalue="JUnit.tests in Projet_Cours_Java" />
-        <item itemvalue="JUnit.DAOFactoryTest" />
       </list>
     </recent_temporary>
   </component>
