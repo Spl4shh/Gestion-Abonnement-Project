@@ -78,7 +78,7 @@ public class ProcessAdress
             { 
                 boolean modifAbrege = true;
                 // /!\ au cas ou la ville n'a qu'1 seul mot et c'est un pronom
-                if (string.equals("sous")) 
+                if (string.equals("sous"))
                 {
                     string = "-sous-";
                 }
@@ -86,15 +86,15 @@ public class ProcessAdress
                 {
                     string = "-lès-";
                 }
-                else if (string.equals("sur")) 
+                else if (string.equals("sur"))
                 {
                     string = "-sur-";
                 }
-                else if (string.equals("aux")) 
+                else if (string.equals("aux"))
                 {
                     string = "-aux-";
                 }
-                else if (string.equals("le")) 
+                else if (string.equals("le"))
                 {
                     string = "-le-";
                 }
@@ -102,19 +102,19 @@ public class ProcessAdress
                 {
                     string = "-à-";
                 }
-                else if (string.equals("st")) 
+                else if (string.equals("st"))
                 {
                     string = "Saint-";
                 }
-                else if (string.equals("ste")) 
+                else if (string.equals("ste"))
                 {
-                    string = "Sainte-";  
+                    string = "Sainte-";
                 }
                 else                      // Si pas de mot a remplacer, alors on suppose que c'est un nom de ville et pas un pronom
                 {
                     modifAbrege = false;
                     string = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1);   // Premiere lettre majuscule
-                    // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace 
+                    // Si on a deja composé la nvle chaine et que le dernier carac n'est pas un - alors on met un espace
                     if (!nouveauVille.equals("") && nouveauVille.charAt(nouveauVille.length()-1) != '-')
                     {
                         string = " " + string;
@@ -141,17 +141,16 @@ public class ProcessAdress
             pays = pays.trim().toLowerCase(); //Chaine nettoyé et en minuscule
             if (!pays.equals(""))
             {
-
-                switch (pays) 
+                switch (pays)
                 {
                     case "letzebuerg":
                         pays = "luxembourg";
                         break;
-    
+
                     case "belgium":
                         pays = "belgique";
                         break;
-    
+
                     case "switzerland", "schweiz":
                         pays = "suisse";
                         break;
