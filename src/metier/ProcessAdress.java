@@ -14,47 +14,54 @@ public class ProcessAdress
 
     
     // Normalisation Voie
-    public static String normalizeVoie(String voie) 
+    public static String normalizeVoie(String voie)
     {
         if (voie != null)
         {
             voie = voie.trim().toLowerCase();
-            String[] tableauMot = voie.split(" ");
-            String newVoie = "";
-
-            for (String string : tableauMot) 
+            if (!voie.equals(""))
             {
-                if (string.equals("boul") || string.equals("boul.") || string.equals("bd"))
+                String[] tableauMot = voie.split(" ");
+                String newVoie = "";
+
+                for (String string : tableauMot)
                 {
-                    string = "boulevard";
-                }
-                else if (string.equals("av.") || string.equals("av"))
-                {
-                    string = "avenue";
-                }
-                else if (string.equals("faub.") || string.equals("fg"))
-                {
-                    string = "faubourg";
-                }
-                else if(string.equals("pl.") || string.equals("pl"))
-                {
-                    string = "place";
+                    if (string.equals("boul") || string.equals("boul.") || string.equals("bd"))
+                    {
+                        string = "boulevard";
+                    }
+                    else if (string.equals("av.") || string.equals("av"))
+                    {
+                        string = "avenue";
+                    }
+                    else if (string.equals("faub.") || string.equals("fg"))
+                    {
+                        string = "faubourg";
+                    }
+                    else if(string.equals("pl.") || string.equals("pl"))
+                    {
+                        string = "place";
+                    }
+
+                    if (!newVoie.equals(""))
+                    {
+                        newVoie = newVoie + " ";
+                    }
+
+                    newVoie = newVoie + string;
                 }
 
-                if (!newVoie.equals(""))
+                if (!(newVoie.charAt(0) == ','))
                 {
-                    newVoie = newVoie + " ";
+                    newVoie = ", " + newVoie;
                 }
 
-                newVoie = newVoie + string;
+                return (newVoie);
             }
-
-            if (!(newVoie.charAt(0) == ','))
+            else
             {
-                newVoie = ", " + newVoie;
+                return ", ";
             }
-
-            return (newVoie);
         }
         else
         {

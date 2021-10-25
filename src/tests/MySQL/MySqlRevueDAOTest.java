@@ -29,7 +29,7 @@ public class MySqlRevueDAOTest
     @Test
     public void testCreate() throws SQLException
     {
-        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", new Periodicite(1));
+        Revue revue = new Revue("Code154329", "Description", 10.1, "Visuel", new Periodicite(1));
 
         revueDAO.create(revue);
 
@@ -67,7 +67,7 @@ public class MySqlRevueDAOTest
     @Test
     public void testDelete() throws SQLException
     {
-        Revue revue = new Revue("Code154329", "Description", (float)10.1, "Visuel", new Periodicite(1));
+        Revue revue = new Revue("Code154329", "Description", 10.1, "Visuel", new Periodicite(1));
 
         revueDAO.create(revue);
 
