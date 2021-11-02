@@ -43,7 +43,6 @@
 
 - La sélection de MySQL lorsque le VPN n'est pas activé (Indication au client de penser à activer le VPN)
 - L'affichage d'un visuel pour une revue
-- Leger beug avec l'utilisation de MySQL, pour le tarif d'une revue, le prix n'est pas exactement celui rentré
 ----------
 
 ### Répartition des tâches
