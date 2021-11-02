@@ -57,6 +57,7 @@ Léane :
 - Test de l'appli
 
 Romain : 
+- Correction de quelque beug au niveau des interfaces 
 - Classe Metier (Revue, Abonnement, Client)
 - Classe Test (Revue, Abonnement, Client)
 - Controlleur (Revue, Abonnement, Client)
