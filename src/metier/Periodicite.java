@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.Objects;
+
 public class Periodicite
 {
     int id;
@@ -49,7 +51,8 @@ public class Periodicite
             this.libelle = libelle;
         }
     }
-/*******************************************************/
+/******************************************************/
+/********************Surcharge*************************/
 
     @Override
     public boolean equals(Object object)
@@ -72,5 +75,11 @@ public class Periodicite
     public String toString()
     {
         return (this.getId() + " " + this.getLibelle());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id, libelle);
     }
 }

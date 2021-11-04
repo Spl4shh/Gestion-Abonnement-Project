@@ -5,6 +5,7 @@ import dao.Persistance;
 
 public class DAOHolder
 {
+    private Persistance persistance = null;
     private DAOFactory daoFactory = null;
     private final static DAOHolder INSTANCE = new DAOHolder();
 
@@ -19,7 +20,13 @@ public class DAOHolder
         return daoFactory;
     }
 
-    public void setDaoFactory(Persistance persistance) {
+    public Persistance getPersistance() {
+        return persistance;
+    }
+
+    public void setDaoFactory(Persistance persistance)
+    {
+        this.persistance = persistance;
         this.daoFactory = DAOFactory.getDAOFactory(persistance);
     }
 
