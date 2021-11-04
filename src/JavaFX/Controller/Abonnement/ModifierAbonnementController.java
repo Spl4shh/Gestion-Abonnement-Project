@@ -9,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import metier.Abonnement;
@@ -23,11 +20,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ModifierAbonnementController implements Initializable
 {
-    Abonnement abonnementAModifier;
+    Abonnement abonnementEnCours;
     DAOFactory daoFactory = DAOHolder.getInstance().getDaoFactory();
     AbonnementDAO abonnementDAO = daoFactory.getAbonnementDAO();
     RevueDAO revueDAO = daoFactory.getRevueDAO();
@@ -63,13 +61,13 @@ public class ModifierAbonnementController implements Initializable
         String messageErreur = "";
         affichage.setText("");
 
-        Abonnement abonnement = new Abonnement(0);
+        Abonnement abonnementToUpdate = new Abonnement(0);
 
         //Try set dateDebut
         try
         {
             LocalDate dateDebut = datePickerDebut.getValue();
-            abonnement.setDateDebut(dateDebut);
+            abonnementToUpdate.setDateDebut(dateDebut);
         }
         catch(IllegalArgumentException e)
         {
@@ -80,7 +78,7 @@ public class ModifierAbonnementController implements Initializable
         try
         {
             LocalDate dateFin = datePickerFin.getValue();
-            abonnement.setDateFin(dateFin);
+            abonnementToUpdate.setDateFin(dateFin);
         }
         catch(IllegalArgumentException e)
         {
@@ -91,7 +89,7 @@ public class ModifierAbonnementController implements Initializable
         try
         {
             Client client = clientChoiceBox.getValue();
-            abonnement.setIdClient(client);
+            abonnementToUpdate.setIdClient(client);
 
         }
         catch(IllegalArgumentException e)
@@ -103,7 +101,7 @@ public class ModifierAbonnementController implements Initializable
         try
         {
             Revue revue = revueChoiceBox.getValue();
-            abonnement.setIdRevue(revue);
+            abonnementToUpdate.setIdRevue(revue);
         }
         catch(IllegalArgumentException e)
         {
@@ -113,16 +111,28 @@ public class ModifierAbonnementController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            /*
-                HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
-            abonnement.setId(abonnementAModifier.getId());
-            abonnementDAO.update(abonnement);
+            List<Abonnement> listAbonnement = abonnementDAO.findAll();
+            boolean doublon = false;
 
-            affichage.setText("");
-            affichage.setTextFill(Color.BLACK);
-            returnToMenu();
+            for (Abonnement abonnement : listAbonnement)
+            {
+                abonnementToUpdate.setId(abonnement.getId());
+                if (!doublon)
+                {
+                    doublon = abonnementToUpdate.equals(abonnement);
+                }
+            }
+
+            if(!doublon)
+            {
+                abonnementDAO.update(abonnementToUpdate);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cet abonnement existe deja");
+                info.showAndWait();
+            }
         }
         else
         {
@@ -158,22 +168,22 @@ public class ModifierAbonnementController implements Initializable
         }
 
         //Recuperation de la Revue a modifier
-        abonnementAModifier = receiveData();
+        abonnementEnCours = receiveData();
 
 
         //Application des champs
-        labelId.setText(String.valueOf(abonnementAModifier.getId()));
+        labelId.setText(String.valueOf(abonnementEnCours.getId()));
 
-        datePickerDebut.setValue(abonnementAModifier.getDateDebut());
-        datePickerFin.setValue(abonnementAModifier.getDateFin());
+        datePickerDebut.setValue(abonnementEnCours.getDateDebut());
+        datePickerFin.setValue(abonnementEnCours.getDateFin());
 
         try {
-            clientChoiceBox.setValue(clientDAO.getById(abonnementAModifier.getIdClient()));
+            clientChoiceBox.setValue(clientDAO.getById(abonnementEnCours.getIdClient()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try {
-            revueChoiceBox.setValue(revueDAO.getById(abonnementAModifier.getIdRevue()));
+            revueChoiceBox.setValue(revueDAO.getById(abonnementEnCours.getIdRevue()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
