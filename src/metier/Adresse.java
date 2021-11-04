@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.Objects;
+
 public class Adresse {
 
 
@@ -101,6 +103,9 @@ public class Adresse {
         }
     }
 
+/******************************************************/
+/********************Surcharge*************************/
+
     @Override
     public boolean equals(Object object)
     {
@@ -123,5 +128,11 @@ public class Adresse {
     public String toString()
     {
         return (this.getNoRue() + " " + this.getVoie() + " " + this.getVille() + " " + this.getCodePostal() + " " + this.getPays()); 
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(noRue, voie, codePostal, ville, pays);
     }
 }

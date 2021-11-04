@@ -1,6 +1,8 @@
 package metier;
 
-public class Client 
+import java.util.Objects;
+
+public class Client
 {
     int id;
     String nom, prenom;
@@ -80,6 +82,8 @@ public class Client
         this.adresse = adresse;
     }
 
+/******************************************************/
+/********************Surcharge*************************/
 
     @Override
     public boolean equals(Object object)
@@ -104,5 +108,11 @@ public class Client
     public String toString()
     {
         return (this.getId() + " " + this.getNom() + " " + this.getPrenom() + " " + this.adresse.toString());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id, nom, prenom, adresse);
     }
 }

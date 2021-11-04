@@ -210,7 +210,6 @@ public class MenuGeneralRevueController implements Initializable, ChangeListener
         try
         {
             this.tableViewRevue.getItems().addAll(revueDAO.findAll());
-            System.out.println(revueDAO.findAll().get(0).getTarifNumero());
         } catch (SQLException e)
         {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package metier;
 
+import java.util.Objects;
+
 public class Revue
 {
   /* Définition des attributs */
@@ -126,31 +128,39 @@ public class Revue
   }
   /* Fin Getters & Setters */
 
+/******************************************************/
+/********************Surcharge*************************/
 
-  @Override
-  public boolean equals(Object object)
-  {
-    Revue revue = (Revue) object;
+    @Override
+    public boolean equals(Object object)
+    {
+        Revue revue = (Revue) object;
 
-    if (revue != null &&
-        this.id == revue.id &&
-        this.description.equals(revue.description) &&
-        this.idPeriodicite == revue.idPeriodicite &&
-        this.tarifNumero == revue.tarifNumero &&
-        this.titre.equals(revue.titre) &&
-        this.visuel.equals(revue.visuel))    
-    {
-      return true;
-    } 
-    else 
-    {
-      return false;  
+        if (revue != null &&
+            this.id == revue.id &&
+            this.description.equals(revue.description) &&
+            this.idPeriodicite == revue.idPeriodicite &&
+            this.tarifNumero == revue.tarifNumero &&
+            this.titre.equals(revue.titre) &&
+            this.visuel.equals(revue.visuel))
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
     }
-  }
 
-  @Override
-  public String toString() 
-  {
-    return ("ID : " + this.getId() + ", titre : " + this.getTitre() + ", description : " + this.getDescription() + ", tarif unitaire : " + this.getTarifNumero() + ", visuel : " + this.getVisuel() + ", ID périodicité : " + this.getIdPeriodicite());
-  }
+    @Override
+    public String toString()
+    {
+        return ("ID : " + this.getId() + ", titre : " + this.getTitre() + ", description : " + this.getDescription() + ", tarif unitaire : " + this.getTarifNumero() + ", visuel : " + this.getVisuel() + ", ID périodicité : " + this.getIdPeriodicite());
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(id, idPeriodicite, tarifNumero, titre, description, visuel);
+    }
 }
