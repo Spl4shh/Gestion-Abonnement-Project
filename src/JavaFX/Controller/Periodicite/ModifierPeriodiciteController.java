@@ -67,7 +67,7 @@ public class ModifierPeriodiciteController
         if (messageErreur.equals(""))
         {
             List<Periodicite> listPeriodicite = periodiciteDAO.findAll();
-            
+
             if (!isDoublon(listPeriodicite, periodiciteToUpdate))
             {
                 periodiciteDAO.update(periodiciteToUpdate);
