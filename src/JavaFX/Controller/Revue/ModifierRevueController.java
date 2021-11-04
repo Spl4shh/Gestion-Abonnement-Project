@@ -11,10 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import metier.Periodicite;
@@ -23,6 +20,7 @@ import metier.Revue;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ModifierRevueController implements Initializable
@@ -69,13 +67,13 @@ public class ModifierRevueController implements Initializable
 
         affichage.setText("");
 
-        Revue revue = new Revue(0);
-        revue.setVisuel("");
+        Revue revueNew = new Revue(0);
+        revueNew.setVisuel("");
 
         //Try Titre
         try
         {
-            revue.setTitre(titreField.getText());
+            revueNew.setTitre(titreField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -85,7 +83,7 @@ public class ModifierRevueController implements Initializable
         //Try Description
         try
         {
-            revue.setDescription(descriptionArea.getText());
+            revueNew.setDescription(descriptionArea.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -95,7 +93,7 @@ public class ModifierRevueController implements Initializable
         //Try tarif
         try
         {
-            revue.setTarifNumero(Double.parseDouble(tarifField.getText()));
+            revueNew.setTarifNumero(Double.parseDouble(tarifField.getText()));
         }
         catch(NumberFormatException e)
         {
@@ -110,7 +108,7 @@ public class ModifierRevueController implements Initializable
         //Try Periodicite
         try
         {
-            revue.setIdPeriodicite(periodiciteChoiceBox.getValue());
+            revueNew.setIdPeriodicite(periodiciteChoiceBox.getValue());
         }
         catch(IllegalArgumentException e)
         {
@@ -119,15 +117,29 @@ public class ModifierRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            revue.setId(revueAModifier.getId());
-            /*HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
-            revueDAO.update(revue);
+            revueNew.setId(revueAModifier.getId());
+            List<Revue> listRevue = revueDAO.findAll();
+            boolean doublon = false;
 
-            affichage.setText(revue.toString());
-            affichage.setTextFill(Color.BLACK);
-            returnToMenu();
+            for (Revue revue : listRevue)
+            {
+                revueNew.setId(revue.getId());
+                if (!doublon)
+                {
+                    doublon = revueNew.equals(revue);
+                }
+            }
+
+            if(!doublon)
+            {
+                revueDAO.update(revueNew);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cette revueNew existe deja");
+                info.showAndWait();
+            }
         }
         else
         {
