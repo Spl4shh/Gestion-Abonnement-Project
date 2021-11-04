@@ -103,6 +103,7 @@ public class choixTableController implements Initializable
 
     public void setScene(String table) throws IOException
     {
+        // On recupere la Scene actuelle afin d'avoir les dimensions et le Stage
         Scene actualScene = choiceBoxPersistance.getScene();
 
         //Charger la page que l'on veux afficher
