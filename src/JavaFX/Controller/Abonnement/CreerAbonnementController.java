@@ -111,18 +111,8 @@ public class CreerAbonnementController implements Initializable
         if (messageErreur.equals(""))
         {
             List<Abonnement> listAbonnement = abonnementDAO.findAll();
-            boolean doublon = false;
 
-            for (Abonnement abonnement : listAbonnement)
-            {
-                abonnementACreer.setId(abonnement.getId());
-                if (!doublon)
-                {
-                    doublon = abonnementACreer.equals(abonnement);
-                }
-            }
-
-            if(!doublon)
+            if(!isDoublon(listAbonnement, abonnementACreer))
             {
                 abonnementDAO.create(abonnementACreer);
                 returnToMenu();
@@ -174,5 +164,18 @@ public class CreerAbonnementController implements Initializable
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         stage.setTitle("Menu Abonnement");
+    }
+
+    private boolean isDoublon(List<Abonnement> listItem, Abonnement itemToCheck)
+    {
+        for (Abonnement item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -112,18 +112,8 @@ public class ModifierAbonnementController implements Initializable
         if (messageErreur.equals(""))
         {
             List<Abonnement> listAbonnement = abonnementDAO.findAll();
-            boolean doublon = false;
 
-            for (Abonnement abonnement : listAbonnement)
-            {
-                abonnementToUpdate.setId(abonnement.getId());
-                if (!doublon)
-                {
-                    doublon = abonnementToUpdate.equals(abonnement);
-                }
-            }
-
-            if(!doublon)
+            if(!isDoublon(listAbonnement, abonnementToUpdate))
             {
                 abonnementDAO.update(abonnementToUpdate);
                 returnToMenu();
@@ -205,5 +195,18 @@ public class ModifierAbonnementController implements Initializable
         Stage stage = (Stage) this.labelId.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Menu Abonnement");
+    }
+
+    private boolean isDoublon(List<Abonnement> listItem, Abonnement itemToCheck)
+    {
+        for (Abonnement item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
