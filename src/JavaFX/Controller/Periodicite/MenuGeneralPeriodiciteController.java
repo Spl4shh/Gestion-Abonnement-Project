@@ -51,42 +51,53 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
     @FXML
     void boutonRetourClick(ActionEvent event) throws IOException
     {
+        //Scene Actuelle
+        Scene actualScene = tableViewPeriodicite.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/DAO/choixTable.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
         stage.setScene(scene);
     }
 
     @FXML
-    void btnAjouterClick(ActionEvent event) throws IOException {
+    void btnAjouterClick(ActionEvent event) throws IOException
+    {
+        //Scene actuelle
+        Scene actualScene = tableViewPeriodicite.getScene();
 
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/creerPeriodicite.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Ajouter Périodicité");
         stage.setScene(scene);
     }
 
     @FXML
-    void btnModifierClick(ActionEvent event) throws IOException {
+    void btnModifierClick(ActionEvent event) throws IOException
+    {
+        // Transmettre la periodicité a envoyer
         Periodicite periodiciteAModifier = this.tableViewPeriodicite.getSelectionModel().getSelectedItem();
         sendData(periodiciteAModifier);
+
+        //Scene actuelle
+        Scene actualScene = tableViewPeriodicite.getScene();
 
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/modifierPeriodicite.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Modifier Périodicité");
         stage.setScene(scene);
@@ -170,19 +181,21 @@ public class MenuGeneralPeriodiciteController implements Initializable, ChangeLi
                 {
                     sendData(row.getItem());
 
+                    Scene actualScene = tableViewPeriodicite.getScene();
+
                     //Charger la page que l'on veux afficher
                     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Periodicite/afficherPeriodicite.fxml"));
                     //Creer une Scene contenant cette page
                     Scene scene = null;
                     try
                     {
-                        scene = new Scene(fxmlLoader.load(), 600, 450);
+                        scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
                     } catch (IOException e)
                     {
                         e.printStackTrace();
                     }
                     //Recuperer la Stage de l'ancienne page
-                    Stage stage = (Stage) tableViewPeriodicite.getScene().getWindow();
+                    Stage stage = (Stage) actualScene.getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setScene(scene);
                     stage.setTitle("Périodicité n°" + row.getItem().getId());
