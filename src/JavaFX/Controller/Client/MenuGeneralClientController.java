@@ -108,12 +108,15 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
     @FXML
     void boutonRetourClick(ActionEvent event) throws IOException
     {
+        //Scene actuelle
+        Scene actualScene = tableViewClient.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/DAO/choixTable.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewClient.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
         stage.setScene(scene);
@@ -122,12 +125,15 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
     @FXML
     void btnAjouterClick(ActionEvent event) throws IOException
     {
+        //Scene actuelle
+        Scene actualScene = tableViewClient.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Client/creerClient.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewClient.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Ajouter Client");
         stage.setScene(scene);
@@ -136,15 +142,19 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
     @FXML
     void btnModifierClick(ActionEvent event) throws IOException
     {
+        // Transmettre le client a modifier
         Client clientAModifier = this.tableViewClient.getSelectionModel().getSelectedItem();
         sendData(clientAModifier);
+
+        //Scene actuelle
+        Scene actualScene = tableViewClient.getScene();
 
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Client/modifierClient.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewClient.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Modifier Client");
         stage.setScene(scene);
@@ -225,19 +235,22 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
                 {
                     sendData(row.getItem());
 
+                    //Scene actuelle
+                    Scene actualScene = tableViewClient.getScene();
+
                     //Charger la page que l'on veux afficher
                     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Client/afficherClient.fxml"));
                     //Creer une Scene contenant cette page
                     Scene scene = null;
                     try
                     {
-                        scene = new Scene(fxmlLoader.load(), 600, 450);
+                        scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
                     } catch (IOException e)
                     {
                         e.printStackTrace();
                     }
                     //Recuperer la Stage de l'ancienne page
-                    Stage stage = (Stage) tableViewClient.getScene().getWindow();
+                    Stage stage = (Stage) actualScene.getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setTitle("Client n° " + row.getItem().getId());
                     stage.setScene(scene);
