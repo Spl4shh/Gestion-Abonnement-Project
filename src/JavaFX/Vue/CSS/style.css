@@ -1,7 +1,21 @@
-:root {
-    --primary: #1A0618;
+* {
+    -fx-primary: black;
+    -fx-red: #660700;
+    -fx-white: #EBE4EF;
 }
 
-#bk {
-    --fx-background-color: #000000;
+VBox {
+    -fx-background-color: -fx-primary;
+}
+
+Label {
+    -fx-text-fill: -fx-white;
+}
+
+Button, ChoiceBox {
+    -fx-border-radiux : 50px;
+    /* -fx-border-color: -fx-red; */
+    -fx-background-color : -fx-red;
+    -fx-text-fill: -fx-white;
+    -fx-effect: dropshadow(three-pass-box, red, 10, 0, 0, 0);
 }
