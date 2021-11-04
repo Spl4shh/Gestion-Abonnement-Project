@@ -174,12 +174,15 @@ public class ModifierRevueController implements Initializable
 
     public void returnToMenu() throws IOException
     {
+        //Scene actuelle
+        Scene actualScene = affichage.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Revue/menuGeneralRevue.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) this.titreField.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
 
         stage.setScene(scene);
         stage.setTitle("Menu Revue");
