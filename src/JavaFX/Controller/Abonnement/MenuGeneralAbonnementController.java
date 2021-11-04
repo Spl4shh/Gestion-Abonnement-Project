@@ -58,12 +58,15 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
     @FXML
     void boutonRetourClick(ActionEvent event) throws IOException
     {
+        //Scene actuelle
+        Scene actualScene = tableViewAbonnement.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/DAO/choixTable.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Gestion d'un systeme d'abonnement à des revues");
         stage.setScene(scene);
@@ -72,12 +75,15 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
     @FXML
     void btnAjouterClick(ActionEvent event) throws IOException
     {
+        //Scene actuelle
+        Scene actualScene = tableViewAbonnement.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Abonnement/creerAbonnement.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         stage.setTitle("Ajouter Abonnement");
@@ -86,15 +92,19 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
     @FXML
     void btnModifierClick(ActionEvent event) throws IOException
     {
+        //On transmet l'abonnement a modifier
         Abonnement abonnementAModifier = this.tableViewAbonnement.getSelectionModel().getSelectedItem();
         sendData(abonnementAModifier);
+
+        // Scene Actuelle
+        Scene actualScene = tableViewAbonnement.getScene();
 
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Abonnement/modifierAbonnement.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         stage.setTitle("Modifier Abonnement");
@@ -154,19 +164,22 @@ public class MenuGeneralAbonnementController implements Initializable, ChangeLis
 
                     sendData(row.getItem());
 
+                    // Recuperer la scene actuelle
+                    Scene actualScene = tableViewAbonnement.getScene();
+
                     //Charger la page que l'on veux afficher
                     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Abonnement/afficherAbonnement.fxml"));
                     //Creer une Scene contenant cette page
                     Scene scene = null;
                     try
                     {
-                        scene = new Scene(fxmlLoader.load(), 600, 450);
+                        scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
                     } catch (IOException e)
                     {
                         e.printStackTrace();
                     }
                     //Recuperer la Stage de l'ancienne page
-                    Stage stage = (Stage) tableViewAbonnement.getScene().getWindow();
+                    Stage stage = (Stage) actualScene.getWindow();
                     //Afficher la nouvelle Scene dans l'ancienne Stage
                     stage.setTitle("Abonnement n°" + row.getItem().getId());
                     stage.setScene(scene);
