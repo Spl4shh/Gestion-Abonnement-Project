@@ -67,18 +67,8 @@ public class ModifierPeriodiciteController
         if (messageErreur.equals(""))
         {
             List<Periodicite> listPeriodicite = periodiciteDAO.findAll();
-            boolean doublon = false;
 
-            for (Periodicite periodicite : listPeriodicite)
-            {
-                periodiciteToUpdate.setId(periodicite.getId());
-                if (!doublon)
-                {
-                    doublon = periodiciteToUpdate.equals(periodicite);
-                }
-            }
-
-            if (!doublon)
+            if (!isDoublon(listPeriodicite, periodiciteToUpdate))
             {
                 periodiciteDAO.update(periodiciteToUpdate);
                 returnToMenu();
@@ -127,5 +117,17 @@ public class ModifierPeriodiciteController
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         stage.setTitle("Menu Périodicité");
+    }
+    private boolean isDoublon(List<Periodicite> listItem, Periodicite itemToCheck)
+    {
+        for (Periodicite item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

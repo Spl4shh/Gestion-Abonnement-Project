@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import metier.Adresse;
 import metier.Client;
 import metier.ProcessAdress;
+import metier.Revue;
 
 import java.io.IOException;
 import java.net.URL;
@@ -155,18 +156,8 @@ public class ModifierClientController implements Initializable
             clientToUpdate.setAdresse(ProcessAdress.normalize(adresse));
 
             List<Client> listClient = clientDAO.findAll();
-            boolean doublon = false;
 
-            for (Client client : listClient)
-            {
-                clientToUpdate.setId(client.getId());
-                if (!doublon)
-                {
-                    doublon = clientToUpdate.equals(client);
-                }
-            }
-
-            if(!doublon)
+            if(!isDoublon(listClient, clientToUpdate))
             {
                 clientDAO.update(clientToUpdate);
                 returnToMenu();
@@ -216,5 +207,18 @@ public class ModifierClientController implements Initializable
     {
         ClientHolder clientHolder = ClientHolder.getInstance();
         return clientHolder.getClient();
+    }
+
+    private boolean isDoublon(List<Client> listItem, Client itemToCheck)
+    {
+        for (Client item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

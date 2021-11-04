@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import metier.Adresse;
 import metier.Client;
 import metier.ProcessAdress;
+import metier.Revue;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -138,18 +139,8 @@ public class CreerClientController
             clientACreer.setAdresse(ProcessAdress.normalize(adresse));
 
             List<Client> listClient = clientDAO.findAll();
-            boolean doublon = false;
 
-            for (Client client : listClient)
-            {
-                clientACreer.setId(client.getId());
-                if (!doublon)
-                {
-                    doublon = clientACreer.equals(client);
-                }
-            }
-
-            if(!doublon)
+            if(!isDoublon(listClient, clientACreer))
             {
                 clientDAO.create(clientACreer);
                 returnToMenu();
@@ -185,5 +176,18 @@ public class CreerClientController
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         stage.setTitle("Menu Client");
+    }
+
+    private boolean isDoublon(List<Client> listItem, Client itemToCheck)
+    {
+        for (Client item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
