@@ -97,10 +97,10 @@ public class CreerPeriodiciteController
 
     private boolean isDoublon(List<Periodicite> listeItem, Periodicite itemToCheck)
     {
-        for (Periodicite periodicite : listeItem)
+        for (Periodicite item : listeItem)
         {
-            itemToCheck.setId(periodicite.getId());
-            if (itemToCheck.equals(periodicite))
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
             {
                 return true;
             }

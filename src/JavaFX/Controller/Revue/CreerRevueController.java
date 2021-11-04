@@ -105,18 +105,8 @@ public class CreerRevueController implements Initializable
         if (messageErreur.equals(""))
         {
             List<Revue> listRevue = revueDAO.findAll();
-            boolean doublon = false;
 
-            for (Revue revue : listRevue)
-            {
-                revueACreer.setId(revue.getId());
-                if (!doublon)
-                {
-                    doublon = revueACreer.equals(revue);
-                }
-            }
-
-            if(!doublon)
+            if(!isDoublon(listRevue, revueACreer))
             {
                 revueDAO.create(revueACreer);
                 returnToMenu();
@@ -163,6 +153,18 @@ public class CreerRevueController implements Initializable
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setScene(scene);
         stage.setTitle("Menu Revue");
+    }
 
+    private boolean isDoublon(List<Revue> listItem, Revue itemToCheck)
+    {
+        for (Revue item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -67,6 +67,7 @@ public class ModifierPeriodiciteController
         if (messageErreur.equals(""))
         {
             List<Periodicite> listPeriodicite = periodiciteDAO.findAll();
+            
             if (!isDoublon(listPeriodicite, periodiciteToUpdate))
             {
                 periodiciteDAO.update(periodiciteToUpdate);
@@ -119,10 +120,10 @@ public class ModifierPeriodiciteController
     }
     private boolean isDoublon(List<Periodicite> listItem, Periodicite itemToCheck)
     {
-        for (Periodicite periodicite : listItem)
+        for (Periodicite item : listItem)
         {
-            itemToCheck.setId(periodicite.getId());
-            if (itemToCheck.equals(periodicite))
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
             {
                 return true;
             }

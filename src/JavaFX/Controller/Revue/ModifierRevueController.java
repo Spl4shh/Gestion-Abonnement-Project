@@ -119,18 +119,8 @@ public class ModifierRevueController implements Initializable
         {
             revueAModifier.setId(this.revueEnCours.getId());
             List<Revue> listRevue = revueDAO.findAll();
-            boolean doublon = false;
 
-            for (Revue revue : listRevue)
-            {
-                revueAModifier.setId(revue.getId());
-                if (!doublon)
-                {
-                    doublon = revueAModifier.equals(revue);
-                }
-            }
-
-            if(!doublon)
+            if(!isDoublon(listRevue, revueAModifier))
             {
                 revueDAO.update(revueAModifier);
                 returnToMenu();
@@ -193,5 +183,18 @@ public class ModifierRevueController implements Initializable
 
         stage.setScene(scene);
         stage.setTitle("Menu Revue");
+    }
+
+    private boolean isDoublon(List<Revue> listItem, Revue itemToCheck)
+    {
+        for (Revue item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
