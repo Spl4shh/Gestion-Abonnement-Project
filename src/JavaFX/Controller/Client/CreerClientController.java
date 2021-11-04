@@ -133,8 +133,6 @@ public class CreerClientController
             messageErreur = messageErreur + e.getMessage() + "\n";
         }
 
-
-
         if (messageErreur.equals(""))
         {
             clientACreer.setAdresse(ProcessAdress.normalize(adresse));

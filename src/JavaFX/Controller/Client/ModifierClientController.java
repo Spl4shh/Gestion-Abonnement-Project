@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,12 +21,13 @@ import metier.ProcessAdress;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ModifierClientController implements Initializable
 {
     ClientDAO clientDAO = (ClientDAO) DAOHolder.getInstance().getDaoFactory().getClientDAO();
-    Client clientAModifier;
+    Client clientEnCours;
 
     @FXML
     private Label affichageLabel;
@@ -71,12 +73,12 @@ public class ModifierClientController implements Initializable
         String messageErreur = "";
         affichageLabel.setText("");
 
-        Client client = new Client(0);
+        Client clientToUpdate = new Client(0);
 
         //Try set nom
         try
         {
-            client.setNom(nomField.getText());
+            clientToUpdate.setNom(nomField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -86,7 +88,7 @@ public class ModifierClientController implements Initializable
         //Try set prenom
         try
         {
-            client.setPrenom(prenomField.getText());
+            clientToUpdate.setPrenom(prenomField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -150,16 +152,30 @@ public class ModifierClientController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            /*
-                HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
+            clientToUpdate.setAdresse(ProcessAdress.normalize(adresse));
 
-            client.setAdresse(ProcessAdress.normalize(adresse));
-            client.setId(clientAModifier.getId());
+            List<Client> listClient = clientDAO.findAll();
+            boolean doublon = false;
 
-            clientDAO.update(client);
-            returnToMenu();
+            for (Client client : listClient)
+            {
+                clientToUpdate.setId(client.getId());
+                if (!doublon)
+                {
+                    doublon = clientToUpdate.equals(client);
+                }
+            }
+
+            if(!doublon)
+            {
+                clientDAO.update(clientToUpdate);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Ce client existe deja");
+                info.showAndWait();
+            }
         }
         else
         {
@@ -171,16 +187,16 @@ public class ModifierClientController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        clientAModifier = receiveData();
+        clientEnCours = receiveData();
 
-        labelId.setText(String.valueOf(clientAModifier.getId()));
-        nomField.setText(String.valueOf(clientAModifier.getNom()));
-        prenomField.setText(String.valueOf(clientAModifier.getPrenom()));
-        noRueField.setText(String.valueOf(clientAModifier.getAdresse().getNoRue()));
-        voieField.setText(String.valueOf(clientAModifier.getAdresse().getVoie()));
-        codePostalField.setText(String.valueOf(clientAModifier.getAdresse().getCodePostal()));
-        villeField.setText(String.valueOf(clientAModifier.getAdresse().getVille()));
-        paysField.setText(String.valueOf(clientAModifier.getAdresse().getPays()));
+        labelId.setText(String.valueOf(clientEnCours.getId()));
+        nomField.setText(String.valueOf(clientEnCours.getNom()));
+        prenomField.setText(String.valueOf(clientEnCours.getPrenom()));
+        noRueField.setText(String.valueOf(clientEnCours.getAdresse().getNoRue()));
+        voieField.setText(String.valueOf(clientEnCours.getAdresse().getVoie()));
+        codePostalField.setText(String.valueOf(clientEnCours.getAdresse().getCodePostal()));
+        villeField.setText(String.valueOf(clientEnCours.getAdresse().getVille()));
+        paysField.setText(String.valueOf(clientEnCours.getAdresse().getPays()));
     }
 
     public void returnToMenu() throws IOException
