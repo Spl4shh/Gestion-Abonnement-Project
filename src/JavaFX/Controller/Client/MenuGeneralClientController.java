@@ -72,7 +72,8 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
             if (isAccepted)
             {
                 fichier = dialogue.getSelectedFile();
-                try {
+                try
+                {
                     int nbReussi = importCsv(fichier);
                     String messageImport = "";
 
@@ -294,19 +295,9 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
             Adresse adresse = new Adresse((String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement(), (String)stk.nextElement());
             clientACreer.setAdresse(ProcessAdress.normalize(adresse));
 
-            boolean doublon = false;
-
             //On va verifier si le client a creer ne correspond pas a un client existant
-            for (Client client : listClient)
-            {
-                clientACreer.setId(client.getId());
-                if (!doublon)
-                {
-                    doublon = clientACreer.equals(client);
-                }
-            }
 
-            if(!doublon)
+            if(!isDoublon(listClient, clientACreer))
             {
                 clientDAO.create(clientACreer);
                 nbImport ++;
@@ -315,5 +306,18 @@ public class MenuGeneralClientController implements Initializable, ChangeListene
         //Fermer le fichier
         bfr.close();
         return nbImport;
+    }
+
+    private boolean isDoublon(List<Client> listItem, Client itemToCheck)
+    {
+        for (Client item : listItem)
+        {
+            itemToCheck.setId(item.getId());
+            if (itemToCheck.equals(item))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
