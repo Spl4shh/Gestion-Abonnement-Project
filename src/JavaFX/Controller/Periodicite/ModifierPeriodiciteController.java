@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -16,10 +17,11 @@ import metier.Periodicite;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
-public class ModifierPeriodiciteController {
-
-    Periodicite periodiciteAModifier;
+public class ModifierPeriodiciteController
+{
+    Periodicite periodiciteEnCours;
     PeriodiciteDAO periodiciteDAO = (PeriodiciteDAO) DAOHolder.getInstance().getDaoFactory().getPeriodiciteDAO();
 
 
@@ -39,37 +41,54 @@ public class ModifierPeriodiciteController {
     private Button modifierBouton;
 
     @FXML
-    void boutonAnnulerClick(ActionEvent event) throws IOException {
+    void boutonAnnulerClick(ActionEvent event) throws IOException
+    {
         returnToMenu();
     }
 
     @FXML
-    void boutonModifierPeriodicite(ActionEvent event) throws SQLException, IOException {
+    void boutonModifierPeriodicite(ActionEvent event) throws SQLException, IOException
+    {
         String messageErreur = "";
 
         affichage.setText("");
 
-        Periodicite periodicite = new Periodicite(0);
+        Periodicite periodiciteToUpdate = new Periodicite(0);
 
         // On teste le libelle
-        try {
-            periodicite.setLibelle(libelleField.getText());
-        } catch (Exception e) {
+        try
+        {
+            periodiciteToUpdate.setLibelle(libelleField.getText());
+        } catch (Exception e)
+        {
             messageErreur = messageErreur + e.getMessage() + "\n";
         }
 
         if (messageErreur.equals(""))
         {
-            /*
-                HERE :
-                Code pour ajouter la revue a la DAO souhaité
-             */
-            periodicite.setId(periodiciteAModifier.getId());
-            periodiciteDAO.update(periodicite);
+            List<Periodicite> listPeriodicite = periodiciteDAO.findAll();
+            boolean doublon = false;
 
-            affichage.setText("");
-            affichage.setTextFill(Color.BLACK);
-            returnToMenu();
+            for (Periodicite periodicite : listPeriodicite)
+            {
+                periodiciteToUpdate.setId(periodicite.getId());
+                if (!doublon)
+                {
+                    doublon = periodiciteToUpdate.equals(periodicite);
+                }
+            }
+
+            if (!doublon)
+            {
+                periodiciteDAO.update(periodiciteToUpdate);
+                returnToMenu();
+            }
+            else
+            {
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cette périodicité existe deja");
+                info.showAndWait();
+
+            }
         }
         else
         {
@@ -79,17 +98,19 @@ public class ModifierPeriodiciteController {
     }
 
     // Initialisation
-    public void initialize() {
+    public void initialize()
+    {
         //Recuperation de la Revue a modifier
-        periodiciteAModifier = receiveData();
+        periodiciteEnCours = receiveData();
 
         //set id
-        idLabel.setText(String.valueOf(periodiciteAModifier.getId()));
+        idLabel.setText(String.valueOf(periodiciteEnCours.getId()));
         //set libelle
-        libelleField.setText(String.valueOf(periodiciteAModifier.getLibelle()));
+        libelleField.setText(String.valueOf(periodiciteEnCours.getLibelle()));
     }
 
-    private Periodicite receiveData() {
+    private Periodicite receiveData()
+    {
         PeriodiciteHolder periodiciteHolder = PeriodiciteHolder.getInstance();
         return periodiciteHolder.getPeriodicite();
     }

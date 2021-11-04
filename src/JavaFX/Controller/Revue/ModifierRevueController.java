@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class ModifierRevueController implements Initializable
 {
-    Revue revueAModifier;
+    Revue revueEnCours;
     DAOFactory daoFactory = DAOHolder.getInstance().getDaoFactory();
     RevueDAO revueDAO = daoFactory.getRevueDAO();
     PeriodiciteDAO periodiciteDAO = daoFactory.getPeriodiciteDAO();
@@ -67,13 +67,13 @@ public class ModifierRevueController implements Initializable
 
         affichage.setText("");
 
-        Revue revueNew = new Revue(0);
-        revueNew.setVisuel("");
+        Revue revueAModifier = new Revue(0);
+        revueAModifier.setVisuel("");
 
         //Try Titre
         try
         {
-            revueNew.setTitre(titreField.getText());
+            revueAModifier.setTitre(titreField.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -83,7 +83,7 @@ public class ModifierRevueController implements Initializable
         //Try Description
         try
         {
-            revueNew.setDescription(descriptionArea.getText());
+            revueAModifier.setDescription(descriptionArea.getText());
         }
         catch(IllegalArgumentException e)
         {
@@ -93,7 +93,7 @@ public class ModifierRevueController implements Initializable
         //Try tarif
         try
         {
-            revueNew.setTarifNumero(Double.parseDouble(tarifField.getText()));
+            revueAModifier.setTarifNumero(Double.parseDouble(tarifField.getText()));
         }
         catch(NumberFormatException e)
         {
@@ -108,7 +108,7 @@ public class ModifierRevueController implements Initializable
         //Try Periodicite
         try
         {
-            revueNew.setIdPeriodicite(periodiciteChoiceBox.getValue());
+            revueAModifier.setIdPeriodicite(periodiciteChoiceBox.getValue());
         }
         catch(IllegalArgumentException e)
         {
@@ -117,22 +117,22 @@ public class ModifierRevueController implements Initializable
 
         if (messageErreur.equals(""))
         {
-            revueNew.setId(revueAModifier.getId());
+            revueAModifier.setId(this.revueEnCours.getId());
             List<Revue> listRevue = revueDAO.findAll();
             boolean doublon = false;
 
             for (Revue revue : listRevue)
             {
-                revueNew.setId(revue.getId());
+                revueAModifier.setId(revue.getId());
                 if (!doublon)
                 {
-                    doublon = revueNew.equals(revue);
+                    doublon = revueAModifier.equals(revue);
                 }
             }
 
             if(!doublon)
             {
-                revueDAO.update(revueNew);
+                revueDAO.update(revueAModifier);
                 returnToMenu();
             }
             else
@@ -161,15 +161,15 @@ public class ModifierRevueController implements Initializable
         }
 
         //Recuperation de la Revue a modifier
-        revueAModifier = receiveData();
+        revueEnCours = receiveData();
 
         //Application des champs
-        labelId.setText(String.valueOf(revueAModifier.getId()));
-        titreField.setText(revueAModifier.getTitre());
-        descriptionArea.setText(revueAModifier.getDescription());
-        tarifField.setText(String.valueOf(revueAModifier.getTarifNumero()));
+        labelId.setText(String.valueOf(revueEnCours.getId()));
+        titreField.setText(revueEnCours.getTitre());
+        descriptionArea.setText(revueEnCours.getDescription());
+        tarifField.setText(String.valueOf(revueEnCours.getTarifNumero()));
         try {
-            periodiciteChoiceBox.setValue(periodiciteDAO.getById(revueAModifier.getIdPeriodicite()));
+            periodiciteChoiceBox.setValue(periodiciteDAO.getById(revueEnCours.getIdPeriodicite()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
