@@ -1,4 +1,4 @@
-package tests.ProcessAdressTest;
+package ProcessAdressTest;
 
 import static org.junit.Assert.assertEquals;
 

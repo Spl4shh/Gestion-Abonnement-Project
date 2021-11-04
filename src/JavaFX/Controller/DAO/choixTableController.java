@@ -1,6 +1,7 @@
 package JavaFX.Controller.DAO;
 
 import JavaFX.Application;
+import connexion.Connexion;
 import dao.DAOFactory;
 import dao.Persistance;
 import javafx.event.ActionEvent;
@@ -8,12 +9,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class choixTableController implements Initializable
@@ -38,47 +42,75 @@ public class choixTableController implements Initializable
     @FXML
     void boutonAbonnementClick(ActionEvent event) throws IOException
     {
-        setFactory();
-        setScene("Abonnement");
+        if(verifPersistance(choiceBoxPersistance.getValue()))
+        {
+            setFactory();
+            setScene("Abonnement");
+        }
+        else
+        {
+            errorMySql();
+        }
     }
 
     @FXML
     void boutonClientClick(ActionEvent event) throws IOException
     {
-        setFactory();
-        setScene("Client");
+        if(verifPersistance(choiceBoxPersistance.getValue()))
+        {
+            setFactory();
+            setScene("Client");
+        }
+        else
+        {
+            errorMySql();
+        }
     }
 
     @FXML
     void boutonPeriodiciteClick(ActionEvent event) throws IOException
     {
-        setFactory();
-        setScene("Periodicite");
+        if(verifPersistance(choiceBoxPersistance.getValue()))
+        {
+            setFactory();
+            setScene("Periodicite");
+        }
+        else
+        {
+            errorMySql();
+        }
     }
 
     @FXML
     void boutonRevueClick(ActionEvent event) throws IOException
     {
-        setFactory();
-        setScene("Revue");
+        if(verifPersistance(choiceBoxPersistance.getValue()))
+        {
+            setFactory();
+            setScene("Revue");
+        }
+        else
+        {
+            errorMySql();
+        }
     }
 
     public void setFactory()
     {
         DAOHolder daoHolder = DAOHolder.getInstance();
         daoHolder.setDaoFactory(choiceBoxPersistance.getValue());
-
     }
 
     public void setScene(String table) throws IOException
     {
+        Scene actualScene = choiceBoxPersistance.getScene();
 
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/"+table+"/menuGeneral"+table+".fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) choiceBoxPersistance.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Menu " + table);
         stage.setScene(scene);
@@ -100,5 +132,32 @@ public class choixTableController implements Initializable
         {
             choiceBoxPersistance.setValue(Persistance.values()[1]);
         }
+    }
+
+    public boolean verifPersistance(Persistance persistance)
+    {
+        Connexion maBD;
+        Connection laConnexion;
+
+        if (persistance == Persistance.MYSQL)
+        {
+            maBD = new Connexion();
+            laConnexion = maBD.creeConnexion();
+
+            return !(laConnexion == null);
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void errorMySql()
+    {
+        String message = "Immpossible de se connecter à la base de données.\nMerci d'activer le VPN, de verifier votre connexion, ou de choisir un autre moyen de Persistance";
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, message);
+        alert.setHeaderText("Erreur");
+        alert.showAndWait();
     }
 }
