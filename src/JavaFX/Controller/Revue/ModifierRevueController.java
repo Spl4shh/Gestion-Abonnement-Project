@@ -137,7 +137,7 @@ public class ModifierRevueController implements Initializable
             }
             else
             {
-                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cette revueNew existe deja");
+                Alert info = new Alert(Alert.AlertType.INFORMATION, "Cette revue existe deja");
                 info.showAndWait();
             }
         }
