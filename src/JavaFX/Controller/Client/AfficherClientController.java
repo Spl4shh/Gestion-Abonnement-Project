@@ -49,12 +49,15 @@ public class AfficherClientController implements Initializable
     @FXML
     void boutonRetourClick(ActionEvent event) throws IOException
     {
+        // Recuperer la scene actuelle
+        Scene actualScene = labelId.getScene();
+
         //Charger la page que l'on veux afficher
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Vue/Client/menuGeneralClient.fxml"));
         //Creer une Scene contenant cette page
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene = new Scene(fxmlLoader.load(), actualScene.getWidth(), actualScene.getHeight());
         //Recuperer la Stage de l'ancienne page
-        Stage stage = (Stage) labelId.getScene().getWindow();
+        Stage stage = (Stage) actualScene.getWindow();
         //Afficher la nouvelle Scene dans l'ancienne Stage
         stage.setTitle("Menu Client");
         stage.setScene(scene);
