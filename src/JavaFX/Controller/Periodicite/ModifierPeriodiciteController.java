@@ -121,7 +121,7 @@ public class ModifierPeriodiciteController
         stage.setScene(scene);
         stage.setTitle("Menu Périodicité");
     }
-    
+
     private boolean isDoublon(List<Periodicite> listItem, Periodicite itemToCheck)
     {
         for (Periodicite item : listItem)
