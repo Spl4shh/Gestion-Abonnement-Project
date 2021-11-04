@@ -26,21 +26,27 @@ public class ProcessAdress
 
                 for (String string : tableauMot)
                 {
-                    if (string.equals("boul") || string.equals("boul.") || string.equals("bd"))
-                    {
-                        string = "boulevard";
-                    }
-                    else if (string.equals("av.") || string.equals("av"))
-                    {
-                        string = "avenue";
-                    }
-                    else if (string.equals("faub.") || string.equals("fg"))
-                    {
-                        string = "faubourg";
-                    }
-                    else if(string.equals("pl.") || string.equals("pl"))
-                    {
-                        string = "place";
+                    switch (string) {
+                        case "boul", "boul.", "bd" :
+                        {
+                            string = "boulevard";
+                            break;
+                        }
+                        case "av.", "av" :
+                        {
+                            string = "avenue";
+                            break;
+                        }
+                        case "faub.", "fg" :
+                        {
+                            string = "faubourg";
+                            break;
+                        }
+                        case "pl.", "pl" :
+                        {
+                            string = "place";
+                            break;
+                        }
                     }
 
                     if (!newVoie.equals(""))
