@@ -55,6 +55,7 @@ Léane :
 - README.txt
 - Correction des bugs
 - Test de l'appli
+- CSS (-fx-...) / palette couleurs
 
 Romain : 
 - Correction de quelque beug au niveau des interfaces 
