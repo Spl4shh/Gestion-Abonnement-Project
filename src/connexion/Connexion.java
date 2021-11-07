@@ -11,9 +11,11 @@ public class Connexion
 
         try 
         {
+            DriverManager.setLoginTimeout(1);
             maConnexion = DriverManager.getConnection(url, login, pwd);
-        } catch (SQLException sqle)
-         {
+        }
+        catch (SQLException sqle)
+        {
             System.out.println("Erreur connexion \n" + sqle.getMessage());
         }
         return maConnexion;
