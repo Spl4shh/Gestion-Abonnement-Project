@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Abonnement.AfficherAbonnementController">
+<VBox stylesheets="@../CSS/style.css" prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Abonnement.AfficherAbonnementController">
    <children>
       <VBox prefHeight="277.0" prefWidth="591.0" style="-fx-border-color: black;">
          <children>

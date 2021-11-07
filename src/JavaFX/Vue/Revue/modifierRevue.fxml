@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.ModifierRevueController">
+<VBox stylesheets="@../CSS/style.css" prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.ModifierRevueController">
    <children>
       <VBox prefHeight="250.0" prefWidth="626.0" style="-fx-border-color: black;">
          <children>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="646.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.AfficherRevueController">
+<VBox stylesheets="@../CSS/style.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="646.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.AfficherRevueController">
    <children>
       <GridPane prefHeight="287.0" prefWidth="540.0" style="-fx-border-color: black;">
         <columnConstraints>

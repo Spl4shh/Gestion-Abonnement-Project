@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Client.CreerClientController">
+<VBox stylesheets="@../CSS/style.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Client.CreerClientController">
    <children>
       <GridPane prefHeight="301.0" prefWidth="539.0" style="-fx-border-color: black;">
         <columnConstraints>
