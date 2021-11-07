@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@../CSS/style.css" prefHeight="386.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.ModifierRevueController">
+<VBox prefHeight="386.0" prefWidth="656.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="JavaFX.Controller.Revue.ModifierRevueController">
    <children>
       <VBox prefHeight="250.0" prefWidth="626.0" style="-fx-border-color: black;">
          <children>
@@ -46,7 +46,7 @@
                         <Insets top="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <ComboBox fx:id="periodiciteChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="periodiciteChoiceBox" prefWidth="150.0" style="-fx-text-fill: white;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
                         <TextField fx:id="tarifField" prefHeight="15.0" prefWidth="41.0" />

@@ -6,20 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/afficherAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/afficherAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/creerAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/creerAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/modifierAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/modifierAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/afficherClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Client/afficherClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/creerClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Client/creerClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/menuGeneralClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Client/menuGeneralClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/modifierClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Client/modifierClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/afficherPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/afficherPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/menuGeneralPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/menuGeneralPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/modifierPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/modifierPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/afficherRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/afficherRevue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/creerRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/creerRevue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/CSS/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/menuGeneralRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/menuGeneralRevue.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" afterDir="false" />
     </list>

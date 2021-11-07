@@ -26,7 +26,8 @@
                   <TableColumn fx:id="colDescription" prefWidth="198.40005493164062" text="Description" />
                   <TableColumn fx:id="colTarifUnit" prefWidth="91.99993896484375" text="Tarif Unitaire" />
                   <TableColumn fx:id="colIdPeriodicite" prefWidth="108.0" text="ID Periodicite" />
-               </columns></TableView>
+               </columns>
+            </TableView>
          </children>
       </VBox>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="600.0" style="-fx-spacing: 100;">

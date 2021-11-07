@@ -19,3 +19,8 @@ Button, ChoiceBox {
     -fx-text-fill: -fx-white;
     -fx-effect: dropshadow(three-pass-box, red, 10, 0, 0, 0);
 }
+
+TextField, ComboBox, TableView {
+    -fx-background-color: -fx-red;
+    -fx-text-fill: -fx-white;
+}
