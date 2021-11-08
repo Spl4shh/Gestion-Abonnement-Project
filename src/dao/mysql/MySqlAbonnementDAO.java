@@ -1,9 +1,6 @@
 package dao.mysql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Abonnement(date_debut, date_fin, id_client, id_revue) Values (?, ?, ?, ?)");
+        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Abonnement(date_debut, date_fin, id_client, id_revue) Values (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
         requete.setDate(1, java.sql.Date.valueOf(objet.getDateDebut()));
         requete.setDate(2, java.sql.Date.valueOf(objet.getDateFin()));
         requete.setInt(3, objet.getIdClient());
@@ -62,7 +59,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?");
+        PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?", Statement.RETURN_GENERATED_KEYS);
         requete.setDate(1, java.sql.Date.valueOf(objet.getDateDebut()));
         requete.setDate(2, java.sql.Date.valueOf(objet.getDateFin()));
         requete.setInt(3, objet.getIdClient());
@@ -83,7 +80,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?");
+        PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?", Statement.RETURN_GENERATED_KEYS);
         requete.setInt(1, objet.getId());
 
         int res = requete.executeUpdate();
@@ -100,7 +97,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE id_abonnement = ?");
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE id_abonnement = ?", Statement.RETURN_GENERATED_KEYS);
         requete.setInt(1, i);
 
         ResultSet res = requete.executeQuery();
@@ -123,7 +120,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?");
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?", Statement.RETURN_GENERATED_KEYS);
         requete.setDate(1, java.sql.Date.valueOf(dateDebut));
         requete.setDate(2, java.sql.Date.valueOf(dateFin));
 
@@ -148,7 +145,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement a, Client c WHERE a.id_client = c.id_client AND nom = ? AND prenom = ?");
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement a, Client c WHERE a.id_client = c.id_client AND nom = ? AND prenom = ?", Statement.RETURN_GENERATED_KEYS);
         requete.setString(1, nom);
         requete.setString(2, prenom);
 
@@ -173,7 +170,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement");
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement", Statement.RETURN_GENERATED_KEYS);
         
         ResultSet res = requete.executeQuery();
 
