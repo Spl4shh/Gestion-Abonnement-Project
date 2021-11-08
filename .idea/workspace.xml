@@ -4,65 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/legal/javafx.media/glib.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/legal/javafx.media/glib.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/legal/javafx.media/gstreamer.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/legal/javafx.media/gstreamer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/legal/javafx.web/webkit.md" beforeDir="false" afterPath="$PROJECT_DIR$/lib/javafx-sdk-17.0.0.1/legal/javafx.web/webkit.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/AbonnementHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/abonnement/AbonnementHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/AfficherAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/abonnement/AfficherAbonnementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/CreerAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/abonnement/CreerAbonnementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/MenuGeneralAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/abonnement/MenuGeneralAbonnementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Abonnement/ModifierAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/abonnement/ModifierAbonnementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/AfficherClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/client/AfficherClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/ClientHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/client/ClientHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/CreerClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/client/CreerClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/MenuGeneralClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/client/MenuGeneralClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Client/ModifierClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/client/ModifierClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/DAOHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/dao/DAOHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/DAO/choixTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/dao/ChoixTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/AfficherPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/periodicite/AfficherPeriodiciteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/CreerPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/periodicite/CreerPeriodiciteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/MenuGeneralPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/periodicite/MenuGeneralPeriodiciteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/ModifierPeriodiciteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/periodicite/ModifierPeriodiciteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Periodicite/PeriodiciteHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/periodicite/PeriodiciteHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/AfficherRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/revue/AfficherRevueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/CreerRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/revue/CreerRevueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/MenuGeneralRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/revue/MenuGeneralRevueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/ModifierRevueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/revue/ModifierRevueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Controller/Revue/RevueHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/revue/RevueHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/afficherAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Abonnement/afficherAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/creerAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Abonnement/creerAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/menuGeneralAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Abonnement/menuGeneralAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Abonnement/modifierAbonnement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Abonnement/modifierAbonnement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/CSS/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/afficherClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Client/afficherClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/creerClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Client/creerClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/menuGeneralClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Client/menuGeneralClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Client/modifierClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Client/modifierClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/DAO/choixTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/dao/choixTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/afficherPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Periodicite/afficherPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/creerPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Periodicite/creerPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/menuGeneralPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Periodicite/menuGeneralPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Periodicite/modifierPeriodicite.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Periodicite/modifierPeriodicite.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/afficherRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Revue/afficherRevue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/creerRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Revue/creerRevue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/menuGeneralRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Revue/menuGeneralRevue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/JavaFX/Vue/Revue/modifierRevue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/vue/Revue/modifierRevue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DAO/DAOFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/dao/DAOFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DAO/ListeMemoireDAOFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/dao/ListeMemoireDAOFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DAO/MySqlDAOFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/dao/MySqlDAOFactoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlAbonnementDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/mysql/MySqlAbonnementDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlClientDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/mysql/MySqlClientDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlPeriodiciteDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/mysql/MySqlPeriodiciteDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/MySQL/MySqlRevueDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/mysql/MySqlRevueDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationCodePostalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/processadresstest/normalizationCodePostalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationPaysTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/processadresstest/normalizationPaysTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationVilleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/processadresstest/normalizationVilleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/ProcessAdressTest/normalizationVoieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/processadresstest/normalizationVoieTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
