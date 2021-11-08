@@ -83,8 +83,7 @@ public class ChoixTableController implements Initializable
     void boutonRevueClick(ActionEvent event) throws IOException
     {
         if(verifPersistance(choiceBoxPersistance.getValue()))
-        {
-            setFactory();
+        {setFactory();
             setScene("Revue");
         }
         else
