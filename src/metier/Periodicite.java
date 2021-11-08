@@ -68,8 +68,7 @@ public class Periodicite
 
         Periodicite periode = (Periodicite) object;
 
-        if (periode != null &&
-            this.id == periode.id &&
+        if (this.id == periode.id &&
             this.libelle.equals(periode.libelle))
         {
             return true;
