@@ -117,10 +117,18 @@ public class Abonnement
     @Override
     public boolean equals(Object object)
     {
+        if (this == object)
+        {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass())
+        {
+            return false;
+        }
+
         Abonnement abo = (Abonnement)object;
 
-        if (abo != null &&
-            this.id == abo.id &&
+        if (this.id == abo.id &&
             this.idClient == abo.idClient &&
             this.idRevue == abo.idRevue &&
             this.dateDebut.equals(abo.dateDebut) &&
