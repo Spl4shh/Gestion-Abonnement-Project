@@ -3,11 +3,35 @@ import java.sql.*;
 
 public class Connexion 
  {
-    public Connection creeConnexion() 
-    { 
-        //String url = "jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/muller851u_td_java";url += "?serverTimezone=Europe/Paris";String login = "muller851u_appli";String pwd = "Riquzo_8";Connection maConnexion = null;
+    private static Connexion instance;
+    private String url, dbName, pwd, login;
+    private Connection maConnexion;
 
-        String url = "jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/nataneli1u_td_cpoa"; url += "?serverTimezone=Europe/Paris"; String login = "nataneli1u_appli"; String pwd = "Xbb8R2D2"; Connection maConnexion = null;
+    private Connexion()
+    {
+        this.creeConnexion();
+    }
+
+    public static Connexion getInstance()
+    {
+         if (instance == null)
+         {
+             instance = new Connexion();
+
+         }
+         return instance;
+    }
+
+     public Connection creeConnexion()
+    { 
+        //Pour l'instant les identifiants sont ici, plus tard dans un fichier XML
+        dbName = "nataneli1u_td_cpoa";
+        pwd = "Xbb8R2D2";
+        login = "nataneli1u_appli";
+
+        String url = "jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/" + dbName;
+        url += "?serverTimezone=Europe/Paris";
+        maConnexion = null;
 
         try 
         {

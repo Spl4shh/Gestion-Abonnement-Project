@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="" />
+    <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connexion/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connexion/Connexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlAbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlAbonnementDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlClientDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlClientDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlPeriodiciteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlPeriodiciteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/mysql/MySqlRevueDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/mysql/MySqlRevueDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/javafx/controller/dao/ChoixTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/dao/ChoixTableController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

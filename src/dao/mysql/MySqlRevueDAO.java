@@ -27,14 +27,14 @@ public class MySqlRevueDAO implements RevueDAO
 
     private MySqlRevueDAO() 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
     }
 
     @Override
     public boolean create(Revue objet) throws SQLException
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Revue(titre, description, tarif_numero, visuel, id_periodicite) Values (?, ?, ?, ?, ?)");
@@ -55,7 +55,7 @@ public class MySqlRevueDAO implements RevueDAO
     @Override
     public boolean update(Revue objet) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Revue SET titre = ?, description = ?, tarif_numero = ?, visuel = ?, id_periodicite = ? WHERE id_revue = ?");
@@ -77,7 +77,7 @@ public class MySqlRevueDAO implements RevueDAO
     @Override
     public boolean delete(Revue objet) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Revue WHERE id_revue = ?");
@@ -94,7 +94,7 @@ public class MySqlRevueDAO implements RevueDAO
     @Override
     public Revue getById(int i) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Revue WHERE id_revue = ?");
@@ -116,7 +116,7 @@ public class MySqlRevueDAO implements RevueDAO
     {
         List<Revue> listeRevue = new ArrayList<>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Revue WHERE titre = ?");
@@ -140,7 +140,7 @@ public class MySqlRevueDAO implements RevueDAO
     {
         List<Revue> listeRevue = new ArrayList<>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Revue");

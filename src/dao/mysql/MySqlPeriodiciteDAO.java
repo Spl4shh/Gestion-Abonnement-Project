@@ -26,13 +26,13 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     }
 
     private MySqlPeriodiciteDAO() {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
     }
 
     @Override
     public boolean create(Periodicite objet) throws SQLException {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) Values (?)");
@@ -48,7 +48,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
 
     @Override
     public boolean update(Periodicite objet) throws SQLException {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion
@@ -66,7 +66,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
 
     @Override
     public boolean delete(Periodicite objet) throws SQLException {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Periodicite WHERE id_periodicite = ?");
@@ -82,7 +82,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
 
     @Override
     public Periodicite getById(int i) throws SQLException {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite WHERE id_periodicite = ?");
@@ -105,7 +105,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     {
         List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite WHERE libelle = ?");
@@ -129,7 +129,7 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     public List<Periodicite> findAll() throws SQLException {
         List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Periodicite");

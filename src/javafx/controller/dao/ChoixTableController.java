@@ -140,7 +140,8 @@ public class ChoixTableController implements Initializable
 
         if (persistance == Persistance.MYSQL)
         {
-            maBD = new Connexion();
+
+            maBD = Connexion.getInstance();
             laConnexion = maBD.creeConnexion();
 
             return !(laConnexion == null);

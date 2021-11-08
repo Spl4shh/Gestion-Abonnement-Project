@@ -29,14 +29,14 @@ public class MySqlClientDAO implements ClientDAO
 
     private MySqlClientDAO() 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
     }
 
     @Override
     public boolean create(Client objet) throws SQLException
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Client(nom, prenom, no_rue, voie, code_postal, ville, pays) Values (? ,? ,? ,? ,? ,? ,?)");
@@ -59,7 +59,7 @@ public class MySqlClientDAO implements ClientDAO
     @Override
     public boolean update(Client objet) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Client SET nom = ?, prenom = ?, no_rue = ?" +
@@ -84,7 +84,7 @@ public class MySqlClientDAO implements ClientDAO
     @Override
     public boolean delete(Client objet) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Client WHERE id_client = ?");
@@ -101,7 +101,7 @@ public class MySqlClientDAO implements ClientDAO
     @Override
     public Client getById(int i) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Client WHERE id_client = ?");
@@ -124,7 +124,7 @@ public class MySqlClientDAO implements ClientDAO
     {
         ArrayList<Client> listeClient = new ArrayList<Client>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Client WHERE nom = ? AND prenom = ?");
@@ -149,7 +149,7 @@ public class MySqlClientDAO implements ClientDAO
     {
         List<Client> listeClient = new ArrayList<Client>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Client");

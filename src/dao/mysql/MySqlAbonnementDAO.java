@@ -32,14 +32,14 @@ public class MySqlAbonnementDAO implements AbonnementDAO
 
     private MySqlAbonnementDAO() 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
     }
 
     @Override
     public boolean create(Abonnement objet) throws SQLException
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Abonnement(date_debut, date_fin, id_client, id_revue) Values (?, ?, ?, ?)");
@@ -59,7 +59,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public boolean update(Abonnement objet) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?");
@@ -80,7 +80,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public boolean delete(Abonnement objet) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?");
@@ -97,7 +97,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     @Override
     public Abonnement getById(int i) throws SQLException 
     {
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE id_abonnement = ?");
@@ -120,7 +120,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     {
         List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?");
@@ -145,7 +145,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     {
         List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement a, Client c WHERE a.id_client = c.id_client AND nom = ? AND prenom = ?");
@@ -170,7 +170,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
     {
         List<Abonnement> listeAbonnement = new ArrayList<Abonnement>();
 
-        maBD = new Connexion();
+        maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
         PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement");
