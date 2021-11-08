@@ -109,6 +109,15 @@ public class Adresse {
     @Override
     public boolean equals(Object object)
     {
+        if (this == object)
+        {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass())
+        {
+            return false;
+        }
+
         Adresse adresse = (Adresse) object;
 
         if (this.getCodePostal().equals(adresse.getCodePostal()) &&
