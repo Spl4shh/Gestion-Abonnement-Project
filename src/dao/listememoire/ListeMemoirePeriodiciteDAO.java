@@ -44,9 +44,7 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 			objet.setId(1);
 		}
 
-		boolean ok = this.donnees.add(objet);
-		
-		return ok;
+		return this.donnees.add(objet);
 	}
 
 	@Override

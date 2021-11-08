@@ -45,9 +45,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 			objet.setId(1);
 		}
 
-		boolean ok = this.donnees.add(objet);
-		
-		return ok;
+		return this.donnees.add(objet);
 	}
 
 	@Override

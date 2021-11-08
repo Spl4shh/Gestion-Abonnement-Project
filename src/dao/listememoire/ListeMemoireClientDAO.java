@@ -45,9 +45,7 @@ public class ListeMemoireClientDAO implements ClientDAO {
 			objet.setId(1);
 		}
 
-		boolean ok = this.donnees.add(objet);
-		
-		return ok;
+		return this.donnees.add(objet);
 	}
 
 	@Override
