@@ -134,10 +134,14 @@ public class Revue
     @Override
     public boolean equals(Object object)
     {
+        if (this == object)
+            return true;
+        if (object == null || getClass() != object.getClass())
+            return false;
+
         Revue revue = (Revue) object;
 
-        if (revue != null &&
-            this.id == revue.id &&
+        if (this.id == revue.id &&
             this.description.equals(revue.description) &&
             this.idPeriodicite == revue.idPeriodicite &&
             this.tarifNumero == revue.tarifNumero &&
