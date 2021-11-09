@@ -5,10 +5,7 @@ import dao.ClientDAO;
 import metier.Adresse;
 import metier.Client;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +36,7 @@ public class MySqlClientDAO implements ClientDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Client(nom, prenom, no_rue, voie, code_postal, ville, pays) Values (? ,? ,? ,? ,? ,? ,?)");
+        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Client(nom, prenom, no_rue, voie, code_postal, ville, pays) Values (? ,? ,? ,? ,? ,? ,?)", Statement.RETURN_GENERATED_KEYS);
         requete.setString(1, objet.getNom());
         requete.setString(2, objet.getPrenom());
         requete.setString(3, objet.getAdresse().getNoRue());
@@ -48,12 +45,17 @@ public class MySqlClientDAO implements ClientDAO
         requete.setString(6, objet.getAdresse().getVille());
         requete.setString(7, objet.getAdresse().getPays());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
+        ResultSet res = requete.getGeneratedKeys();
 
+        if (res.next())
+        {
+            objet.setId(res.getInt(1));
+        }
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
@@ -73,12 +75,12 @@ public class MySqlClientDAO implements ClientDAO
         requete.setString(7, objet.getAdresse().getPays());
         requete.setInt(8, objet.getId());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
 
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
