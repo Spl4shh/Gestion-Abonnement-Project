@@ -37,19 +37,24 @@ public class MySqlRevueDAO implements RevueDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Revue(titre, description, tarif_numero, visuel, id_periodicite) Values (?, ?, ?, ?, ?)");
+        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Revue(titre, description, tarif_numero, visuel, id_periodicite) Values (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
         requete.setString(1, objet.getTitre());
         requete.setString(2, objet.getDescription());
         requete.setDouble(3, objet.getTarifNumero());
         requete.setString(4, objet.getVisuel());
         requete.setInt(5, objet.getIdPeriodicite());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
+        ResultSet res = requete.getGeneratedKeys();
 
+        if (res.next())
+        {
+            objet.setId(res.getInt(1));
+        }
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
