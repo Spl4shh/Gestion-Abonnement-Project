@@ -59,7 +59,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement requete = laConnexion.prepareStatement("UPDATE Abonnement SET date_debut = ?, date_fin = ?, id_client = ?, id_revue = ? WHERE id_abonnement =  ?");
         requete.setDate(1, java.sql.Date.valueOf(objet.getDateDebut()));
         requete.setDate(2, java.sql.Date.valueOf(objet.getDateFin()));
         requete.setInt(3, objet.getIdClient());
@@ -170,7 +170,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement");
         
         ResultSet res = requete.executeQuery();
 
