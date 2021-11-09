@@ -102,7 +102,6 @@ public class CreerPeriodiciteController
     {
         for (Periodicite item : listeItem)
         {
-            itemToCheck.setId(item.getId());
             if (itemToCheck.equals(item))
             {
                 return true;

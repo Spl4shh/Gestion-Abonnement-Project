@@ -126,7 +126,6 @@ public class ModifierPeriodiciteController
     {
         for (Periodicite item : listItem)
         {
-            itemToCheck.setId(item.getId());
             if (itemToCheck.equals(item))
             {
                 return true;
