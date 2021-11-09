@@ -117,6 +117,7 @@ public class Abonnement
     @Override
     public boolean equals(Object object)
     {
+        //Check le type
         if (this == object)
         {
             return true;
@@ -128,8 +129,7 @@ public class Abonnement
 
         Abonnement abo = (Abonnement)object;
 
-        if (this.id == abo.id &&
-            this.idClient == abo.idClient &&
+        if (this.idClient == abo.idClient &&
             this.idRevue == abo.idRevue &&
             this.dateDebut.equals(abo.dateDebut) &&
             this.dateFin.equals(abo.dateFin)) 

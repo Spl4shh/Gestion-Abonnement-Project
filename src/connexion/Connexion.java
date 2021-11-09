@@ -1,10 +1,14 @@
 package connexion;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
 
 public class Connexion 
  {
     private static Connexion instance;
-    private String url, dbName, pwd, login;
     private Connection maConnexion;
 
     private Connexion()
@@ -17,31 +21,47 @@ public class Connexion
          if (instance == null)
          {
              instance = new Connexion();
-
          }
          return instance;
     }
 
      public Connection creeConnexion()
     { 
-        //Pour l'instant les identifiants sont ici, plus tard dans un fichier XML
-        dbName = "nataneli1u_td_cpoa";
-        pwd = "Xbb8R2D2";
-        login = "nataneli1u_appli";
+        Properties accesBD = null;
 
-        String url = "jdbc:mysql://devbdd.iutmetz.univ-lorraine.fr:3306/" + dbName;
+        accesBD = lectureIdentifiantConnexion();
+
+        //jdbc:mysql://LIEN_BD:PORT/"
+        String url = "jdbc:mysql://"+accesBD.getProperty("adresse")+":"+accesBD.getProperty("port")+"/"+accesBD.getProperty("bdd");
         url += "?serverTimezone=Europe/Paris";
         maConnexion = null;
 
         try 
         {
             DriverManager.setLoginTimeout(1);
-            maConnexion = DriverManager.getConnection(url, login, pwd);
+            maConnexion = DriverManager.getConnection(url, accesBD.getProperty("login"), accesBD.getProperty("pass"));
         }
         catch (SQLException sqle)
         {
             System.out.println("Erreur connexion \n" + sqle.getMessage());
         }
         return maConnexion;
+    }
+
+    public Properties lectureIdentifiantConnexion()
+    {
+        Properties accesBdd = new Properties();
+        File fBdd = new File("src/connexion/mysql_properties.xml");
+
+        try
+        {
+            FileInputStream source = new FileInputStream(fBdd);
+            accesBdd.loadFromXML(source);
+        }
+        catch (IOException ioe)
+        {
+            ioe.printStackTrace();
+        }
+        return accesBdd;
     }
 }

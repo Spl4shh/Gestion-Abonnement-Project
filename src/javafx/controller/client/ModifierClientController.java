@@ -73,7 +73,7 @@ public class ModifierClientController implements Initializable
         String messageErreur = "";
         affichageLabel.setText("");
 
-        Client clientToUpdate = new Client(0);
+        Client clientToUpdate = new Client(clientEnCours.getId());
 
         //Try set nom
         try
@@ -214,7 +214,6 @@ public class ModifierClientController implements Initializable
     {
         for (Client item : listItem)
         {
-            itemToCheck.setId(item.getId());
             if (itemToCheck.equals(item))
             {
                 return true;

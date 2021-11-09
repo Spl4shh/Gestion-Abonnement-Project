@@ -57,6 +57,7 @@ public class Periodicite
     @Override
     public boolean equals(Object object)
     {
+        //Check le type
         if (this == object)
         {
             return true;
@@ -68,8 +69,7 @@ public class Periodicite
 
         Periodicite periode = (Periodicite) object;
 
-        if (this.id == periode.id &&
-            this.libelle.equals(periode.libelle))
+        if (this.libelle.equals(periode.libelle))
         {
             return true;
         }

@@ -88,6 +88,7 @@ public class Client
     @Override
     public boolean equals(Object object)
     {
+        //Check le type
         if (this == object)
         {
             return true;
@@ -99,8 +100,7 @@ public class Client
 
         Client client = (Client) object;
 
-        if (this.id == client.id &&
-            this.nom.equals(client.nom) &&
+        if (this.nom.equals(client.nom) &&
             this.prenom.equals(client.prenom) &&
             this.adresse.equals(client.adresse)) 
         {

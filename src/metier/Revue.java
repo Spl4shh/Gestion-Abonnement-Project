@@ -134,6 +134,7 @@ public class Revue
     @Override
     public boolean equals(Object object)
     {
+        //Check le type
         if (this == object)
         {
             return true;
@@ -145,8 +146,7 @@ public class Revue
 
         Revue revue = (Revue) object;
 
-        if (this.id == revue.id &&
-            this.description.equals(revue.description) &&
+        if (this.description.equals(revue.description) &&
             this.idPeriodicite == revue.idPeriodicite &&
             this.tarifNumero == revue.tarifNumero &&
             this.titre.equals(revue.titre) &&
