@@ -46,7 +46,7 @@ public class ModifierRevueController implements Initializable
     private Button modifierBouton;
 
     @FXML
-    private ComboBox<Periodicite> periodiciteChoiceBox;
+    private ChoiceBox<Periodicite> periodiciteChoiceBox;
 
     @FXML
     private TextField tarifField;

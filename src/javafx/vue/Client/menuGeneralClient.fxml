@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@../CSS/style.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.client.MenuGeneralClientController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="601.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.client.MenuGeneralClientController">
    <children>
       <VBox prefHeight="367.0" prefWidth="570.0" style="-fx-border-color: black;">
          <padding>
@@ -21,7 +21,7 @@
             <Label prefHeight="18.0" prefWidth="620.0" text="Liste des Clients : " />
             <TableView fx:id="tableViewClient" prefHeight="341.0" prefWidth="548.0">
                <columns>
-                  <TableColumn fx:id="colId" prefWidth="93.33333623409271" text="ID" />
+                  <TableColumn fx:id="colId" prefWidth="93.33333623409271" style="text-fill: blue;" text="ID" />
                   <TableColumn fx:id="colNom" prefWidth="84.800048828125" text="Nom" />
                   <TableColumn fx:id="colPrenom" prefWidth="102.39991760253906" text="Prenom" />
                   <TableColumn fx:id="colAdresse" prefWidth="268.0" text="Adresse" />

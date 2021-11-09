@@ -12,15 +12,18 @@ Label {
     -fx-text-fill: -fx-white;
 }
 
-Button, ChoiceBox {
+Button, ChoiceBox{
     -fx-border-radiux : 50px;
-    /* -fx-border-color: -fx-red; */
     -fx-background-color : -fx-red;
     -fx-text-fill: -fx-white;
     -fx-effect: dropshadow(three-pass-box, red, 10, 0, 0, 0);
 }
 
-TextField, ComboBox, TableView {
+TextField, ComboBox{
     -fx-background-color: -fx-red;
     -fx-text-fill: -fx-white;
+}
+
+TableView Label{
+    -fx-text-fill: -fx-primary;
 }
