@@ -85,16 +85,11 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?");
         requete.setInt(1, objet.getId());
 
         int nbLignes = requete.executeUpdate();
-        ResultSet res = requete.getGeneratedKeys();
 
-        if (res.next())
-        {
-            objet.setId(res.getInt(1));
-        }
         if (laConnexion != null)
             laConnexion.close();
 
