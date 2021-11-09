@@ -45,12 +45,17 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         requete.setInt(3, objet.getIdClient());
         requete.setInt(4, objet.getIdRevue());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
+        ResultSet res = requete.getGeneratedKeys();
 
+        if (res.next())
+        {
+            objet.setId(res.getInt(1));
+        }
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
@@ -66,12 +71,12 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         requete.setInt(4, objet.getIdRevue());
         requete.setInt(5, objet.getId());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
 
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
@@ -83,12 +88,17 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         PreparedStatement requete = laConnexion.prepareStatement("DELETE FROM Abonnement WHERE id_abonnement = ?", Statement.RETURN_GENERATED_KEYS);
         requete.setInt(1, objet.getId());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
+        ResultSet res = requete.getGeneratedKeys();
 
+        if (res.next())
+        {
+            objet.setId(res.getInt(1));
+        }
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
@@ -97,7 +107,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE id_abonnement = ?", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE id_abonnement = ?");
         requete.setInt(1, i);
 
         ResultSet res = requete.executeQuery();
@@ -120,7 +130,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement WHERE date_debut = ? AND date_fin = ?");
         requete.setDate(1, java.sql.Date.valueOf(dateDebut));
         requete.setDate(2, java.sql.Date.valueOf(dateFin));
 
@@ -145,7 +155,7 @@ public class MySqlAbonnementDAO implements AbonnementDAO
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement a, Client c WHERE a.id_client = c.id_client AND nom = ? AND prenom = ?", Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement requete = laConnexion.prepareStatement("SELECT * FROM Abonnement a, Client c WHERE a.id_client = c.id_client AND nom = ? AND prenom = ?");
         requete.setString(1, nom);
         requete.setString(2, prenom);
 
