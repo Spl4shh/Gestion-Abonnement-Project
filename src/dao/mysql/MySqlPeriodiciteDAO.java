@@ -4,50 +4,58 @@ import connexion.Connexion;
 import dao.PeriodiciteDAO;
 import metier.Periodicite;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
+public class MySqlPeriodiciteDAO implements PeriodiciteDAO
+{
     private static MySqlPeriodiciteDAO instance;
     Connexion maBD;
     Connection laConnexion;
 
-    public static PeriodiciteDAO getInstance() {
-        if (instance == null) {
+    public static PeriodiciteDAO getInstance()
+    {
+        if (instance == null)
+        {
             instance = new MySqlPeriodiciteDAO();
         }
         return instance;
     }
 
-    private MySqlPeriodiciteDAO() {
+    private MySqlPeriodiciteDAO()
+    {
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
     }
 
     @Override
-    public boolean create(Periodicite objet) throws SQLException {
+    public boolean create(Periodicite objet) throws SQLException
+    {
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
-        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) Values (?)");
+        PreparedStatement requete = laConnexion.prepareStatement("INSERT INTO Periodicite(libelle) Values (?)", Statement.RETURN_GENERATED_KEYS);
         requete.setString(1, objet.getLibelle());
 
-        int res = requete.executeUpdate();
+        int nbLignes = requete.executeUpdate();
+        ResultSet res = requete.getGeneratedKeys();
 
+        if (res.next())
+        {
+            objet.setId(res.getInt(1));
+        }
         if (laConnexion != null)
             laConnexion.close();
 
-        return (res == 1);
+        return (nbLignes == 1);
     }
 
     @Override
-    public boolean update(Periodicite objet) throws SQLException {
+    public boolean update(Periodicite objet) throws SQLException
+    {
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
@@ -65,7 +73,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     }
 
     @Override
-    public boolean delete(Periodicite objet) throws SQLException {
+    public boolean delete(Periodicite objet) throws SQLException
+    {
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
@@ -81,7 +90,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     }
 
     @Override
-    public Periodicite getById(int i) throws SQLException {
+    public Periodicite getById(int i) throws SQLException
+    {
         maBD = Connexion.getInstance();
         laConnexion = maBD.creeConnexion();
 
@@ -118,7 +128,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
             listePeriodicite.add(new Periodicite(res.getInt(1), res.getString(2)));
         }
 
-        if (laConnexion != null) {
+        if (laConnexion != null)
+        {
             laConnexion.close();
         }
         
@@ -126,7 +137,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
     }
 
     @Override
-    public List<Periodicite> findAll() throws SQLException {
+    public List<Periodicite> findAll() throws SQLException
+    {
         List<Periodicite> listePeriodicite = new ArrayList<Periodicite>();
 
         maBD = Connexion.getInstance();
@@ -136,7 +148,8 @@ public class MySqlPeriodiciteDAO implements PeriodiciteDAO {
 
         ResultSet res = requete.executeQuery();
 
-        while (res.next()) {
+        while (res.next())
+        {
             listePeriodicite.add(new Periodicite(res.getInt(1), res.getString(2)));
         }
 
