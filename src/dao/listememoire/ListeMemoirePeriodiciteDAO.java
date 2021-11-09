@@ -56,6 +56,7 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO
 		{
 			if (periodicite.getId() == objet.getId()) 
 			{
+				periodicite.setLibelle(objet.getLibelle());
 				idx = this.donnees.indexOf(periodicite);
 			}
 		}

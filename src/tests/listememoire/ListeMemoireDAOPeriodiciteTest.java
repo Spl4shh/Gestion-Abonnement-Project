@@ -1,4 +1,4 @@
-package tests.listememoire;
+package listememoire;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -34,18 +34,20 @@ public class ListeMemoireDAOPeriodiciteTest
         Periodicite periodiciteRead = periodiciteDAO.getById(periodiciteAVerif.getId());
 
         assertEquals(periodiciteAVerif, periodiciteRead);
+
+        periodiciteDAO.delete(periodiciteAVerif);
     }
 
     @Test
     public void testUpdate() throws SQLException
     {
-        Periodicite periodiciteAVerif = new Periodicite(3,"Update");
+        Periodicite periodiciteAVerif = new Periodicite(3,"Code58698");
 
         periodiciteDAO.create(periodiciteAVerif);
 
-        Periodicite periodiciteRead = periodiciteDAO.getById(periodiciteAVerif.getId());
+        Periodicite periodiciteRead = periodiciteDAO.getByLibelle("Code58698").get(0);
 
-        Periodicite periodiciteUpdate = new Periodicite(3,"Update");
+        Periodicite periodiciteUpdate = new Periodicite(periodiciteRead.getId(),"Update");
 
         periodiciteDAO.update(periodiciteUpdate);
 
