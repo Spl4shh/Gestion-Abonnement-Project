@@ -33,9 +33,9 @@ public class ListeMemoireDAOPeriodiciteTest
 
         Periodicite periodiciteRead = periodiciteDAO.getById(periodiciteAVerif.getId());
 
-        assertEquals(periodiciteAVerif, periodiciteRead);
-
         periodiciteDAO.delete(periodiciteAVerif);
+
+        assertEquals(periodiciteAVerif, periodiciteRead);
     }
 
     @Test

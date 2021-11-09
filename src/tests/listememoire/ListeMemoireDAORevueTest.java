@@ -38,6 +38,8 @@ public class ListeMemoireDAORevueTest
         Revue revueRead = revueDAO.getById(revueAVerif.getId());
 
         assertEquals(revueAVerif, revueRead);
+
+        revueDAO.delete(revueRead);
     }
 
     @Test
@@ -47,15 +49,16 @@ public class ListeMemoireDAORevueTest
 
         revueDAO.create(revueAVerif);
 
-        Revue revueRead = revueDAO.getById(revueAVerif.getId());
 
         Revue revueUpdate = new Revue(3,"Update","Update", 0.1, "Update",new Periodicite(2));
 
         revueDAO.update(revueUpdate);
 
-        revueRead = revueDAO.getById(revueUpdate.getId());
+        Revue revueRead = revueDAO.getById(revueUpdate.getId());
 
         assertEquals(revueUpdate, revueRead);
+
+        revueDAO.delete(revueRead);
     }
 
     @Test

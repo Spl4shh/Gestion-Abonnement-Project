@@ -1,4 +1,4 @@
-package tests.listememoire;
+package listememoire;
 
 import dao.AbonnementDAO;
 import dao.DAOFactory;
@@ -40,6 +40,8 @@ public class ListeMemoireDAOAbonnementTest
         Abonnement abonnementRead = abonnementDAO.getById(abonnementAVerif.getId());
 
         assertEquals(abonnementAVerif, abonnementRead);
+
+        abonnementDAO.delete(abonnementRead);
     }
 
     @Test
@@ -49,15 +51,15 @@ public class ListeMemoireDAOAbonnementTest
 
         abonnementDAO.create(abonnementAVerif);
 
-        Abonnement abonnementRead = abonnementDAO.getById(abonnementAVerif.getId());
-
         Abonnement abonnementUpdate = new Abonnement(3, LocalDate.parse("30/07/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), LocalDate.parse("12/03/2347", DateTimeFormatter.ofPattern("dd/MM/yyyy")), new Client(1), new Revue(1));
 
         abonnementDAO.update(abonnementUpdate);
 
-        abonnementRead = abonnementDAO.getById(abonnementUpdate.getId());
+        Abonnement abonnementRead = abonnementDAO.getById(abonnementUpdate.getId());
         
         assertEquals(abonnementUpdate, abonnementRead);
+
+        abonnementDAO.delete(abonnementRead);
     }
 
     @Test

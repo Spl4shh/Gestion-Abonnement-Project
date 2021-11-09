@@ -1,4 +1,4 @@
-package tests.listememoire;
+package listememoire;
 
 import dao.ClientDAO;
 import dao.DAOFactory;
@@ -37,6 +37,8 @@ public class ListeMemoireDAOClientTest
         Client clientRead = clientDAO.getById(clientAVerif.getId());
 
         assertEquals(clientAVerif, clientRead);
+
+        clientDAO.delete(clientRead);
     }
 
     @Test
@@ -46,15 +48,17 @@ public class ListeMemoireDAOClientTest
 
         clientDAO.create(clientAVerif);
 
-        Client clientRead = clientDAO.getById(clientAVerif.getId());
 
         Client clientUpdate = new Client(3, "New Name", "New Surname",  new Adresse("8897", "Ma rue nouvelle", "Mon nouveau code poste", "Marange", "France"));
 
         clientDAO.update(clientUpdate);
 
-        clientRead = clientDAO.getById(clientUpdate.getId());
+        Client clientRead = clientDAO.getById(clientUpdate.getId());
 
         assertEquals(clientUpdate, clientRead);
+
+        clientDAO.delete(clientRead);
+
     }
 
     @Test
