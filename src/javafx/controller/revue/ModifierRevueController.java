@@ -192,7 +192,6 @@ public class ModifierRevueController implements Initializable
     {
         for (Revue item : listItem)
         {
-            itemToCheck.setId(item.getId());
             if (itemToCheck.equals(item))
             {
                 return true;
