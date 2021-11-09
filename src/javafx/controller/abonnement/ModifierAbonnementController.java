@@ -201,11 +201,9 @@ public class ModifierAbonnementController implements Initializable
 
     private boolean isDoublon(List<Abonnement> listItem, Abonnement itemToCheck)
     {
-        Abonnement itemToCheckWNewId = itemToCheck;
         for (Abonnement item : listItem)
         {
-            itemToCheckWNewId.setId(item.getId());
-            if (itemToCheckWNewId.equals(item))
+            if (itemToCheck.equals(item))
             {
                 return true;
             }

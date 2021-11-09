@@ -173,8 +173,7 @@ public class CreerAbonnementController implements Initializable
     {
         for (Abonnement item : listItem)
         {
-            itemToCheck.setId(item.getId());
-            if (itemToCheck.equals(item))
+             if (itemToCheck.equals(item))
             {
                 return true;
             }
