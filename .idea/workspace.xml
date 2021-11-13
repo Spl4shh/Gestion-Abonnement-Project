@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="083339fb-3d63-41d9-9fbc-38f9b60df2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connexion/Connexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connexion/Connexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javafx/controller/abonnement/ModifierAbonnementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/abonnement/ModifierAbonnementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javafx/controller/client/ModifierClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/controller/client/ModifierClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Abonnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Abonnement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Periodicite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Periodicite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/metier/Revue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/metier/Revue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +77,7 @@
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="javafx.Application" />
       <module name="Projet_Cours_Java" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Romain\SDK_JavaFX\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\leane\SDK_JavaFX\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
