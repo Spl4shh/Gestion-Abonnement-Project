@@ -1,6 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
 ----------
 ### Pour faire fonctionner l'appli, penser a importer les librairies + a mettre le bon chemin dans la Run Configuration
+### Penser egalement à importer le sql dans la bd, et modifier le fichier mysql_properties.xml dans connexion
 ----------
 
 ### Ce qui fonctionne
@@ -58,7 +59,7 @@ Léane :
 - CSS (-fx-...) / palette couleurs
 
 Romain : 
-- Correction de quelque beug au niveau des interfaces 
+- Correction de quelques beugs au niveau des interfaces 
 - Classe Metier (Revue, Abonnement, Client)
 - Classe Test (Revue, Abonnement, Client)
 - Controlleur (Revue, Abonnement, Client)
