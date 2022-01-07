@@ -3,7 +3,7 @@
 ### Pour faire fonctionner l'appli, penser a importer les librairies + a mettre le bon chemin dans la Run Configuration
 ### Penser egalement à importer le sql dans la bd, et modifier le fichier mysql_properties.xml dans connexion
 ----------
-L'application possede une interface graphique créée en JavaFX sous SceneBuilder.
+L'application possede une interface graphique créé en JavaFX sous SceneBuilder.
 Une DAO a également été implémenté afin de pouvoir utiliser différents moyens de persistances.
 ----------
 ### Ce qui fonctionne
