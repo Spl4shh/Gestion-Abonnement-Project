@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
 ----------
-### Pour faire fonctionner l'appli, penser a importer les librairies + a mettre le bon chemin dans la Run Configuration
+### Pour faire fonctionner l'appli, penser a importer les librairies + a mettre le bon chemin dans le Run Configuration
 ### Penser egalement à importer le sql dans la bd, et modifier le fichier mysql_properties.xml dans connexion
 ----------
 L'application possede une interface graphique créé en JavaFX sous SceneBuilder.
