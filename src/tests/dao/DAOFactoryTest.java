@@ -1,9 +1,5 @@
-package tests.DAO;
+package dao;
 
-import dao.DAOFactory;
-import dao.ListeMemoireDAOFactory;
-import dao.MySQLDAOFactory;
-import dao.Persistance;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
